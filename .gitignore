@@ -1,0 +1,59 @@
+*.a       # 忽略所有 .a 结尾的文件                        
+!lib.a    # 但 lib.a 除外                       
+/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO          
+build/    # 忽略 build/ 目录下的所有文件                        
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txtii
+＃的Xcode
+＃
+＃ gitignore贡献者：记得更新全局/ Xcode.gitignore，目的-C.gitignore＆Swift.gitignore
+
+＃＃用户设置
+xcuserdata /
+
+＃＃与Xcode 8和更早版本的兼容性（忽略不需要从Xcode 9开始）
+* .xcscmblueprint
+* .xccheckout
+
+＃＃与Xcode 3及更早版本的兼容性（忽略不需要从Xcode 4开始）
+建立 /
+派生数据 /
+*。移开
+* .pbxuser
+！default.pbxuser
+* .mode1v3
+！default.mode1v3
+* .mode2v3
+！default.mode2v3
+* .perspectivev3
+！default.perspectivev3
+
+＃＃ Obj-C / Swift特定
+* .hmap
+
+＃＃应用程序包装
+* .ipa
+* .dSYM.zip
+* .dSYM
+
+# For Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+DerivedData
+.idea/
+
+# If you use cocoa pod
+Pods
+*.lock

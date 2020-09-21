@@ -1,0 +1,6 @@
+pod 'SDWebImage/WebP'
+因为同时集成 SDWebImage 和 SDWebImage/WebP 会默认适配公共最低版本。而我希望SDWebImage总是保持最新版本
+
+pod 'SDWebImage'  # https://github.com/SDWebImage/SDWebImage Asynchronous image downloader with cache support as a UIImageView category
+pod 'SDWebImage/WebP' # https://github.com/SDWebImage/SDWebImageWebPCoder A WebP coder plugin for SDWebImage, use libwebp
+

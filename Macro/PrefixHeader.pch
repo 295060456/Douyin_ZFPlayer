@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  Shooting
+//
+//  Created by Jobs on 2020/8/17.
+//  Copyright © 2020 Jobs. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "DefineStructure.h"
+#import "Pods.h"
+#import "Manual_Add_ThirdParty.h"
+#import "Other.h"
+
+#endif /* PrefixHeader_pch */

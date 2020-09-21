@@ -1,0 +1,151 @@
+//http://code.cocoachina.com/view/1000387
+#import "ViewController.h"
+
+#import "BWShareView.h"
+#import "BWItemModel.h"
+
+@interface ViewController ()
+
+@property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) NSMutableArray *doubleArray;
+
+@end
+
+static NSString *const itemCell = @"itemCell";
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColor.whiteColor;
+    [self loadSubViews];
+    
+//    [self.view addSubview:self.collectionView];
+}
+
+- (void)loadSubViews
+{
+    UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn1.frame = CGRectMake(50, 100, 150, 40);
+    btn1.backgroundColor = UIColor.blueColor;
+    [btn1 setTitle:@"带标题的分享" forState:UIControlStateNormal];
+    [btn1 setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    btn1.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn1 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.tag = 1001;
+    [self.view addSubview:btn1];
+    
+    UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn2.frame = CGRectMake(50, 200, 150, 40);
+    btn2.backgroundColor = UIColor.blueColor;
+    [btn2 setTitle:@"双层分享" forState:UIControlStateNormal];
+    [btn2 setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn2 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.tag = 1002;
+    [self.view addSubview:btn2];
+    
+    UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn3.frame = CGRectMake(50, 300, 150, 40);
+    btn3.backgroundColor = UIColor.blueColor;
+    [btn3 setTitle:@"不带标题的分享" forState:UIControlStateNormal];
+    [btn3 setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    btn3.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn3 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    btn3.tag = 1003;
+    [self.view addSubview:btn3];
+}
+
+#pragma mark - buttonAction
+- (void)buttonAction:(UIButton *)button
+{
+    NSInteger tag = button.tag;
+    if (tag == 1001) {
+        [self showShareViewWithTitle];
+    } else if (tag == 1002) {
+        [self showShareViewDouble];
+    } else if (tag == 1003) {
+        [self showShareView];
+    }
+}
+
+// 带标题的分享弹窗
+- (void)showShareViewWithTitle
+{
+    BWShareView *shareView = [[BWShareView alloc] initWithFrame:self.view.bounds shareTitle:@"—— 分享至 ——" shareArray:self.dataArray];
+    [shareView show];
+    shareView.shareItemClick = ^(BWItemModel * _Nonnull model) {
+        NSLog(@"name1 = %@", model.text);
+    };
+}
+
+// 带标题的双层分享
+- (void)showShareViewDouble
+{
+    BWShareView *shareView = [[BWShareView alloc] initWithFrame:self.view.bounds shareTitle:@"—— 分享 ——" firstArray:self.dataArray secondArray:self.doubleArray];
+    [shareView show];
+    shareView.shareItemClick = ^(BWItemModel * _Nonnull model) {
+        NSLog(@"name2 = %@", model.text);
+    };
+}
+
+// 不带标题的分享弹窗
+- (void)showShareView
+{
+    BWShareView *shareView = [[BWShareView alloc] initWithFrame:self.view.bounds shareTitle:@"" shareArray:self.dataArray];
+    [shareView show];
+    shareView.shareItemClick = ^(BWItemModel * _Nonnull model) {
+        NSLog(@"name3 = %@", model.text);
+    };
+}
+
+#pragma mark - lazy loading
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+        BWItemModel *m1 = [[BWItemModel alloc] initWithImg:@"wechat" text:@"微信"];
+        BWItemModel *m2 = [[BWItemModel alloc] initWithImg:@"friends" text:@"朋友圈"];
+        BWItemModel *m3 = [[BWItemModel alloc] initWithImg:@"sina" text:@"微博"];
+        BWItemModel *m4 = [[BWItemModel alloc] initWithImg:@"qq" text:@"QQ"];
+        BWItemModel *m5 = [[BWItemModel alloc] initWithImg:@"kongjian" text:@"QQ空间"];
+        
+        [_dataArray addObject:m1];
+        [_dataArray addObject:m2];
+        [_dataArray addObject:m3];
+        [_dataArray addObject:m4];
+        [_dataArray addObject:m5];
+    }
+    return _dataArray;
+}
+
+- (NSMutableArray *)doubleArray
+{
+    if (!_doubleArray) {
+        _doubleArray = [NSMutableArray array];
+//        BWItemModel *m1 = [[BWItemModel alloc] initWithImg:@"collect" text:@"收藏"];
+//        BWItemModel *m2 = [[BWItemModel alloc] initWithImg:@"note" text:@"目录"];
+//        BWItemModel *m3 = [[BWItemModel alloc] initWithImg:@"link" text:@"链接"];
+//        BWItemModel *m4 = [[BWItemModel alloc] initWithImg:@"tousu" text:@"投诉"];
+//        BWItemModel *m5 = [[BWItemModel alloc] initWithImg:@"pingbi" text:@"屏蔽"];
+//        BWItemModel *m6 = [[BWItemModel alloc] initWithImg:@"home" text:@"主页"];
+        
+        BWItemModel *m2 = [[BWItemModel alloc] initWithImg:@"wechat" text:@"微信"];
+        BWItemModel *m3 = [[BWItemModel alloc] initWithImg:@"friends" text:@"朋友圈"];
+        BWItemModel *m1 = [[BWItemModel alloc] initWithImg:@"sina" text:@"微博"];
+        BWItemModel *m5 = [[BWItemModel alloc] initWithImg:@"qq" text:@"QQ"];
+        BWItemModel *m6 = [[BWItemModel alloc] initWithImg:@"kongjian" text:@"QQ空间"];
+        BWItemModel *m4 = [[BWItemModel alloc] initWithImg:@"wechat" text:@"微信"];
+        
+        [_doubleArray addObject:m1];
+        [_doubleArray addObject:m2];
+        [_doubleArray addObject:m3];
+        [_doubleArray addObject:m4];
+        [_doubleArray addObject:m5];
+        [_doubleArray addObject:m6];
+    }
+    return _doubleArray;
+}

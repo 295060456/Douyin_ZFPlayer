@@ -611,7 +611,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
         }
     } else {
         @weakify(manager)
-        [weak_manager addHomeWithName:@"Test Home"
+        [manager_weak_ addHomeWithName:@"Test Home"
                      completionHandler:^(HMHome * _Nullable home,
                                          NSError * _Nullable error) {
             if (!error) {

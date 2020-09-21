@@ -53,8 +53,17 @@
 #import "TBVCell_style_01.h"
 #import "TBVCell_style_02.h"
 #import "UITableViewCell+WhiteArrows.h"
+//UIColor
+#import "UIColor+Hex.h"
 
 #import "ToolMacro.h"
 #import "UIButton+ImageTitleSpacing.h"
+#import "NSTimerManager.h"
+#import "UIControl+XY.h"
+#import "PlaySound.h"
+#import "YBNotificationManager.h"
+#import "TXFileOperation.h"
+#import "FileFolderHandleTool.h"
+#import "CustomSYSUITabBarController.h"
 
 #endif /* Manual_Add_ThirdParty_h */

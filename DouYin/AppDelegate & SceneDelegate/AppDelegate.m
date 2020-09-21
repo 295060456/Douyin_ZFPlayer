@@ -5,42 +5,63 @@
 //  Created by Jobs on 2020/9/21.
 //
 
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
+
 #import "AppDelegate.h"
+#import "CustomSYSUITabBarController.h"
 
 @interface AppDelegate ()
+
+@property(nonatomic,strong)CustomSYSUITabBarController *customSYSUITabBarController;
 
 @end
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    return YES;
+static AppDelegate *static_appDelegate = nil;
++(AppDelegate *)sharedInstance{
+    @synchronized(self){
+        if (!static_appDelegate) {
+            static_appDelegate = AppDelegate.new;
+        }
+    }return static_appDelegate;
 }
 
+-(instancetype)init{
+    if (self = [super init]) {
+        static_appDelegate = self;
+    }return self;
+}
 
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+#ifdef DEBUG
+       [[DoraemonManager shareInstance] install];
+#endif
+    
+    return YES;
+}
 #pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+- (UISceneConfiguration *)application:(UIApplication *)application
+configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
+                              options:(UISceneConnectionOptions *)options {
     // Called when a new scene session is being created.
     // Use this method to select a configuration to create the new scene with.
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
+- (void)application:(UIApplication *)application
+didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
     // Called when the user discards a scene session.
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
-
-
 #pragma mark - Core Data stack
-
 @synthesize persistentContainer = _persistentContainer;
-
 - (NSPersistentCloudKitContainer *)persistentContainer {
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
@@ -64,13 +85,10 @@
                 }
             }];
         }
-    }
-    
-    return _persistentContainer;
+    }return _persistentContainer;
 }
 
 #pragma mark - Core Data Saving support
-
 - (void)saveContext {
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
@@ -81,5 +99,13 @@
         abort();
     }
 }
+
+#pragma mark —— lazyLoad
+-(CustomSYSUITabBarController *)customSYSUITabBarController{
+    if (!_customSYSUITabBarController) {
+        _customSYSUITabBarController = CustomSYSUITabBarController.new;
+    }return _customSYSUITabBarController;
+}
+
 
 @end

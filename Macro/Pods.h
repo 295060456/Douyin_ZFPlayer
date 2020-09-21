@@ -17,6 +17,8 @@
 #import "AFNetworking.h"
 #import "BRPickerView.h"
 #import "JPImageresizerView-umbrella.h"
+#import "SDWebImage-umbrella.h"//不支持图片后处理
 #import "JXCategoryView.h"
+#import "GKNavigationBar.h"
 
 #endif /* Pods_h */

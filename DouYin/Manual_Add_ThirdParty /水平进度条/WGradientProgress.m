@@ -7,6 +7,7 @@
 //
 
 #import "WGradientProgress.h"
+#import "NSTimerManager.h"
 
 @interface WGradientProgress ()
 

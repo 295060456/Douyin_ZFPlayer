@@ -19,6 +19,7 @@ UITableViewDataSource
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataMutArr;
+@property(nonatomic,assign)long __block currentIndex;
 
 @end
 
@@ -31,7 +32,7 @@ UITableViewDataSource
 #pragma mark - Lifecycle
 -(instancetype)init{
     if (self = [super init]) {
-        
+        self.currentIndex = 0;
     }return self;
 }
 
@@ -47,6 +48,32 @@ UITableViewDataSource
     [super viewWillAppear:animated];
     [self.tableView.mj_header beginRefreshing];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.currentIndex = 0;//此时cell的第一次生命周期走完，置零
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"noti1" object:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+-(void)roll{
+    if (self.currentIndex <= self.dataMutArr.count + 1) {
+        
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]
+                                    animated:YES
+                              scrollPosition:UITableViewScrollPositionMiddle];
+    }else{
+        return;
+    }
 }
 /*
  * 如果用户下拉,返回1;如果上拉快到底部时返回2
@@ -121,9 +148,26 @@ numberOfRowsInSection:(NSInteger)section{
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PlayerCell *cell = [PlayerCell cellWith:tableView];
+    cell.index = indexPath.row;
     [cell richElementsInCellWithModel:@{
         @"index":@(indexPath.row)
     }];
+    
+    self.currentIndex = indexPath.row;
+    @weakify(self)
+    [cell actionBlockPlayerCell:^(NSNumber *direction,
+                                  NSNumber *index) {
+        @strongify(self)
+        self.currentIndex = index.intValue;
+        if (direction.intValue) {//朝下
+            self.currentIndex -= 1;
+        }else{//朝上
+            self.currentIndex += 1;
+        }
+        NSLog(@"MMM = %ld",self.currentIndex);
+        [self roll];
+    }];
+    NSLog(@"DDD0 = %ld",self.currentIndex);
     return cell;
 }
 
@@ -133,15 +177,18 @@ numberOfRowsInSection:(NSInteger)section{
 //cell的生命周期
 //将要出现的cell
 - (void)tableView:(UITableView *)tableView
-  willDisplayCell:(UITableViewCell *)cell
+  willDisplayCell:(PlayerCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"KKK %ld",(long)indexPath.row);
+
+    [cell.player.currentPlayerManager play];
 }
 //已经消失的cell
 - (void)tableView:(UITableView *)tableView
-didEndDisplayingCell:(UITableViewCell *)cell
+didEndDisplayingCell:(PlayerCell *)cell
 forRowAtIndexPath:(NSIndexPath*)indexPath{
     NSLog(@"DDDD %ld",(long)indexPath.row);
+    [cell.player.currentPlayerManager pause];
 }
 #pragma mark —— lazyLoad
 -(UITableView *)tableView{

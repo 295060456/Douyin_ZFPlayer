@@ -15,9 +15,9 @@
 
 @property(nonatomic,strong)UILabel *label;
 
-@property(nonatomic,strong)ZFPlayerController *player;
-@property(nonatomic,strong)ZFAVPlayerManager *playerManager;
+@property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
+@property(nonatomic,copy)TwoDataBlock playerCellBlock;
 
 @end
 
@@ -30,7 +30,23 @@
                                 reuseIdentifier:ReuseIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = RandomColor;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(noti1)
+                                                     name:@"noti1"
+                                                   object:nil];
+        
     }return cell;
+}
+
+-(void)noti1{
+    NSLog(@"接收 不带参数的消息");
+    [self.player.currentPlayerManager stop];
+    
+    self.player = nil;
+    self.playerManager = nil;
+    [self.customPlayerControlView removeFromSuperview];
+    self.customPlayerControlView = nil;
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
@@ -42,6 +58,10 @@
         NSDictionary *dic = (NSDictionary *)model;
         self.label.text = [NSString stringWithFormat:@"%d",[dic[@"index"] intValue]];
     }
+}
+
+-(void)actionBlockPlayerCell:(TwoDataBlock)playerCellBlock{
+    _playerCellBlock = playerCellBlock;
 }
 #pragma mark —— lazyLoad
 -(UILabel *)label{
@@ -99,12 +119,29 @@
 -(CustomZFPlayerControlView *)customPlayerControlView{
     if (!_customPlayerControlView) {
         _customPlayerControlView = CustomZFPlayerControlView.new;
-//        @weakify(self)
-        [_customPlayerControlView actionCustomZFPlayerControlViewBlock:^(id data) {
-//            @strongify(self)
+        @weakify(self)
+        [_customPlayerControlView actionCustomZFPlayerControlViewBlock:^(NSString *data, NSNumber *data2) {
+            @strongify(self)
+            if ([data isEqualToString:@"gestureEndedPan:panDirection:panLocation:"]) {
+                if (data2.intValue == ZFPanMovingDirectionTop) {
+                    if (self.playerCellBlock) {
+                        self.playerCellBlock(@0,@(self.index));
+                    }
+                }else if (data2.intValue == ZFPanMovingDirectionBottom){
+                    if (self.playerCellBlock) {
+                        self.playerCellBlock(@1,@(self.index));
+                    }
+                }else{}
+            }
         }];
+
     }return _customPlayerControlView;
 }
 
+//ZFPanMovingDirectionUnkown,
+//ZFPanMovingDirectionTop,
+//ZFPanMovingDirectionLeft,
+//ZFPanMovingDirectionBottom,
+//ZFPanMovingDirectionRight,
 
 @end

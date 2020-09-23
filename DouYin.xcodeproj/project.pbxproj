@@ -12,6 +12,9 @@
 		C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D8DA5251B0849006958FF /* PlayerCell.m */; };
 		C51D8DAF251B0CC3006958FF /* 官方@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C51D8DAD251B0CC3006958FF /* 官方@2x.png */; };
 		C51D8DB0251B0CC3006958FF /* 官方@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C51D8DAE251B0CC3006958FF /* 官方@3x.png */; };
+		C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */; };
+		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
+		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C54BB0B02518D00E001591C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* AppDelegate.m */; };
 		C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* SceneDelegate.m */; };
 		C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54BB0B72518D00E001591C2 /* Main.storyboard */; };
@@ -417,6 +420,10 @@
 		C51D8DA5251B0849006958FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		C51D8DAD251B0CC3006958FF /* 官方@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "官方@2x.png"; sourceTree = "<group>"; };
 		C51D8DAE251B0CC3006958FF /* 官方@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "官方@3x.png"; sourceTree = "<group>"; };
+		C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
+		C542A38B251B6C22007B5F88 /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
+		C542A39D251B6EF6007B5F88 /* iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iph_X.mp4; sourceTree = "<group>"; };
+		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0AE2518D00E001591C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54BB0AF2518D00E001591C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1084,6 +1091,48 @@
 				C51D8DA5251B0849006958FF /* PlayerCell.m */,
 			);
 			path = CELL;
+			sourceTree = "<group>";
+		};
+		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
+			isa = PBXGroup;
+			children = (
+				C542A38B251B6C22007B5F88 /* CustomZFPlayerControlView.h */,
+				C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */,
+			);
+			path = "播放器控制层";
+			sourceTree = "<group>";
+		};
+		C542A391251B6C77007B5F88 /* ViewController_1 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB4F62518E398001591C2 /* ViewController@1.h */,
+				C54BB4FD2518E398001591C2 /* ViewController@1.m */,
+			);
+			path = ViewController_1;
+			sourceTree = "<group>";
+		};
+		C542A392251B6C81007B5F88 /* 其他VC */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB4FE2518E398001591C2 /* ViewController@2.h */,
+				C54BB4FA2518E398001591C2 /* ViewController@2.m */,
+				C54BB4F52518E398001591C2 /* ViewController@3.h */,
+				C54BB4F82518E398001591C2 /* ViewController@3.m */,
+				C54BB4F72518E398001591C2 /* ViewController@4.h */,
+				C54BB4F92518E398001591C2 /* ViewController@4.m */,
+				C54BB4FB2518E398001591C2 /* ViewController@5.h */,
+				C54BB4FC2518E398001591C2 /* ViewController@5.m */,
+			);
+			path = "其他VC";
+			sourceTree = "<group>";
+		};
+		C542A39C251B6EE1007B5F88 /* 本地播放器资源 */ = {
+			isa = PBXGroup;
+			children = (
+				C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */,
+				C542A39D251B6EF6007B5F88 /* iph_X.mp4 */,
+			);
+			path = "本地播放器资源";
 			sourceTree = "<group>";
 		};
 		C54BB0A22518D00E001591C2 = {
@@ -2240,6 +2289,8 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
+				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
+				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C51D8DA3251B0816006958FF /* CELL */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
@@ -2375,16 +2426,8 @@
 		C54BB4F42518E38D001591C2 /* OtherVC */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB4F62518E398001591C2 /* ViewController@1.h */,
-				C54BB4FD2518E398001591C2 /* ViewController@1.m */,
-				C54BB4FE2518E398001591C2 /* ViewController@2.h */,
-				C54BB4FA2518E398001591C2 /* ViewController@2.m */,
-				C54BB4F52518E398001591C2 /* ViewController@3.h */,
-				C54BB4F82518E398001591C2 /* ViewController@3.m */,
-				C54BB4F72518E398001591C2 /* ViewController@4.h */,
-				C54BB4F92518E398001591C2 /* ViewController@4.m */,
-				C54BB4FB2518E398001591C2 /* ViewController@5.h */,
-				C54BB4FC2518E398001591C2 /* ViewController@5.m */,
+				C542A392251B6C81007B5F88 /* 其他VC */,
+				C542A391251B6C77007B5F88 /* ViewController_1 */,
 			);
 			path = OtherVC;
 			sourceTree = "<group>";
@@ -2711,6 +2754,7 @@
 				C5E4F89C251B0F8000F7F205 /* gif_header_16@3x.png in Resources */,
 				C54BB4252518D3F6001591C2 /* GKNavigationBar.bundle in Resources */,
 				C5E4F850251B0F6E00F7F205 /* gif_header_4@2x.png in Resources */,
+				C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */,
 				C5E2935A251B021200ABAFE9 /* 摄像机.png in Resources */,
 				C5E4F8B7251B0F8000F7F205 /* gif_header_25@3x.png in Resources */,
 				C5E4F834251B0F6E00F7F205 /* gif_header_49@2x.png in Resources */,
@@ -2808,6 +2852,7 @@
 				C5E4F82F251B0F6E00F7F205 /* gif_header_45@2x.png in Resources */,
 				C5E4F8AF251B0F8000F7F205 /* gif_header_19@3x.png in Resources */,
 				C5E4F842251B0F6E00F7F205 /* gif_header_34@2x.png in Resources */,
+				C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */,
 				C5E4F846251B0F6E00F7F205 /* gif_header_21@2x.png in Resources */,
 				C5E4F8C2251B0F8000F7F205 /* gif_header_43@3x.png in Resources */,
 				C5E4F837251B0F6E00F7F205 /* gif_header_10@2x.png in Resources */,
@@ -3216,6 +3261,7 @@
 				C54BB2B52518D363001591C2 /* LOTValueInterpolator.m in Sources */,
 				C54BB3B72518D391001591C2 /* BaseVC+BWShareView.m in Sources */,
 				C54BB43A2518D3F6001591C2 /* SDWebImageImageIOCoder.m in Sources */,
+				C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */,
 				C54BB2AD2518D363001591C2 /* LOTCacheProvider.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
@@ -3425,6 +3471,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};
 			name = Debug;
 		};
@@ -3446,6 +3493,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};
 			name = Release;
 		};

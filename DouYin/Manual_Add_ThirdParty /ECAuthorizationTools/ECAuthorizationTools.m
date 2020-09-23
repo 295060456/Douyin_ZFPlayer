@@ -611,7 +611,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
         }
     } else {
         @weakify(manager)
-        [manager_weak_ addHomeWithName:@"Test Home"
+        [weak_manager addHomeWithName:@"Test Home"
                      completionHandler:^(HMHome * _Nullable home,
                                          NSError * _Nullable error) {
             if (!error) {
@@ -632,7 +632,8 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
                 }
             }
             if (home) {
-                [manager_weak_ removeHome:home
+                
+                [weak_manager removeHome:home
                         completionHandler:^(NSError * _Nullable error) {
                     // ... do something with the result of removing the home ...
                 }];

@@ -87,6 +87,7 @@ UITableViewDataSource
 -(void)delayMethods{
     self.tableView.mj_footer.state = MJRefreshStateIdle;
     self.tableView.mj_footer.hidden = YES;
+    self.tableView.pagingEnabled = YES;
 //    [self.mj_footer endRefreshingWithNoMoreData];
 }
 ///下拉刷新
@@ -99,7 +100,8 @@ UITableViewDataSource
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
 //    [self.tableView reloadData];
-    
+    //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
+    self.tableView.pagingEnabled = NO;
     [self performSelector:@selector(delayMethods) withObject:nil afterDelay:0.5];
 }
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
@@ -136,7 +138,7 @@ numberOfRowsInSection:(NSInteger)section{
         _tableView.pagingEnabled = YES;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.separatorStyle = 0;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         

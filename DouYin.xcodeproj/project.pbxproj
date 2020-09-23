@@ -259,6 +259,15 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C5E29354251B021200ABAFE9 /* ShoppingCart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */; };
+		C5E29355251B021200ABAFE9 /* My@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934C251B021100ABAFE9 /* My@2x.png */; };
+		C5E29356251B021200ABAFE9 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934D251B021100ABAFE9 /* Home@2x.png */; };
+		C5E29357251B021200ABAFE9 /* MyStore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934E251B021100ABAFE9 /* MyStore@2x.png */; };
+		C5E29358251B021200ABAFE9 /* MyStore@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934F251B021200ABAFE9 /* MyStore@3x.png */; };
+		C5E29359251B021200ABAFE9 /* Home@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E29350251B021200ABAFE9 /* Home@3x.png */; };
+		C5E2935A251B021200ABAFE9 /* 摄像机.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E29351251B021200ABAFE9 /* 摄像机.png */; };
+		C5E2935B251B021200ABAFE9 /* My@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E29352251B021200ABAFE9 /* My@3x.png */; };
+		C5E2935C251B021200ABAFE9 /* ShoppingCart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E29353251B021200ABAFE9 /* ShoppingCart@2x.png */; };
 		E02313BA119E3F33410DB620 /* Pods_DouYin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */; };
 /* End PBXBuildFile section */
 
@@ -792,6 +801,15 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShoppingCart@3x.png"; sourceTree = "<group>"; };
+		C5E2934C251B021100ABAFE9 /* My@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My@2x.png"; sourceTree = "<group>"; };
+		C5E2934D251B021100ABAFE9 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
+		C5E2934E251B021100ABAFE9 /* MyStore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyStore@2x.png"; sourceTree = "<group>"; };
+		C5E2934F251B021200ABAFE9 /* MyStore@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyStore@3x.png"; sourceTree = "<group>"; };
+		C5E29350251B021200ABAFE9 /* Home@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@3x.png"; sourceTree = "<group>"; };
+		C5E29351251B021200ABAFE9 /* 摄像机.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "摄像机.png"; sourceTree = "<group>"; };
+		C5E29352251B021200ABAFE9 /* My@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My@3x.png"; sourceTree = "<group>"; };
+		C5E29353251B021200ABAFE9 /* ShoppingCart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShoppingCart@2x.png"; sourceTree = "<group>"; };
 		EFD7FDAF10237E80D4FE07BB /* Pods-DouYin-DouYinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin-DouYinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2F0CEAF7642A0FCD26BC154 /* Pods-DouYinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.release.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -827,6 +845,7 @@
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
+				C5E2934A251B020300ABAFE9 /* ⚽️PicResource */,
 				C54BB0E92518D025001591C2 /* Macro */,
 				C54BB0EB2518D048001591C2 /* Pods不进去的 */,
 				C54BB0EA2518D037001591C2 /* Other */,
@@ -2154,6 +2173,22 @@
 			path = ZBNetworking;
 			sourceTree = "<group>";
 		};
+		C5E2934A251B020300ABAFE9 /* ⚽️PicResource */ = {
+			isa = PBXGroup;
+			children = (
+				C5E29351251B021200ABAFE9 /* 摄像机.png */,
+				C5E2934D251B021100ABAFE9 /* Home@2x.png */,
+				C5E29350251B021200ABAFE9 /* Home@3x.png */,
+				C5E2934C251B021100ABAFE9 /* My@2x.png */,
+				C5E29352251B021200ABAFE9 /* My@3x.png */,
+				C5E2934E251B021100ABAFE9 /* MyStore@2x.png */,
+				C5E2934F251B021200ABAFE9 /* MyStore@3x.png */,
+				C5E29353251B021200ABAFE9 /* ShoppingCart@2x.png */,
+				C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */,
+			);
+			path = "⚽️PicResource";
+			sourceTree = "<group>";
+		};
 		D1AD156D1AC3B11A7FEFCD84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2286,18 +2321,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E29355251B021200ABAFE9 /* My@2x.png in Resources */,
 				C54BB4252518D3F6001591C2 /* GKNavigationBar.bundle in Resources */,
+				C5E2935A251B021200ABAFE9 /* 摄像机.png in Resources */,
 				C54BB3D42518D391001591C2 /* closeCircle@3x.png in Resources */,
 				C54BB2F42518D363001591C2 /* 验证码按钮单例封装 in Resources */,
 				C54BB2EB2518D363001591C2 /* day_like_red@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
+				C5E2935C251B021200ABAFE9 /* ShoppingCart@2x.png in Resources */,
+				C5E2935B251B021200ABAFE9 /* My@3x.png in Resources */,
 				C54BB2EC2518D363001591C2 /* day_like_red@3x.png in Resources */,
 				C54BB3D32518D391001591C2 /* closeCircle@2x.png in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,
 				C54BB2E72518D363001591C2 /* spark_red@2x.png in Resources */,
+				C5E29358251B021200ABAFE9 /* MyStore@3x.png in Resources */,
+				C5E29354251B021200ABAFE9 /* ShoppingCart@3x.png in Resources */,
+				C5E29356251B021200ABAFE9 /* Home@2x.png in Resources */,
 				C54BB2E62518D363001591C2 /* spark_red@3x.png in Resources */,
 				C54BB11F2518D0C0001591C2 /* BRPickerView.bundle in Resources */,
 				C54BB2FE2518D363001591C2 /* 带有按键音的按钮 in Resources */,
@@ -2306,6 +2348,7 @@
 				C54BB2DF2518D363001591C2 /* iOS小技巧：用runtime 解决UIButton 重复点击问题 in Resources */,
 				C54BB0C12518D00F001591C2 /* LaunchScreen.storyboard in Resources */,
 				C54BB2FA2518D363001591C2 /* 水平进度条.png in Resources */,
+				C5E29359251B021200ABAFE9 /* Home@3x.png in Resources */,
 				C54BB2EA2518D363001591C2 /* day_like@3x.png in Resources */,
 				C54BB0BE2518D00F001591C2 /* Assets.xcassets in Resources */,
 				C54BB42E2518D3F6001591C2 /* ZZCircleProgress.bundle in Resources */,
@@ -2313,6 +2356,7 @@
 				C54BB47B2518DACC001591C2 /* Pod里面的Bug in Resources */,
 				C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */,
 				C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */,
+				C5E29357251B021200ABAFE9 /* MyStore@2x.png in Resources */,
 				C54BB2E82518D363001591C2 /* spark_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

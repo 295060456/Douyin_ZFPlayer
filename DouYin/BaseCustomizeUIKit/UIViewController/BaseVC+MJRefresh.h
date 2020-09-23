@@ -6,7 +6,6 @@
 //
 
 #import "BaseVC.h"
-#import "UITableView+MJRefreshAutoManger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///下拉刷新
 -(void)pullToRefresh;
 ///上拉加载更多
-- (void)loadMoreRefresh;
+-(void)loadMoreRefresh;
 
 @end
 

@@ -57,6 +57,7 @@ UITableViewDataSource
     [[[RACObserve(self.tableView, contentOffset) map:^id(id value) {
         if (self.tableView.contentOffset.y < - 50) {
             //下拉刷新方法
+            NSLog(@"1");
             return @"1";
         }
         
@@ -64,10 +65,13 @@ UITableViewDataSource
             self.tableView.contentSize.height > 80) {
             //上拉加载方法
             self.tableView.mj_footer.hidden = NO;
+//            [self.tableView.mj_footer endRefreshingWithNoMoreData]; MJRefreshStateNoMoreData
+            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
             [self.tableView.mj_footer endRefreshing];
-            
+            NSLog(@"2");
             return @"2";
         }else{
+            NSLog(@"0");
             return @"0";
         }
     }] distinctUntilChanged] subscribeNext:^(id x) {
@@ -81,8 +85,9 @@ UITableViewDataSource
 }
 
 -(void)delayMethods{
-    self.tableView.footRefreshState = MJFooterRefreshStateNoMore;
+    self.tableView.mj_footer.state = MJRefreshStateIdle;
     self.tableView.mj_footer.hidden = YES;
+//    [self.mj_footer endRefreshingWithNoMoreData];
 }
 ///下拉刷新
 -(void)pullToRefresh{
@@ -94,12 +99,6 @@ UITableViewDataSource
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
 //    [self.tableView reloadData];
-    
-    [self.tableView.mj_footer endRefreshing];
-    
-//    self.tableView.footRefreshState = MJFooterRefreshStateLoadMore;
-//    self.tableView.footRefreshState = MJFooterRefreshStateNoMore;
-//    NSLog(@"");
     
     [self performSelector:@selector(delayMethods) withObject:nil afterDelay:0.5];
 }

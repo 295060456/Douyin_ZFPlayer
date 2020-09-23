@@ -261,7 +261,6 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
-		C5C274D8251B2B33006E5897 /* UITableView+MJRefreshAutoManger.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C274D7251B2B33006E5897 /* UITableView+MJRefreshAutoManger.m */; };
 		C5E29354251B021200ABAFE9 /* ShoppingCart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */; };
 		C5E29355251B021200ABAFE9 /* My@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934C251B021100ABAFE9 /* My@2x.png */; };
 		C5E29356251B021200ABAFE9 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934D251B021100ABAFE9 /* Home@2x.png */; };
@@ -921,8 +920,6 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
-		C5C274D6251B2B33006E5897 /* UITableView+MJRefreshAutoManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefreshAutoManger.h"; sourceTree = "<group>"; };
-		C5C274D7251B2B33006E5897 /* UITableView+MJRefreshAutoManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefreshAutoManger.m"; sourceTree = "<group>"; };
 		C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShoppingCart@3x.png"; sourceTree = "<group>"; };
 		C5E2934C251B021100ABAFE9 /* My@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My@2x.png"; sourceTree = "<group>"; };
 		C5E2934D251B021100ABAFE9 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
@@ -1087,15 +1084,6 @@
 				C51D8DA5251B0849006958FF /* PlayerCell.m */,
 			);
 			path = CELL;
-			sourceTree = "<group>";
-		};
-		C542A36A251B3D42007B5F88 /* 实验室 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C274D6251B2B33006E5897 /* UITableView+MJRefreshAutoManger.h */,
-				C5C274D7251B2B33006E5897 /* UITableView+MJRefreshAutoManger.m */,
-			);
-			path = "实验室";
 			sourceTree = "<group>";
 		};
 		C54BB0A22518D00E001591C2 = {
@@ -2252,7 +2240,6 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
-				C542A36A251B3D42007B5F88 /* 实验室 */,
 				C51D8DA3251B0816006958FF /* CELL */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
@@ -3110,7 +3097,6 @@
 				C54BB2C02518D363001591C2 /* LOTRepeaterRenderer.m in Sources */,
 				C54BB3BB2518D391001591C2 /* BaseVC+TZLocationManager.m in Sources */,
 				C54BB3C32518D391001591C2 /* HQCollectionViewFlowLayout.m in Sources */,
-				C5C274D8251B2B33006E5897 /* UITableView+MJRefreshAutoManger.m in Sources */,
 				C54BB3CF2518D391001591C2 /* HQTextField.m in Sources */,
 				C54BB2EE2518D363001591C2 /* JhtBannerView.m in Sources */,
 				C54BB28B2518D363001591C2 /* LOTKeyframe.m in Sources */,

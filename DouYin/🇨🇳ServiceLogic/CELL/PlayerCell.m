@@ -42,6 +42,8 @@
     if (!_label) {
         _label = UILabel.new;
         _label.textAlignment = NSTextAlignmentCenter;
+        _label.font = [UIFont systemFontOfSize:100
+                                        weight:UIFontWeightRegular];
         _label.backgroundColor = self.contentView.backgroundColor;
         [self.contentView addSubview:_label];
         [_label mas_makeConstraints:^(MASConstraintMaker *make) {

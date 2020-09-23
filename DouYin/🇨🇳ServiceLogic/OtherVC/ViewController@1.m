@@ -18,6 +18,7 @@ UITableViewDataSource
 }
 
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *dataMutArr;
 
 @end
 
@@ -38,8 +39,70 @@ UITableViewDataSource
     [super viewDidLoad];
     self.view.backgroundColor = KBrownColor;
     self.tableView.alpha = 1;
+    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = YES;
+    [self monitorScrollView];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
+
+}
+/*
+ * 如果用户下拉,返回1;如果上拉快到底部时返回2
+ * 并且在映射完成后用了distinctUntilChanged属性,当我的映射值不产生变化时是不会传递映射值的
+ * 这样当用户拉倒需要刷新的位置,只会发一个信号给订阅者,只会执行一次刷新数据的方法
+ */
+-(void)monitorScrollView{
+    [[[RACObserve(self.tableView, contentOffset) map:^id(id value) {
+        if (self.tableView.contentOffset.y < - 50) {
+            //下拉刷新方法
+            return @"1";
+        }
+        
+        if (self.tableView.contentOffset.y - self.tableView.contentSize.height < 80 &&
+            self.tableView.contentSize.height > 80) {
+            //上拉加载方法
+            self.tableView.mj_footer.hidden = NO;
+            [self.tableView.mj_footer endRefreshing];
+            
+            return @"2";
+        }else{
+            return @"0";
+        }
+    }] distinctUntilChanged] subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+        if ([x integerValue] == 1) {
+            NSLog(@"↓");
+        }else if ([x integerValue] == 2){
+            NSLog(@"↑");
+        }
+    }];
+}
+
+-(void)delayMethods{
+    self.tableView.footRefreshState = MJFooterRefreshStateNoMore;
+    self.tableView.mj_footer.hidden = YES;
+}
+///下拉刷新
+-(void)pullToRefresh{
+    NSLog(@"下拉刷新");
+    [self.tableView.mj_header endRefreshing];
+//
+}
+///上拉加载更多
+- (void)loadMoreRefresh{
+    NSLog(@"上拉加载更多");
+//    [self.tableView reloadData];
+    
+    [self.tableView.mj_footer endRefreshing];
+    
+//    self.tableView.footRefreshState = MJFooterRefreshStateLoadMore;
+//    self.tableView.footRefreshState = MJFooterRefreshStateNoMore;
+//    NSLog(@"");
+    
+    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:0.5];
+}
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -51,7 +114,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{}
 
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.dataMutArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -75,17 +138,25 @@ numberOfRowsInSection:(NSInteger)section{
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = 0;
-        _tableView.mj_header = self.tableViewHeader;
-        @weakify(self)
-        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            @strongify(self)
-//            [self loadMore];
-        }];
-        [footer setTitle:@"没有更多视频" forState:MJRefreshStateNoMoreData];
-        footer.stateLabel.textColor = KGreenColor;
-        _tableView.mj_footer = footer;
-        _tableView.mj_footer.hidden = NO;
+        _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
+        
+        _tableView.mj_header = self.mjRefreshGifHeader;
+        _tableView.mj_header.automaticallyChangeAlpha = YES;
+        
+        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+        // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
+//        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
+        _tableView.mj_footer.hidden = NO;
+        
+        if(@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            self.automaticallyAdjustsScrollViewInsets = NO;
+#pragma clang diagnostic pop
+        }
 
         [self.view addSubview:_tableView];
         extern CGFloat LZB_TABBAR_HEIGHT;
@@ -93,6 +164,17 @@ numberOfRowsInSection:(NSInteger)section{
             make.edges.equalTo(self.view);
         }];
     }return _tableView;
+}
+
+-(NSMutableArray *)dataMutArr{
+    if (!_dataMutArr) {
+        _dataMutArr = NSMutableArray.array;
+        [_dataMutArr addObject:@"0"];
+        [_dataMutArr addObject:@"1"];
+        [_dataMutArr addObject:@"2"];
+        [_dataMutArr addObject:@"3"];
+        [_dataMutArr addObject:@"4"];
+    }return _dataMutArr;
 }
 
 @end

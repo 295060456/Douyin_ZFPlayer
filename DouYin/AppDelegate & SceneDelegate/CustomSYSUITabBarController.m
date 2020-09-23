@@ -130,7 +130,7 @@ CGFloat LZB_TABBAR_HEIGHT;
 //        [self presentLoginVC];
         NSLog(@"4");
     }
-    else if ([viewController isKindOfClass:[PhotoVC class]]){
+    else if ([viewController isKindOfClass:[ViewController_5 class]]){
     //        [self presentLoginVC];
         NSLog(@"5");
     }
@@ -180,8 +180,8 @@ CGFloat LZB_TABBAR_HEIGHT;
         _viewControllerMutArr = NSMutableArray.array;
         [_viewControllerMutArr addObject:ViewController_1.new];
         [_viewControllerMutArr addObject:ViewController_2.new];
-        [_viewControllerMutArr addObject:PhotoVC.new];
         [_viewControllerMutArr addObject:ViewController_3.new];
+        [_viewControllerMutArr addObject:ViewController_4.new];
         [_viewControllerMutArr addObject:ViewController_5.new];
     }return _viewControllerMutArr;
 }

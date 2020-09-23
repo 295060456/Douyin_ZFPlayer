@@ -632,7 +632,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
                 }
             }
             if (home) {
-                [weak_manager removeHome:home
+                [manager_weak_ removeHome:home
                         completionHandler:^(NSError * _Nullable error) {
                     // ... do something with the result of removing the home ...
                 }];

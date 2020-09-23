@@ -8,9 +8,10 @@
 
 #import "BaseVC+TZImagePickerController.h"
 #import "BaseVC+TZImagePickerControllerDelegate.h"
+#import "BaseVC+TZLocationManager.h"
 #import "NSObject+SYSAlertController.h"
 #import "NSObject+SPAlertController.h"
-#import "BaseVC+TZLocationManager.h"
+#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
 #import <objc/runtime.h>
 
 @implementation BaseVC (TZImagePickerController)

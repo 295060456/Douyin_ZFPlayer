@@ -8,6 +8,7 @@
 
 #import "BaseVC.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "TZImagePickerController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 ///分别对应 TZImagePickerController 的五种初始化方法

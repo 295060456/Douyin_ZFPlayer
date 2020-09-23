@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h> 
 
 typedef enum : NSUInteger {
     TXT = 0,

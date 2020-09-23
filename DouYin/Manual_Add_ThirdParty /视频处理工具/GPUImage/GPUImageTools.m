@@ -221,8 +221,8 @@
 -(void)mergeAndExportVideos:(NSArray *)videosPathArray
                 withOutPath:(NSString *)outpath{
     if (videosPathArray.count == 0) {
-        [MBProgressHUD wj_showPlainText:@"没有可处理视频文件！"
-                                   view:getMainWindow()];
+//        [MBProgressHUD wj_showPlainText:@"没有可处理视频文件！"
+//                                   view:getMainWindow()];
         return;
     }
     //创建音频通道容器

@@ -20,5 +20,8 @@
 #import "SDWebImage-umbrella.h"//不支持图片后处理
 #import "JXCategoryView.h"
 #import "GKNavigationBar.h"
+#import "PPBadgeView.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+WJExtension.h"
 
 #endif /* Pods_h */

@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC.h"
+#import "TZImagePickerController.h"
 
 ///分别对应 TZImagePickerController 的五种初始化方法
 typedef enum : NSInteger {

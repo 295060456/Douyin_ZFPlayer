@@ -24,7 +24,6 @@ target 'DouYin' do
   pod 'MBProgressHUD+WJExtension'
   pod 'LYXAlertController'
   pod 'SPAlertController'# https://github.com/SPStore/SPAlertController 深度定制AlertController
-  pod 'JSONModel'
   pod 'JPImageresizerView' # https://github.com/Rogue24/JPImageresizerView 一个专门裁剪图片、GIF、视频的轮子，简单易用，功能丰富（高自由度的参数设定、支持旋转和镜像翻转、蒙版、压缩等），能满足绝大部分裁剪的需求。
   pod 'GPUImage'
   pod 'ZZCircleProgress'
@@ -39,7 +38,8 @@ target 'DouYin' do
   pod 'TXFileOperation'
   pod 'IQKeyboardManager' # https://github.com/hackiftekhar/IQKeyboardManager Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
   pod 'JJException' #https://github.com/jezzmemo/JJException 保护App,一般常见的问题不会导致闪退，增强App的健壮性，同时会将错误抛出来，根据每个App自身的日志渠道记录
-  
+  #pod 'MBProgressHUD'
+  pod 'MBProgressHUD+WJExtension' # https://github.com/WJCha/MBProgressHUD-WJExtension 基于 MBProgressHUD 的封装、并增加了操作成功与失败的HUD动画与祝贺撒花效果
   
   pod 'ZFPlayer'
   pod 'ZFPlayer/ControlView'

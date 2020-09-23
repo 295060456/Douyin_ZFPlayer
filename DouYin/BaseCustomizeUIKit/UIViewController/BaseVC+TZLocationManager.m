@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC+TZLocationManager.h"
+#import "BaseVC+TZImagePickerController.h"
 
 @implementation BaseVC (TZLocationManager)
 

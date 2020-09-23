@@ -7,6 +7,7 @@
 //
 
 #import "BaseVC+TZImagePickerControllerDelegate.h"
+#import "BaseVC+TZImagePickerController.h"
 
 @implementation BaseVC (TZImagePickerControllerDelegate)
 

@@ -3537,7 +3537,7 @@
 				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3559,7 +3559,7 @@
 				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

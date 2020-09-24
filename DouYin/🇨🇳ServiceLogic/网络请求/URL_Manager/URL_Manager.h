@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define HTTP @"http://"
-#define append(fmt, ...) [self append:[NSString stringWithFormat:fmt, ##__VA_ARGS__]]//多参数
+#define append(fmt, ...) [NSString stringWithFormat:fmt, ##__VA_ARGS__]//多参数
 
 NS_ASSUME_NONNULL_BEGIN
 

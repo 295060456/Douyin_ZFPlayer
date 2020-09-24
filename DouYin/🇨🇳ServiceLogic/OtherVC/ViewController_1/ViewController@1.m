@@ -48,6 +48,11 @@ UITableViewDataSource
      证书设置
      */
     [RequestTool setupPublicParameters];
+//    @weakify(self)
+    [NetworkingAPI requestVedioWithBlock:^(id data) {
+//        @strongify(self)
+        NSLog(@"");
+    }];
     
     self.tableView.alpha = 1;
     [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = YES;

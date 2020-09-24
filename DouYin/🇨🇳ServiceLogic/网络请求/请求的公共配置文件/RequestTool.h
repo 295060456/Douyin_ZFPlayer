@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "URL_Manager.h"
 #import "ZBNetworking.h"
 #import "DataManager.h"
 #import "NetworkingConstant.h"

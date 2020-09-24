@@ -11,36 +11,31 @@
 @implementation RequestTool
 
 +(void)setupPublicParameters{
-    
 #pragma mark —— 公共配置
     /**
      基础配置
      需要在请求之前配置，设置后所有请求都会带上 此基础配置
      */
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"github"] = @"https://github.com/Suzhibin/ZBNetworking";
-    parameters[@"jianshu"] = @"https://www.jianshu.com/p/55cda3341d11";
-    parameters[@"iap"] = @"0";
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-    NSString *timeString = [NSString stringWithFormat:@"%.2f",timeInterval];
-    parameters[@"timeString"] =timeString;//时间戳
+    NSMutableDictionary *parameters = NSMutableDictionary.dictionary;
+    NSString *timeString = [NSString stringWithFormat:@"%.2f",[NSDate.date timeIntervalSince1970]];
+    parameters[@"timeString"] = timeString;//时间戳
 
-    NSMutableDictionary *headers = [NSMutableDictionary dictionary];
+    NSMutableDictionary *headers = NSMutableDictionary.dictionary;
     headers[@"Token"] = @"Token";
 
     [ZBRequestManager setupBaseConfig:^(ZBConfig * _Nullable config) {
         config.baseURL = server_URL;//如果同一个环境，有多个域名 不要设置baseURL
-        config.parameters=parameters;//公共参数
+        config.parameters = parameters;//公共参数
         // filtrationCacheKey因为时间戳是变动参数，缓存key需要过滤掉 变动参数,如果 不使用缓存功能 或者 没有变动参数 则不需要设置。
         config.filtrationCacheKey = @[@"timeString"];
         config.headers = headers;//请求头
         config.requestSerializer = ZBJSONRequestSerializer; //全局设置 请求格式 默认JSON
         config.responseSerializer = ZBJSONResponseSerializer; //全局设置 响应格式 默认JSON
         config.timeoutInterval = 15;//超时时间  优先级 小于 单个请求重新设置
-        //config.retryCount=2;//请求失败 所有请求重新连接次数
+        //config.retryCount = 2;//请求失败 所有请求重新连接次数
         config.consoleLog = YES;//开log
         config.userInfo = @{@"info":@"ZBNetworking"};//请求的信息，可以用来注释和判断使用
-        config.responseContentTypes = @[@"text/aaa",@"text/bbb"];//添加新的响应数据类型
+//        config.responseContentTypes = @[@"text/aaa",@"text/bbb"];//添加新的响应数据类型
         /**
          内部已存在的响应数据类型
          @"text/html",@"application/json",@"text/json", @"text/plain",@"text/javascript",@"text/xml",@"image/*",@"multipart/form-data",@"application/octet-stream",@"application/zip"
@@ -75,37 +70,20 @@
                                 @"videos":@[@{@"errorCode":@"400"}]};
             }
         }
-        if ([request.userInfo[@"tag"] isEqualToString:@"8888"]){
-            /**
-             如果服务器有多个域名 可以在此配置，并不可以使用config.baseURL。
-             也可以在每个请求的URLString赋值时拼接
-             */
-            NSString *URL;
-            if ([request.userInfo[@"tag"] isEqualToString:@"111"]){
-                URL=[NSString stringWithFormat:@"https://AAAURL.com/%@",request.URLString] ;
-            }
-            if ([request.userInfo[@"tag"] isEqualToString:@"222"]){
-                URL=[NSString stringWithFormat:@"https://BBBURL.com/%@",request.URLString] ;
-            }
-            if ([request.userInfo[@"tag"] isEqualToString:@"333"]){
-                URL=[NSString stringWithFormat:@"https://CCCURL.com/%@",request.URLString] ;
-            }
-            request.URLString=URL;
-            //⚠️setObject 赋值 就会走成功回调
-            *setObject=@{};
-        }
-        if ([request.userInfo[@"tag"] isEqualToString:@"9999"]) {
-            //自定义缓存逻辑时apiType需要设置为 request.apiType=ZBRequestTypeRefresh（默认）这样就不会走ZBNetworking自带缓存了
-            request.apiType=ZBRequestTypeRefresh;
-            //排除上传和下载请求
-            if (request.methodType!=ZBMethodTypeUpload||request.methodType!=ZBMethodTypeDownLoad) {
-                NSDictionary *dict= [[DataManager sharedInstance] dataInfoWithKey:[NSString stringWithFormat:@"%@%@",request.URLString,request.parameters[@"author"]]];
-                if (dict) {
-                  //⚠️setObject 赋值 就会走成功回调
-                    *setObject=dict;
-                }
-            }
-        }
+
+//        if ([request.userInfo[@"tag"] isEqualToString:@"9999"]) {
+//            //自定义缓存逻辑时apiType需要设置为 request.apiType=ZBRequestTypeRefresh（默认）这样就不会走ZBNetworking自带缓存了
+//            request.apiType=ZBRequestTypeRefresh;
+//            //排除上传和下载请求
+//            if (request.methodType != ZBMethodTypeUpload ||
+//                request.methodType != ZBMethodTypeDownLoad) {
+//                NSDictionary *dict= [[DataManager sharedInstance] dataInfoWithKey:[NSString stringWithFormat:@"%@%@",request.URLString,request.parameters[@"author"]]];
+//                if (dict) {
+//                  //⚠️setObject 赋值 就会走成功回调
+//                    *setObject=dict;
+//                }
+//            }
+//        }
     }];
     //预处理 响应
     [ZBRequestManager setResponseProcessHandler:^id(ZBURLRequest * _Nullable request,
@@ -143,16 +121,15 @@
                 return resultData;
             }
         }
-        if([request.userInfo[@"tag"] isEqualToString:@"8888"]){
-                           
-        }
-        if([request.userInfo[@"tag"] isEqualToString:@"9999"]){
-            //自定义缓存逻辑时apiType需要设置为 request.apiType=ZBRequestTypeRefresh（默认）这样就不会走ZBNetworking自带缓存了
-                           //排除上传和下载请求
-            if (request.methodType!=ZBMethodTypeUpload||request.methodType!=ZBMethodTypeDownLoad) {
-                    [[DataManager sharedInstance] saveDataInfo:responseObject key:[NSString stringWithFormat:@"%@%@",request.URLString,request.parameters[@"author"]]];
-                    }
-            }
+
+//        if([request.userInfo[@"tag"] isEqualToString:@"9999"]){
+//            //自定义缓存逻辑时apiType需要设置为 request.apiType=ZBRequestTypeRefresh（默认）这样就不会走ZBNetworking自带缓存了
+//            //排除上传和下载请求
+//            if (request.methodType!=ZBMethodTypeUpload||request.methodType!=ZBMethodTypeDownLoad) {
+//                    [[DataManager sharedInstance] saveDataInfo:responseObject
+//                                                           key:[NSString stringWithFormat:@"%@%@",request.URLString,request.parameters[@"author"]]];
+//            }
+//        }
         return nil;
     }];
     //预处理 错误
@@ -160,7 +137,7 @@
                                                NSError * _Nullable error){
         if (error.code == NSURLErrorCancelled){
             NSLog(@"请求取消❌------------------");
-        }else if (error.code==NSURLErrorTimedOut){
+        }else if (error.code == NSURLErrorTimedOut){
             NSLog(@"请求超时");
         }else{
             NSLog(@"请求失败");

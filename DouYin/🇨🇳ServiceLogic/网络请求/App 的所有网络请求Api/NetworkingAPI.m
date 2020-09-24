@@ -40,7 +40,7 @@
         }//一些临时的其他的配置
         
     }progress:^(NSProgress * _Nullable progress){
-        NSLog(@"进度 = %@",progress.currentProgress);
+        NSLog(@"进度 = %f",progress.fractionCompleted * 100);
     }success:^(id  _Nullable responseObject,
                ZBURLRequest * _Nullable request){
         if ([responseObject isKindOfClass:NSDictionary.class]){

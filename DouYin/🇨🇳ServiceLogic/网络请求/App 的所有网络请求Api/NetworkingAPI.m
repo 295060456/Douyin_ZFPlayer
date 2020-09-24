@@ -44,10 +44,8 @@
         NSLog(@"进度 = %f",progress.fractionCompleted * 100);
     }success:^(id  _Nullable responseObject,
                ZBURLRequest * _Nullable request){
-        if ([responseObject isKindOfClass:NSDictionary.class]){
-            if (successBlock) {
-                successBlock(responseObject);
-            }
+        if (successBlock) {
+            successBlock(responseObject);
         }
     }failure:^(NSError * _Nullable error){
         NSLog(@"error = %@",error);

@@ -207,7 +207,9 @@ NSString *const _downloadPath = @"AppDownload";
                 finished:(ZBRequestFinishedBlock)finished
                   target:(id<ZBURLRequestDelegate>)target{
     
-    if([request.URLString isEqualToString:@""] || request.URLString == nil) return 0;
+    if ([NSString isNullString:request.URLString]) {
+        return 0;
+    }
     
     [self configBaseWithRequest:request
                        progress:progress
@@ -230,7 +232,7 @@ NSString *const _downloadPath = @"AppDownload";
     if (request.keepType == ZBResponseKeepFirst && keepIdentifier){
         return 0;
     }
-    if (request.keepType == ZBResponseKeepLast&&keepIdentifier){
+    if (request.keepType == ZBResponseKeepLast && keepIdentifier){
         [self cancelRequest:[keepIdentifier integerValue]];
     }
 
@@ -241,9 +243,9 @@ NSString *const _downloadPath = @"AppDownload";
 }
 
 +(NSUInteger)startSendRequest:(ZBURLRequest *)request{
-    if (request.methodType==ZBMethodTypeUpload) {
+    if (request.methodType == ZBMethodTypeUpload) {
        return [self sendUploadRequest:request];
-    }else if (request.methodType==ZBMethodTypeDownLoad){
+    }else if (request.methodType == ZBMethodTypeDownLoad){
        return [self sendDownLoadRequest:request];
     }else{
        return [self sendHTTPRequest:request];

@@ -261,6 +261,8 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
+		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
 		C582A66E251C5BE600DD83A1 /* PlayerAttributeMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A66D251C5BE600DD83A1 /* PlayerAttributeMgr.m */; };
 		C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A67D251C71A700DD83A1 /* URL_Manager.m */; };
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
@@ -929,6 +931,10 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
+		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
+		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
 		C582A66C251C5BE600DD83A1 /* PlayerAttributeMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerAttributeMgr.h; sourceTree = "<group>"; };
 		C582A66D251C5BE600DD83A1 /* PlayerAttributeMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerAttributeMgr.m; sourceTree = "<group>"; };
 		C582A67D251C71A700DD83A1 /* URL_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Manager.m; sourceTree = "<group>"; };
@@ -2302,6 +2308,7 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
+				C55D45B1251CB62800E543D6 /* 数据模型层 */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
 				C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */,
@@ -2474,6 +2481,17 @@
 				C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
+			sourceTree = "<group>";
+		};
+		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
+			isa = PBXGroup;
+			children = (
+				C55D45B2251CB65400E543D6 /* BASEMODEL.h */,
+				C55D45B3251CB65400E543D6 /* BASEMODEL.m */,
+				C55D45E1251CB6A900E543D6 /* VideoModel.h */,
+				C55D45E2251CB6A900E543D6 /* VideoModel.m */,
+			);
+			path = "数据模型层";
 			sourceTree = "<group>";
 		};
 		C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */ = {
@@ -3224,6 +3242,7 @@
 				C54BB2DB2518D363001591C2 /* CustomerAVPlayerView+UIGestureRecognizerDelegate.m in Sources */,
 				C54BB3C62518D391001591C2 /* CALayer+Anim.m in Sources */,
 				C54BB2A52518D363001591C2 /* LOTAsset.m in Sources */,
+				C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */,
 				C54BB3B32518D391001591C2 /* UIViewController+Shake.m in Sources */,
 				C54BB3B02518D391001591C2 /* BaseVC+TZImagePickerController.m in Sources */,
 				C54BB2EF2518D363001591C2 /* JhtBannerScrollView.m in Sources */,
@@ -3257,6 +3276,7 @@
 				C54BB2CF2518D363001591C2 /* BWShareView.m in Sources */,
 				C54BB2B32518D363001591C2 /* LOTInterpolatorCallback.m in Sources */,
 				C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */,
+				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
 				C54BB3BA2518D391001591C2 /* BaseVC+JPImageresizerView.m in Sources */,
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
 				C54BB3BF2518D391001591C2 /* BaseTableViewer.m in Sources */,

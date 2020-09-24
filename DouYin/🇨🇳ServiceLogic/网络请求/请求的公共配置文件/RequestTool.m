@@ -87,51 +87,28 @@
 //            }
 //        }
     }];
-    //预处理 响应
+    //预处理 响应：在这里过滤错误信息，外层最终得到我们想要的核心数据
     [ZBRequestManager setResponseProcessHandler:^id(ZBURLRequest * _Nullable request,
                                                     id  _Nullable responseObject,
                                                     NSError * _Nullable __autoreleasing * _Nullable error) {
         NSLog(@"成功回调 数据返回之前");
-        if ([request.userInfo[@"tag"] isEqualToString:@"5555"]) {
-            //json 转模型
-        }
-    
-        if ([request.userInfo[@"tag"] isEqualToString:@"7777"]) {
-            /**
-             网络请求 自定义响应结果的处理逻辑
-             比如服务器会在成功回调里做 返回code码的操作 ，可以进行逻辑处理
-             */
-            // 举个例子 假设服务器成功回调内返回了code码
-            NSArray *authors;
-            NSString *path = request.parameters[@"path"];
-            if ([path isEqualToString:@"HomeViewController"]) {
-                authors = responseObject[@"authors"];
-            }
-            if ([path isEqualToString:@"DetailViewController"]) {
-                authors = responseObject[@"videos"];
-            }
-                         
-            NSString *errorCode= [[authors objectAtIndex:0] objectForKey:@"errorCode"];
-            if ([errorCode isEqualToString:@"400"]) {//假设400 登录过期
-                NSDictionary *userInfo = @{NSLocalizedDescriptionKey:@"登录过期"};
-                NSLog(@"重新开始业务请求：%@ 参数：%@",request.URLString,request.parameters[@"path"]);
-                //⚠️给*error指针 错误信息，网络请求就会走 失败回调
-                *error = [NSError errorWithDomain:NSURLErrorDomain code:[errorCode integerValue] userInfo:userInfo];
-            }else{
-                //转模型
-                NSDictionary *resultData = responseObject;
-                return resultData;
-            }
-        }
+        if ([request.userInfo[@"info"] isEqualToString:@"ViewController_1"]) {//分辨接口，预防个别接口的处理方式和大众不太一样
+            if ([responseObject isKindOfClass:NSDictionary.class]) {
+                NSDictionary *dataDic = (NSDictionary *)responseObject;
+                
+//                dataDic[@"HTTPServiceResponseCodeKey"];
+//                dataDic[@"HTTPServiceResponseMsgKey"];
+//                dataDic[@"HTTPServiceResponseDataKey"];
 
-//        if([request.userInfo[@"tag"] isEqualToString:@"9999"]){
-//            //自定义缓存逻辑时apiType需要设置为 request.apiType=ZBRequestTypeRefresh（默认）这样就不会走ZBNetworking自带缓存了
-//            //排除上传和下载请求
-//            if (request.methodType!=ZBMethodTypeUpload||request.methodType!=ZBMethodTypeDownLoad) {
-//                    [[DataManager sharedInstance] saveDataInfo:responseObject
-//                                                           key:[NSString stringWithFormat:@"%@%@",request.URLString,request.parameters[@"author"]]];
-//            }
-//        }
+                NSNumber *b = (NSNumber *)dataDic[HTTPServiceResponseCodeKey];
+                if (b.integerValue == HTTPResponseCodeSuccess) {
+                    VideoModel *videoModel = [VideoModel mj_objectWithKeyValues:dataDic[HTTPServiceResponseDataKey]];
+                    videoModel.listMutArr = [VideoModel_Core mj_objectArrayWithKeyValuesArray:dataDic[HTTPServiceResponseDataKey][@"list"]];
+                    NSLog(@"");
+                    return videoModel.listMutArr;
+                }
+            }
+        }
         return nil;
     }];
     //预处理 错误
@@ -166,3 +143,241 @@
 }
 
 @end
+
+/*
+{
+    msg = "";
+    data = {
+        endRow = "10";
+        hasNextPage = 1;
+        pages = 11;
+        pageNum = 1;
+        navigatepageNums = (
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+        );
+        isLastPage = 0;
+        total = "108";
+        nextPage = 2;
+        navigatePages = 8;
+        size = 10;
+        hasPreviousPage = 0;
+        navigateFirstPage = 1;
+        startRow = "1";
+        navigateLastPage = 8;
+        prePage = 0;
+        list = (
+            {
+                isPraise = 0;
+                authorId = "1292664845497339905";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/f2@2x.png";
+                praiseNum = 0;
+                author = "束浩博375";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1919.jpeg";
+                videoId = "1295363512092078082";
+                videoTitle = "永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我永恒的承诺卟属於我";
+                videoSize = "3770625";
+                isVip = 0;
+                commentNum = 0;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1919.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:14:52";
+                playNum = 0;
+                videoTime = 15;
+            },
+            {
+                isPraise = 0;
+                authorId = "1292839352157691906";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/f2@2x.png";
+                praiseNum = 0;
+                author = "居德赫004";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1486.jpeg";
+                videoId = "1295359973504593922";
+                videoTitle = "西_大大滴花姑娘";
+                videoSize = "2173600";
+                isVip = 0;
+                commentNum = 2;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1486.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:00:53";
+                playNum = 0;
+                videoTime = 17;
+            },
+            {
+                isPraise = 0;
+                authorId = "1290921141845663745";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/f2@2x.png";
+                praiseNum = 0;
+                author = "唐斯年028";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020080619/1290895585221619714/mp4/007.jpeg";
+                videoId = "1291340246880989186";
+                videoTitle = "我心不允许我脆弱";
+                videoSize = "8525205";
+                isVip = 0;
+                commentNum = 6;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020080619/1290895585221619714/mp4/007.mp4";
+                areSelf = 0;
+                publishTime = "2020-08-06 19:47:20";
+                playNum = 0;
+                videoTime = 111;
+            },
+            {
+                isPraise = 0;
+                authorId = "1292307099493142529";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n3@2x.png";
+                praiseNum = 0;
+                author = "毛涵润082";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1920.jpeg";
+                videoId = "1295363662403350529";
+                videoTitle = "黑洲非人";
+                videoSize = "5586606";
+                isVip = 0;
+                commentNum = 1;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1920.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:15:23";
+                playNum = 0;
+                videoTime = 18;
+            },
+            {
+                isPraise = 0;
+                authorId = "1292839997338116098";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n1@2x.png";
+                praiseNum = 0;
+                author = "宇文咏德828";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1485.jpeg";
+                videoId = "1295359861940301825";
+                videoTitle = "我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口我想找你，却没了借口";
+                videoSize = "2229898";
+                isVip = 0;
+                commentNum = 0;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1485.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:00:26";
+                playNum = 0;
+                videoTime = 15;
+            },
+            {
+                isPraise = 0;
+                authorId = "1291659151000276993";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n1@2x.png";
+                praiseNum = 0;
+                author = "向兴言122";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_2068.jpeg";
+                videoId = "1295364747893420033";
+                videoTitle = "哈里波特大";
+                videoSize = "3694994";
+                isVip = 0;
+                commentNum = 1;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_2068.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:19:47";
+                playNum = 0;
+                videoTime = 11;
+            },
+            {
+                isPraise = 0;
+                authorId = "1292738239194492929";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n3@2x.png";
+                praiseNum = 0;
+                author = "佘泰宁796";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1863.jpeg";
+                videoId = "1295363101071257602";
+                videoTitle = "罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜罗密欧与猪过夜";
+                videoSize = "9018840";
+                isVip = 0;
+                commentNum = 0;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/MP4/IMG_1863.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:12:58";
+                playNum = 0;
+                videoTime = 31;
+            },
+            {
+                isPraise = 0;
+                authorId = "1291366732774060033";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n3@2x.png";
+                praiseNum = 0;
+                author = "韶杰184";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/mp4/video_2019-10-22_02-29-50.jpeg";
+                videoId = "1295366055035678722";
+                videoTitle = "倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山倾城一笑，抵我半壁江山";
+                videoSize = "1258478";
+                isVip = 0;
+                commentNum = 3;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081722/1290895585221619714/mp4/video_2019-10-22_02-29-50.mp4";
+                areSelf = 0;
+                publishTime = "2020-08-17 22:25:06";
+                playNum = 0;
+                videoTime = 11;
+            },
+            {
+                isPraise = 0;
+                authorId = "1293025246747648002";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n3@2x.png";
+                praiseNum = 0;
+                author = "端木刚729";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/IMG_0107.jpeg";
+                videoId = "1295358992205230081";
+                videoTitle = "药别停";
+                videoSize = "1425088";
+                isVip = 0;
+                commentNum = 0;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/IMG_0107.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 21:57:01";
+                playNum = 0;
+                videoTime = 13;
+            },
+            {
+                isPraise = 0;
+                authorId = "1293173931422814209";
+                videoSort = 0;
+                headImage = "http://www.akixr.top:9000/bucket1-dev/IMAGES/app-user/headimg/n1@2x.png";
+                praiseNum = 0;
+                author = "油麻地话事人";
+                videoImg = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0004.jpeg";
+                videoId = "1295357635519852546";
+                videoTitle = "纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻纯眞嘚发酵叻";
+                videoSize = "1695495";
+                isVip = 0;
+                commentNum = 7;
+                isAttention = 0;
+                videoIdcUrl = "http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0004.MP4";
+                areSelf = 0;
+                publishTime = "2020-08-17 21:51:37";
+                playNum = 0;
+                videoTime = 15;
+            }
+        );
+        isFirstPage = 1;
+        pageSize = 10;
+    };
+    code = 200;
+}
+
+*/

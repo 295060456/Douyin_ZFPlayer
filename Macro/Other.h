@@ -15,4 +15,7 @@
 #import "CustomZFPlayerControlView.h"
 #import "NetworkingAPI.h"
 
+// 数据模型层
+#import "VideoModel.h"
+
 #endif /* Other_h */

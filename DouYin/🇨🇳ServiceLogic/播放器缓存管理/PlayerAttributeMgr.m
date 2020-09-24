@@ -15,6 +15,7 @@
 
 @implementation PlayerAttributeMgr
 
+@synthesize assetURL = _assetURL;
 
 + (void)initialize{
     [KTVHTTPCache logSetConsoleLogEnable:NO];

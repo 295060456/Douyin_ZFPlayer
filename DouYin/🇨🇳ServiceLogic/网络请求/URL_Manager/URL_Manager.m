@@ -36,7 +36,7 @@ static URL_Manager *static_URL_Manager = nil;
 
 -(NSString *)BaseUrl_H5{
 //    return append(@"%@%@",HTTP,@"172.24.135.208");//测试服务 专线 （禁止使用）
-//    return append(@"%@%@",HTTP,@"172.24.135.209");//开发服务
+    return append(@"%@%@",HTTP,@"172.24.135.209");//开发服务
 //    return append(@"%@%@",HTTP,@"www.11wy.top");//线上服务 发布 | 调试;
 //    return append(@"%@%@",HTTP,@"146.196.78.142:10006");//cong线上服务 调试;
 //    return append(@"%@%@",HTTP,@"172.24.137.29");//muyu

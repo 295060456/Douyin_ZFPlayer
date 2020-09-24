@@ -11,23 +11,25 @@
 #import "ZBURLRequest.h"
 #import "NSString+ZBUTF8Encoding.h"
 
-NSString *const _successBlock =@"_successBlock";
-NSString *const _failureBlock =@"_failureBlock";
-NSString *const _finishedBlock =@"_finishedBlock";
-NSString *const _progressBlock =@"_progressBlock";
-NSString *const _delegate =@"_delegate";
+NSString *const _successBlock = @"_successBlock";
+NSString *const _failureBlock = @"_failureBlock";
+NSString *const _finishedBlock = @"_finishedBlock";
+NSString *const _progressBlock = @"_progressBlock";
+NSString *const _delegate = @"_delegate";
+
 @interface ZBRequestEngine ()
-@property (nonatomic, copy, nullable) NSString *baseURLString;
-@property (nonatomic, strong, nullable) NSMutableDictionary<NSString *, id> *baseParameters;
-@property (nonatomic, strong, nullable) NSMutableDictionary<NSString *, NSString *> *baseHeaders;
-@property (nonatomic, strong, nullable) NSDictionary *baseUserInfo;
-@property (nonatomic, strong, nullable) NSMutableArray *baseFiltrationCacheKey;
-@property (nonatomic, strong, nullable) NSMutableArray *responseContentTypes;
-@property (nonatomic, assign) NSTimeInterval baseTimeoutInterval;
-@property (nonatomic, assign) NSUInteger baseRetryCount;
-@property (nonatomic, assign) ZBRequestSerializerType baseRequestSerializer;
-@property (nonatomic, assign) ZBResponseSerializerType baseResponseSerializer;
-@property (nonatomic, assign) BOOL consoleLog;
+
+@property(nonatomic,copy,nullable) NSString *baseURLString;
+@property(nonatomic,strong,nullable) NSMutableDictionary<NSString *, id> *baseParameters;
+@property(nonatomic,strong,nullable) NSMutableDictionary<NSString *, NSString *> *baseHeaders;
+@property(nonatomic,strong,nullable) NSDictionary *baseUserInfo;
+@property(nonatomic,strong,nullable) NSMutableArray *baseFiltrationCacheKey;
+@property(nonatomic,strong,nullable) NSMutableArray *responseContentTypes;
+@property(nonatomic,assign)NSTimeInterval baseTimeoutInterval;
+@property(nonatomic,assign)NSUInteger baseRetryCount;
+@property(nonatomic,assign)ZBRequestSerializerType baseRequestSerializer;
+@property(nonatomic,assign)ZBResponseSerializerType baseResponseSerializer;
+@property(nonatomic,assign)BOOL consoleLog;
 
 @end
 
@@ -39,7 +41,7 @@ NSString *const _delegate =@"_delegate";
     static ZBRequestEngine *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[ZBRequestEngine alloc]init];
+        sharedInstance = ZBRequestEngine.new;
     });
     return sharedInstance;
 }
@@ -49,20 +51,27 @@ NSString *const _delegate =@"_delegate";
    2.开启菊花
 */
 - (instancetype)init {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         //无条件地信任服务器端返回的证书。
 //        self.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 //        self.securityPolicy = [AFSecurityPolicy defaultPolicy];
 //        self.securityPolicy.allowInvalidCertificates = YES;
 //        self.securityPolicy.validatesDomainName = NO;
         self.responseSerializer = [AFHTTPResponseSerializer serializer];
-        [self.responseContentTypes addObjectsFromArray:@[@"text/html",@"application/json",@"text/json", @"text/plain",@"text/javascript",@"text/xml",@"image/*",@"multipart/form-data",@"application/octet-stream",@"application/zip"]];
+        [self.responseContentTypes addObjectsFromArray:@[@"text/html",
+                                                         @"application/json",
+                                                         @"text/json",
+                                                         @"text/plain",
+                                                         @"text/javascript",
+                                                         @"text/xml",
+                                                         @"image/*",
+                                                         @"multipart/form-data",
+                                                         @"application/octet-stream",
+                                                         @"application/zip"]];
         self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:self.responseContentTypes];
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
          _requestDic =[[NSMutableDictionary alloc] init];
-    }
-    return self;
+    }return self;
 }
 
 + (void)load {
@@ -74,10 +83,12 @@ NSString *const _delegate =@"_delegate";
 }
 
 #pragma mark - GET/POST/PUT/PATCH/DELETE
-- (NSUInteger)dataTaskWithMethod:(ZBURLRequest *)request
-                             progress:(void (^)(NSProgress * _Nonnull))progress
-                              success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                              failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure{
+-(NSUInteger)dataTaskWithMethod:(ZBURLRequest *)request
+                       progress:(void (^)(NSProgress * _Nonnull))progress
+                        success:(void (^)(NSURLSessionDataTask *task,
+                                          id responseObject))success
+                        failure:(void (^)(NSURLSessionDataTask *task,
+                                          NSError *error))failure{
 
     [self requestSerializerConfig:request];
     [self headersAndTimeConfig:request];
@@ -86,51 +97,93 @@ NSString *const _delegate =@"_delegate";
     NSString *URLString=[NSString zb_stringUTF8Encoding:request.URLString];
     NSURLSessionDataTask *dataTask=nil;
     if (request.methodType==ZBMethodTypeGET) {
-        dataTask = [self GET:URLString parameters:request.parameters headers:nil progress:progress success:success failure:failure];
+        dataTask = [self GET:URLString
+                  parameters:request.parameters
+                     headers:nil
+                    progress:progress
+                     success:success
+                     failure:failure];
     }else if (request.methodType==ZBMethodTypePOST) {
-        dataTask = [self POST:URLString parameters:request.parameters headers:nil progress:progress  success:success failure:failure];
+        dataTask = [self POST:URLString
+                   parameters:request.parameters
+                      headers:nil
+                     progress:progress
+                      success:success
+                      failure:failure];
     }else if (request.methodType==ZBMethodTypePUT){
-        dataTask = [self PUT:URLString parameters:request.parameters headers:nil success:success failure:failure];
+        dataTask = [self PUT:URLString
+                  parameters:request.parameters
+                     headers:nil
+                     success:success
+                     failure:failure];
     }else if (request.methodType==ZBMethodTypePATCH){
-        dataTask = [self PATCH:URLString parameters:request.parameters headers:nil success:success failure:failure];
+        dataTask = [self PATCH:URLString
+                    parameters:request.parameters
+                       headers:nil
+                       success:success
+                       failure:failure];
     }else if (request.methodType==ZBMethodTypeDELETE){
-        dataTask = [self DELETE:URLString parameters:request.parameters headers:nil success:success failure:failure];
+        dataTask = [self DELETE:URLString
+                     parameters:request.parameters
+                        headers:nil
+                        success:success
+                        failure:failure];
     }else{
-        dataTask = [self GET:URLString parameters:request.parameters headers:nil progress:progress success:success failure:failure];
+        dataTask = [self GET:URLString
+                  parameters:request.parameters
+                     headers:nil
+                    progress:progress
+                     success:success
+                     failure:failure];
     }
     [request setIdentifier:dataTask.taskIdentifier];
     return request.identifier;
 }
-
 #pragma mark - upload
-- (NSUInteger)uploadWithRequest:(ZBURLRequest *)request
-                                progress:(void (^)(NSProgress * _Nonnull))uploadProgressBlock
-                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure{
+-(NSUInteger)uploadWithRequest:(ZBURLRequest *)request
+                      progress:(void (^)(NSProgress * _Nonnull))uploadProgressBlock
+                       success:(void (^)(NSURLSessionDataTask *task,
+                                         id responseObject))success
+                       failure:(void (^)(NSURLSessionDataTask *task,
+                                         NSError *error))failure{
     [self requestSerializerConfig:request];
     [self headersAndTimeConfig:request];
     [self printParameterWithRequest:request];
     
-    NSURLSessionDataTask *uploadTask = [self POST:[NSString zb_stringUTF8Encoding:request.URLString] parameters:request.parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSURLSessionDataTask *uploadTask = [self POST:[NSString zb_stringUTF8Encoding:request.URLString]
+                                       parameters:request.parameters
+                                          headers:nil
+                        constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         
-        [request.uploadDatas enumerateObjectsUsingBlock:^(ZBUploadData *obj, NSUInteger idx, BOOL *stop) {
+        [request.uploadDatas enumerateObjectsUsingBlock:^(ZBUploadData *obj,
+                                                          NSUInteger idx,
+                                                          BOOL *stop) {
             if (obj.fileData) {
                 if (obj.fileName && obj.mimeType) {
-                    [formData appendPartWithFileData:obj.fileData name:obj.name fileName:obj.fileName mimeType:obj.mimeType];
+                    [formData appendPartWithFileData:obj.fileData
+                                                name:obj.name
+                                            fileName:obj.fileName
+                                            mimeType:obj.mimeType];
                 } else {
-                    [formData appendPartWithFormData:obj.fileData name:obj.name];
+                    [formData appendPartWithFormData:obj.fileData
+                                                name:obj.name];
                 }
             } else if (obj.fileURL) {
                  NSError *fileError = nil;
                 if (obj.fileName && obj.mimeType) {
-                    [formData appendPartWithFileURL:obj.fileURL name:obj.name fileName:obj.fileName mimeType:obj.mimeType error:&fileError];
+                    [formData appendPartWithFileURL:obj.fileURL
+                                               name:obj.name
+                                           fileName:obj.fileName
+                                           mimeType:obj.mimeType
+                                              error:&fileError];
                 } else {
-                    [formData appendPartWithFileURL:obj.fileURL name:obj.name error:&fileError];
+                    [formData appendPartWithFileURL:obj.fileURL
+                                               name:obj.name
+                                              error:&fileError];
                 }
                 if (fileError) {
                     *stop = YES;
                 }
-                
             }
         }];
         
@@ -141,11 +194,12 @@ NSString *const _delegate =@"_delegate";
     [request setIdentifier:uploadTask.taskIdentifier];
     return request.identifier;
 }
-
 #pragma mark - DownLoad
-- (NSUInteger)downloadWithRequest:(ZBURLRequest *)request
-                                             progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
-                                    completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler{
+-(NSUInteger)downloadWithRequest:(ZBURLRequest *)request
+                        progress:(void (^)(NSProgress *downloadProgress)) downloadProgressBlock
+               completionHandler:(void (^)(NSURLResponse *response,
+                                           NSURL *filePath,
+                                           NSError *error))completionHandler{
     [self headersAndTimeConfig:request];
     [self printParameterWithRequest:request];
     
@@ -162,7 +216,8 @@ NSString *const _delegate =@"_delegate";
     } else {
         downloadFileSavePath = [NSURL fileURLWithPath:request.downloadSavePath isDirectory:NO];
     }
-    NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:urlRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSURLSessionDownloadTask *downloadTask = [self downloadTaskWithRequest:urlRequest
+                                                                  progress:^(NSProgress * _Nonnull downloadProgress) {
         downloadProgressBlock ? downloadProgressBlock(downloadProgress) : nil;
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         return downloadFileSavePath;
@@ -179,17 +234,19 @@ NSString *const _delegate =@"_delegate";
 }
 //请求参数的格式
 - (void)requestSerializerConfig:(ZBURLRequest *)request{
-    self.requestSerializer =request.requestSerializer==ZBHTTPRequestSerializer ?[AFHTTPRequestSerializer serializer]:[AFJSONRequestSerializer serializer];
+    self.requestSerializer =request.requestSerializer==ZBHTTPRequestSerializer ?[AFHTTPRequestSerializer serializer] : [AFJSONRequestSerializer serializer];
 }
-
 //请求头设置
 - (void)headersAndTimeConfig:(ZBURLRequest *)request{
     if ([request.headers allKeys].count>0) {
-        [request.headers enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
-            [self.requestSerializer setValue:value forHTTPHeaderField:field];
+        [request.headers enumerateKeysAndObjectsUsingBlock:^(id field,
+                                                             id value,
+                                                             BOOL * __unused stop) {
+            [self.requestSerializer setValue:value
+                          forHTTPHeaderField:field];
         }];
     }
-    self.requestSerializer.timeoutInterval=request.timeoutInterval;
+    self.requestSerializer.timeoutInterval = request.timeoutInterval;
 }
 
 #pragma mark - 其他配置
@@ -216,20 +273,25 @@ NSString *const _delegate =@"_delegate";
         self.baseResponseSerializer=config.responseSerializer;
     }
     if (config.retryCount) {
-        self.baseRetryCount=config.retryCount;
+        self.baseRetryCount = config.retryCount;
     }
     if (config.userInfo) {
-        self.baseUserInfo=config.userInfo;
+        self.baseUserInfo = config.userInfo;
     }
     if (config.responseContentTypes.count>0) {
         [self.responseContentTypes addObjectsFromArray:config.responseContentTypes];
         self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:self.responseContentTypes];
     }
   
-    self.consoleLog=config.consoleLog;
+    self.consoleLog = config.consoleLog;
 }
 
-- (void)configBaseWithRequest:(ZBURLRequest *)request progressBlock:(ZBRequestProgressBlock)progressBlock successBlock:(ZBRequestSuccessBlock)successBlock failureBlock:(ZBRequestFailureBlock)failureBlock finishedBlock:(ZBRequestFinishedBlock)finishedBlock target:(id<ZBURLRequestDelegate>)target{
+- (void)configBaseWithRequest:(ZBURLRequest *)request
+                progressBlock:(ZBRequestProgressBlock)progressBlock
+                 successBlock:(ZBRequestSuccessBlock)successBlock
+                 failureBlock:(ZBRequestFailureBlock)failureBlock
+                finishedBlock:(ZBRequestFinishedBlock)finishedBlock
+                       target:(id<ZBURLRequestDelegate>)target{
     if (successBlock) {
         [request setValue:successBlock forKey:_successBlock];
     }
@@ -245,7 +307,7 @@ NSString *const _delegate =@"_delegate";
     if (target) {
         [request setValue:target forKey:_delegate];
     }
-    if (request.methodType==ZBMethodTypeUpload||request.methodType==ZBMethodTypeDownLoad) {
+    if (request.methodType==ZBMethodTypeUpload || request.methodType==ZBMethodTypeDownLoad) {
         request.apiType=ZBRequestTypeRefresh;
         request.keepType=ZBResponseKeepFirst;
     }
@@ -320,7 +382,8 @@ NSString *const _delegate =@"_delegate";
 
 - (void)cancelRequestByIdentifier:(NSUInteger)identifier {
     if (identifier == 0) return;
-    [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionTask *task, NSUInteger idx, BOOL *stop) {
+    [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionTask *task,
+                                             NSUInteger idx, BOOL *stop) {
         if (task.taskIdentifier == identifier) {
             [task cancel];
             *stop = YES;
@@ -335,10 +398,10 @@ NSString *const _delegate =@"_delegate";
 }
 
 - (void)printParameterWithRequest:(ZBURLRequest *)request{
-    if (request.consoleLog==YES) {
-        NSString *address=[NSString zb_urlString:request.URLString appendingParameters:request.parameters];
-        NSString *requestStr=request.requestSerializer==ZBHTTPRequestSerializer ?@"HTTP":@"JOSN";
-        NSString *responseStr=request.responseSerializer==ZBHTTPResponseSerializer ?@"HTTP":@"JOSN";
+    if (request.consoleLog == YES) {
+        NSString *address = [NSString zb_urlString:request.URLString appendingParameters:request.parameters];
+        NSString *requestStr = request.requestSerializer == ZBHTTPRequestSerializer ?@"HTTP":@"JOSN";
+        NSString *responseStr = request.responseSerializer == ZBHTTPResponseSerializer ?@"HTTP":@"JOSN";
         NSLog(@"\n\n------------ZBNetworking------request info------begin------\n-URLAddress-: %@ \n-parameters-:%@ \n-Header-: %@\n-userInfo-: %@\n-timeout-:%.2f\n-requestSerializer-:%@\n-responseSerializer-:%@\n------------ZBNetworking------request info-------end-------",address,request.parameters, self.requestSerializer.HTTPRequestHeaders,request.userInfo,self.requestSerializer.timeoutInterval,requestStr,responseStr);
     }
 }
@@ -359,33 +422,33 @@ NSString *const _delegate =@"_delegate";
 }
 
 - (id)objectRequestForkey:(NSString *)key{
-    if(!key)return nil;
+    if(!key) return nil;
     return [_requestDic objectForKey:key];
 }
 
 #pragma mark - Accessor
 - (NSMutableDictionary<NSString *, id> *)baseParameters {
     if (!_baseParameters) {
-        _baseParameters = [NSMutableDictionary dictionary];
-    }
-    return _baseParameters;
+        _baseParameters = NSMutableDictionary.dictionary;
+    }return _baseParameters;
 }
+
 - (NSMutableDictionary<NSString *, NSString *> *)baseHeaders {
     if (!_baseHeaders) {
-        _baseHeaders = [NSMutableDictionary dictionary];
-    }
-    return _baseHeaders;
+        _baseHeaders = NSMutableDictionary.dictionary;
+    }return _baseHeaders;
 }
+
 - (NSMutableArray *)baseFiltrationCacheKey {
     if (!_baseFiltrationCacheKey) {
-        _baseFiltrationCacheKey = [NSMutableArray array];
-    }
-    return _baseFiltrationCacheKey;
+        _baseFiltrationCacheKey = NSMutableArray.array;
+    }return _baseFiltrationCacheKey;
 }
+
 - (NSMutableArray *)responseContentTypes {
     if (!_responseContentTypes) {
-        _responseContentTypes = [NSMutableArray array];
-    }
-    return _responseContentTypes;
+        _responseContentTypes = NSMutableArray.array;
+    }return _responseContentTypes;
 }
+
 @end

@@ -264,6 +264,11 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C582A66E251C5BE600DD83A1 /* PlayerAttributeMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A66D251C5BE600DD83A1 /* PlayerAttributeMgr.m */; };
+		C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A67D251C71A700DD83A1 /* URL_Manager.m */; };
+		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
+		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
+		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
 		C5E29354251B021200ABAFE9 /* ShoppingCart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */; };
 		C5E29355251B021200ABAFE9 /* My@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934C251B021100ABAFE9 /* My@2x.png */; };
 		C5E29356251B021200ABAFE9 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E2934D251B021100ABAFE9 /* Home@2x.png */; };
@@ -927,6 +932,16 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C582A66C251C5BE600DD83A1 /* PlayerAttributeMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerAttributeMgr.h; sourceTree = "<group>"; };
+		C582A66D251C5BE600DD83A1 /* PlayerAttributeMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerAttributeMgr.m; sourceTree = "<group>"; };
+		C582A67D251C71A700DD83A1 /* URL_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Manager.m; sourceTree = "<group>"; };
+		C582A67E251C71A700DD83A1 /* URL_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL_Manager.h; sourceTree = "<group>"; };
+		C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingAPI.h; sourceTree = "<group>"; };
+		C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingAPI.m; sourceTree = "<group>"; };
+		C582A696251C796400DD83A1 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		C582A697251C796400DD83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
+		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShoppingCart@3x.png"; sourceTree = "<group>"; };
 		C5E2934C251B021100ABAFE9 /* My@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My@2x.png"; sourceTree = "<group>"; };
 		C5E2934D251B021100ABAFE9 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
@@ -2289,7 +2304,9 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
+				C582A672251C714F00DD83A1 /* 网络请求 */,
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
+				C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C51D8DA3251B0816006958FF /* CELL */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
@@ -2459,6 +2476,38 @@
 				C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
+			sourceTree = "<group>";
+		};
+		C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */ = {
+			isa = PBXGroup;
+			children = (
+				C582A66C251C5BE600DD83A1 /* PlayerAttributeMgr.h */,
+				C582A66D251C5BE600DD83A1 /* PlayerAttributeMgr.m */,
+			);
+			path = "播放器缓存管理";
+			sourceTree = "<group>";
+		};
+		C582A672251C714F00DD83A1 /* 网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				C582A697251C796400DD83A1 /* DataManager.h */,
+				C582A696251C796400DD83A1 /* DataManager.m */,
+				C582A698251C796400DD83A1 /* RequestTool.h */,
+				C582A699251C796400DD83A1 /* RequestTool.m */,
+				C582A67C251C719D00DD83A1 /* URL_Manager */,
+				C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */,
+				C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */,
+			);
+			path = "网络请求";
+			sourceTree = "<group>";
+		};
+		C582A67C251C719D00DD83A1 /* URL_Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C582A67E251C71A700DD83A1 /* URL_Manager.h */,
+				C582A67D251C71A700DD83A1 /* URL_Manager.m */,
+			);
+			path = URL_Manager;
 			sourceTree = "<group>";
 		};
 		C5E2934A251B020300ABAFE9 /* ⚽️PicResource */ = {
@@ -3079,11 +3128,13 @@
 				C54BB2B62518D363001591C2 /* LOTTrimPathNode.m in Sources */,
 				C54BB2B02518D363001591C2 /* LOTPointInterpolator.m in Sources */,
 				C54BB3052518D363001591C2 /* CADisplayLink_TimerManager.m in Sources */,
+				C582A66E251C5BE600DD83A1 /* PlayerAttributeMgr.m in Sources */,
 				C54BB2F02518D363001591C2 /* JhtBannerCardView.m in Sources */,
 				C54BB2912518D363001591C2 /* LOTGradientFillRender.m in Sources */,
 				C54BB3C12518D391001591C2 /* NSArray+Extension.m in Sources */,
 				C54BB3A72518D391001591C2 /* UIView+SuspendView.m in Sources */,
 				C54BB3D02518D391001591C2 /* CJTextField.m in Sources */,
+				C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */,
 				C54BB3C72518D391001591C2 /* NSObject+Random.m in Sources */,
 				C54BB29C2518D363001591C2 /* UIBezierPath.m in Sources */,
 				C54BB42A2518D3F6001591C2 /* UINavigationItem+GKCategory.m in Sources */,
@@ -3093,6 +3144,7 @@
 				C54BB2FC2518D363001591C2 /* ShowAvailableFont.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C54BB3AD2518D391001591C2 /* ViewForFooter.m in Sources */,
+				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
 				C54BB2CC2518D363001591C2 /* FMARCNetwork.m in Sources */,
 				C54BB3D52518D391001591C2 /* UITextField+Extend.m in Sources */,
 				C54BB2FD2518D363001591C2 /* PlaySound.m in Sources */,
@@ -3193,6 +3245,7 @@
 				C54BB29B2518D363001591C2 /* LOTBezierPath.m in Sources */,
 				C54BB3AF2518D391001591C2 /* NSString+Extras.m in Sources */,
 				C54BB2902518D363001591C2 /* LOTRenderNode.m in Sources */,
+				C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */,
 				C54BB2B22518D363001591C2 /* LOTCompositionContainer.m in Sources */,
 				C54BB3BC2518D391001591C2 /* BaseVC+OpenURL.m in Sources */,
 				C54BB2DA2518D363001591C2 /* CustomerAVPlayerView.m in Sources */,
@@ -3209,6 +3262,7 @@
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */,
+				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
 				C54BB3A02518D391001591C2 /* TBVCell_style_01.m in Sources */,
 				C54BB4232518D3F6001591C2 /* GKPushAnimatedTransition.m in Sources */,
 				C54BB2932518D363001591C2 /* LOTLayerGroup.m in Sources */,

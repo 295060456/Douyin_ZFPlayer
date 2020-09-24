@@ -6,7 +6,10 @@
 //
 
 #import "PlayerCell.h"
+
 #import "CustomZFPlayerControlView.h"
+#import "PlayerAttributeMgr.h"
+
 #import "ToolMacro.h"
 
 @interface PlayerCell (){
@@ -15,7 +18,7 @@
 
 @property(nonatomic,strong)UILabel *label;
 
-@property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
+@property(nonatomic,strong,nullable)PlayerAttributeMgr *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 @property(nonatomic,copy)TwoDataBlock playerCellBlock;
 
@@ -78,9 +81,9 @@
     }return _label;
 }
 
--(ZFAVPlayerManager *)playerManager{
+-(PlayerAttributeMgr *)playerManager{
     if (!_playerManager) {
-        _playerManager = ZFAVPlayerManager.new;
+        _playerManager = PlayerAttributeMgr.new;
         _playerManager.shouldAutoPlay = YES;
         
 //        _playerManager.assetURL = [NSURL URLWithString:@"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4"];
@@ -93,6 +96,7 @@
 //                                                                                             ofType:@"mp4"]];
 //        }
         if (kStatusBarHeight > 20.0) {
+            
             _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
                                                                                              ofType:@"mp4"]];
         }else{
@@ -137,11 +141,5 @@
 
     }return _customPlayerControlView;
 }
-
-//ZFPanMovingDirectionUnkown,
-//ZFPanMovingDirectionTop,
-//ZFPanMovingDirectionLeft,
-//ZFPanMovingDirectionBottom,
-//ZFPanMovingDirectionRight,
 
 @end

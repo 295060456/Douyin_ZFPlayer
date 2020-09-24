@@ -21,6 +21,7 @@
 @property(nonatomic,strong,nullable)PlayerAttributeMgr *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 @property(nonatomic,copy)TwoDataBlock playerCellBlock;
+@property(nonatomic,strong)VideoModel_Core *videoModel_Core;
 
 @end
 
@@ -60,6 +61,7 @@
     if ([model isKindOfClass:NSDictionary.class]) {
         NSDictionary *dic = (NSDictionary *)model;
         self.label.text = [NSString stringWithFormat:@"%d",[dic[@"index"] intValue]];
+        self.videoModel_Core = (VideoModel_Core *)dic[@"res"];
     }
 }
 
@@ -86,17 +88,11 @@
         _playerManager = PlayerAttributeMgr.new;
         _playerManager.shouldAutoPlay = YES;
         
-//        _playerManager.assetURL = [NSURL URLWithString:@"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4"];
+//        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";
+//
+//        _playerManager.assetURL = [NSURL URLWithString:self.videoModel_Core.videoIdcUrl];
 
-//        if ([[UIDevice platformString] containsString:@"iPhone 11"]) {
-//            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
-//                                                                                             ofType:@"mp4"]];
-//        }else{
-//            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"非iph_X"
-//                                                                                             ofType:@"mp4"]];
-//        }
-        if (kStatusBarHeight > 20.0) {
-            
+        if (kStatusBarHeight > 20.0) {//[[UIDevice platformString] containsString:@"iPhone 11"]
             _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
                                                                                              ofType:@"mp4"]];
         }else{

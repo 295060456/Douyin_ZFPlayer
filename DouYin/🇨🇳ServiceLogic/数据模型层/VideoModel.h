@@ -17,14 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *headImage;
 @property(nonatomic,strong)NSString *praiseNum;
 @property(nonatomic,strong)NSString *author;
-@property(nonatomic,strong)NSString *videoImg;
+@property(nonatomic,strong)NSString *videoImg;//图
 @property(nonatomic,strong)NSString *videoId;
 @property(nonatomic,strong)NSString *videoTitle;
 @property(nonatomic,strong)NSString *videoSize;
 @property(nonatomic,strong)NSString *isVip;
 @property(nonatomic,strong)NSString *commentNum;
 @property(nonatomic,strong)NSString *isAttention;
-@property(nonatomic,strong)NSString *videoIdcUrl;
+@property(nonatomic,strong)NSString *videoIdcUrl;//视频地址
 @property(nonatomic,strong)NSString *areSelf;
 @property(nonatomic,strong)NSString *publishTime;
 @property(nonatomic,strong)NSString *playNum;

@@ -18,7 +18,7 @@ UITableViewDataSource
 }
 
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSMutableArray *dataMutArr;
+@property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*__block dataMutArr;
 @property(nonatomic,assign)long __block currentIndex;
 
 @end
@@ -48,10 +48,14 @@ UITableViewDataSource
      证书设置
      */
     [RequestTool setupPublicParameters];
-//    @weakify(self)
+    @weakify(self)
     [NetworkingAPI requestVedioWithBlock:^(id data) {
-//        @strongify(self)
+        @strongify(self)
         NSLog(@"");
+        if ([data isKindOfClass:NSArray.class]) {
+            self.dataMutArr = (NSMutableArray *)data;
+        }
+        [self.tableView reloadData];
     }];
     
     self.tableView.alpha = 1;
@@ -166,7 +170,8 @@ numberOfRowsInSection:(NSInteger)section{
     PlayerCell *cell = [PlayerCell cellWith:tableView];
     cell.index = indexPath.row;
     [cell richElementsInCellWithModel:@{
-        @"index":@(indexPath.row)
+        @"index":@(indexPath.row),
+        @"res":self.dataMutArr[indexPath.row]
     }];
     
     self.currentIndex = indexPath.row;
@@ -252,39 +257,39 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
     }return _tableView;
 }
 
--(NSMutableArray *)dataMutArr{
+-(NSMutableArray<VideoModel_Core *> *)dataMutArr{
     if (!_dataMutArr) {
         _dataMutArr = NSMutableArray.array;
-        [_dataMutArr addObject:@"0"];
-        [_dataMutArr addObject:@"1"];
-        [_dataMutArr addObject:@"2"];
-        [_dataMutArr addObject:@"3"];
-        [_dataMutArr addObject:@"4"];
-        [_dataMutArr addObject:@"5"];
-        [_dataMutArr addObject:@"6"];
-        [_dataMutArr addObject:@"7"];
-        [_dataMutArr addObject:@"8"];
-        [_dataMutArr addObject:@"9"];
-        [_dataMutArr addObject:@"10"];
-        [_dataMutArr addObject:@"11"];
-        [_dataMutArr addObject:@"12"];
-        [_dataMutArr addObject:@"13"];
-        [_dataMutArr addObject:@"14"];
-        [_dataMutArr addObject:@"15"];
-        [_dataMutArr addObject:@"16"];
-        [_dataMutArr addObject:@"17"];
-        [_dataMutArr addObject:@"18"];
-        [_dataMutArr addObject:@"19"];
-        [_dataMutArr addObject:@"20"];
-        [_dataMutArr addObject:@"21"];
-        [_dataMutArr addObject:@"22"];
-        [_dataMutArr addObject:@"23"];
-        [_dataMutArr addObject:@"24"];
-        [_dataMutArr addObject:@"25"];
-        [_dataMutArr addObject:@"26"];
-        [_dataMutArr addObject:@"27"];
-        [_dataMutArr addObject:@"28"];
-        [_dataMutArr addObject:@"29"];
+//        [_dataMutArr addObject:@"0"];
+//        [_dataMutArr addObject:@"1"];
+//        [_dataMutArr addObject:@"2"];
+//        [_dataMutArr addObject:@"3"];
+//        [_dataMutArr addObject:@"4"];
+//        [_dataMutArr addObject:@"5"];
+//        [_dataMutArr addObject:@"6"];
+//        [_dataMutArr addObject:@"7"];
+//        [_dataMutArr addObject:@"8"];
+//        [_dataMutArr addObject:@"9"];
+//        [_dataMutArr addObject:@"10"];
+//        [_dataMutArr addObject:@"11"];
+//        [_dataMutArr addObject:@"12"];
+//        [_dataMutArr addObject:@"13"];
+//        [_dataMutArr addObject:@"14"];
+//        [_dataMutArr addObject:@"15"];
+//        [_dataMutArr addObject:@"16"];
+//        [_dataMutArr addObject:@"17"];
+//        [_dataMutArr addObject:@"18"];
+//        [_dataMutArr addObject:@"19"];
+//        [_dataMutArr addObject:@"20"];
+//        [_dataMutArr addObject:@"21"];
+//        [_dataMutArr addObject:@"22"];
+//        [_dataMutArr addObject:@"23"];
+//        [_dataMutArr addObject:@"24"];
+//        [_dataMutArr addObject:@"25"];
+//        [_dataMutArr addObject:@"26"];
+//        [_dataMutArr addObject:@"27"];
+//        [_dataMutArr addObject:@"28"];
+//        [_dataMutArr addObject:@"29"];
     }return _dataMutArr;
 }
 

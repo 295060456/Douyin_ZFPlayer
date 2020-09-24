@@ -39,6 +39,16 @@ UITableViewDataSource
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = KBrownColor;
+    
+    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
+    [DataManager sharedInstance].tag = ReuseIdentifier;
+    /**
+     公共配置
+     插件机制
+     证书设置
+     */
+    [RequestTool setupPublicParameters];
+    
     self.tableView.alpha = 1;
     [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = YES;
     [self monitorScrollView];

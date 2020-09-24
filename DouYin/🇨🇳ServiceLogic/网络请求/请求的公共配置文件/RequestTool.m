@@ -7,12 +7,11 @@
 //
 
 #import "RequestTool.h"
-#import "ZBNetworking.h"
-#import "DataManager.h"
 
 @implementation RequestTool
 
 +(void)setupPublicParameters{
+    
 #pragma mark —— 公共配置
     /**
      基础配置

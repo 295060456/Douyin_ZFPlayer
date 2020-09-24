@@ -6,12 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RequestTool.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkingAPI : NSObject
 
--(void)requestVedioWithBlock:(MKDataBlock)successBlock;
++(void)requestVedioWithBlock:(MKDataBlock)successBlock;
 
 @end
 

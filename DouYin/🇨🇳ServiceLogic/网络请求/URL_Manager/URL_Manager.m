@@ -20,10 +20,6 @@ static URL_Manager *static_URL_Manager = nil;
     }return static_URL_Manager;
 }
 
-- (NSString *)append:(NSString *)txt{
-    return txt;
-}
-
 -(NSString *)BaseUrl_1{
 
 //    return append(@"%@%@",HTTP,@"www.11wy.top/api");//线上服务 发布;

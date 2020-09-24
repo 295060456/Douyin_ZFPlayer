@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#define server_URL @"http://api.dotaly.com/lol/api/v1/"
-#define list_URL @"authors"
-
-#define details_URL @"shipin/latest"
+#import "ZBNetworking.h"
+#import "DataManager.h"
+#import "NetworkingConstant.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

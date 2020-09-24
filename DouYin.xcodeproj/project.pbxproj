@@ -103,9 +103,6 @@
 		C54BB2C82518D363001591C2 /* MKGPUImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1E72518D363001591C2 /* MKGPUImageView.m */; };
 		C54BB2C92518D363001591C2 /* GPUImageTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1E92518D363001591C2 /* GPUImageTools.m */; };
 		C54BB2CA2518D363001591C2 /* AVFounationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1EB2518D363001591C2 /* AVFounationTools.m */; };
-		C54BB2CB2518D363001591C2 /* FMHttpResonse.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F02518D363001591C2 /* FMHttpResonse.m */; };
-		C54BB2CC2518D363001591C2 /* FMARCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F52518D363001591C2 /* FMARCNetwork.m */; };
-		C54BB2CD2518D363001591C2 /* FMHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F82518D363001591C2 /* FMHttpRequest.m */; };
 		C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1FA2518D363001591C2 /* BWItemModel.m */; };
 		C54BB2CF2518D363001591C2 /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1FB2518D363001591C2 /* BWShareView.m */; };
 		C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB1FC2518D363001591C2 /* 分享控件的用法 */; };
@@ -942,6 +939,7 @@
 		C582A697251C796400DD83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
+		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C5E2934B251B021100ABAFE9 /* ShoppingCart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShoppingCart@3x.png"; sourceTree = "<group>"; };
 		C5E2934C251B021100ABAFE9 /* My@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "My@2x.png"; sourceTree = "<group>"; };
 		C5E2934D251B021100ABAFE9 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
@@ -2490,13 +2488,10 @@
 		C582A672251C714F00DD83A1 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
-				C582A697251C796400DD83A1 /* DataManager.h */,
-				C582A696251C796400DD83A1 /* DataManager.m */,
-				C582A698251C796400DD83A1 /* RequestTool.h */,
-				C582A699251C796400DD83A1 /* RequestTool.m */,
+				C582A6AC251C9B2500DD83A1 /* 请求的公共配置文件 */,
 				C582A67C251C719D00DD83A1 /* URL_Manager */,
-				C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */,
-				C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */,
+				C582A6AE251C9B5D00DD83A1 /* App 的所有网络请求Api */,
+				C582A6AD251C9B4300DD83A1 /* 存取页面数据 */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -2508,6 +2503,34 @@
 				C582A67D251C71A700DD83A1 /* URL_Manager.m */,
 			);
 			path = URL_Manager;
+			sourceTree = "<group>";
+		};
+		C582A6AC251C9B2500DD83A1 /* 请求的公共配置文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */,
+				C582A698251C796400DD83A1 /* RequestTool.h */,
+				C582A699251C796400DD83A1 /* RequestTool.m */,
+			);
+			path = "请求的公共配置文件";
+			sourceTree = "<group>";
+		};
+		C582A6AD251C9B4300DD83A1 /* 存取页面数据 */ = {
+			isa = PBXGroup;
+			children = (
+				C582A697251C796400DD83A1 /* DataManager.h */,
+				C582A696251C796400DD83A1 /* DataManager.m */,
+			);
+			path = "存取页面数据";
+			sourceTree = "<group>";
+		};
+		C582A6AE251C9B5D00DD83A1 /* App 的所有网络请求Api */ = {
+			isa = PBXGroup;
+			children = (
+				C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */,
+				C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */,
+			);
+			path = "App 的所有网络请求Api";
 			sourceTree = "<group>";
 		};
 		C5E2934A251B020300ABAFE9 /* ⚽️PicResource */ = {
@@ -3145,7 +3168,6 @@
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C54BB3AD2518D391001591C2 /* ViewForFooter.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
-				C54BB2CC2518D363001591C2 /* FMARCNetwork.m in Sources */,
 				C54BB3D52518D391001591C2 /* UITextField+Extend.m in Sources */,
 				C54BB2FD2518D363001591C2 /* PlaySound.m in Sources */,
 				C54BB3D22518D391001591C2 /* ZYTextField_01.m in Sources */,
@@ -3284,7 +3306,6 @@
 				C54BB2BB2518D363001591C2 /* LOTShapeFill.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
 				C54BB3A62518D391001591C2 /* UIView+Animation.m in Sources */,
-				C54BB2CD2518D363001591C2 /* FMHttpRequest.m in Sources */,
 				C54BB4342518D3F6001591C2 /* SDWebImageCodersManager.m in Sources */,
 				C54BB2A82518D363001591C2 /* LOTShapeRectangle.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
@@ -3301,7 +3322,6 @@
 				C54BB2A72518D363001591C2 /* LOTShapeRepeater.m in Sources */,
 				C54BB2B72518D363001591C2 /* LOTAnimatedSwitch.m in Sources */,
 				C54BB2942518D363001591C2 /* LOTBezierData.m in Sources */,
-				C54BB2CB2518D363001591C2 /* FMHttpResonse.m in Sources */,
 				C54BB1262518D0C0001591C2 /* BRResultModel.m in Sources */,
 				C5F15483251B16270029018C /* BaseVC+MJRefresh.m in Sources */,
 				C54BB2F72518D363001591C2 /* HistoryDataListTBV.m in Sources */,

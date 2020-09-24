@@ -245,6 +245,31 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         [_dataMutArr addObject:@"2"];
         [_dataMutArr addObject:@"3"];
         [_dataMutArr addObject:@"4"];
+        [_dataMutArr addObject:@"5"];
+        [_dataMutArr addObject:@"6"];
+        [_dataMutArr addObject:@"7"];
+        [_dataMutArr addObject:@"8"];
+        [_dataMutArr addObject:@"9"];
+        [_dataMutArr addObject:@"10"];
+        [_dataMutArr addObject:@"11"];
+        [_dataMutArr addObject:@"12"];
+        [_dataMutArr addObject:@"13"];
+        [_dataMutArr addObject:@"14"];
+        [_dataMutArr addObject:@"15"];
+        [_dataMutArr addObject:@"16"];
+        [_dataMutArr addObject:@"17"];
+        [_dataMutArr addObject:@"18"];
+        [_dataMutArr addObject:@"19"];
+        [_dataMutArr addObject:@"20"];
+        [_dataMutArr addObject:@"21"];
+        [_dataMutArr addObject:@"22"];
+        [_dataMutArr addObject:@"23"];
+        [_dataMutArr addObject:@"24"];
+        [_dataMutArr addObject:@"25"];
+        [_dataMutArr addObject:@"26"];
+        [_dataMutArr addObject:@"27"];
+        [_dataMutArr addObject:@"28"];
+        [_dataMutArr addObject:@"29"];
     }return _dataMutArr;
 }
 

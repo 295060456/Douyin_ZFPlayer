@@ -66,7 +66,8 @@ UITableViewDataSource
 }
 
 -(void)roll{
-    if (self.currentIndex <= self.dataMutArr.count + 1) {
+    if (self.currentIndex <= self.dataMutArr.count - 1 &&
+        self.currentIndex >= 0) {
         
         [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]
                                     animated:YES
@@ -129,7 +130,7 @@ UITableViewDataSource
 //    [self.tableView reloadData];
     //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
     self.tableView.pagingEnabled = NO;
-    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
 }
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
@@ -159,11 +160,20 @@ numberOfRowsInSection:(NSInteger)section{
                                   NSNumber *index) {
         @strongify(self)
         self.currentIndex = index.intValue;
-        if (direction.intValue) {//朝下
+        if (direction.intValue) {//手势朝下
             self.currentIndex -= 1;
-        }else{//朝上
+        }else{//手势朝上
             self.currentIndex += 1;
         }
+        
+        if (self.currentIndex < 0) {
+            self.currentIndex = 0;
+        }
+        
+        if (self.currentIndex > self.dataMutArr.count - 1) {
+            self.currentIndex = self.dataMutArr.count - 1;
+        }
+        
         NSLog(@"MMM = %ld",self.currentIndex);
         [self roll];
     }];

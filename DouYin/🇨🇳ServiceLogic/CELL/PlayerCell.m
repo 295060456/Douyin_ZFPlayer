@@ -83,22 +83,25 @@
     }return _label;
 }
 
--(PlayerAttributeMgr *)playerManager{
+-(PlayerAttributeMgr *)playerManager{//PlayerAttributeMgr  ZFAVPlayerManager
     if (!_playerManager) {
         _playerManager = PlayerAttributeMgr.new;
         _playerManager.shouldAutoPlay = YES;
         
-//        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";
-//
+        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";
+        _playerManager.assetURL = [NSURL URLWithString:str];
+        
+//        _playerManager.assetURL = [NSURL URLWithString:@"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4"];
+        
 //        _playerManager.assetURL = [NSURL URLWithString:self.videoModel_Core.videoIdcUrl];
-
-        if (kStatusBarHeight > 20.0) {//[[UIDevice platformString] containsString:@"iPhone 11"]
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
-                                                                                             ofType:@"mp4"]];
-        }else{
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"非iph_X"
-                                                                                             ofType:@"mp4"]];
-        }
+        
+//        if (kStatusBarHeight > 20.0) {//[[UIDevice platformString] containsString:@"iPhone 11"]
+//            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
+//                                                                                             ofType:@"mp4"]];
+//        }else{
+//            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"非iph_X"
+//                                                                                             ofType:@"mp4"]];
+//        }
     }return _playerManager;
 }
 

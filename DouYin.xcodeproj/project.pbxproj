@@ -261,6 +261,7 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
 		C55D4639251CE65B00E543D6 /* PlayerAttributeMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D4638251CE65B00E543D6 /* PlayerAttributeMgr.m */; };
@@ -931,6 +932,8 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
+		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -1103,13 +1106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C51D8DA3251B0816006958FF /* CELL */ = {
+		C51D8DA3251B0816006958FF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C554FE19251DC35B004C51BB /* MKRightBtnView.h */,
+				C554FE18251DC35B004C51BB /* MKRightBtnView.m */,
 				C51D8DA4251B0849006958FF /* PlayerCell.h */,
 				C51D8DA5251B0849006958FF /* PlayerCell.m */,
 			);
-			path = CELL;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
@@ -2313,7 +2318,7 @@
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
 				C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
-				C51D8DA3251B0816006958FF /* CELL */,
+				C51D8DA3251B0816006958FF /* View */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
 			path = "🇨🇳ServiceLogic";
@@ -3294,6 +3299,7 @@
 				C54BB29B2518D363001591C2 /* LOTBezierPath.m in Sources */,
 				C54BB3AF2518D391001591C2 /* NSString+Extras.m in Sources */,
 				C54BB2902518D363001591C2 /* LOTRenderNode.m in Sources */,
+				C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */,
 				C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */,
 				C54BB2B22518D363001591C2 /* LOTCompositionContainer.m in Sources */,
 				C54BB3BC2518D391001591C2 /* BaseVC+OpenURL.m in Sources */,

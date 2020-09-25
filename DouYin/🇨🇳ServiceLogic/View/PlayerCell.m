@@ -89,9 +89,9 @@
         _playerManager.shouldAutoPlay = YES;
         
 //        NSString *str = self.videoModel_Core.videoIdcUrl;//我们的服务器返回的地址，写死
-//        NSString *str = @"http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8";//测试HLS 流：
-        NSString *str = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";//可用
-//        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";//我们自己的服务器返回
+//        NSString *str = @"http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8";//测试HLS 流：ZFAVPlayerManager可以
+//        NSString *str = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";//可用
+        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";//我们自己的服务器返回
         NSURL *url = [NSURL URLWithString:str];
         
         _playerManager.assetURL = url;

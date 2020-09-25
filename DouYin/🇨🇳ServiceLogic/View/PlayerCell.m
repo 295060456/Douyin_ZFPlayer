@@ -18,7 +18,7 @@
 
 @property(nonatomic,strong)UILabel *label;
 
-@property(nonatomic,strong,nullable)PlayerAttributeMgr *playerManager;
+@property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 @property(nonatomic,copy)TwoDataBlock playerCellBlock;
 @property(nonatomic,strong)VideoModel_Core *videoModel_Core;
@@ -83,20 +83,26 @@
     }return _label;
 }
 
--(PlayerAttributeMgr *)playerManager{//PlayerAttributeMgr  ZFAVPlayerManager
+-(ZFAVPlayerManager *)playerManager{//PlayerAttributeMgr  ZFAVPlayerManager
     if (!_playerManager) {
-        _playerManager = PlayerAttributeMgr.new;
+        _playerManager = ZFAVPlayerManager.new;
         _playerManager.shouldAutoPlay = YES;
         
+        NSString *str = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";//苹果官方给出的测试地址；都可用
 //        NSString *str = self.videoModel_Core.videoIdcUrl;//我们的服务器返回的地址，写死
-//        NSString *str = @"http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8";//测试HLS 流：ZFAVPlayerManager可以
-//        NSString *str = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";//可用
-        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";//我们自己的服务器返回
-        NSURL *url = [NSURL URLWithString:str];
+//        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";//我们自己的服务器返回
+//        NSString *str = @"http://www.akixr.top:9000/bucket1-test/IMG_6154.MP4";//eddy 给我的可以在浏览器上播放的URL 但是在PlayerAttributeMgr不行；ZFAVPlayerManager可以
+//        NSString *str = @"http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8";//测试HLS 流：ZFAVPlayerManager可以;PlayerAttributeMgr不行
+        
+//        NSString *str = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+        
+//        NSURL *url = [NSURL URLWithString:str];
+        
+        NSURL *url = [VIResourceLoaderManager assetURLWithURL:[NSURL URLWithString:str]];
+        
+        NSString *temp = url.absoluteString;
         
         _playerManager.assetURL = url;
-        
-//    http://localhost:80/request.MP4?url=http%3A%2F%2Fwww.akixr.top%3A9000%2Fbucket1-dev%2FVIDEOS%2F2020081721%2F1290895585221619714%2FMP4%2F0013.MP4
         
         
 //        if (kStatusBarHeight > 20.0) {//[[UIDevice platformString] containsString:@"iPhone 11"]

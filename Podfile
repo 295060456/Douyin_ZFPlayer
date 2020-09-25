@@ -46,6 +46,7 @@ target 'DouYin' do
   pod 'ZFPlayer/AVPlayer'
   pod 'ZFPlayer/ijkplayer'
   pod 'KTVHTTPCache' # 边下边播
+  pod 'VIMediaCache' # https://github.com/vitoziv/VIMediaCache 边下边播
 
 
   target 'DouYinTests' do

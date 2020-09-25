@@ -88,12 +88,16 @@
         _playerManager = PlayerAttributeMgr.new;
         _playerManager.shouldAutoPlay = YES;
         
-        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";
-        _playerManager.assetURL = [NSURL URLWithString:str];
+//        NSString *str = self.videoModel_Core.videoIdcUrl;//我们的服务器返回的地址，写死
+//        NSString *str = @"http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8";//测试HLS 流：
+        NSString *str = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";//可用
+//        NSString *str = @"http://www.akixr.top:9000/bucket1-dev/VIDEOS/2020081721/1290895585221619714/MP4/0013.MP4";//我们自己的服务器返回
+        NSURL *url = [NSURL URLWithString:str];
         
-//        _playerManager.assetURL = [NSURL URLWithString:@"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4"];
+        _playerManager.assetURL = url;
         
-//        _playerManager.assetURL = [NSURL URLWithString:self.videoModel_Core.videoIdcUrl];
+//    http://localhost:80/request.MP4?url=http%3A%2F%2Fwww.akixr.top%3A9000%2Fbucket1-dev%2FVIDEOS%2F2020081721%2F1290895585221619714%2FMP4%2F0013.MP4
+        
         
 //        if (kStatusBarHeight > 20.0) {//[[UIDevice platformString] containsString:@"iPhone 11"]
 //            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"

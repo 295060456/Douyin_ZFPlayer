@@ -491,7 +491,7 @@ static NSString *const kPresentationSize         = @"presentationSize";
         _assetURL = url;
     }else {
         // 设置代理
-        _assetURL = [KTVHTTPCache proxyURLWithOriginalURL:assetURL];
+        _assetURL = [KTVHTTPCache proxyURLWithOriginalURL:assetURL];//
     }
     [self prepareToPlay];
 }

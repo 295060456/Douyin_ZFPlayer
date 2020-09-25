@@ -46,4 +46,6 @@
 #import <ZFPlayer/ZFUtilities.h>
 #import <ZFPlayer/ZFVolumeBrightnessView.h>
 
+#import <KTVHTTPCache/KTVHTTPCache.h>//边下边播
+
 #endif /* Pods_h */

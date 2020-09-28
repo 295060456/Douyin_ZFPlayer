@@ -30,7 +30,11 @@
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    return SCREEN_HEIGHT;
+    if ([model isKindOfClass:NSDictionary.class]) {//
+        NSDictionary *dic = (NSDictionary *)model;
+        UITableView *tbv = (UITableView *)dic[@"tableView"];
+        return tbv.mj_h;
+    }return SCREEN_HEIGHT;
 }
 
 -(void)richElementsInCellWithModel:(id _Nullable)model{

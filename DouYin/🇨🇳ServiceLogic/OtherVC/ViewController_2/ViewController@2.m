@@ -54,15 +54,16 @@ ZFDouYinCellDelegate
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kRedColor;
+    
+    self.gk_navTitle = @"1";
     self.gk_backStyle = GKNavigationBarBackStyleWhite;
-    self.gk_navBarAlpha = 0.3;
-    self.tableView.alpha = 1;
     [self loadNewData];
+    self.tableView.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
 }
 /*
  * 如果用户下拉,返回1;如果上拉快到底部时返回2
@@ -241,7 +242,7 @@ ZFDouYinCellDelegate
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ZFDouYinCell cellHeightWithModel:nil];
+    return [ZFDouYinCell cellHeightWithModel:@{@"tableView":tableView}];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView
@@ -300,10 +301,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.view);
-            if (self.gk_navigationBar) {
-                make.top.equalTo(self.view.mas_top);
-            }else{
+            if (self.gk_navBarAlpha) {
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }else{
+                make.top.equalTo(self.view.mas_top);
             }
             
             if ([SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden) {
@@ -331,7 +332,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _player.playerDisapperaPercent = 1.0;
         
         @zf_weakify(self)
-        _player.playerDidToEnd = ^(id  _Nonnull asset) {
+        _player.playerDidToEnd = ^(id _Nonnull asset) {
             @zf_strongify(self)
             [self->_player.currentPlayerManager replay];
         };
@@ -374,7 +375,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _player.playerBufferTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                             NSTimeInterval bufferTime) {
             @zf_strongify(self)
-            if ([_player.controlView isEqual:self.fullControlView]) {
+            if ([self->_player.controlView isEqual:self.fullControlView]) {
                 [self.controlView videoPlayer:self->_player
                                    bufferTime:bufferTime];
             } else if ([self->_player.controlView isEqual:self.controlView]) {

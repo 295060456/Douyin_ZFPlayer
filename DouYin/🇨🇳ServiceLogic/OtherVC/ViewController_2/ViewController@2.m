@@ -23,12 +23,8 @@ UITableViewDelegate,
 UITableViewDataSource,
 ZFDouYinCellDelegate
 >
-{
-    
-}
 
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)UIButton *backBtn;
 
 @property(nonatomic,strong)ZFPlayerController *player;
 @property(nonatomic,strong)ZFDouYinControlView *controlView;
@@ -55,79 +51,26 @@ ZFDouYinCellDelegate
     [super viewDidLoad];
     self.view.backgroundColor = kRedColor;
     
-    self.gk_navTitle = @"1";
     self.gk_backStyle = GKNavigationBarBackStyleWhite;
-    [self loadNewData];
+    self.gk_navLineHidden = YES;
+    self.gk_navTitle = @"密码找回";
+    self.gk_navTitleColor = kWhiteColor;
+    self.gk_navTitleFont = [UIFont systemFontOfSize:17
+                                             weight:UIFontWeightBold];
     self.tableView.alpha = 1;
+    [self requestData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self.tableView.mj_header beginRefreshing];
-}
-/*
- * 如果用户下拉,返回1;如果上拉快到底部时返回2
- * 并且在映射完成后用了distinctUntilChanged属性,当我的映射值不产生变化时是不会传递映射值的
- * 这样当用户拉倒需要刷新的位置,只会发一个信号给订阅者,只会执行一次刷新数据的方法
- */
--(void)monitorScrollView{
-    [[[RACObserve(self.tableView, contentOffset) map:^id(id value) {
-        if (self.tableView.contentOffset.y < - 50) {
-            //下拉刷新方法
-//            NSLog(@"1");
-            return @"1";
-        }
-        
-        if (self.tableView.contentOffset.y - self.tableView.contentSize.height < 80 &&
-            self.tableView.contentSize.height > 80) {
-            //上拉加载方法
-            self.tableView.mj_footer.hidden = NO;
-//            [self.tableView.mj_footer endRefreshingWithNoMoreData]; MJRefreshStateNoMoreData
-            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
-            [self.tableView.mj_footer endRefreshing];
-//            NSLog(@"2");
-            return @"2";
-        }else{
-//            NSLog(@"0");
-            return @"0";
-        }
-    }] distinctUntilChanged] subscribeNext:^(id x) {
-        NSLog(@"%@",x);
-        if ([x integerValue] == 1) {
-//            NSLog(@"↓");
-        }else if ([x integerValue] == 2){
-//            NSLog(@"↑");
-        }
-    }];
 }
 
-//-(void)delayMethods{
-//    self.tableView.mj_footer.state = MJRefreshStateIdle;
-//    self.tableView.mj_footer.hidden = YES;
-//    self.tableView.pagingEnabled = YES;
-////    [self.mj_footer endRefreshingWithNoMoreData];
-//}
-///下拉刷新
--(void)pullToRefresh{
-    NSLog(@"下拉刷新");
-    [self.tableView.mj_header endRefreshing];
-//
-}
-/////上拉加载更多
-//- (void)loadMoreRefresh{
-//    NSLog(@"上拉加载更多");
-////    [self.tableView reloadData];
-//    //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
-//    self.tableView.pagingEnabled = NO;
-//    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
-//}
-
--(void)loadNewData{
+- (void)loadNewData {
     [self.dataSource removeAllObjects];
     @zf_weakify(self)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(1 * NSEC_PER_SEC)),
-                   dispatch_get_main_queue(),
-                   ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+                                 (int64_t)(1 * NSEC_PER_SEC)),
+                   dispatch_get_main_queue(), ^{
         /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
         [self.player stopCurrentPlayingCell];
         [self requestData];
@@ -140,12 +83,10 @@ ZFDouYinCellDelegate
     });
 }
 
--(void)requestData{
+- (void)requestData {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:nil];
+    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
     NSArray *videoList = [rootDict objectForKey:@"list"];
     for (NSDictionary *dataDic in videoList) {
@@ -156,19 +97,17 @@ ZFDouYinCellDelegate
     [self.tableView.mj_header endRefreshing];
 }
 
--(void)playTheIndex:(NSInteger)index{
+- (void)playTheIndex:(NSInteger)index {
     @zf_weakify(self)
     /// 指定到某一行播放
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [self.tableView scrollToRowAtIndexPath:indexPath
-                          atScrollPosition:UITableViewScrollPositionNone
-                                  animated:NO];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:NO];
     [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
         @zf_strongify(self)
         [self playTheVideoAtIndexPath:indexPath];
     }];
     /// 如果是最后一行，去请求新数据
-    if (index == self.dataSource.count - 1) {
+    if (index == self.dataSource.count-1) {
         /// 加载下一页数据
         [self requestData];
         [self.tableView reloadData];

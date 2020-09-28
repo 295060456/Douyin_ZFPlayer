@@ -1137,15 +1137,6 @@
 		C51D8DA3251B0816006958FF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5C339472521DCCF00F8CC53 /* 分享@2x.png */,
-				C5C339462521DCCF00F8CC53 /* 分享@3x.png */,
-				C5C3393F2521DC9B00F8CC53 /* 信息@2x.png */,
-				C5C339402521DC9B00F8CC53 /* 信息@3x.png */,
-				C5C339382521DC6400F8CC53 /* 喜欢-未点击@2x.png */,
-				C5C339392521DC6400F8CC53 /* 喜欢-未点击@3x.png */,
-				C5ED33352521B1B9001A04FE /* 1.jpg */,
-				C554FE19251DC35B004C51BB /* MKRightBtnView.h */,
-				C554FE18251DC35B004C51BB /* MKRightBtnView.m */,
 				C51D8DA4251B0849006958FF /* PlayerCell.h */,
 				C51D8DA5251B0849006958FF /* PlayerCell.m */,
 			);
@@ -1164,6 +1155,7 @@
 		C542A391251B6C77007B5F88 /* ViewController_1 */ = {
 			isa = PBXGroup;
 			children = (
+				C51D8DA3251B0816006958FF /* View */,
 				C54BB4F62518E398001591C2 /* ViewController@1.h */,
 				C54BB4FD2518E398001591C2 /* ViewController@1.m */,
 			);
@@ -2351,7 +2343,6 @@
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
 				C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
-				C51D8DA3251B0816006958FF /* View */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
 			path = "🇨🇳ServiceLogic";
@@ -2588,10 +2579,33 @@
 			path = "App 的所有网络请求Api";
 			sourceTree = "<group>";
 		};
+		C5C3397C2522238E00F8CC53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C554FE19251DC35B004C51BB /* MKRightBtnView.h */,
+				C554FE18251DC35B004C51BB /* MKRightBtnView.m */,
+				C5ED33502521C137001A04FE /* ZFCustomControlView.h */,
+				C5ED334F2521C137001A04FE /* ZFCustomControlView.m */,
+				C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */,
+				C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */,
+				C5ED33832521C842001A04FE /* ZFDouYinCell.h */,
+				C5ED33842521C842001A04FE /* ZFDouYinCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C5E2934A251B020300ABAFE9 /* ⚽️PicResource */ = {
 			isa = PBXGroup;
 			children = (
+				C5ED33922521CB78001A04FE /* loading_bgView.png */,
 				C5E4F7C6251B0E6900F7F205 /* 刷新 */,
+				C5C339472521DCCF00F8CC53 /* 分享@2x.png */,
+				C5C339462521DCCF00F8CC53 /* 分享@3x.png */,
+				C5C3393F2521DC9B00F8CC53 /* 信息@2x.png */,
+				C5C339402521DC9B00F8CC53 /* 信息@3x.png */,
+				C5C339382521DC6400F8CC53 /* 喜欢-未点击@2x.png */,
+				C5C339392521DC6400F8CC53 /* 喜欢-未点击@3x.png */,
+				C5ED33352521B1B9001A04FE /* 1.jpg */,
 				C51D8DAD251B0CC3006958FF /* 官方@2x.png */,
 				C51D8DAE251B0CC3006958FF /* 官方@3x.png */,
 				C5E29351251B021200ABAFE9 /* 摄像机.png */,
@@ -2747,17 +2761,11 @@
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
 			isa = PBXGroup;
 			children = (
-				C5ED33922521CB78001A04FE /* loading_bgView.png */,
 				C5ED33892521C87B001A04FE /* data */,
+				C5C3397C2522238E00F8CC53 /* View */,
 				C5ED33552521C2A7001A04FE /* ZFDouYinCellDelegate.h */,
-				C5ED33502521C137001A04FE /* ZFCustomControlView.h */,
-				C5ED334F2521C137001A04FE /* ZFCustomControlView.m */,
-				C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */,
-				C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */,
 				C54BB4FE2518E398001591C2 /* ViewController@2.h */,
 				C54BB4FA2518E398001591C2 /* ViewController@2.m */,
-				C5ED33832521C842001A04FE /* ZFDouYinCell.h */,
-				C5ED33842521C842001A04FE /* ZFDouYinCell.m */,
 			);
 			path = ViewController_2;
 			sourceTree = "<group>";

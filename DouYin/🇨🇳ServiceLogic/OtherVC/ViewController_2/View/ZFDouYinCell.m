@@ -65,6 +65,7 @@
     if (!_coverImageView) {
         _coverImageView = UIImageView.new;
         _coverImageView.userInteractionEnabled = YES;
+        _coverImageView.tag = 100;//不写这个光有声音没有图像
         _coverImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_coverImageView];
         [_coverImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,12 +77,12 @@
 -(MKRightBtnView *)rbView{
     if (!_rbView) {
         _rbView = MKRightBtnView.new;
-        _rbView.MKRightBtnViewSize = CGSizeMake(50, SCREEN_HEIGHT/ 3);
+        _rbView.MKRightBtnViewSize = CGSizeMake(50, SCREEN_HEIGHT/ 4);
         _rbView.offset = 15;
         [self.contentView addSubview:_rbView];
         [_rbView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(50, SCREEN_HEIGHT/ 3));//
+            make.size.mas_equalTo(CGSizeMake(50, SCREEN_HEIGHT/ 4));//
         }];
     }return _rbView;
 }

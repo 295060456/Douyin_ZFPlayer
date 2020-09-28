@@ -11,10 +11,13 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(readonly,strong)NSPersistentCloudKitContainer *persistentContainer;
+@property(nonatomic,assign)BOOL allowOrentitaionRotation;
+
++(AppDelegate *)sharedInstance;
 
 -(void)saveContext;
 
-+(AppDelegate *)sharedInstance;
+
 
 @end
 

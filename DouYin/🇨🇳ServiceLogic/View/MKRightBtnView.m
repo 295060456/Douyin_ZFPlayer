@@ -96,7 +96,7 @@
         [self.mutArr addObject:_mkZanView];
 //        [self layoutIfNeeded];
         [_mkZanView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                            imageTitleSpace:5];
+                                    imageTitleSpace:5];
     }return _mkZanView;
 }
 
@@ -105,7 +105,8 @@
         _mkCommentView = UIButton.new;
         [_mkCommentView setTitle:@"评论" forState:UIControlStateNormal];
         [_mkCommentView setImage:kIMG(@"信息") forState:UIControlStateNormal];
-        _mkCommentView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+        _mkCommentView.titleLabel.font = [UIFont systemFontOfSize:12
+                                                           weight:UIFontWeightRegular];
         @weakify(self)
         [[_mkCommentView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
@@ -122,13 +123,12 @@
         [_mkCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
             make.height.mas_equalTo(self.MKRightBtnViewSize.width);
-            make.top.equalTo(self.mutArr.lastObject.mas_bottom);
+            make.top.equalTo(self.mutArr.lastObject.mas_bottom).offset(self.offset);
         }];
         [self.mutArr addObject:_mkCommentView];
         [self layoutIfNeeded];
         [_mkCommentView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                             imageTitleSpace:5];
-        
     }return _mkCommentView;
 }
 
@@ -154,7 +154,7 @@
         [_mkShareView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
             make.height.mas_equalTo(self.MKRightBtnViewSize.width);
-            make.top.equalTo(self.mutArr.lastObject.mas_bottom);
+            make.top.equalTo(self.mutArr.lastObject.mas_bottom).offset(self.offset);
         }];
         [self.mutArr addObject:_mkShareView];
         [self layoutIfNeeded];
@@ -168,6 +168,12 @@
     if (!_mutArr) {
         _mutArr = NSMutableArray.array;
     }return _mutArr;
+}
+
+-(CGFloat)offset{
+    if (_offset == 0) {
+        _offset = (self.MKRightBtnViewSize.height - self.MKRightBtnViewSize.width * 3) / 2;
+    }return _offset;
 }
 
 @end

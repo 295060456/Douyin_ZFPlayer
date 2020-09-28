@@ -59,7 +59,6 @@ UITableViewDataSource
     }];
     
     self.tableView.alpha = 1;
-    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = YES;
     [self monitorScrollView];
 }
 
@@ -72,7 +71,8 @@ UITableViewDataSource
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.currentIndex = 0;//此时cell的第一次生命周期走完，置零
-
+    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = NO;
+    [self.view bringSubviewToFront:[SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBar];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -250,9 +250,20 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         }
 
         [self.view addSubview:_tableView];
-        extern CGFloat LZB_TABBAR_HEIGHT;
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
+            make.left.right.equalTo(self.view);
+            if (self.gk_navigationBar) {
+                make.top.equalTo(self.view.mas_top);
+            }else{
+                make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }
+            
+            if ([SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden) {
+                make.bottom.equalTo(self.view.mas_bottom);
+            }else{
+                extern CGFloat LZB_TABBAR_HEIGHT;
+                make.bottom.equalTo(self.view.mas_bottom).offset(-LZB_TABBAR_HEIGHT);
+            }
         }];
     }return _tableView;
 }

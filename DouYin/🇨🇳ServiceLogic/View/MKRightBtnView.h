@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
 @property(nonatomic,strong)NSString *CommentNumStr;//评论的数量
 @property(nonatomic,assign)BOOL isSelected;
 @property(nonatomic,assign)CGSize MKRightBtnViewSize;
+@property(nonatomic,assign)CGFloat offset;
 
 //点击的是哪一个按钮
 -(void)actionBlockMKRightBtnView:(MKDataBlock)MKRightBtnViewBlock;

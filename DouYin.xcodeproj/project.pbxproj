@@ -264,7 +264,6 @@
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
-		C55D4639251CE65B00E543D6 /* PlayerAttributeMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D4638251CE65B00E543D6 /* PlayerAttributeMgr.m */; };
 		C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A67D251C71A700DD83A1 /* URL_Manager.m */; };
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
 		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
@@ -392,6 +391,7 @@
 		C5E4F8C1251B0F8000F7F205 /* gif_header_51@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E4F88A251B0F8000F7F205 /* gif_header_51@3x.png */; };
 		C5E4F8C2251B0F8000F7F205 /* gif_header_43@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E4F88B251B0F8000F7F205 /* gif_header_43@3x.png */; };
 		C5E4F8C3251B0F8000F7F205 /* gif_header_2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E4F88C251B0F8000F7F205 /* gif_header_2@3x.png */; };
+		C5ED33362521B1B9001A04FE /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5ED33352521B1B9001A04FE /* 1.jpg */; };
 		C5F15483251B16270029018C /* BaseVC+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F15482251B16270029018C /* BaseVC+MJRefresh.m */; };
 		E02313BA119E3F33410DB620 /* Pods_DouYin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */; };
 /* End PBXBuildFile section */
@@ -938,8 +938,6 @@
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
-		C55D4637251CE65B00E543D6 /* PlayerAttributeMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerAttributeMgr.h; sourceTree = "<group>"; };
-		C55D4638251CE65B00E543D6 /* PlayerAttributeMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerAttributeMgr.m; sourceTree = "<group>"; };
 		C582A67D251C71A700DD83A1 /* URL_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Manager.m; sourceTree = "<group>"; };
 		C582A67E251C71A700DD83A1 /* URL_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URL_Manager.h; sourceTree = "<group>"; };
 		C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingAPI.h; sourceTree = "<group>"; };
@@ -1072,6 +1070,7 @@
 		C5E4F88A251B0F8000F7F205 /* gif_header_51@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gif_header_51@3x.png"; sourceTree = "<group>"; };
 		C5E4F88B251B0F8000F7F205 /* gif_header_43@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gif_header_43@3x.png"; sourceTree = "<group>"; };
 		C5E4F88C251B0F8000F7F205 /* gif_header_2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gif_header_2@3x.png"; sourceTree = "<group>"; };
+		C5ED33352521B1B9001A04FE /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		C5F15481251B16270029018C /* BaseVC+MJRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseVC+MJRefresh.h"; sourceTree = "<group>"; };
 		C5F15482251B16270029018C /* BaseVC+MJRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseVC+MJRefresh.m"; sourceTree = "<group>"; };
 		EFD7FDAF10237E80D4FE07BB /* Pods-DouYin-DouYinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin-DouYinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1109,6 +1108,7 @@
 		C51D8DA3251B0816006958FF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C5ED33352521B1B9001A04FE /* 1.jpg */,
 				C554FE19251DC35B004C51BB /* MKRightBtnView.h */,
 				C554FE18251DC35B004C51BB /* MKRightBtnView.m */,
 				C51D8DA4251B0849006958FF /* PlayerCell.h */,
@@ -2499,19 +2499,9 @@
 			path = "数据模型层";
 			sourceTree = "<group>";
 		};
-		C55D4630251CE5BB00E543D6 /* temp */ = {
-			isa = PBXGroup;
-			children = (
-				C55D4637251CE65B00E543D6 /* PlayerAttributeMgr.h */,
-				C55D4638251CE65B00E543D6 /* PlayerAttributeMgr.m */,
-			);
-			path = temp;
-			sourceTree = "<group>";
-		};
 		C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */ = {
 			isa = PBXGroup;
 			children = (
-				C55D4630251CE5BB00E543D6 /* temp */,
 			);
 			path = "播放器缓存管理";
 			sourceTree = "<group>";
@@ -2877,6 +2867,7 @@
 				C54BB2EB2518D363001591C2 /* day_like_red@2x.png in Resources */,
 				C5E4F823251B0F6E00F7F205 /* gif_header_44@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
+				C5ED33362521B1B9001A04FE /* 1.jpg in Resources */,
 				C5E4F899251B0F8000F7F205 /* gif_header_50@3x.png in Resources */,
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
@@ -3311,7 +3302,6 @@
 				C54BB2C92518D363001591C2 /* GPUImageTools.m in Sources */,
 				C54BB2B92518D363001591C2 /* LOTRoundedRectAnimator.m in Sources */,
 				C54BB1232518D0C0001591C2 /* BRDatePickerView+BR.m in Sources */,
-				C55D4639251CE65B00E543D6 /* PlayerAttributeMgr.m in Sources */,
 				C54BB28C2518D363001591C2 /* LOTRenderGroup.m in Sources */,
 				C54BB3CA2518D391001591C2 /* NSObject+Sound.m in Sources */,
 				C54BB1222518D0C0001591C2 /* NSBundle+BRPickerView.m in Sources */,

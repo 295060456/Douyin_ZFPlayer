@@ -156,22 +156,22 @@ CGFloat LZB_TABBAR_HEIGHT;
 -(NSMutableArray<UIImage *> *)customUnselectedImgMutArr{
     if (!_customUnselectedImgMutArr) {
         _customUnselectedImgMutArr = NSMutableArray.array;
-        [_customUnselectedImgMutArr addObject:kIMG(@"Home")];
-        [_customUnselectedImgMutArr addObject:kIMG(@"MyStore")];
-        [_customUnselectedImgMutArr addObject:kIMG(@"摄像机")];
-        [_customUnselectedImgMutArr addObject:kIMG(@"ShoppingCart")];
-        [_customUnselectedImgMutArr addObject:kIMG(@"My")];
+        [_customUnselectedImgMutArr addObject:KIMG(@"Home")];
+        [_customUnselectedImgMutArr addObject:KIMG(@"MyStore")];
+        [_customUnselectedImgMutArr addObject:KIMG(@"摄像机")];
+        [_customUnselectedImgMutArr addObject:KIMG(@"ShoppingCart")];
+        [_customUnselectedImgMutArr addObject:KIMG(@"My")];
     }return _customUnselectedImgMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)customSelectedImgMutArr{
     if (!_customSelectedImgMutArr) {
         _customSelectedImgMutArr = NSMutableArray.array;
-        [_customSelectedImgMutArr addObject:kIMG(@"Home")];
-        [_customSelectedImgMutArr addObject:kIMG(@"MyStore")];
-        [_customSelectedImgMutArr addObject:kIMG(@"摄像机")];
-        [_customSelectedImgMutArr addObject:kIMG(@"ShoppingCart")];
-        [_customSelectedImgMutArr addObject:kIMG(@"My")];
+        [_customSelectedImgMutArr addObject:KIMG(@"Home")];
+        [_customSelectedImgMutArr addObject:KIMG(@"MyStore")];
+        [_customSelectedImgMutArr addObject:KIMG(@"摄像机")];
+        [_customSelectedImgMutArr addObject:KIMG(@"ShoppingCart")];
+        [_customSelectedImgMutArr addObject:KIMG(@"My")];
     }return _customSelectedImgMutArr;
 }
 

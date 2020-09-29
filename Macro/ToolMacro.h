@@ -191,9 +191,6 @@ alpha:1] \
 #pragma mark ======================================== 字体 ========================================
 #define kFontSize(x) [UIFont systemFontOfSize:x]
 
-#pragma mark ======================================== 图片 ========================================
-#define kIMG(imgName) [UIImage imageNamed:imgName]
-
 #pragma mark ======================================== 尺寸相关 ========================================
 #define isiPhoneX_seriesBottom 34
 #define isiPhoneX_seriesTop 44

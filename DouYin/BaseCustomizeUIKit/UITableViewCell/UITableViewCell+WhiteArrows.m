@@ -14,7 +14,7 @@
     [super didMoveToSuperview];
     // 全局替换右侧箭头
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-        UIImageView *i = [[UIImageView alloc] initWithImage:kIMG(@"WhiteRightArrow")];
+        UIImageView *i = [[UIImageView alloc] initWithImage:KIMG(@"WhiteRightArrow")];
         self.accessoryView = i;
     }
 }

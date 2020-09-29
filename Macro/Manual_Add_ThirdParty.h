@@ -57,6 +57,8 @@
 //UIColor
 #import "UIColor+Hex.h"
 
+#import "LoadingImage.h"
+
 #import "ToolMacro.h"
 #import "UIButton+ImageTitleSpacing.h"
 #import "NSTimerManager.h"

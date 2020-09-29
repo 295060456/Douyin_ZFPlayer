@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_END
 //forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    // 不用系统自带的箭头
 //    if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-//        UIImage *arrowImage = kIMG(@"WhiteRightArrow");
+//        UIImage *arrowImage = KIMG(@"WhiteRightArrow");
 //        UIImageView *arrowImageView = [[UIImageView alloc] initWithImage:arrowImage];
 //        cell.accessoryView = arrowImageView;
 //    }

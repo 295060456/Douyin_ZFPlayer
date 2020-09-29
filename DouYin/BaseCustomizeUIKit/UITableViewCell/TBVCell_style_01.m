@@ -65,13 +65,13 @@
         _tableViewHeader =  [MJRefreshGifHeader headerWithRefreshingTarget:self
                                                           refreshingAction:@selector(pullToRefresh)];
         // 设置普通状态的动画图片
-        [_tableViewHeader setImages:@[kIMG(@"catFoods")]
+        [_tableViewHeader setImages:@[KIMG(@"catFoods")]
                            forState:MJRefreshStateIdle];
         // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-        [_tableViewHeader setImages:@[kIMG(@"kitty")]
+        [_tableViewHeader setImages:@[KIMG(@"kitty")]
                            forState:MJRefreshStatePulling];
         // 设置正在刷新状态的动画图片
-        [_tableViewHeader setImages:@[kIMG(@"catClaw")]
+        [_tableViewHeader setImages:@[KIMG(@"catClaw")]
                            forState:MJRefreshStateRefreshing];
         // 设置文字
         [_tableViewHeader setTitle:@"Click or drag down to refresh" forState:MJRefreshStateIdle];
@@ -89,13 +89,13 @@
         _tableViewFooter = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self
                                                                 refreshingAction:@selector(loadMoreRefresh)];
         // 设置普通状态的动画图片
-        [_tableViewFooter setImages:@[kIMG(@"catFoods")]
+        [_tableViewFooter setImages:@[KIMG(@"catFoods")]
                            forState:MJRefreshStateIdle];
         // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-        [_tableViewFooter setImages:@[kIMG(@"kitty")]
+        [_tableViewFooter setImages:@[KIMG(@"kitty")]
                            forState:MJRefreshStatePulling];
         // 设置正在刷新状态的动画图片
-        [_tableViewFooter setImages:@[kIMG(@"catClaw")]
+        [_tableViewFooter setImages:@[KIMG(@"catClaw")]
                            forState:MJRefreshStateRefreshing];
         // 设置文字
         [_tableViewFooter setTitle:@"Click or drag up to refresh" forState:MJRefreshStateIdle];

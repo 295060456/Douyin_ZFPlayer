@@ -73,8 +73,8 @@
         _mkZanView = UIButton.new;
         [_mkZanView setTitle:[NSString ensureNonnullString:self.ZanNumStr ReplaceStr:@"点赞"]
                     forState:UIControlStateNormal];
-        [_mkZanView setImage:kIMG(@"喜欢-未点击") forState:UIControlStateNormal];
-        [_mkZanView setImage:kIMG(@"喜欢-点击") forState:UIControlStateSelected];
+        [_mkZanView setImage:KIMG(@"喜欢-未点击") forState:UIControlStateNormal];
+        [_mkZanView setImage:KIMG(@"喜欢-点击") forState:UIControlStateSelected];
         _mkZanView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         @weakify(self)
         [[_mkZanView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
@@ -104,7 +104,7 @@
     if (!_mkCommentView) {
         _mkCommentView = UIButton.new;
         [_mkCommentView setTitle:@"评论" forState:UIControlStateNormal];
-        [_mkCommentView setImage:kIMG(@"信息") forState:UIControlStateNormal];
+        [_mkCommentView setImage:KIMG(@"信息") forState:UIControlStateNormal];
         _mkCommentView.titleLabel.font = [UIFont systemFontOfSize:12
                                                            weight:UIFontWeightRegular];
         @weakify(self)
@@ -136,7 +136,7 @@
     if (!_mkShareView) {
         _mkShareView = UIButton.new;
 
-        [_mkShareView setImage:kIMG(@"分享") forState:UIControlStateNormal];
+        [_mkShareView setImage:KIMG(@"分享") forState:UIControlStateNormal];
         _mkShareView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         @weakify(self)
         [[_mkShareView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {

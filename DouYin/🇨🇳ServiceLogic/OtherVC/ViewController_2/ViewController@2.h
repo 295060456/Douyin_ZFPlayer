@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewController_2 : BaseVC
 
-- (void)playTheIndex:(NSInteger)index;
+-(void)playTheIndex:(NSInteger)index;
 
 @end
 

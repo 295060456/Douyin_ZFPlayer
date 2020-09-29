@@ -959,6 +959,7 @@
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
+		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
 		C5C339382521DC6400F8CC53 /* 喜欢-未点击@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "喜欢-未点击@2x.png"; sourceTree = "<group>"; };
 		C5C339392521DC6400F8CC53 /* 喜欢-未点击@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "喜欢-未点击@3x.png"; sourceTree = "<group>"; };
 		C5C3393F2521DC9B00F8CC53 /* 信息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "信息@2x.png"; sourceTree = "<group>"; };
@@ -2031,6 +2032,7 @@
 		C54BB30B2518D390001591C2 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				C58FDFBF252340DE00E020D3 /* LoadingImage.h */,
 				C54BB3152518D390001591C2 /* UIImage+Extras.h */,
 				C54BB3112518D390001591C2 /* UIImage+Extras.m */,
 				C54BB30F2518D390001591C2 /* UIImage+Overlay.h */,

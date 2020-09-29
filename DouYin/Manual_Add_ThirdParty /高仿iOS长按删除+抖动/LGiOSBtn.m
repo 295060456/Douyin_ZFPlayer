@@ -29,7 +29,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self setImage:kIMG(@"加号")
+        [self setImage:KIMG(@"加号")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -38,7 +38,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder{
     if (self = [super initWithCoder:coder]) {
-        [self setImage:kIMG(@"加号")
+        [self setImage:KIMG(@"加号")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -47,7 +47,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        [self setImage:kIMG(@"加号")
+        [self setImage:KIMG(@"加号")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -94,7 +94,7 @@
 }
 
 - (void)longClick {
-    if (![self.imageView.image isEqual:kIMG(@"加号")]) {
+    if (![self.imageView.image isEqual:KIMG(@"加号")]) {
         if (self.shaking) return;
         self.shaking = YES;
     }
@@ -113,7 +113,7 @@
 #pragma mark —— lazyLoad
 - (UIImageView *)iconBtn {
     if (!_iconBtn) {
-        _iconBtn = [[UIImageView alloc] initWithImage:kIMG(@"del_Photo")];
+        _iconBtn = [[UIImageView alloc] initWithImage:KIMG(@"del_Photo")];
         _iconBtn.userInteractionEnabled = YES;
         _iconBtn.ableRespose = YES;
         [_iconBtn addGestureRecognizer:self.iconBtnTap];

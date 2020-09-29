@@ -57,16 +57,16 @@
         mjRefreshGifHeader = [MJRefreshGifHeader headerWithRefreshingTarget:self
                                                            refreshingAction:@selector(pullToRefresh)];
         // 设置普通状态的动画图片
-        [mjRefreshGifHeader setImages:@[kIMG(@"官方")]
+        [mjRefreshGifHeader setImages:@[KIMG(@"官方")]
                              forState:MJRefreshStateIdle];
         // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-        [mjRefreshGifHeader setImages:@[kIMG(@"Indeterminate Spinner - Small")]
+        [mjRefreshGifHeader setImages:@[KIMG(@"Indeterminate Spinner - Small")]
                              forState:MJRefreshStatePulling];
         // 设置正在刷新状态的动画图片
         NSMutableArray *dataMutArr = NSMutableArray.array;
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
-            [dataMutArr addObject:kIMG(str)];
+            [dataMutArr addObject:KIMG(str)];
         }
 
         [mjRefreshGifHeader setImages:dataMutArr
@@ -113,20 +113,20 @@
         // 设置颜色
         mjRefreshAutoGifFooter.stateLabel.textColor = KLightGrayColor;
         /** 普通闲置状态 */
-        [mjRefreshAutoGifFooter setImages:@[kIMG(@"官方")]
+        [mjRefreshAutoGifFooter setImages:@[KIMG(@"官方")]
                                  forState:MJRefreshStateIdle];
         [mjRefreshAutoGifFooter setTitle:@"Click or drag up to refresh"
                                 forState:MJRefreshStateIdle];
         
         /** 松开就可以进行刷新的状态 */
-        [mjRefreshAutoGifFooter setImages:@[kIMG(@"Indeterminate Spinner - Small")]
+        [mjRefreshAutoGifFooter setImages:@[KIMG(@"Indeterminate Spinner - Small")]
                                  forState:MJRefreshStatePulling];
         
         /** 正在刷新中的状态 */
         NSMutableArray *dataMutArr = NSMutableArray.array;
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
-            [dataMutArr addObject:kIMG(str)];
+            [dataMutArr addObject:KIMG(str)];
         }
 
         [mjRefreshAutoGifFooter setImages:dataMutArr

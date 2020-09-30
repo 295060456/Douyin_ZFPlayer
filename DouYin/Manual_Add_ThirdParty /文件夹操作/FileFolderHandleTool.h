@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <Photos/Photos.h> 
+#import <Photos/Photos.h>
 
 typedef enum : NSUInteger {
     TXT = 0,
@@ -91,19 +91,21 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSDate *)modificationDateOfItemAtPath:(NSString *)path
                                   error:(NSError *__autoreleasing *)error;
 #pragma mark —— 写入文件内容
-/// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件
-+(id)bundleFile:(NSString *)bundleFileName
-bundleFileSuffix:(NSString *)bundleFileSuffix
+/// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件 默认是以本App mainBundle 为路径
+/// @param bundleFileName 本App的mainBundle之下的Bundle实体名字
+/// @param bundleFileSuffix 中间层路径：
+/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
++(id)bundleFile:(NSString *__nullable)bundleFileName
+bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
        fileType:(FileType)fileType;
 /// 将bundle里面的文件写进手机本地文件
 /// @param bundleFileName bundle文件名
-/// @param bundleFileSuffix bundle 文件后缀名
 /// @param LocalFileName 被写入的本地文件名 前提要有空白文件，否则写入失败
-/// @param LocalFileSuffix 被写入的本地文件后缀
-+(NSString *)BundleFile:(NSString *)bundleFileName
-       bundleFileSuffix:(NSString *)bundleFileSuffix
+/// @param LocalFileSuffix 中间层路径：
+/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
++(NSString *)BundleFile:(NSString *__nullable)bundleFileName
             ToLocalFile:(NSString *)LocalFileName
-        localFileSuffix:(NSString *)LocalFileSuffix
+        localFileSuffix:(NSString *__nonnull)LocalFileSuffix
                fileType:(FileType)fileType;
 ///写入文件内容：按照文件路径向文件写入内容，内容可为数组、字典、NSData等等
 /*参数1：要写入的文件路径
@@ -223,7 +225,7 @@ bundleFileSuffix:(NSString *)bundleFileSuffix
 ///保存视频资源文件到指定的相册路径，这里是整个App名字的相册
 +(void)saveRes:(NSURL *)movieURL;
 ///是否存在此相册判断逻辑依据
-+(BOOL)isAlbumExistFolder:(NSString *)folderName;
++(BOOL)isExistFolder:(NSString *)folderName;
 ///保存文件到系统默认的相册
 +(void)saveVideo:(NSString *)videoPath;
 +(void)saveImage:(UIImage *)image;

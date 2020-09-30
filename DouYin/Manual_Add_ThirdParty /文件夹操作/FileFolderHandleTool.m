@@ -191,13 +191,24 @@
                                            error:error];
 }
 #pragma mark —— 写入文件内容
-/// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件
-+(id)bundleFile:(NSString *)bundleFileName
-bundleFileSuffix:(NSString *)bundleFileSuffix
+/// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件 默认是以本App mainBundle 为路径
+/// @param bundleFileName 本App的mainBundle之下的Bundle实体名字
+/// @param bundleFileSuffix 中间层路径：
+/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
++(id)bundleFile:(NSString *__nullable)bundleFileName
+bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
        fileType:(FileType)fileType{
     //获取bundle路径
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:bundleFileName
-                                                           ofType:bundleFileSuffix];
+    NSString *bundlePath = NSBundle.mainBundle.bundlePath;
+    
+    if (![NSString isNullString:bundleFileName]) {
+        bundlePath = [bundlePath stringByAppendingString:[NSString stringWithFormat:@"/%@%@",bundleFileName,@".bundle"]];
+    }
+    
+    if (![NSString isNullString:bundleFileSuffix]) {
+        bundlePath = [bundlePath stringByAppendingString:bundleFileSuffix];
+    }
+    
     switch (fileType) {
         case TXT:{
             NSString *string = [[NSString alloc] initWithContentsOfFile:bundlePath
@@ -230,17 +241,16 @@ bundleFileSuffix:(NSString *)bundleFileSuffix
 }
 /// 将bundle里面的文件写进手机本地文件
 /// @param bundleFileName bundle文件名
-/// @param bundleFileSuffix bundle 文件后缀名
 /// @param LocalFileName 被写入的本地文件名 前提要有空白文件，否则写入失败
-/// @param LocalFileSuffix 被写入的本地文件后缀
-+(NSString *)BundleFile:(NSString *)bundleFileName
-       bundleFileSuffix:(NSString *)bundleFileSuffix
+/// @param LocalFileSuffix 中间层路径：
+/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
++(NSString *)BundleFile:(NSString *__nullable)bundleFileName
             ToLocalFile:(NSString *)LocalFileName
-        localFileSuffix:(NSString *)LocalFileSuffix
+        localFileSuffix:(NSString *__nonnull)LocalFileSuffix
                fileType:(FileType)fileType{
     //获取bundle路径
     id content = [FileFolderHandleTool bundleFile:bundleFileName
-                                 bundleFileSuffix:bundleFileSuffix
+                                 bundleFileSuffix:LocalFileSuffix
                                          fileType:fileType];
     
     //图片、文本、plist（字典）、视频、声音
@@ -669,7 +679,7 @@ bundleFileSuffix:(NSString *)bundleFileSuffix
 +(void)createAlbumFolder:(NSString *)folderName
        ifExitFolderBlock:(MKDataBlock)ifExitFolderBlock
        completionHandler:(TwoDataBlock)completionBlock{
-    if (![FileFolderHandleTool isAlbumExistFolder:folderName]) {
+    if (![FileFolderHandleTool isExistFolder:folderName]) {
         [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
             [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:folderName];
         } completionHandler:^(BOOL success,
@@ -687,19 +697,19 @@ bundleFileSuffix:(NSString *)bundleFileSuffix
 ///创建一个名为folderName的相册，并且以路径pathStr保存文件
 +(void)createAlbumFolder:(NSString *)folderName
                     path:(NSString *)pathStr{
-    if (![FileFolderHandleTool isAlbumExistFolder:folderName]) {
+    if (![FileFolderHandleTool isExistFolder:folderName]) {
         [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
             [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:folderName];
         } completionHandler:^(BOOL success,
                               NSError * _Nullable error) {
             if (success) {
                 NSLog(@"创建相册文件夹成功!");
-                [FileFolderHandleTool saveRes:[NSURL fileURLWithPath:pathStr]];
+                [FileFolderHandleTool saveRes:[NSURL URLWithString:pathStr]];
             } else {
                 NSLog(@"创建相册文件夹失败:%@", error);
             }
         }];
-    }else [FileFolderHandleTool saveRes:[NSURL fileURLWithPath:pathStr]];
+    }else [FileFolderHandleTool saveRes:[NSURL URLWithString:pathStr]];
 }
 ///保存视频资源文件到指定的相册路径，这里是整个App名字的相册
 +(void)saveRes:(NSURL *)movieURL{
@@ -736,7 +746,7 @@ bundleFileSuffix:(NSString *)bundleFileSuffix
     }];
 }
 ///是否存在此相册判断逻辑依据 注意和 isExistsAtPath进行区分
-+(BOOL)isAlbumExistFolder:(NSString *)folderName{
++(BOOL)isExistFolder:(NSString *)folderName{
     __block BOOL isExisted = NO;
     //首先获取用户手动创建相册的集合
     PHFetchResult *collectonResuts = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
@@ -806,8 +816,11 @@ didFinishSavingWithError:(NSError *)error
                                           AVAudioMix * _Nullable audioMix,
                                           NSDictionary * _Nullable info) {
             AVURLAsset *urlAsset = (AVURLAsset *)asset;
+            NSURL *url = urlAsset.URL;
+            NSData *data = [NSData dataWithContentsOfURL:url];
+//            NSLog(@"%@",data);
             if (completeBlock) {
-                completeBlock(urlAsset);
+                completeBlock(data);
             }
         }];
     }

@@ -45,7 +45,7 @@
         self.rbView.alpha = 1;
         self.rotation.alpha = 1;
         [self.coverImageView setImageWithURLString:self.data.thumbnail_url
-                                       placeholder:KIMG(@"loading_bgView")];
+                                       placeholder:KBuddleIMG(@"Others", nil, @"loading_bgView")];
 //        self.titleLabel.text = data.title;
         if (self.data.video_width > self.data.video_height) { /// 横屏视频才支持旋转
             self.rotation.hidden = NO;

@@ -23,7 +23,7 @@ LZBTabBarVCDelegate
 >
 
 @property(nonatomic,strong)BaseNavigationVC *customNavigationVC;
- 
+
 @property(nonatomic,strong)NSMutableArray<UIImage *> *customUnselectedImgMutArr;
 @property(nonatomic,strong)NSMutableArray<UIImage *> *customSelectedImgMutArr;
 @property(nonatomic,strong)NSMutableArray<NSString *> *titleStrMutArr;
@@ -59,7 +59,7 @@ CGFloat LZB_TABBAR_HEIGHT;
     
     self.lzb_tabBar.tabBarStyleType = LZBTabBarStyleType_sysNormal;
     self.lzb_tabBar.topLine.alpha = 0;//TabBar顶部分割线
-//    self.lzb_tabBar.lottieJsonNameStrMutArr = self.lottieJsonNameStrMutArr;
+    self.lzb_tabBar.lottieJsonNameStrMutArr = self.lottieJsonNameStrMutArr;
 
     [self p_setUpAllChildViewController];
     
@@ -115,24 +115,15 @@ CGFloat LZB_TABBAR_HEIGHT;
      didSelectViewController:(UIViewController *)viewController{
     [NSObject feedbackGenerator];
     if ([viewController isKindOfClass:[ViewController_1 class]]) {
-        //        NSLog(@"%ld",self.selectedIndex);
-        NSLog(@"1");
-    }
-    else if ([viewController isKindOfClass:[ViewController_2 class]]){
-//        [self presentLoginVC];
-        NSLog(@"2");
-    }
-    else if ([viewController isKindOfClass:[ViewController_3 class]]){
-//        [self presentLoginVC];
-        NSLog(@"3");
-    }
-    else if ([viewController isKindOfClass:[ViewController_4 class]]){
-//        [self presentLoginVC];
-        NSLog(@"4");
-    }
-    else if ([viewController isKindOfClass:[ViewController_5 class]]){
-    //        [self presentLoginVC];
-        NSLog(@"5");
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"posy" object:nil];
+    } else if ([viewController isKindOfClass:[ViewController_2 class]]) {
+        [self presentLoginVC];
+    } else if ([viewController isKindOfClass:[ViewController_3 class]]) {
+        [self presentLoginVC];
+    } else if ([viewController isKindOfClass:[ViewController_4 class]]) {
+        [self presentLoginVC];
+    }else if ([viewController isKindOfClass:[ViewController_5 class]]) {
+        [self presentLoginVC];
     }
 }
 #pragma mark —— lazyLoad
@@ -145,33 +136,33 @@ CGFloat LZB_TABBAR_HEIGHT;
 -(NSMutableArray<NSString *> *)titleStrMutArr{
     if (!_titleStrMutArr) {
         _titleStrMutArr = NSMutableArray.array;
-        [_titleStrMutArr addObject:@"CASINO"];
-        [_titleStrMutArr addObject:@"POKER"];
-        [_titleStrMutArr addObject:@"Center"];
-        [_titleStrMutArr addObject:@"VIET LOTTO"];
-        [_titleStrMutArr addObject:@"PROMOTION"];
+        [_titleStrMutArr addObject:@"首页"];
+        [_titleStrMutArr addObject:@"社区"];
+        [_titleStrMutArr addObject:@"拍摄"];
+        [_titleStrMutArr addObject:@"任务"];
+        [_titleStrMutArr addObject:@"我的"];
     }return _titleStrMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)customUnselectedImgMutArr{
     if (!_customUnselectedImgMutArr) {
         _customUnselectedImgMutArr = NSMutableArray.array;
-        [_customUnselectedImgMutArr addObject:KIMG(@"Home")];
-        [_customUnselectedImgMutArr addObject:KIMG(@"MyStore")];
-        [_customUnselectedImgMutArr addObject:KIMG(@"摄像机")];
-        [_customUnselectedImgMutArr addObject:KIMG(@"ShoppingCart")];
-        [_customUnselectedImgMutArr addObject:KIMG(@"My")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"Home")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"MyStore")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"摄像机")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"ShoppingCart")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"My")];
     }return _customUnselectedImgMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)customSelectedImgMutArr{
     if (!_customSelectedImgMutArr) {
         _customSelectedImgMutArr = NSMutableArray.array;
-        [_customSelectedImgMutArr addObject:KIMG(@"Home")];
-        [_customSelectedImgMutArr addObject:KIMG(@"MyStore")];
-        [_customSelectedImgMutArr addObject:KIMG(@"摄像机")];
-        [_customSelectedImgMutArr addObject:KIMG(@"ShoppingCart")];
-        [_customSelectedImgMutArr addObject:KIMG(@"My")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"Home")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"MyStore")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"摄像机")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"ShoppingCart")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, @"My")];
     }return _customSelectedImgMutArr;
 }
 
@@ -180,9 +171,9 @@ CGFloat LZB_TABBAR_HEIGHT;
         _viewControllerMutArr = NSMutableArray.array;
         [_viewControllerMutArr addObject:ViewController_1.new];
         [_viewControllerMutArr addObject:ViewController_2.new];
+        [_viewControllerMutArr addObject:ViewController_5.new];
         [_viewControllerMutArr addObject:ViewController_3.new];
         [_viewControllerMutArr addObject:ViewController_4.new];
-        [_viewControllerMutArr addObject:ViewController_5.new];
     }return _viewControllerMutArr;
 }
 
@@ -190,11 +181,23 @@ CGFloat LZB_TABBAR_HEIGHT;
     if (!_lottieJsonNameStrMutArr) {
         _lottieJsonNameStrMutArr = NSMutableArray.array;
         
-//        [_lottieJsonNameStrMutArr addObject:@"首页选中.json"];
-//        [_lottieJsonNameStrMutArr addObject:@"首页选中.json"];
-//        [_lottieJsonNameStrMutArr addObject:@"首页选中.json"];
-//        [_lottieJsonNameStrMutArr addObject:@"首页选中.json"];
-//        [_lottieJsonNameStrMutArr addObject:@"首页选中.json"];
+        [_lottieJsonNameStrMutArr addObject:@"任务.json"];
+        [_lottieJsonNameStrMutArr addObject:@"上传与拍照.json"];
+        [_lottieJsonNameStrMutArr addObject:@"社区.json"];
+        [_lottieJsonNameStrMutArr addObject:@"我的.json"];
+        [_lottieJsonNameStrMutArr addObject:@"主页.json"];//green_lottie_tab_discover
+        
+//        [_lottieJsonNameStrMutArr addObject:@"green_lottie_tab_discover.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"green_lottie_tab_discover.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"green_lottie_tab_discover.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"green_lottie_tab_discover.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"主页.json"];//green_lottie_tab_discover
+        
+//        [_lottieJsonNameStrMutArr addObject:@"dingdan.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"dingdan.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"dingdan.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"dingdan.json"];
+//        [_lottieJsonNameStrMutArr addObject:@"dingdan.json"];//green_lottie_tab_discover
         
     }return _lottieJsonNameStrMutArr;
 }

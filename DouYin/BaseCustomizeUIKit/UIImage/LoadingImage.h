@@ -7,25 +7,65 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+Extras.h"
 
-static inline UIImage *KIMG(NSString *imgName){
+/// 直接拖图片在项目文件夹，没用Bundle进行管理，也没有用Assets.xcassets
+/// @param imgName 文件可以不强制要求带后缀名，系统会自动识别png文件
+static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
     return [UIImage imageNamed:imgName];
 }
-
-static inline UIImage *KBuddleIMG(NSString *pathForResource,NSString *oftype){
-    NSString *path = [[NSBundle mainBundle] pathForResource:pathForResource ofType:oftype];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
+/// 读取自定义Bundle文件里面的图片 输出 UIImage *
+/// @param pathForResource 自定义 Bundle 的名字
+/// @param folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
+/// @param fileFullNameWithSuffix  目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
+static inline UIImage *__nullable KBuddleIMG(NSString *__nonnull pathForResource,
+                                             NSString *__nullable folderName,
+                                             NSString *__nonnull fileFullNameWithSuffix){
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:pathForResource ofType:@"bundle"];
+    if (![NSString isNullString:folderName]) {
+        filePath = [filePath stringByAppendingPathComponent:folderName];
+    }
+    
+    //容错处理
+    if (![fileFullNameWithSuffix containsString:@"."]) {
+        fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
+    }
+    
+    filePath = [filePath stringByAppendingPathComponent:fileFullNameWithSuffix];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     return image;
 }
-
-static inline NSData *KDataByBuddleIMG(NSString *pathForResource,NSString *oftype){
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:pathForResource ofType:oftype];
+/// 读取自定义Bundle文件里面的图片 输出 NSData *
+/// @param pathForResource 自定义 Bundle 的名字
+/// @param folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
+/// @param fileFullNameWithSuffix  目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
+static inline NSData *__nullable KDataByBuddleIMG(NSString *__nonnull pathForResource,
+                                                  NSString *__nullable folderName,
+                                                  NSString *__nonnull fileFullNameWithSuffix){
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:pathForResource ofType:@"bundle"];
+    if (![NSString isNullString:folderName]) {
+        filePath = [filePath stringByAppendingPathComponent:folderName];
+    }
+    
+    //容错处理
+    if (![fileFullNameWithSuffix containsString:@"."]) {
+        fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
+    }
+    
+    filePath = [filePath stringByAppendingPathComponent:fileFullNameWithSuffix];
     NSData *imgData = [NSData dataWithContentsOfFile:filePath];
     return imgData;
 }
 
-static inline UIImage *KIMGByDataFromBuddleIMG(NSString *pathForResource,NSString *oftype){
-    UIImage *image = [UIImage imageWithData:KDataByBuddleIMG(pathForResource, oftype)];
+static inline UIImage *__nullable KIMGByDataFromBuddleIMG(NSString *__nonnull pathForResource,
+                                                          NSString *__nullable folderName,
+                                                          NSString *__nonnull fileFullNameWithSuffix){
+    UIImage *image = [UIImage imageWithData:KDataByBuddleIMG(pathForResource,
+                                                             folderName,
+                                                             fileFullNameWithSuffix)];
     return image;
 }
 

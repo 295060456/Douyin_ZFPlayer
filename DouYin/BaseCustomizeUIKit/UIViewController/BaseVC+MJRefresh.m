@@ -41,13 +41,17 @@
                       ofObject:(id)object
                         change:(NSDictionary<NSString *,id> *)change
                        context:(void *)context {
-    if ([object isEqual:self.tableViewHeader] &&
-        self.tableViewHeader.state == MJRefreshStatePulling) {
+    if ([object isEqual:self.mjRefreshGifHeader] &&
+        self.mjRefreshGifHeader.state == MJRefreshStatePulling) {
         [NSObject feedbackGenerator];
-    }else if ([object isEqual:self.tableViewFooter] &&
-             self.tableViewFooter.state == MJRefreshStatePulling) {
+    }else if (([object isEqual:self.mjRefreshAutoGifFooter] ||
+               [object isEqual:self.mjRefreshBackNormalFooter] ||
+               [object isEqual:self.mjRefreshAutoNormalFooter]) && (self.mjRefreshAutoGifFooter.state == MJRefreshStatePulling ||
+                                                                    self.mjRefreshBackNormalFooter.state == MJRefreshStatePulling ||
+                                                                    self.mjRefreshAutoNormalFooter.state == MJRefreshStatePulling)
+             ) {
         [NSObject feedbackGenerator];
-    }
+    }else{}
 }
 #pragma mark —— lazyLoad
 #pragma mark —— Header

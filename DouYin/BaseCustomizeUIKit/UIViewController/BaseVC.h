@@ -31,12 +31,6 @@ UIGestureRecognizerDelegate
 @property(nonatomic,copy)void (^UnknownNetWorking)(void);//未知网络
 @property(nonatomic,copy)void (^NotReachableNetWorking)(void);//无任何网络连接
 @property(nonatomic,copy)void (^ReachableNetWorking)(void);//有网络
-#pragma mark —— BaseVC+TZImagePickerController
-
-#pragma mark —— BaseVC+MJRefresh
-@property(nonatomic,strong)MJRefreshAutoGifFooter *tableViewFooter;
-@property(nonatomic,strong)MJRefreshGifHeader *tableViewHeader;
-@property(nonatomic,strong)MJRefreshBackNormalFooter *refreshBackNormalFooter;
 
 #pragma mark —— Sys_LifeCycle
 -(void)VCwillComingBlock:(MKDataBlock)block;//即将进来

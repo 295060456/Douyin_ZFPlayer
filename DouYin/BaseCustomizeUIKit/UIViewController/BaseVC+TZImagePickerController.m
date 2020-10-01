@@ -161,8 +161,11 @@ imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock{
             tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[TZImagePickerController.class]];
             BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[UIImagePickerController.class]];
         } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             tzBarItem = [UIBarButtonItem appearanceWhenContainedIn:TZImagePickerController.class, nil];
             BarItem = [UIBarButtonItem appearanceWhenContainedIn:UIImagePickerController.class, nil];
+#pragma clang diagnostic pop
         }
         NSDictionary *titleTextAttributes = [tzBarItem titleTextAttributesForState:UIControlStateNormal];
         [BarItem setTitleTextAttributes:titleTextAttributes forState:UIControlStateNormal];

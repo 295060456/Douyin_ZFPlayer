@@ -7,7 +7,6 @@
 //
 
 #import "BaseVC+OpenURL.h"
-#import <objc/runtime.h>
 
 @implementation BaseVC (OpenURL)
 
@@ -53,29 +52,28 @@ completionHandler:(NoResultBlock)openSuccessBlock{
                     if (openSuccessBlock) {
                         openSuccessBlock();
                     }
-                }];
-                return YES;
+                }];return YES;
             }else{
                 if (block) {
                     block();
-                }
-                return NO;
+                }return NO;
             }
         }else {
             if (block) {
                 block();
-            }
-            return NO;
+            }return NO;
         }
     }else {
         if (canOpen) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLStr]];
+#pragma clang diagnostic pop
             return YES;
         }else{
             if (block) {
                 block();
-            }
-            return NO;
+            }return NO;
         }
     }
 }

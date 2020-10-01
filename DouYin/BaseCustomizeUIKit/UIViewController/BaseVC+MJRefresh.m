@@ -7,20 +7,20 @@
 
 /*
  
-    MJRefreshGifHeader  ok
-    MJRefreshHeader
-    MJRefreshNormalHeader
-    MJRefreshStateHeader
+    MJRefreshGifHeader  👌 ->MJRefreshStateHeader->MJRefreshHeader->MJRefreshComponent->UIView
+    MJRefreshHeader ->MJRefreshComponent->UIView
+    MJRefreshNormalHeader ->MJRefreshStateHeader->MJRefreshHeader->MJRefreshComponent->UIView
+    MJRefreshStateHeader ->MJRefreshHeader->MJRefreshComponent->UIView
  
-    MJRefreshAutoFooter
-    MJRefreshAutoGifFooter  ok
-    MJRefreshAutoNormalFooter  ok
-    MJRefreshAutoStateFooter
-    MJRefreshBackFooter
-    MJRefreshBackGifFooter
-    MJRefreshBackNormalFooter  ok
-    MJRefreshBackStateFooter
-    MJRefreshFooter
+    MJRefreshAutoFooter ->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshAutoGifFooter  👌 ->MJRefreshAutoStateFooter->MJRefreshAutoFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshAutoNormalFooter  👌 ->MJRefreshAutoStateFooter->MJRefreshAutoFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshAutoStateFooter ->MJRefreshAutoFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshBackFooter ->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshBackGifFooter ->MJRefreshBackStateFooter->MJRefreshBackFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshBackNormalFooter  👌 ->MJRefreshBackStateFooter->MJRefreshBackFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshBackStateFooter ->MJRefreshBackFooter->MJRefreshFooter->MJRefreshComponent->UIView
+    MJRefreshFooter->MJRefreshComponent->UIView
  *
  */
 
@@ -64,13 +64,12 @@
         [mjRefreshGifHeader setImages:@[KBuddleIMG(@"刷新", nil, @"header.png")]
                              forState:MJRefreshStateIdle];
         // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-        [mjRefreshGifHeader setImages:@[@[KBuddleIMG(@"刷新", nil, @"Indeterminate Spinner - Small.png")]]
+        [mjRefreshGifHeader setImages:@[KBuddleIMG(@"刷新", nil, @"Indeterminate Spinner - Small.png")]
                              forState:MJRefreshStatePulling];
         // 设置正在刷新状态的动画图片
         NSMutableArray *dataMutArr = NSMutableArray.array;
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
-            str = [str stringByAppendingString:@".png"];
             [dataMutArr addObject:KBuddleIMG(@"刷新", @"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
         }
 
@@ -122,7 +121,7 @@
                                 forState:MJRefreshStateIdle];
         
         /** 松开就可以进行刷新的状态 */
-        [mjRefreshAutoGifFooter setImages:@[@[KBuddleIMG(@"刷新", nil, @"Indeterminate Spinner - Small.png")]]
+        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(@"刷新", nil, @"Indeterminate Spinner - Small.png")]
                                  forState:MJRefreshStatePulling];
         
         /** 正在刷新中的状态 */

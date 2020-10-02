@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TBVCell_style_01 : UITableViewCell
 
-@property(nonatomic,strong)MJRefreshAutoGifFooter *tableViewFooter;
-@property(nonatomic,strong)MJRefreshGifHeader *tableViewHeader;
-
 -(instancetype)initWithStyle:(UITableViewCellStyle)style
              reuseIdentifier:(NSString *)reuseIdentifier
                       margin:(CGFloat)margin;

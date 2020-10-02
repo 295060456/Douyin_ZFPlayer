@@ -15,11 +15,6 @@
 @property(nonatomic,copy)MKDataBlock didComingBlock;
 @property(nonatomic,copy)MKDataBlock willBackBlock;
 
-@property(nonatomic,strong)id requestParams;
-@property(nonatomic,copy)MKDataBlock successBlock;
-@property(nonatomic,assign)BOOL isPush;
-@property(nonatomic,assign)BOOL isPresent;
-
 @end
 
 @implementation BaseVC
@@ -35,44 +30,53 @@
     }return self;
 }
 
-+ (instancetype)ComingFromVC:(UIViewController *)rootVC
-                 comingStyle:(ComingStyle)comingStyle
-           presentationStyle:(UIModalPresentationStyle)presentationStyle
-               requestParams:(nullable id)requestParams
-                     success:(MKDataBlock)block
-                    animated:(BOOL)animated{
-    BaseVC *vc = BaseVC.new;
-    vc.successBlock = block;
-    vc.requestParams = requestParams;
++(instancetype)comingFromVC:(UIViewController *)rootVC
+                       toVC:(BaseVC *)toVC
+                comingStyle:(ComingStyle)comingStyle
+          presentationStyle:(UIModalPresentationStyle)presentationStyle
+              requestParams:(nullable id)requestParams
+                    success:(MKDataBlock)successBlock
+                   animated:(BOOL)animated{
+    toVC.requestParams = requestParams;
+    @weakify(rootVC)
     switch (comingStyle) {
         case ComingStyle_PUSH:{
             if (rootVC.navigationController) {
-                vc.isPush = YES;
-                vc.isPresent = NO;
-                [rootVC.navigationController pushViewController:vc
-                                                       animated:animated];
+                toVC.pushOrPresent = ComingStyle_PUSH;
+                if (successBlock) {
+                    successBlock(toVC);
+                }
+                [weak_rootVC.navigationController pushViewController:toVC
+                                                            animated:animated];
             }else{
-                vc.isPush = NO;
-                vc.isPresent = YES;
-                [rootVC presentViewController:vc
-                                     animated:animated
-                                   completion:^{}];
+                toVC.pushOrPresent = ComingStyle_PRESENT;
+                //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
+                toVC.modalPresentationStyle = presentationStyle;
+                if (successBlock) {
+                    successBlock(toVC);
+                }
+                [weak_rootVC presentViewController:toVC
+                                          animated:animated
+                                        completion:^{}];
             }
         }break;
         case ComingStyle_PRESENT:{
-            vc.isPush = NO;
-            vc.isPresent = YES;
+            toVC.pushOrPresent = ComingStyle_PRESENT;
             //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
-            vc.modalPresentationStyle = presentationStyle;
-            [rootVC presentViewController:vc
-                                 animated:animated
-                               completion:^{}];
+            toVC.modalPresentationStyle = presentationStyle;
+            if (successBlock) {
+                successBlock(toVC);
+            }
+            [weak_rootVC presentViewController:toVC
+                                      animated:animated
+                                    completion:^{}];
         }break;
         default:
             NSLog(@"错误的推进方式");
             break;
-    }return vc;
+    }return toVC;
 }
+
 #pragma mark —— Sys_LifeCycle
 -(void)loadView{
     [super loadView];

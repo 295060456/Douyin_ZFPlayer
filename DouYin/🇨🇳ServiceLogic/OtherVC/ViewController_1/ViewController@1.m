@@ -252,10 +252,10 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.view);
-            if (self.gk_navigationBar) {
-                make.top.equalTo(self.view.mas_top);
-            }else{
+            if (self.gk_navBarAlpha) {
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }else{
+                make.top.equalTo(self.view.mas_top);
             }
             
             if ([SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden) {

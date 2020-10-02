@@ -14,18 +14,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableViewCell (WhiteArrows)
 
+@property(nonatomic,strong)UIImage *img;
+@property(nonatomic,assign)CGSize size;
+
+-(void)customAccessoryView:(MKDataBlock)customAccessoryViewBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END
 
+/*
+ 
 //实现以下方法
-//- (void)tableView:(UITableView *)tableView
-//  willDisplayCell:(UITableViewCell *)cell
-//forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    // 不用系统自带的箭头
-//    if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-//        UIImage *arrowImage = KIMG(@"WhiteRightArrow");
-//        UIImageView *arrowImageView = [[UIImageView alloc] initWithImage:arrowImage];
-//        cell.accessoryView = arrowImageView;
-//    }
-//}
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.img = KIMG(@"删除");
+    @weakify(self)
+    [cell customAccessoryView:^(id data) {
+        @strongify(self)
+        JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)data;
+        NSLog(@"MMM - %ld",cell.index);
+    }];
+}
+ 
+*/

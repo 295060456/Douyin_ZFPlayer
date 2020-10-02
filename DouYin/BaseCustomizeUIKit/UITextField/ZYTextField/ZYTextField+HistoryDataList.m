@@ -47,9 +47,9 @@
 -(UIButton *)delBtn{
     if (!_delBtn) {
         _delBtn = UIButton.new;
-        [_delBtn setImage:KIMG(@"登录注册关闭")
+        [_delBtn setImage:KBuddleIMG(@"ZYTextField", nil, @"登录注册关闭")
                  forState:UIControlStateNormal];
-        [_delBtn setImage:KIMG(@"登录注册关闭")
+        [_delBtn setImage:KBuddleIMG(@"ZYTextField", nil, @"登录注册关闭")
                  forState:UIControlStateSelected];
         @weakify(self)
         [[_delBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {

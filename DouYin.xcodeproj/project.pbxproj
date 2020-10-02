@@ -213,8 +213,6 @@
 		C54BB3CF2518D391001591C2 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB38B2518D391001591C2 /* HQTextField.m */; };
 		C54BB3D02518D391001591C2 /* CJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB38D2518D391001591C2 /* CJTextField.m */; };
 		C54BB3D12518D391001591C2 /* ZYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3912518D391001591C2 /* ZYTextField.m */; };
-		C54BB3D32518D391001591C2 /* closeCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3942518D391001591C2 /* closeCircle@2x.png */; };
-		C54BB3D42518D391001591C2 /* closeCircle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3952518D391001591C2 /* closeCircle@3x.png */; };
 		C54BB3D52518D391001591C2 /* UITextField+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3982518D391001591C2 /* UITextField+Extend.m */; };
 		C54BB4212518D3F6001591C2 /* GKTransitionDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3E22518D3F6001591C2 /* GKTransitionDelegateHandler.m */; };
 		C54BB4222518D3F6001591C2 /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3E32518D3F6001591C2 /* GKPopAnimatedTransition.m */; };
@@ -266,6 +264,7 @@
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
 		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
 		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
+		C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */; };
 		C5B7E1952524653B00BC4E9D /* Others.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1942524653B00BC4E9D /* Others.bundle */; };
 		C5B7E19B2524656500BC4E9D /* 刷新.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E19A2524656500BC4E9D /* 刷新.bundle */; };
 		C5B7E1AF2524681C00BC4E9D /* 主页.json in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1A02524681C00BC4E9D /* 主页.json */; };
@@ -281,8 +280,6 @@
 		C5B7E1B92524681C00BC4E9D /* dingdan.json in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1AC2524681C00BC4E9D /* dingdan.json */; };
 		C5B7E1BA2524681C00BC4E9D /* huiyuan.json in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1AD2524681C00BC4E9D /* huiyuan.json */; };
 		C5B7E1BB2524681C00BC4E9D /* fangzi.json in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1AE2524681C00BC4E9D /* fangzi.json */; };
-		C5B7E29C252474D700BC4E9D /* 登录注册关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E299252474D600BC4E9D /* 登录注册关闭@3x.png */; };
-		C5B7E29D252474D700BC4E9D /* 登录注册关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E29A252474D700BC4E9D /* 登录注册关闭@2x.png */; };
 		C5B7E2A62524751B00BC4E9D /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */; };
 		C5B7E2A72524751B00BC4E9D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2A52524751B00BC4E9D /* WhiteRightArrow@3x.png */; };
 		C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */; };
@@ -737,8 +734,6 @@
 		C54BB38E2518D391001591C2 /* CJTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTextField.h; sourceTree = "<group>"; };
 		C54BB3912518D391001591C2 /* ZYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTextField.m; sourceTree = "<group>"; };
 		C54BB3932518D391001591C2 /* ZYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTextField.h; sourceTree = "<group>"; };
-		C54BB3942518D391001591C2 /* closeCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeCircle@2x.png"; sourceTree = "<group>"; };
-		C54BB3952518D391001591C2 /* closeCircle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeCircle@3x.png"; sourceTree = "<group>"; };
 		C54BB3972518D391001591C2 /* UITextField+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extend.h"; sourceTree = "<group>"; };
 		C54BB3982518D391001591C2 /* UITextField+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extend.m"; sourceTree = "<group>"; };
 		C54BB3E02518D3F5001591C2 /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPushAnimatedTransition.h; sourceTree = "<group>"; };
@@ -848,6 +843,7 @@
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
+		C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYTextField.bundle; sourceTree = "<group>"; };
 		C5B7E1942524653B00BC4E9D /* Others.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Others.bundle; sourceTree = "<group>"; };
 		C5B7E19A2524656500BC4E9D /* 刷新.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "刷新.bundle"; sourceTree = "<group>"; };
 		C5B7E1A02524681C00BC4E9D /* 主页.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "主页.json"; sourceTree = "<group>"; };
@@ -863,8 +859,6 @@
 		C5B7E1AC2524681C00BC4E9D /* dingdan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dingdan.json; sourceTree = "<group>"; };
 		C5B7E1AD2524681C00BC4E9D /* huiyuan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = huiyuan.json; sourceTree = "<group>"; };
 		C5B7E1AE2524681C00BC4E9D /* fangzi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fangzi.json; sourceTree = "<group>"; };
-		C5B7E299252474D600BC4E9D /* 登录注册关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册关闭@3x.png"; sourceTree = "<group>"; };
-		C5B7E29A252474D700BC4E9D /* 登录注册关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册关闭@2x.png"; sourceTree = "<group>"; };
 		C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
 		C5B7E2A52524751B00BC4E9D /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
 		C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@2x.png"; sourceTree = "<group>"; };
@@ -2045,6 +2039,7 @@
 		C54BB3882518D391001591C2 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
+				C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */,
 				C54BB3962518D391001591C2 /* UITextField+Extend */,
 				C54BB38C2518D391001591C2 /* CJTextField */,
 				C54BB3892518D391001591C2 /* HQTextField */,
@@ -2076,10 +2071,6 @@
 			children = (
 				C57342AF25248DAC00CC6A3A /* ZYTextField+HistoryDataList.h */,
 				C57342B025248DAC00CC6A3A /* ZYTextField+HistoryDataList.m */,
-				C5B7E29A252474D700BC4E9D /* 登录注册关闭@2x.png */,
-				C5B7E299252474D600BC4E9D /* 登录注册关闭@3x.png */,
-				C54BB3942518D391001591C2 /* closeCircle@2x.png */,
-				C54BB3952518D391001591C2 /* closeCircle@3x.png */,
 				C54BB3932518D391001591C2 /* ZYTextField.h */,
 				C54BB3912518D391001591C2 /* ZYTextField.m */,
 			);
@@ -2600,7 +2591,6 @@
 				C5B7E2A62524751B00BC4E9D /* WhiteRightArrow@2x.png in Resources */,
 				C5B7E1B92524681C00BC4E9D /* dingdan.json in Resources */,
 				C5B7E1AF2524681C00BC4E9D /* 主页.json in Resources */,
-				C54BB3D42518D391001591C2 /* closeCircle@3x.png in Resources */,
 				C5B7E1BA2524681C00BC4E9D /* huiyuan.json in Resources */,
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
 				C54BB2F42518D363001591C2 /* 验证码按钮单例封装 in Resources */,
@@ -2611,7 +2601,6 @@
 				C5B7E1B42524681C00BC4E9D /* green_lottie_tab_discover.json in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
 				C54BB2EC2518D363001591C2 /* day_like_red@3x.png in Resources */,
-				C54BB3D32518D391001591C2 /* closeCircle@2x.png in Resources */,
 				C5B7E1B12524681C00BC4E9D /* green_lottie_tab_news.json in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,
@@ -2624,8 +2613,6 @@
 				C54BB2FE2518D363001591C2 /* 带有按键音的按钮 in Resources */,
 				C54BB2E32518D363001591C2 /* 替换系统的UITabBarViewController in Resources */,
 				C54BB2E92518D363001591C2 /* day_like@2x.png in Resources */,
-				C5B7E29D252474D700BC4E9D /* 登录注册关闭@2x.png in Resources */,
-				C5B7E29C252474D700BC4E9D /* 登录注册关闭@3x.png in Resources */,
 				C54BB2DF2518D363001591C2 /* iOS小技巧：用runtime 解决UIButton 重复点击问题 in Resources */,
 				C54BB0C12518D00F001591C2 /* LaunchScreen.storyboard in Resources */,
 				C54BB2FA2518D363001591C2 /* 水平进度条.png in Resources */,
@@ -2638,6 +2625,7 @@
 				C5B7E1B32524681C00BC4E9D /* green_lottie_tab_mine.json in Resources */,
 				C54BB47B2518DACC001591C2 /* Pod里面的Bug in Resources */,
 				C5B7E1B52524681C00BC4E9D /* 我的.json in Resources */,
+				C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */,
 				C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */,
 				C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */,
 				C5B7E1B82524681C00BC4E9D /* wode.json in Resources */,

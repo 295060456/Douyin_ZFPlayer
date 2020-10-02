@@ -10,7 +10,7 @@
 #import "UIImage+Extras.h"
 
 @implementation UIImage (Extras)
-///根据颜色生成图片
+/// 根据颜色生成图片
 + (UIImage *)imageWithColor:(UIColor *)color {
     // 描述矩形
     CGRect rect = CGRectMake(0.0f,
@@ -20,7 +20,9 @@
     return [self imageWithColor:color
                            rect:rect];
 }
-///根据颜色生成图片
+/// 根据颜色生成图片
+/// @param color 颜色
+/// @param rect 大小
 + (UIImage *)imageWithColor:(UIColor *)color
                        rect:(CGRect)rect{
     /// 开启位图上下文
@@ -37,7 +39,27 @@
     UIGraphicsEndImageContext();
     return theImage;
 }
-///???
+/// UIColor 转 UIImage
++(UIImage*)createImageWithColor:(UIColor *)color{
+    CGRect rect=CGRectMake(0.0f,
+                           0.0f,
+                           1.0f,
+                           1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context,[color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+/// NSString 转 UIImage
+/// @param string 准备转换的字符串
+/// @param font 该字符串的字号
+/// @param width 该字符串的线宽
+/// @param textAlignment 字符串位置
+/// @param backGroundColor 背景色
+/// @param textColor 字体颜色
 + (UIImage *)imageWithString:(NSString *)string
                         font:(UIFont *)font
                        width:(CGFloat)width
@@ -79,41 +101,9 @@
     UIGraphicsEndImageContext();
     return image;
 }
-/**
- *  UIColor 转 UIImage
- */
-+(UIImage*)createImageWithColor:(UIColor *)color{
-    CGRect rect=CGRectMake(0.0f,
-                           0.0f,
-                           1.0f,
-                           1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context,[color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return theImage;
-}
-///根据字符串生成二维码
-+(UIImage *)createRRcode:(NSString *)sourceString{
-    //1.实例化一个滤镜
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    //1.1>设置filter的默认值
-    //因为之前如果使用过滤镜，输入有可能会被保留，因此，在使用滤镜之前，最好恢复默认设置
-    [filter setDefaults];
-    //2将传入的字符串转换为NSData
-    NSData *data = [sourceString dataUsingEncoding:NSUTF8StringEncoding];
-    //3.将NSData传递给滤镜（通过KVC的方式，设置inputMessage）
-    [filter setValue:data forKey:@"inputMessage"];
-    //4.由filter输出图像
-    CIImage *outputImage = [filter outputImage];
-    //5.将CIImage转换为UIImage
-    UIImage *qrImage = [UIImage imageWithCIImage:outputImage];
-    //6.返回二维码图像
-    return qrImage;
-}
-///???
+/// NSString 转 UIImage
+/// @param string 准备转换的字符串
+/// @param size 字符串的尺寸
 +(UIImage *)createNonInterpolatedUIImageFormString:(NSString *)string
                                           withSize:(CGFloat)size{
     //二维码滤镜
@@ -156,6 +146,23 @@
     CGImageRelease(bitmapImage);
     return [UIImage imageWithCGImage:scaledImage];
 }
-
+///根据字符串生成二维码
++(UIImage *)createRRcode:(NSString *)sourceString{
+    //1.实例化一个滤镜
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    //1.1>设置filter的默认值
+    //因为之前如果使用过滤镜，输入有可能会被保留，因此，在使用滤镜之前，最好恢复默认设置
+    [filter setDefaults];
+    //2将传入的字符串转换为NSData
+    NSData *data = [sourceString dataUsingEncoding:NSUTF8StringEncoding];
+    //3.将NSData传递给滤镜（通过KVC的方式，设置inputMessage）
+    [filter setValue:data forKey:@"inputMessage"];
+    //4.由filter输出图像
+    CIImage *outputImage = [filter outputImage];
+    //5.将CIImage转换为UIImage
+    UIImage *qrImage = [UIImage imageWithCIImage:outputImage];
+    //6.返回二维码图像
+    return qrImage;
+}
 
 @end

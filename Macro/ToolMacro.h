@@ -189,7 +189,7 @@ alpha:1] \
 #define COLOR_HEX(hexValue, al)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:al]
 
 #pragma mark ======================================== 字体 ========================================
-#define kFontSize(x) [UIFont systemFontOfSize:x]
+#define kFontSize(x) [UIFont systemFontOfSize:x weight:UIFontWeightRegular]
 
 #pragma mark ======================================== 尺寸相关 ========================================
 #define isiPhoneX_seriesBottom 34

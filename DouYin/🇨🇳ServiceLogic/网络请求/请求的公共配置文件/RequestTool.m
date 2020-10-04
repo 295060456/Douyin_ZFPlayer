@@ -8,8 +8,6 @@
 
 #import "RequestTool.h"
 
-
-
 @implementation RequestTool
 
 +(void)setupPublicParameters{

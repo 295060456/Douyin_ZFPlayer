@@ -290,6 +290,9 @@
 		C5ED338D2521C887001A04FE /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C5ED338A2521C887001A04FE /* data.json */; };
 		C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED338B2521C887001A04FE /* ZFTableData.m */; };
 		C5F15483251B16270029018C /* BaseVC+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F15482251B16270029018C /* BaseVC+MJRefresh.m */; };
+		C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F52518D363001591C2 /* FMARCNetwork.m */; };
+		C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F82518D363001591C2 /* FMHttpRequest.m */; };
+		C5F451832529A18200066AAB /* FMHttpResonse.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F02518D363001591C2 /* FMHttpResonse.m */; };
 		E02313BA119E3F33410DB620 /* Pods_DouYin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */; };
 /* End PBXBuildFile section */
 
@@ -2261,6 +2264,7 @@
 			isa = PBXGroup;
 			children = (
 				C54BB5302518E5F5001591C2 /* ZBNetworking */,
+				C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */,
 				C54BB5322518E5F5001591C2 /* NSString+ZBUTF8Encoding.h */,
 				C54BB52E2518E5F5001591C2 /* NSString+ZBUTF8Encoding.m */,
 				C54BB52A2518E5F5001591C2 /* ZBCacheManager.h */,
@@ -2341,7 +2345,6 @@
 		C582A6AC251C9B2500DD83A1 /* 请求的公共配置文件 */ = {
 			isa = PBXGroup;
 			children = (
-				C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */,
 				C582A698251C796400DD83A1 /* RequestTool.h */,
 				C582A699251C796400DD83A1 /* RequestTool.m */,
 			);
@@ -2875,6 +2878,7 @@
 				C54BB28B2518D363001591C2 /* LOTKeyframe.m in Sources */,
 				C54BB2E12518D363001591C2 /* LZBTabBarVC.m in Sources */,
 				C54BB28D2518D363001591C2 /* LOTAssetGroup.m in Sources */,
+				C5F451832529A18200066AAB /* FMHttpResonse.m in Sources */,
 				C54BB2DB2518D363001591C2 /* CustomerAVPlayerView+UIGestureRecognizerDelegate.m in Sources */,
 				C54BB3C62518D391001591C2 /* CALayer+Anim.m in Sources */,
 				C54BB2A52518D363001591C2 /* LOTAsset.m in Sources */,
@@ -2917,6 +2921,7 @@
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
 				C54BB3BF2518D391001591C2 /* BaseTableViewer.m in Sources */,
 				C54BB2992518D363001591C2 /* LOTShapeTrimPath.m in Sources */,
+				C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */,
 				C54BB2892518D363001591C2 /* LOTMask.m in Sources */,
 				C54BB2AE2518D363001591C2 /* LOTAnimatedControl.m in Sources */,
 				C54BB5012518E398001591C2 /* ViewController@2.m in Sources */,
@@ -2967,6 +2972,7 @@
 				C54BB4342518D3F6001591C2 /* SDWebImageCodersManager.m in Sources */,
 				C54BB2A82518D363001591C2 /* LOTShapeRectangle.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
+				C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */,
 				C54BB4222518D3F6001591C2 /* GKPopAnimatedTransition.m in Sources */,
 				C54BB4262518D3F6001591C2 /* GKNavigationBarConfigure.m in Sources */,
 				C54BB2A02518D363001591C2 /* LOTPolygonAnimator.m in Sources */,

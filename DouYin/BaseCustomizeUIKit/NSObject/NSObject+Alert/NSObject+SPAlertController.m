@@ -99,14 +99,13 @@
     
     NSMutableArray <SPAlertAction *>*mutArr = NSMutableArray.array;
     
-    @weakify(self)
+    @weakify(targetVC)
     for (int i = 0; i < alertBtnActionArr.count; i++) {
         SPAlertAction *action = [SPAlertAction actionWithTitle:alertActionTitleArr[i]
                                                          style:alertActionStyleArr[i].integerValue
                                                        handler:^(SPAlertAction * _Nonnull action) {
-            @strongify(self)
-            [targetVC performSelector:NSSelectorFromString((NSString *)alertBtnActionArr[i])
-                           withObject:Nil];
+            @strongify(targetVC)
+            SuppressPerformSelectorLeakWarning([targetVC performSelector:NSSelectorFromString((NSString *)alertBtnActionArr[i]) withObject:Nil]);
         }];
         [vc addAction:action];
         [mutArr addObject:action];

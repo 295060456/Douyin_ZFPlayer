@@ -27,8 +27,7 @@
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            [targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i] ReplaceStr:@"defaultFunc"])
-                           withObject:Nil];
+            SuppressPerformSelectorLeakWarning([targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i] ReplaceStr:@"defaultFunc"]) withObject:Nil]);
         }];
         [alertController addAction:okAction];
     }
@@ -58,8 +57,7 @@
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            [targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i] ReplaceStr:@"defaultFunc"])
-                           withObject:Nil];
+            SuppressPerformSelectorLeakWarning([targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i] ReplaceStr:@"defaultFunc"]) withObject:Nil]);
         }];
         [alertController addAction:okAction];
     }

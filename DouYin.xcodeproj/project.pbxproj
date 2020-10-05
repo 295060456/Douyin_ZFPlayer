@@ -254,6 +254,7 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
@@ -822,6 +823,8 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
+		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
@@ -1960,6 +1963,7 @@
 		C54BB3602518D391001591C2 /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
+				C54F8585252B611300EE3DD0 /* UITableView 折叠功能 */,
 				C57342C425248DDC00CC6A3A /* 专治UITableView相应链断裂 */,
 				C57342B825248DD200CC6A3A /* TableViewAnimationKit */,
 			);
@@ -2279,6 +2283,15 @@
 				C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
+			sourceTree = "<group>";
+		};
+		C54F8585252B611300EE3DD0 /* UITableView 折叠功能 */ = {
+			isa = PBXGroup;
+			children = (
+				C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */,
+				C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */,
+			);
+			path = "UITableView 折叠功能";
 			sourceTree = "<group>";
 		};
 		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
@@ -2864,6 +2877,7 @@
 				C54BB4392518D3F6001591C2 /* SDWebImageGIFCoder.m in Sources */,
 				C54BB3B62518D391001591C2 /* BaseVC+TZImagePickerControllerDelegate.m in Sources */,
 				C54BB2E52518D363001591C2 /* LZBTabBarItem.m in Sources */,
+				C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */,
 				C54BB3B42518D391001591C2 /* BaseVC+GifImageView.m in Sources */,
 				C54BB2A42518D363001591C2 /* LOTRadialGradientLayer.m in Sources */,
 				C54BB4332518D3F6001591C2 /* SDWebImageFrame.m in Sources */,

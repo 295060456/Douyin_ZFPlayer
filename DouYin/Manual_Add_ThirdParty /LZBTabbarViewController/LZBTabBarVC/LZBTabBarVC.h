@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,weak)id<LZBTabBarVCDelegate> delegate;
 @property(nonatomic,strong)UIViewController *selectedViewController;
 @property(nonatomic,strong)UIView *contentView;
+@property(nonatomic,assign)BOOL isTop;//是否永远置于顶层 默认是永远
 /**
  *  子控制数组
  */

@@ -24,14 +24,15 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        
+        self.isTop = YES;
     }return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.contentView];
-    [self.view addSubview:self.lzb_tabBar];
+    self.contentView.alpha = 1;
+    self.lzb_tabBar.alpha = 1;
+    
     self.isShouldAnimation = NO;
 }
 
@@ -190,7 +191,7 @@ didSelectItemAtIndex:(NSInteger)index{
 //                          type:@"wav"];
     //震动特效反馈
     [NSObject feedbackGenerator];
-    if (index < 0 || index >= self.viewControllers.count)  return;
+    if (index < 0 || index >= self.viewControllers.count) return;
     [self setSelectedIndex:index
                  animation:self.isShouldAnimation];
     if([self.delegate respondsToSelector:@selector(lzb_tabBarController:didSelectViewController:)]){
@@ -200,12 +201,13 @@ didSelectItemAtIndex:(NSInteger)index{
 }
 #pragma mark —— LazyLoad
 - (UIView *)contentView{
-  if(_contentView == nil){
-      _contentView = [UIView new];
+  if(!_contentView){
+      _contentView = UIView.new;
 //      _contentView.backgroundColor = [UIColor greenColor];
       _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth|
       UIViewAutoresizingFlexibleHeight;
       _contentView.frame = [UIScreen mainScreen].bounds;
+      [self.view addSubview:_contentView];
   }return _contentView;
 }
 
@@ -224,6 +226,11 @@ didSelectItemAtIndex:(NSInteger)index{
                                        [UIScreen mainScreen].bounds.size.width,
                                        LZB_TABBAR_HEIGHT);
         _lzb_tabBar.delegate = self;
+        if (self.isTop) {
+            [getMainWindow() addSubview:_lzb_tabBar];
+        }else{
+            [self.view addSubview:_lzb_tabBar];
+        }
     }return _lzb_tabBar;
 }
 

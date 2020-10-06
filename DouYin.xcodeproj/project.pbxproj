@@ -13,6 +13,8 @@
 		C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
+		C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */; };
+		C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */; };
 		C54BB0B02518D00E001591C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* AppDelegate.m */; };
 		C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* SceneDelegate.m */; };
 		C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54BB0B72518D00E001591C2 /* Main.storyboard */; };
@@ -328,6 +330,10 @@
 		C542A38B251B6C22007B5F88 /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
 		C542A39D251B6EF6007B5F88 /* iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iph_X.mp4; sourceTree = "<group>"; };
 		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
+		C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		C546C3D4252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		C546C3D6252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0AE2518D00E001591C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54BB0AF2518D00E001591C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -963,6 +969,17 @@
 			path = "本地播放器资源";
 			sourceTree = "<group>";
 		};
+		C546C3D2252C23E2003694FF /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				C546C3D6252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.h */,
+				C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */,
+				C546C3D4252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.h */,
+				C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
@@ -1051,6 +1068,7 @@
 		C54BB0EB2518D048001591C2 /* Pods不进去的 */ = {
 			isa = PBXGroup;
 			children = (
+				C546C3D2252C23E2003694FF /* FDFullscreenPopGesture */,
 				C54BB3DE2518D3F5001591C2 /* GKNavigationBar */,
 				C54BB4042518D3F6001591C2 /* SDWebImage */,
 				C54BB3FE2518D3F6001591C2 /* ZZCircleProgress */,
@@ -2829,6 +2847,7 @@
 				C54BB3D02518D391001591C2 /* CJTextField.m in Sources */,
 				C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */,
 				C54BB3C72518D391001591C2 /* NSObject+Random.m in Sources */,
+				C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C54BB29C2518D363001591C2 /* UIBezierPath.m in Sources */,
 				C54BB42A2518D3F6001591C2 /* UINavigationItem+GKCategory.m in Sources */,
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
@@ -2978,6 +2997,7 @@
 				C54BB3D12518D391001591C2 /* ZYTextField.m in Sources */,
 				C54BB2C42518D363001591C2 /* LOTShapeStroke.m in Sources */,
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
+				C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */,
 				C54BB39F2518D391001591C2 /* TBVCell_style_02.m in Sources */,
 				C54BB2E02518D363001591C2 /* UIControl+XY.m in Sources */,
 				C54BB2BB2518D363001591C2 /* LOTShapeFill.m in Sources */,

@@ -17,6 +17,7 @@
 
 @property(nonatomic,assign)CGFloat itemWidth;
 @property(nonatomic,assign)BOOL isAnimation;
+@property(nonatomic,assign)BOOL isOK;
 
 @end
 
@@ -34,7 +35,12 @@
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    [self setupUI];
+
+    if (!self.isOK) {
+        [self setupUI];
+        self.isOK = YES;
+    }
+    
     [self layoutIfNeeded];
 }
 
@@ -224,7 +230,7 @@
 -(UIView *)topLine{
   if(!_topLine){
       _topLine = UIView.new;
-      _topLine.backgroundColor = kClearColor;//分割线的颜色
+      _topLine.backgroundColor = [UIColor colorWithHexString:@"#37A6F0"];//分割线的颜色
       _topLine.frame = CGRectMake(0,
                                   0,
                                   self.bounds.size.width,

@@ -57,12 +57,12 @@ CGFloat LZB_TABBAR_HEIGHT;
     self.gk_navigationBar.hidden = YES;
     self.navigationController.navigationBar.hidden = NO;
     
-    self.lzb_tabBar.tabBarStyleType = LZBTabBarStyleType_sysNormal;
+    [self p_setUpAllChildViewController];
+ 
+    self.lzb_tabBar.tabBarStyleType = LZBTabBarStyleType_middleItemUp;//决定中间是否突起 必须在p_setUpAllChildViewController 之后
     self.lzb_tabBar.topLine.alpha = 0;//TabBar顶部分割线
     self.lzb_tabBar.lottieJsonNameStrMutArr = self.lottieJsonNameStrMutArr;
 
-    [self p_setUpAllChildViewController];
-    
 //    [self Badge];
 }
 ///右上角角标

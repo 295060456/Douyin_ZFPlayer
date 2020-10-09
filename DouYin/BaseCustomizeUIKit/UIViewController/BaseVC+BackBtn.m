@@ -54,7 +54,7 @@ static char *BaseVC_BackBtn_isBackBtnBlackorWhite = "BaseVC_BackBtn_isBackBtnBla
                               forState:UIControlStateNormal];
         [BackBtnCategory setTitle:@"返回"
                          forState:UIControlStateNormal];
-        [BackBtnCategory setImage:self.isBackBtnBlackorWhite ? KBuddleIMG(@"Others", nil, @"back_black") :KBuddleIMG(@"Others", nil, @"back_white")
+        [BackBtnCategory setImage:self.isBackBtnBlackorWhite ? KBuddleIMG(@"Others", nil,nil, @"back_black") :KBuddleIMG(@"Others",nil, nil, @"back_white")
                          forState:UIControlStateNormal];
         @weakify(self)
         [[BackBtnCategory rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {

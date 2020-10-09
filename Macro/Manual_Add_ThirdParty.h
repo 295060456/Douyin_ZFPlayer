@@ -59,7 +59,11 @@
 
 #import "LoadingImage.h"
 
-#import "ToolMacro.h"
+#import "MacroDef_Sys.h"
+#import "MacroDef_Cor.h"
+#import "MacroDef_Size.h"
+#import "MacroDef_Func.h"
+
 #import "UIButton+ImageTitleSpacing.h"
 #import "NSTimerManager.h"
 #import "UIControl+XY.h"

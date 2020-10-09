@@ -37,7 +37,7 @@
         @try {
             return [self newObjectAtIndex:index];
         } @catch (NSException *exception) {
-            DLog(@"不可数组越界了");
+            NSLog(@"不可数组越界了");
             return nil;
         } @finally {
             
@@ -50,7 +50,7 @@
         @try {
             return [self newObjectAtIndexedSubscript:index];
         } @catch (NSException *exception) {
-           DLog(@"不可数组越界了");
+            NSLog(@"不可数组越界了");
             return nil;
         } @finally {
         }
@@ -62,7 +62,7 @@
         @try {
             return [self newMutableObjectAtIndex:index];
         } @catch (NSException *exception) {
-            DLog(@"可变数组越界了");
+            NSLog(@"可变数组越界了");
             return nil;
         } @finally {
             
@@ -75,7 +75,7 @@
         @try {
             return [self newMutableObjectAtIndexedSubscript:index];
         } @catch (NSException *exception) {
-            DLog(@"可变数组越界了");
+            NSLog(@"可变数组越界了");
             return nil;
         } @finally {
         }

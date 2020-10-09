@@ -334,6 +334,10 @@
 		C546C3D4252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		C546C3D6252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		C5470FB125309D3400651ACE /* MacroDef_Sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Sys.h; sourceTree = "<group>"; };
+		C5470FB225309D3400651ACE /* MacroDef_Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Func.h; sourceTree = "<group>"; };
+		C5470FB325309D3400651ACE /* MacroDef_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Size.h; sourceTree = "<group>"; };
+		C5470FB425309D3400651ACE /* MacroDef_Cor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Cor.h; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0AE2518D00E001591C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54BB0AF2518D00E001591C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -360,7 +364,6 @@
 		C54BB0F72518D064001591C2 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		C54BB0F82518D064001591C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C54BB0F92518D064001591C2 /* Manual_Add_ThirdParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Add_ThirdParty.h; sourceTree = "<group>"; };
-		C54BB0FA2518D064001591C2 /* ToolMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolMacro.h; sourceTree = "<group>"; };
 		C54BB1022518D0C0001591C2 /* BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
 		C54BB1042518D0C0001591C2 /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		C54BB1052518D0C0001591C2 /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -980,6 +983,17 @@
 			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
+		C5470FB025309D2200651ACE /* 各项宏定义 */ = {
+			isa = PBXGroup;
+			children = (
+				C5470FB425309D3400651ACE /* MacroDef_Cor.h */,
+				C5470FB225309D3400651ACE /* MacroDef_Func.h */,
+				C5470FB325309D3400651ACE /* MacroDef_Size.h */,
+				C5470FB125309D3400651ACE /* MacroDef_Sys.h */,
+			);
+			path = "各项宏定义";
+			sourceTree = "<group>";
+		};
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
@@ -1037,6 +1051,7 @@
 		C54BB0E92518D025001591C2 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				C5470FB025309D2200651ACE /* 各项宏定义 */,
 				C54BB0EC2518D055001591C2 /* Notification */,
 				C54BB0F62518D064001591C2 /* AABlock.h */,
 				C54BB0F72518D064001591C2 /* APIKey.h */,
@@ -1045,7 +1060,6 @@
 				C54BB0F42518D064001591C2 /* Other.h */,
 				C54BB0F52518D064001591C2 /* Pods.h */,
 				C54BB0F82518D064001591C2 /* PrefixHeader.pch */,
-				C54BB0FA2518D064001591C2 /* ToolMacro.h */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -2130,7 +2144,6 @@
 				C55D45B1251CB62800E543D6 /* 数据模型层 */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
-				C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
@@ -2344,13 +2357,6 @@
 				C54BB3632518D391001591C2 /* BaseTableViewer.m */,
 			);
 			path = "专治UITableView相应链断裂";
-			sourceTree = "<group>";
-		};
-		C582A66B251C5B7D00DD83A1 /* 播放器缓存管理 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "播放器缓存管理";
 			sourceTree = "<group>";
 		};
 		C582A672251C714F00DD83A1 /* 网络请求 */ = {

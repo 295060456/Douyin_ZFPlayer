@@ -49,14 +49,14 @@ UITableViewDataSource
      */
     [RequestTool setupPublicParameters];
     @weakify(self)
-//    [NetworkingAPI requestVedioWithBlock:^(id data) {
-//        @strongify(self)
-//        NSLog(@"");
-//        if ([data isKindOfClass:NSArray.class]) {
-//            self.dataMutArr = (NSMutableArray *)data;
-//        }
-//        [self.tableView reloadData];
-//    }];
+    [NetworkingAPI requestVedioWithBlock:^(id data) {
+        @strongify(self)
+        NSLog(@"");
+        if ([data isKindOfClass:NSArray.class]) {
+            self.dataMutArr = (NSMutableArray *)data;
+        }
+        [self.tableView reloadData];
+    }];
     
     self.tableView.alpha = 1;
     [self monitorScrollView];

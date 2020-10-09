@@ -82,7 +82,7 @@ static FMARCNetwork *static_FMARCNetwork = nil;
             @strongify(self)
             switch (status) {
                 case AFNetworkReachabilityStatusUnknown:{
-                    DLog(@"未知网络");
+                    NSLog(@"未知网络");
                     if (self.UnknownNetWorking) {
                         self.UnknownNetWorking();
                     }
@@ -93,7 +93,7 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                                                                         object:@(AFNetworkReachabilityStatusUnknown)];
                 }break;
                 case AFNetworkReachabilityStatusReachableViaWWAN:{
-                    DLog(@"3G网络");//不是WiFi的网络都会识别成3G网络.比如2G/3G/4G网络
+                    NSLog(@"3G网络");//不是WiFi的网络都会识别成3G网络.比如2G/3G/4G网络
                     if (self.ReachableViaWWANNetWorking) {
                         self.ReachableViaWWANNetWorking();
                     }
@@ -104,7 +104,7 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                                                                         object:@(AFNetworkReachabilityStatusReachableViaWWAN)];
                 }break;
                 case AFNetworkReachabilityStatusReachableViaWiFi:{
-                    DLog(@"WIFI网络");
+                    NSLog(@"WIFI网络");
                     if (self.ReachableViaWiFiNetWorking) {
                         self.ReachableViaWiFiNetWorking();
                     }
@@ -115,7 +115,7 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                                                                         object:@(AFNetworkReachabilityStatusReachableViaWiFi)];
                 } break;
                 case AFNetworkReachabilityStatusNotReachable:{
-                    DLog(@"没有网络");
+                    NSLog(@"没有网络");
                     if (self.NotReachableNetWorking) {
                         self.NotReachableNetWorking();
                     }
@@ -123,7 +123,7 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                                                                         object:@(AFNetworkReachabilityStatusNotReachable)];
                 }break;
                 default:{
-                    DLog(@"没有网络");
+                    NSLog(@"没有网络");
                     if (self.NotReachableNetWorking) {
                         self.NotReachableNetWorking();
                     }

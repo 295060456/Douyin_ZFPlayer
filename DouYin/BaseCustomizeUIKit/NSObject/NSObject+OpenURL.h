@@ -1,21 +1,20 @@
 //
-//  BaseVC+OpenURL.h
-//  MonkeyKingVideo
+//  NSObject+OpenURL.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/9.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/11.
 //
 
-#import "BaseVC.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (OpenURL)
+@interface NSObject (OpenURL)
 
 ///跳转系统设置
--(void)pushToSysConfig;
++(void)pushToSysConfig;
 ///对OpenURL的处理
--(BOOL)OpenURL:(NSString *)URLStr
++(BOOL)OpenURL:(NSString *)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
       showText:(NSString *)showTextStr
      superView:(UIView *)superView

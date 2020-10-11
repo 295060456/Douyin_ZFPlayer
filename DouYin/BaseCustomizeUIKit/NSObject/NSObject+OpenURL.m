@@ -1,28 +1,27 @@
 //
-//  BaseVC+OpenURL.m
-//  MonkeyKingVideo
+//  NSObject+OpenURL.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/9.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/11.
 //
 
-#import "BaseVC+OpenURL.h"
+#import "NSObject+OpenURL.h"
 
-@implementation BaseVC (OpenURL)
+@implementation NSObject (OpenURL)
 
 ///跳转系统设置
--(void)pushToSysConfig{
-    [self OpenURL:UIApplicationOpenSettingsURLString
-          options:@{}
-         showText:@""
-        superView:self.view
-        useAssert:NO
-completionHandler:^{
-        //TODO
++(void)pushToSysConfig{
+    [NSObject OpenURL:UIApplicationOpenSettingsURLString
+              options:@{}
+             showText:@""
+            superView:getMainWindow()
+            useAssert:NO
+    completionHandler:^{
+            //TODO
     }];
 }
 
--(BOOL)OpenURL:(NSString *)URLStr
++(BOOL)OpenURL:(NSString *)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
       showText:(NSString *)showTextStr
      superView:(UIView *)superView
@@ -38,7 +37,7 @@ completionHandler:(NoResultBlock)openSuccessBlock{
         if (isuseAssert) {
             NSAssert(canOpen,@"打开失败");
         }else{
-            [MBProgressHUD wj_showPlainText:showTextStr view:superView];
+//            [MBProgressHUD wj_showPlainText:showTextStr view:superView];
         }
     };
     

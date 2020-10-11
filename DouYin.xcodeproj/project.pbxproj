@@ -127,14 +127,6 @@
 		C54BB2E32518D363001591C2 /* 替换系统的UITabBarViewController in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2332518D363001591C2 /* 替换系统的UITabBarViewController */; };
 		C54BB2E42518D363001591C2 /* LZBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2352518D363001591C2 /* LZBTabBar.m */; };
 		C54BB2E52518D363001591C2 /* LZBTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2382518D363001591C2 /* LZBTabBarItem.m */; };
-		C54BB2E62518D363001591C2 /* spark_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB23D2518D363001591C2 /* spark_red@3x.png */; };
-		C54BB2E72518D363001591C2 /* spark_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB23E2518D363001591C2 /* spark_red@2x.png */; };
-		C54BB2E82518D363001591C2 /* spark_red.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB23F2518D363001591C2 /* spark_red.png */; };
-		C54BB2E92518D363001591C2 /* day_like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2402518D363001591C2 /* day_like@2x.png */; };
-		C54BB2EA2518D363001591C2 /* day_like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2412518D363001591C2 /* day_like@3x.png */; };
-		C54BB2EB2518D363001591C2 /* day_like_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2422518D363001591C2 /* day_like_red@2x.png */; };
-		C54BB2EC2518D363001591C2 /* day_like_red@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2432518D363001591C2 /* day_like_red@3x.png */; };
-		C54BB2ED2518D363001591C2 /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2442518D363001591C2 /* RBCLikeButton.m */; };
 		C54BB2EE2518D363001591C2 /* JhtBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2492518D363001591C2 /* JhtBannerView.m */; };
 		C54BB2EF2518D363001591C2 /* JhtBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB24B2518D363001591C2 /* JhtBannerScrollView.m */; };
 		C54BB2F02518D363001591C2 /* JhtBannerCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2502518D363001591C2 /* JhtBannerCardView.m */; };
@@ -258,6 +250,8 @@
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
+		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
+		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
 		C57342B125248DAC00CC6A3A /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342B025248DAC00CC6A3A /* ZYTextField+HistoryDataList.m */; };
@@ -582,15 +576,6 @@
 		C54BB2372518D363001591C2 /* LZBTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBTabBarDelegate.h; sourceTree = "<group>"; };
 		C54BB2382518D363001591C2 /* LZBTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBTabBarItem.m; sourceTree = "<group>"; };
 		C54BB2392518D363001591C2 /* LZBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBTabBar.h; sourceTree = "<group>"; };
-		C54BB23B2518D363001591C2 /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
-		C54BB23D2518D363001591C2 /* spark_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark_red@3x.png"; sourceTree = "<group>"; };
-		C54BB23E2518D363001591C2 /* spark_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark_red@2x.png"; sourceTree = "<group>"; };
-		C54BB23F2518D363001591C2 /* spark_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark_red.png; sourceTree = "<group>"; };
-		C54BB2402518D363001591C2 /* day_like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day_like@2x.png"; sourceTree = "<group>"; };
-		C54BB2412518D363001591C2 /* day_like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day_like@3x.png"; sourceTree = "<group>"; };
-		C54BB2422518D363001591C2 /* day_like_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day_like_red@2x.png"; sourceTree = "<group>"; };
-		C54BB2432518D363001591C2 /* day_like_red@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day_like_red@3x.png"; sourceTree = "<group>"; };
-		C54BB2442518D363001591C2 /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C54BB2482518D363001591C2 /* JhtBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhtBannerView.h; sourceTree = "<group>"; };
 		C54BB2492518D363001591C2 /* JhtBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhtBannerView.m; sourceTree = "<group>"; };
 		C54BB24B2518D363001591C2 /* JhtBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhtBannerScrollView.m; sourceTree = "<group>"; };
@@ -836,6 +821,9 @@
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
+		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
+		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
+		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
 		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -1603,25 +1591,11 @@
 		C54BB23A2518D363001591C2 /* 高仿抖音点赞动画 */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB23C2518D363001591C2 /* resource */,
-				C54BB23B2518D363001591C2 /* RBCLikeButton.h */,
-				C54BB2442518D363001591C2 /* RBCLikeButton.m */,
+				C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */,
+				C55AABFA2532B32400335ACC /* RBCLikeButton.h */,
+				C55AABFB2532B32400335ACC /* RBCLikeButton.m */,
 			);
 			path = "高仿抖音点赞动画";
-			sourceTree = "<group>";
-		};
-		C54BB23C2518D363001591C2 /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB2422518D363001591C2 /* day_like_red@2x.png */,
-				C54BB2432518D363001591C2 /* day_like_red@3x.png */,
-				C54BB2402518D363001591C2 /* day_like@2x.png */,
-				C54BB2412518D363001591C2 /* day_like@3x.png */,
-				C54BB23F2518D363001591C2 /* spark_red.png */,
-				C54BB23E2518D363001591C2 /* spark_red@2x.png */,
-				C54BB23D2518D363001591C2 /* spark_red@3x.png */,
-			);
-			path = resource;
 			sourceTree = "<group>";
 		};
 		C54BB2452518D363001591C2 /* 卡片式滑动效果 */ = {
@@ -2635,29 +2609,24 @@
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
 				C54BB2F42518D363001591C2 /* 验证码按钮单例封装 in Resources */,
 				C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */,
-				C54BB2EB2518D363001591C2 /* day_like_red@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
 				C5B7E1B42524681C00BC4E9D /* green_lottie_tab_discover.json in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
-				C54BB2EC2518D363001591C2 /* day_like_red@3x.png in Resources */,
 				C5B7E1B12524681C00BC4E9D /* green_lottie_tab_news.json in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,
-				C54BB2E72518D363001591C2 /* spark_red@2x.png in Resources */,
 				C5ED338D2521C887001A04FE /* data.json in Resources */,
-				C54BB2E62518D363001591C2 /* spark_red@3x.png in Resources */,
 				C54BB11F2518D0C0001591C2 /* BRPickerView.bundle in Resources */,
 				C5B7E1B72524681C00BC4E9D /* 上传与拍照.json in Resources */,
 				C5B7E1B22524681C00BC4E9D /* green_lottie_tab_home.json in Resources */,
 				C54BB2FE2518D363001591C2 /* 带有按键音的按钮 in Resources */,
 				C54BB2E32518D363001591C2 /* 替换系统的UITabBarViewController in Resources */,
-				C54BB2E92518D363001591C2 /* day_like@2x.png in Resources */,
 				C54BB2DF2518D363001591C2 /* iOS小技巧：用runtime 解决UIButton 重复点击问题 in Resources */,
 				C54BB0C12518D00F001591C2 /* LaunchScreen.storyboard in Resources */,
 				C54BB2FA2518D363001591C2 /* 水平进度条.png in Resources */,
 				C5B7E1952524653B00BC4E9D /* Others.bundle in Resources */,
-				C54BB2EA2518D363001591C2 /* day_like@3x.png in Resources */,
+				C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */,
 				C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */,
 				C54BB0BE2518D00F001591C2 /* Assets.xcassets in Resources */,
 				C54BB42E2518D3F6001591C2 /* ZZCircleProgress.bundle in Resources */,
@@ -2669,7 +2638,6 @@
 				C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */,
 				C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */,
 				C5B7E1B82524681C00BC4E9D /* wode.json in Resources */,
-				C54BB2E82518D363001591C2 /* spark_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2893,6 +2861,7 @@
 				C54BB39D2518D391001591C2 /* UIImage+SYS.m in Sources */,
 				C54BB2DC2518D363001591C2 /* CustomerAVPlayerVC.m in Sources */,
 				C54BB1242518D0C0001591C2 /* NSDate+BRPickerView.m in Sources */,
+				C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */,
 				C54BB4382518D3F6001591C2 /* NSImage+WebCache.m in Sources */,
 				C54BB29A2518D363001591C2 /* LOTPolystarAnimator.m in Sources */,
 				C54BB5372518E5F6001591C2 /* NSString+ZBUTF8Encoding.m in Sources */,
@@ -2998,7 +2967,6 @@
 				C54BB2AF2518D363001591C2 /* LOTShapeCircle.m in Sources */,
 				C54BB2FB2518D363001591C2 /* WGradientProgressView.m in Sources */,
 				C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */,
-				C54BB2ED2518D363001591C2 /* RBCLikeButton.m in Sources */,
 				C54BB1202518D0C0001591C2 /* BRPickerStyle.m in Sources */,
 				C54BB3D12518D391001591C2 /* ZYTextField.m in Sources */,
 				C54BB2C42518D363001591C2 /* LOTShapeStroke.m in Sources */,

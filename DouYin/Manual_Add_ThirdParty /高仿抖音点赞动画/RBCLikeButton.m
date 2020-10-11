@@ -65,7 +65,10 @@
 - (void)setupBackWithFrame:(CGRect)frame {
     
     //1.初始化👍View
-    UIImageView *backImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"day_like_red"]];
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:KBuddleIMG(@"RBCLikeButton",
+                                                                               nil,
+                                                                               nil,
+                                                                               @"day_like_red")];
     backImageView.alpha = 0;
     [self addSubview:backImageView];
     self.backImageView = backImageView;
@@ -152,7 +155,7 @@
     //形变范围
     //    explosionCell.scaleRange = 0.02;
     //粒子内容
-    explosionCell.contents = (id)[[UIImage imageNamed:@"spark_red"] CGImage];
+    explosionCell.contents = (id)[KBuddleIMG(@"RBCLikeButton",nil,nil, @"spark_red") CGImage];
     //粒子初始颜色
 //    explosionCell.color = [UIColor yellowColor].CGColor;
     explosionCell.color = TYColorFromRGB(0xFE6262).CGColor;

@@ -261,6 +261,7 @@
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
 		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
 		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
+		C58C61E12532FC2E0092BF89 /* UIView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C58C61E02532FC2D0092BF89 /* UIView+Rotate.m */; };
 		C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */; };
 		C5B7E1952524653B00BC4E9D /* Others.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1942524653B00BC4E9D /* Others.bundle */; };
 		C5B7E19B2524656500BC4E9D /* 刷新.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E19A2524656500BC4E9D /* 刷新.bundle */; };
@@ -845,6 +846,8 @@
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
+		C58C61DF2532FC2D0092BF89 /* UIView+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Rotate.h"; sourceTree = "<group>"; };
+		C58C61E02532FC2D0092BF89 /* UIView+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rotate.m"; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
 		C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYTextField.bundle; sourceTree = "<group>"; };
 		C5B7E1942524653B00BC4E9D /* Others.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Others.bundle; sourceTree = "<group>"; };
@@ -1869,6 +1872,8 @@
 				C54BB32E2518D391001591C2 /* UIView+Gradient.m */,
 				C54BB3312518D391001591C2 /* UIView+Measure.h */,
 				C54BB3292518D391001591C2 /* UIView+Measure.m */,
+				C58C61DF2532FC2D0092BF89 /* UIView+Rotate.h */,
+				C58C61E02532FC2D0092BF89 /* UIView+Rotate.m */,
 				C54BB32F2518D391001591C2 /* UIView+SuspendView.h */,
 				C54BB32B2518D391001591C2 /* UIView+SuspendView.m */,
 			);
@@ -2833,6 +2838,7 @@
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
 				C54BB3D52518D391001591C2 /* UITextField+Extend.m in Sources */,
 				C54BB2FD2518D363001591C2 /* PlaySound.m in Sources */,
+				C58C61E12532FC2E0092BF89 /* UIView+Rotate.m in Sources */,
 				C54BB0C42518D00F001591C2 /* main.m in Sources */,
 				C54BB1212518D0C0001591C2 /* BRBaseView.m in Sources */,
 				C54BB42B2518D3F6001591C2 /* UIImage+GKCategory.m in Sources */,

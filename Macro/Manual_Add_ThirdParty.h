@@ -32,6 +32,7 @@
 #import "UIView+SuspendView.h"
 #import "UIView+Animation.h"
 #import "UIView+Gradient.h"
+#import "UIView+Rotate.h"
 //UIViewController
 #import "BaseVC.h"
 #import "BaseVC+AFNReachability.h"

@@ -14,15 +14,15 @@
 static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
     return [UIImage imageNamed:imgName];
 }
-/// 读取自定义Bundle文件里面的图片 输出 UIImage *
+/// 读取自定义Bundle文件里面的图片 输出 NSString *
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
 /// @param pathForResource 自定义 Bundle 的名字
 /// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
 /// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
-static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName,
-                                             NSString *__nonnull pathForResource,
-                                             NSString *__nullable bundle_folderName,
-                                             NSString *__nonnull fileFullNameWithSuffix){
+static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFolderName,
+                                                    NSString *__nonnull pathForResource,
+                                                    NSString *__nullable bundle_folderName,
+                                                    NSString *__nonnull fileFullNameWithSuffix){
     NSString *filePath = nil;
     if ([NSString isNullString:blueFolderName]) {
         filePath = [[NSBundle mainBundle] pathForResource:pathForResource
@@ -43,7 +43,19 @@ static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName
     }
     
     filePath = [filePath stringByAppendingPathComponent:fileFullNameWithSuffix];
+    return filePath;
+}
+/// 读取自定义Bundle文件里面的图片 输出 UIImage *
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
+/// @param pathForResource 自定义 Bundle 的名字
+/// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
+/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
+static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName,
+                                             NSString *__nonnull pathForResource,
+                                             NSString *__nullable bundle_folderName,
+                                             NSString *__nonnull fileFullNameWithSuffix){
     
+    NSString *filePath = pathForBuddleIMG(blueFolderName, pathForResource, bundle_folderName, fileFullNameWithSuffix);
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     return image;
 }
@@ -56,26 +68,7 @@ static inline NSData *__nullable KDataByBuddleIMG(NSString *__nonnull pathForRes
                                                   NSString *__nullable blueFolderName,
                                                   NSString *__nullable bundle_folderName,
                                                   NSString *__nonnull fileFullNameWithSuffix){
-    NSString *filePath = nil;
-    if ([NSString isNullString:blueFolderName]) {
-        filePath = [[NSBundle mainBundle] pathForResource:pathForResource
-                                                   ofType:@"bundle"];
-    }else{
-        filePath = [[NSBundle mainBundle] pathForResource:pathForResource
-                                                   ofType:@"bundle"
-                                              inDirectory:blueFolderName];
-    }
-    
-    if (![NSString isNullString:bundle_folderName]) {
-        filePath = [filePath stringByAppendingPathComponent:bundle_folderName];
-    }
-    
-    //容错处理
-    if (![fileFullNameWithSuffix containsString:@"."]) {
-        fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
-    }
-    
-    filePath = [filePath stringByAppendingPathComponent:fileFullNameWithSuffix];
+    NSString *filePath = pathForBuddleIMG(blueFolderName, pathForResource, bundle_folderName, fileFullNameWithSuffix);
     NSData *imgData = [NSData dataWithContentsOfFile:filePath];
     return imgData;
 }

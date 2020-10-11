@@ -61,16 +61,16 @@
         mjRefreshGifHeader = [MJRefreshGifHeader headerWithRefreshingTarget:self
                                                            refreshingAction:@selector(pullToRefresh)];
         // 设置普通状态的动画图片
-        [mjRefreshGifHeader setImages:@[KBuddleIMG(@"刷新", nil,nil, @"header.png")]
+        [mjRefreshGifHeader setImages:@[KBuddleIMG(nil,@"刷新",nil, @"header.png")]
                              forState:MJRefreshStateIdle];
         // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-        [mjRefreshGifHeader setImages:@[KBuddleIMG(@"刷新", nil,nil, @"Indeterminate Spinner - Small.png")]
+        [mjRefreshGifHeader setImages:@[KBuddleIMG(nil,@"刷新",nil, @"Indeterminate Spinner - Small.png")]
                              forState:MJRefreshStatePulling];
         // 设置正在刷新状态的动画图片
         NSMutableArray *dataMutArr = NSMutableArray.array;
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
-            [dataMutArr addObject:KBuddleIMG(@"刷新", nil,@"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
+            [dataMutArr addObject:KBuddleIMG(nil,@"刷新",@"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
         }
 
         [mjRefreshGifHeader setImages:dataMutArr
@@ -115,13 +115,13 @@
         // 设置颜色
         mjRefreshAutoGifFooter.stateLabel.textColor = KLightGrayColor;
         /** 普通闲置状态 */
-        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(@"刷新",nil, nil, @"header.png")]
+        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(nil, @"刷新",nil, @"header.png")]
                                  forState:MJRefreshStateIdle];
         [mjRefreshAutoGifFooter setTitle:@"Click or drag up to refresh"
                                 forState:MJRefreshStateIdle];
         
         /** 松开就可以进行刷新的状态 */
-        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(@"刷新", nil,nil, @"Indeterminate Spinner - Small.png")]
+        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(nil,@"刷新",nil, @"Indeterminate Spinner - Small.png")]
                                  forState:MJRefreshStatePulling];
         
         /** 正在刷新中的状态 */
@@ -129,7 +129,7 @@
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
             str = [str stringByAppendingString:@".png"];
-            [dataMutArr addObject:KBuddleIMG(@"刷新", nil,@"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
+            [dataMutArr addObject:KBuddleIMG(nil,@"刷新",@"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
         }
 
         [mjRefreshAutoGifFooter setImages:dataMutArr

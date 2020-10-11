@@ -29,7 +29,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self setImage:KBuddleIMG(@"Others", nil,nil, @"加号.png")
+        [self setImage:KBuddleIMG(nil,@"Others",nil, @"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -38,7 +38,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder{
     if (self = [super initWithCoder:coder]) {
-        [self setImage:KBuddleIMG(@"Others", nil,nil, @"加号.png")
+        [self setImage:KBuddleIMG(nil,@"Others", nil, @"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -47,7 +47,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        [self setImage:KBuddleIMG(@"Others", nil, nil,@"加号.png")
+        [self setImage:KBuddleIMG(nil,@"Others",nil,@"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -94,7 +94,7 @@
 }
 
 - (void)longClick {
-    if (![self.imageView.image isEqual:KBuddleIMG(@"Others", nil, nil,@"加号.png")]) {
+    if (![self.imageView.image isEqual:KBuddleIMG(nil,@"Others",nil,@"加号.png")]) {
         if (self.shaking) return;
         self.shaking = YES;
     }

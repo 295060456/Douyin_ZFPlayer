@@ -147,22 +147,22 @@ CGFloat LZB_TABBAR_HEIGHT;
 -(NSMutableArray<UIImage *> *)customUnselectedImgMutArr{
     if (!_customUnselectedImgMutArr) {
         _customUnselectedImgMutArr = NSMutableArray.array;
-        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"Home")];
-        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"MyStore")];
-        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"摄像机")];
-        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"ShoppingCart")];
-        [_customUnselectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"My")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(nil, @"Others", nil, @"Home")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"MyStore")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"摄像机")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"ShoppingCart")];
+        [_customUnselectedImgMutArr addObject:KBuddleIMG(nil,@"Others", nil, @"My")];
     }return _customUnselectedImgMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)customSelectedImgMutArr{
     if (!_customSelectedImgMutArr) {
         _customSelectedImgMutArr = NSMutableArray.array;
-        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"Home")];
-        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"MyStore")];
-        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"摄像机")];
-        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"ShoppingCart")];
-        [_customSelectedImgMutArr addObject:KBuddleIMG(@"Others", nil, nil, @"My")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"Home")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"MyStore")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"摄像机")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"ShoppingCart")];
+        [_customSelectedImgMutArr addObject:KBuddleIMG(nil, @"Others",nil, @"My")];
     }return _customSelectedImgMutArr;
 }
 

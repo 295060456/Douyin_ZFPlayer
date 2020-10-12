@@ -22,8 +22,7 @@
 #import "GKNavigationBar.h"
 #import "PPBadgeView.h"
 #import <YYKit/YYKit.h>
-#import "MBProgressHUD.h"
-#import "MBProgressHUD+WJExtension.h"
+#import "WHToast.h"
 
 #pragma mark —— ZFPlayer 播放器相关
 //Core

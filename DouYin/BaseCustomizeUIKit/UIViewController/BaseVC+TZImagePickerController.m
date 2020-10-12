@@ -179,8 +179,12 @@ imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock{
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> *)info{
     UIImage *photo = [info objectForKey:UIImagePickerControllerOriginalImage];
-    if (photo == nil) {
-        [MBProgressHUD wj_showError:@"异常操作，导致拍照失败"];
+    if (!photo) {
+        [WHToast showErrorWithMessage:@"异常操作，导致拍照失败"
+                             duration:2
+                        finishHandler:^{
+          
+        }];
         return;
     }else{
         if (self.picBlock) {

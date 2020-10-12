@@ -90,7 +90,11 @@
     self.videoCamera.audioEncodingTarget = nil;
     _FileUrlByTime = nil;//只要一暂停录制，就需要置空，因为是时间戳路径，需要懒加载获取到最新
     // 合成：将音频流和视频流 合在一起，在这个动作之前，不是视频。合成结束并且写文件。
-    [MBProgressHUD wj_showPlainText:@"视频合成中......" view:getMainWindow()];
+    [WHToast showErrorWithMessage:@"视频合成中......"
+                         duration:2
+                    finishHandler:^{
+      
+    }];
     @weakify(self)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(.5 * NSEC_PER_SEC)),
@@ -260,8 +264,11 @@
     [self.exporter exportAsynchronouslyWithCompletionHandler:^{
         dispatch_async(dispatch_get_main_queue(), ^{
             @strongify(self)
-            [MBProgressHUD wj_showPlainText:@"处理完毕...."
-                                       view:getMainWindow()];
+            [WHToast showErrorWithMessage:@"处理完毕...."
+                                 duration:2
+                            finishHandler:^{
+              
+            }];
             switch (self.exporter.status) {
                 case AVAssetExportSessionStatusFailed:{
                     NSLog(@"Export failed: %@", [[self.exporter error] localizedDescription]);

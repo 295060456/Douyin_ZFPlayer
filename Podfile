@@ -38,8 +38,7 @@ target 'DouYin' do
   pod 'TXFileOperation'
   pod 'IQKeyboardManager' # https://github.com/hackiftekhar/IQKeyboardManager Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
   pod 'JJException' #https://github.com/jezzmemo/JJException 保护App,一般常见的问题不会导致闪退，增强App的健壮性，同时会将错误抛出来，根据每个App自身的日志渠道记录
-  #pod 'MBProgressHUD'
-  pod 'MBProgressHUD+WJExtension' # https://github.com/WJCha/MBProgressHUD-WJExtension 基于 MBProgressHUD 的封装、并增加了操作成功与失败的HUD动画与祝贺撒花效果
+  pod 'WHToast' # https://github.com/remember17/WHToast 一个轻量级的提示控件，没有任何依赖
   
   pod 'ZFPlayer'
   pod 'ZFPlayer/ControlView'

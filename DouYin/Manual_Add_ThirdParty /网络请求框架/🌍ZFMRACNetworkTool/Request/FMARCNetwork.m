@@ -214,8 +214,11 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                     if (statusCode == HTTPResponseCodeNotLogin) {
                         //进入登录流程
                     }
-                    [MBProgressHUD wj_showPlainText:responseObject[HTTPServiceResponseMsgKey] view:nil];
-                    
+                    [WHToast showErrorWithMessage:responseObject[HTTPServiceResponseMsgKey]
+                                         duration:2
+                                    finishHandler:^{
+                      
+                    }];
                     FMHttpResonse *response = [[FMHttpResonse alloc] initWithResponseSuccess:responseObject[HTTPServiceResponseMsgKey] code:statusCode];
                     
                     NSLog(@"异常接口路径 %@ %@",request.URL.absoluteString,responseObject[HTTPServiceResponseMsgKey]);
@@ -226,8 +229,11 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                 //抛其他异常
                     
                 }else{
-                    [MBProgressHUD wj_showPlainText:responseObject[HTTPServiceResponseMsgKey]
-                                               view:nil];
+                    [WHToast showErrorWithMessage:responseObject[HTTPServiceResponseMsgKey]
+                                         duration:2
+                                    finishHandler:^{
+                      
+                    }];
                     
                     NSLog(@"异常接口路径 %@ %@",request.URL.absoluteString,responseObject[HTTPServiceResponseMsgKey]);
                     
@@ -252,9 +258,11 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                 //                [subscriber sendError:parseError];
                 [subscriber sendCompleted];
                 //错误可以在此处处理---比如加入自己弹窗，主要是服务器错误、和请求超时、网络开小差
-                [MBProgressHUD wj_showPlainText:msgStr
-                                           view:nil];
-                
+                [WHToast showErrorWithMessage:msgStr
+                                     duration:2
+                                finishHandler:^{
+                  
+                }];
             }
         }];
         [task resume];/// 开启请求任务
@@ -380,10 +388,10 @@ static FMARCNetwork *static_FMARCNetwork = nil;
             NSLog(@"uploadProgress = %@",uploadProgress);
             CGFloat _percent = uploadProgress.fractionCompleted * 100;
             NSString *str = [NSString stringWithFormat:@"上传文件中...%.2f",_percent];
-            NSLog(@"%@",str);
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [MBProgressHUD wj_showPlainText:str
-                                           view:nil];
+            [WHToast showErrorWithMessage:str
+                                 duration:2
+                            finishHandler:^{
+              
             }];
         } completionHandler:^(NSURLResponse * _Nonnull response,
                               id  _Nullable responseObject,
@@ -404,8 +412,11 @@ static FMARCNetwork *static_FMARCNetwork = nil;
                 [subscriber sendNext:response];
                 //[subscriber sendError:parseError];
                 [subscriber sendCompleted];
-                [MBProgressHUD wj_showPlainText:msgStr
-                                           view:nil];
+                [WHToast showErrorWithMessage:msgStr
+                                     duration:2
+                                finishHandler:^{
+                  
+                }];
             } else {
                 FMHttpResonse *response = [[FMHttpResonse alloc] initWithResponseSuccess:responseObject
                                                                                     code:0];
@@ -636,12 +647,17 @@ static FMARCNetwork *static_FMARCNetwork = nil;
         [_manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
             if (status == AFNetworkReachabilityStatusUnknown) {
                 NSLog(@"--- 未知网络 ---");
-                [MBProgressHUD wj_showPlainText:@"网络状态未知"
-                                           view:nil];
-                
+                [WHToast showErrorWithMessage:@"网络状态未知"
+                                     duration:2
+                                finishHandler:^{
+                  
+                }];
             }else if (status == AFNetworkReachabilityStatusNotReachable) {
-                [MBProgressHUD wj_showPlainText:@"网络不给力，请检查网络"
-                                           view:nil];
+                [WHToast showErrorWithMessage:@"网络不给力，请检查网络"
+                                     duration:2
+                                finishHandler:^{
+                  
+                }];
             }else{
                 NSLog(@"--- 有网络 ---");
             }

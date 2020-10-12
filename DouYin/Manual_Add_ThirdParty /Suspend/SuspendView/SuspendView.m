@@ -22,6 +22,10 @@
     }return self;
 }
 
+-(void)drawRect:(CGRect)rect{
+    self.panRcognize.enabled = self.isAllowDrag;
+}
+
 -(void)actionSuspendViewBlock:(MKDataBlock)suspendViewBlock{
     self.suspendViewBlock = suspendViewBlock;
 }

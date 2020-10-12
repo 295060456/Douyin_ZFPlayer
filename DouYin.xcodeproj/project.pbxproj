@@ -50,9 +50,6 @@
 		C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */; };
 		C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2062518D363001591C2 /* LBLaunchImageAdView.m */; };
 		C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB20B2518D363001591C2 /* MovieCountDown.m */; };
-		C54BB2D62518D363001591C2 /* suspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB20E2518D363001591C2 /* suspendBtn.m */; };
-		C54BB2D72518D363001591C2 /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2122518D363001591C2 /* SuspendLab.m */; };
-		C54BB2D82518D363001591C2 /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2142518D363001591C2 /* SuspendView.m */; };
 		C54BB2D92518D363001591C2 /* CustomerGPUImagePlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2182518D363001591C2 /* CustomerGPUImagePlayerVC.m */; };
 		C54BB2DA2518D363001591C2 /* CustomerAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB21E2518D363001591C2 /* CustomerAVPlayerView.m */; };
 		C54BB2DB2518D363001591C2 /* CustomerAVPlayerView+UIGestureRecognizerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB21F2518D363001591C2 /* CustomerAVPlayerView+UIGestureRecognizerDelegate.m */; };
@@ -190,6 +187,9 @@
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
+		C55B2B002534273D0038E50C /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AF82534273D0038E50C /* SuspendView.m */; };
+		C55B2B012534273D0038E50C /* SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AFB2534273D0038E50C /* SuspendBtn.m */; };
+		C55B2B022534273D0038E50C /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AFF2534273D0038E50C /* SuspendLab.m */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
 		C57342B125248DAC00CC6A3A /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342B025248DAC00CC6A3A /* ZYTextField+HistoryDataList.m */; };
@@ -355,12 +355,6 @@
 		C54BB2082518D363001591C2 /* LBLaunchImageAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBLaunchImageAdView.h; sourceTree = "<group>"; };
 		C54BB20A2518D363001591C2 /* MovieCountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCountDown.h; sourceTree = "<group>"; };
 		C54BB20B2518D363001591C2 /* MovieCountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCountDown.m; sourceTree = "<group>"; };
-		C54BB20E2518D363001591C2 /* suspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendBtn.m; sourceTree = "<group>"; };
-		C54BB20F2518D363001591C2 /* suspendBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendBtn.h; sourceTree = "<group>"; };
-		C54BB2112518D363001591C2 /* SuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendLab.h; sourceTree = "<group>"; };
-		C54BB2122518D363001591C2 /* SuspendLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendLab.m; sourceTree = "<group>"; };
-		C54BB2142518D363001591C2 /* SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
-		C54BB2152518D363001591C2 /* SuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendView.h; sourceTree = "<group>"; };
 		C54BB2182518D363001591C2 /* CustomerGPUImagePlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerGPUImagePlayerVC.m; sourceTree = "<group>"; };
 		C54BB2192518D363001591C2 /* CustomerGPUImagePlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerGPUImagePlayerVC.h; sourceTree = "<group>"; };
 		C54BB21C2518D363001591C2 /* CustomerAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerAVPlayerView.h; sourceTree = "<group>"; };
@@ -633,6 +627,12 @@
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
+		C55B2AF82534273D0038E50C /* SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
+		C55B2AF92534273D0038E50C /* SuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendView.h; sourceTree = "<group>"; };
+		C55B2AFB2534273D0038E50C /* SuspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBtn.m; sourceTree = "<group>"; };
+		C55B2AFC2534273D0038E50C /* SuspendBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendBtn.h; sourceTree = "<group>"; };
+		C55B2AFE2534273D0038E50C /* SuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendLab.h; sourceTree = "<group>"; };
+		C55B2AFF2534273D0038E50C /* SuspendLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendLab.m; sourceTree = "<group>"; };
 		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
@@ -1128,38 +1128,11 @@
 		C54BB20C2518D363001591C2 /* Suspend */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB20D2518D363001591C2 /* SuspendBtn */,
-				C54BB2102518D363001591C2 /* SuspendLab */,
-				C54BB2132518D363001591C2 /* SuspendView */,
+				C55B2AFA2534273D0038E50C /* SuspendBtn */,
+				C55B2AFD2534273D0038E50C /* SuspendLab */,
+				C55B2AF72534273D0038E50C /* SuspendView */,
 			);
 			path = Suspend;
-			sourceTree = "<group>";
-		};
-		C54BB20D2518D363001591C2 /* SuspendBtn */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB20F2518D363001591C2 /* suspendBtn.h */,
-				C54BB20E2518D363001591C2 /* suspendBtn.m */,
-			);
-			path = SuspendBtn;
-			sourceTree = "<group>";
-		};
-		C54BB2102518D363001591C2 /* SuspendLab */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB2112518D363001591C2 /* SuspendLab.h */,
-				C54BB2122518D363001591C2 /* SuspendLab.m */,
-			);
-			path = SuspendLab;
-			sourceTree = "<group>";
-		};
-		C54BB2132518D363001591C2 /* SuspendView */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB2152518D363001591C2 /* SuspendView.h */,
-				C54BB2142518D363001591C2 /* SuspendView.m */,
-			);
-			path = SuspendView;
 			sourceTree = "<group>";
 		};
 		C54BB2162518D363001591C2 /* 录制成功的视频进行预览播放以决定是否舍弃 */ = {
@@ -1977,6 +1950,33 @@
 			path = "UITableView 折叠功能";
 			sourceTree = "<group>";
 		};
+		C55B2AF72534273D0038E50C /* SuspendView */ = {
+			isa = PBXGroup;
+			children = (
+				C55B2AF92534273D0038E50C /* SuspendView.h */,
+				C55B2AF82534273D0038E50C /* SuspendView.m */,
+			);
+			path = SuspendView;
+			sourceTree = "<group>";
+		};
+		C55B2AFA2534273D0038E50C /* SuspendBtn */ = {
+			isa = PBXGroup;
+			children = (
+				C55B2AFC2534273D0038E50C /* SuspendBtn.h */,
+				C55B2AFB2534273D0038E50C /* SuspendBtn.m */,
+			);
+			path = SuspendBtn;
+			sourceTree = "<group>";
+		};
+		C55B2AFD2534273D0038E50C /* SuspendLab */ = {
+			isa = PBXGroup;
+			children = (
+				C55B2AFE2534273D0038E50C /* SuspendLab.h */,
+				C55B2AFF2534273D0038E50C /* SuspendLab.m */,
+			);
+			path = SuspendLab;
+			sourceTree = "<group>";
+		};
 		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2496,7 +2496,6 @@
 				C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C54BB42A2518D3F6001591C2 /* UINavigationItem+GKCategory.m in Sources */,
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
-				C54BB2D62518D363001591C2 /* suspendBtn.m in Sources */,
 				C54BB47A2518DACC001591C2 /* BaseGPUImageView.m in Sources */,
 				C54BB2FC2518D363001591C2 /* ShowAvailableFont.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
@@ -2513,6 +2512,7 @@
 				C54BB5022518E398001591C2 /* ViewController@5.m in Sources */,
 				C54BB1252518D0C0001591C2 /* BRDatePickerView.m in Sources */,
 				C54BB4272518D3F6001591C2 /* UINavigationController+GKCategory.m in Sources */,
+				C55B2B002534273D0038E50C /* SuspendView.m in Sources */,
 				C54BB1272518D0C0001591C2 /* BRStringPickerView.m in Sources */,
 				C54BB3CE2518D391001591C2 /* NSObject+Time.m in Sources */,
 				C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */,
@@ -2601,7 +2601,6 @@
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,
 				C54BB4232518D3F6001591C2 /* GKPushAnimatedTransition.m in Sources */,
 				C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */,
-				C54BB2D72518D363001591C2 /* SuspendLab.m in Sources */,
 				C54BB3B92518D391001591C2 /* BaseVC.m in Sources */,
 				C54BB3A92518D391001591C2 /* UIView+Gradient.m in Sources */,
 				C54BB2FB2518D363001591C2 /* WGradientProgressView.m in Sources */,
@@ -2625,16 +2624,17 @@
 				C54BB1262518D0C0001591C2 /* BRResultModel.m in Sources */,
 				C5F15483251B16270029018C /* BaseVC+MJRefresh.m in Sources */,
 				C54BB5032518E398001591C2 /* ViewController@1.m in Sources */,
+				C55B2B012534273D0038E50C /* SuspendBtn.m in Sources */,
 				C54BB2F32518D363001591C2 /* UIButton+CountDownBtn.m in Sources */,
 				C54BB3062518D363001591C2 /* ECAuthorizationTools.m in Sources */,
 				C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */,
 				C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */,
+				C55B2B022534273D0038E50C /* SuspendLab.m in Sources */,
 				C54BB3B72518D391001591C2 /* BaseVC+BWShareView.m in Sources */,
 				C54BB43A2518D3F6001591C2 /* SDWebImageImageIOCoder.m in Sources */,
 				C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
-				C54BB2D82518D363001591C2 /* SuspendView.m in Sources */,
 				C54BB2F52518D363001591C2 /* CountDownBtn.m in Sources */,
 				C54BB2CA2518D363001591C2 /* AVFounationTools.m in Sources */,
 				C54BB11D2518D0C0001591C2 /* BRAddressModel.m in Sources */,

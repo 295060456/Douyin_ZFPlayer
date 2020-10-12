@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SuspendView : UIView
 
+@property(nonatomic,assign)BOOL isAllowDrag;//是否允许托拽手势
 @property(nonatomic,copy)MKDataBlock suspendViewBlock;
 
 -(void)actionSuspendViewBlock:(MKDataBlock)suspendLabBlock;
@@ -19,3 +20,21 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+/**
+使用方法：
+ 在需要作用的UIView的子类
+ 
+ @property(nonatomic,weak)UIViewController *vcer;//这个属性掌管悬浮效果，具体实现见  @interface UIView (SuspendView)
+ 
+ -(void)drawRect:(CGRect)rect{
+     [super drawRect:rect];
+     if (self.isSuspend) {
+         //开启悬浮效果
+         self.vc = self.vcer;
+         self.panRcognize.enabled = YES;
+     }else{
+         self.vc = nil;
+     }
+ }
+
+*/

@@ -8,17 +8,20 @@
 #ifndef MacroDef_Func_h
 #define MacroDef_Func_h
 
-#import "SceneDelegate.h"
 #import "MacroDef_Sys.h"
 
-static inline UIWindow * getMainWindow(){
-    UIWindow *window = nil;
-    if (@available(iOS 13.0, *)) {
-        window = [SceneDelegate sharedInstance].window;
-    }else{
-        window = UIApplication.sharedApplication.delegate.window;
-//        [UIApplication sharedApplication].keyWindow
-    }return window;
+static inline UIWindow *getMainWindow(){
+  UIWindow *window = nil;
+   window = UIApplication.sharedApplication.delegate.window;
+   if (!window) {
+       if (@available(iOS 13.0, *)) {
+           NSSet<UIScene *> *connectedScenes =  UIApplication.sharedApplication.connectedScenes;
+           if (connectedScenes.count > 0 ) {
+               UIWindowScene *scene = (UIWindowScene *)connectedScenes.anyObject;
+                window = scene.windows.firstObject;
+           }
+       }
+   }return window;
 }
 /**
  是否是iPhone刘海屏系列：   X系列（X/XS/XR/XS Max)、11系列（11、pro、pro max）

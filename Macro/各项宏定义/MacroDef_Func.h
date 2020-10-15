@@ -10,18 +10,14 @@
 
 #import "MacroDef_Sys.h"
 
-static inline UIWindow *getMainWindow(){
-  UIWindow *window = nil;
-   window = UIApplication.sharedApplication.delegate.window;
-   if (!window) {
-       if (@available(iOS 13.0, *)) {
-           NSSet<UIScene *> *connectedScenes =  UIApplication.sharedApplication.connectedScenes;
-           if (connectedScenes.count > 0 ) {
-               UIWindowScene *scene = (UIWindowScene *)connectedScenes.anyObject;
-                window = scene.windows.firstObject;
-           }
-       }
-   }return window;
+static inline UIWindow * getMainWindow(){
+    UIWindow *window = nil;
+    if (@available(iOS 13.0, *)) {
+        window = [SceneDelegate sharedInstance].window;
+    }else{
+        window = UIApplication.sharedApplication.delegate.window;
+//        [UIApplication sharedApplication].keyWindow
+    }return window;
 }
 /**
  是否是iPhone刘海屏系列：   X系列（X/XS/XR/XS Max)、11系列（11、pro、pro max）
@@ -64,9 +60,6 @@ static inline id getSceneDelegate(){
 #define GetUserDefaultBoolForKey(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
 #define DeleUserDefaultWithKey(key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
 #define UserDefaultSynchronize  [[NSUserDefaults standardUserDefaults] synchronize]
-
-
-
 
 //判断是否登录,没有登录进行跳转
 #define kGuardLogin if ([IsLogin isLogin]) { \

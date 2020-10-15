@@ -99,9 +99,7 @@
 		C54BB3A32518D391001591C2 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3232518D391001591C2 /* UIColor+Hex.m */; };
 		C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3272518D391001591C2 /* UIView+Chain.m */; };
 		C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3292518D391001591C2 /* UIView+Measure.m */; };
-		C54BB3A62518D391001591C2 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32A2518D391001591C2 /* UIView+Animation.m */; };
 		C54BB3A72518D391001591C2 /* UIView+SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32B2518D391001591C2 /* UIView+SuspendView.m */; };
-		C54BB3A82518D391001591C2 /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32D2518D391001591C2 /* UIView+Extras.m */; };
 		C54BB3A92518D391001591C2 /* UIView+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32E2518D391001591C2 /* UIView+Gradient.m */; };
 		C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */; };
 		C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3362518D391001591C2 /* 移除 系统自带的 UITabBarButton */; };
@@ -202,6 +200,8 @@
 		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
 		C58C61E12532FC2E0092BF89 /* UIView+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = C58C61E02532FC2D0092BF89 /* UIView+Rotate.m */; };
 		C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */; };
+		C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB242538425B000E1C5F /* UIView+Animation.m */; };
+		C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB262538425B000E1C5F /* UIView+Extras.m */; };
 		C5B7E1952524653B00BC4E9D /* Others.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1942524653B00BC4E9D /* Others.bundle */; };
 		C5B7E19B2524656500BC4E9D /* 刷新.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E19A2524656500BC4E9D /* 刷新.bundle */; };
 		C5B7E1AF2524681C00BC4E9D /* 主页.json in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E1A02524681C00BC4E9D /* 主页.json */; };
@@ -447,17 +447,13 @@
 		C54BB3212518D391001591C2 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		C54BB3232518D391001591C2 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		C54BB3242518D391001591C2 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		C54BB3262518D391001591C2 /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
 		C54BB3272518D391001591C2 /* UIView+Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Chain.m"; sourceTree = "<group>"; };
 		C54BB3282518D391001591C2 /* UIView+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gradient.h"; sourceTree = "<group>"; };
 		C54BB3292518D391001591C2 /* UIView+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Measure.m"; sourceTree = "<group>"; };
-		C54BB32A2518D391001591C2 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		C54BB32B2518D391001591C2 /* UIView+SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SuspendView.m"; sourceTree = "<group>"; };
 		C54BB32C2518D391001591C2 /* UIView+Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Chain.h"; sourceTree = "<group>"; };
-		C54BB32D2518D391001591C2 /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		C54BB32E2518D391001591C2 /* UIView+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Gradient.m"; sourceTree = "<group>"; };
 		C54BB32F2518D391001591C2 /* UIView+SuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SuspendView.h"; sourceTree = "<group>"; };
-		C54BB3302518D391001591C2 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		C54BB3312518D391001591C2 /* UIView+Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Measure.h"; sourceTree = "<group>"; };
 		C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSystemUITabBarButton.m; sourceTree = "<group>"; };
 		C54BB3352518D391001591C2 /* DeleteSystemUITabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSystemUITabBarButton.h; sourceTree = "<group>"; };
@@ -660,6 +656,10 @@
 		C58C61E02532FC2D0092BF89 /* UIView+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Rotate.m"; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
 		C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYTextField.bundle; sourceTree = "<group>"; };
+		C5AEEB242538425B000E1C5F /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		C5AEEB252538425B000E1C5F /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
+		C5AEEB262538425B000E1C5F /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
+		C5AEEB272538425B000E1C5F /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		C5B7E1942524653B00BC4E9D /* Others.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Others.bundle; sourceTree = "<group>"; };
 		C5B7E19A2524656500BC4E9D /* 刷新.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "刷新.bundle"; sourceTree = "<group>"; };
 		C5B7E1A02524681C00BC4E9D /* 主页.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "主页.json"; sourceTree = "<group>"; };
@@ -1508,12 +1508,12 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB3302518D391001591C2 /* UIView+Animation.h */,
-				C54BB32A2518D391001591C2 /* UIView+Animation.m */,
+				C5AEEB272538425B000E1C5F /* UIView+Animation.h */,
+				C5AEEB242538425B000E1C5F /* UIView+Animation.m */,
+				C5AEEB252538425B000E1C5F /* UIView+Extras.h */,
+				C5AEEB262538425B000E1C5F /* UIView+Extras.m */,
 				C54BB32C2518D391001591C2 /* UIView+Chain.h */,
 				C54BB3272518D391001591C2 /* UIView+Chain.m */,
-				C54BB3262518D391001591C2 /* UIView+Extras.h */,
-				C54BB32D2518D391001591C2 /* UIView+Extras.m */,
 				C54BB3282518D391001591C2 /* UIView+Gradient.h */,
 				C54BB32E2518D391001591C2 /* UIView+Gradient.m */,
 				C54BB3312518D391001591C2 /* UIView+Measure.h */,
@@ -2492,6 +2492,7 @@
 				C54BB3A72518D391001591C2 /* UIView+SuspendView.m in Sources */,
 				C54BB3D02518D391001591C2 /* CJTextField.m in Sources */,
 				C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */,
+				C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */,
 				C54BB3C72518D391001591C2 /* NSObject+Random.m in Sources */,
 				C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C54BB42A2518D3F6001591C2 /* UINavigationItem+GKCategory.m in Sources */,
@@ -2593,6 +2594,7 @@
 				C54BB1232518D0C0001591C2 /* BRDatePickerView+BR.m in Sources */,
 				C54BB3CA2518D391001591C2 /* NSObject+Sound.m in Sources */,
 				C54BB1222518D0C0001591C2 /* NSBundle+BRPickerView.m in Sources */,
+				C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */,
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */,
@@ -2612,7 +2614,6 @@
 				C54BB39F2518D391001591C2 /* TBVCell_style_02.m in Sources */,
 				C54BB2E02518D363001591C2 /* UIControl+XY.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
-				C54BB3A62518D391001591C2 /* UIView+Animation.m in Sources */,
 				C54BB4342518D3F6001591C2 /* SDWebImageCodersManager.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
 				C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */,
@@ -2646,7 +2647,6 @@
 				C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */,
 				C54BB2D12518D363001591C2 /* BWItemCollectionViewCell.m in Sources */,
 				C54BB2C82518D363001591C2 /* MKGPUImageView.m in Sources */,
-				C54BB3A82518D391001591C2 /* UIView+Extras.m in Sources */,
 				C54BB3AE2518D391001591C2 /* UIImageView+GIF.m in Sources */,
 				C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */,
 				C54BB2DD2518D363001591C2 /* RepeatPlayer.m in Sources */,

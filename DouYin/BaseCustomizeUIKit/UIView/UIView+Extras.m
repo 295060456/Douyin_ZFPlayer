@@ -127,36 +127,6 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
     return image;
 }
 
-///点击放大再缩小
-+ (void)addViewAnimation:(UIView *)sender
-         completionBlock:(MKDataBlock)completionBlock{
-    sender.transform = CGAffineTransformIdentity;
-    [UIView animateKeyframesWithDuration:0.5
-                                   delay:0
-                                 options:0
-                              animations: ^{
-        [UIView addKeyframeWithRelativeStartTime:0
-                                relativeDuration:1 / 3.0
-                                      animations: ^{
-            sender.transform = CGAffineTransformMakeScale(1.5, 1.5);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:1/3.0
-                                relativeDuration:1/3.0
-                                      animations: ^{
-            sender.transform = CGAffineTransformMakeScale(0.8, 0.8);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:2/3.0
-                                relativeDuration:1/3.0
-                                      animations: ^{
-
-            sender.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }];
-    } completion:^(BOOL finished) {
-        if (completionBlock) {
-            completionBlock(@1);
-        }
-    }];
-}
 
 @end
 

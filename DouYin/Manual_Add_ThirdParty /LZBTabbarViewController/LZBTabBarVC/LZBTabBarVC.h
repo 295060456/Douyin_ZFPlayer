@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseVC.h"
 #import "LZBTabBarVC.h"
 #import "LZBTabBar.h"
 #import "UIViewController+LZBTabBarVCItem.h"
@@ -21,7 +20,7 @@
  */
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LZBTabBarVC : BaseVC
+@interface LZBTabBarVC : UIViewController
 
 @property(nonatomic,weak)id<LZBTabBarVCDelegate> delegate;
 @property(nonatomic,strong)UIViewController *selectedViewController;

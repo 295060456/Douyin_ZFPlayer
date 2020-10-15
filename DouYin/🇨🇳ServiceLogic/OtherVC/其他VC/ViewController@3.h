@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController_3 : BaseVC
-
-
+@interface ViewController_3 : UIViewController
 
 @end
 

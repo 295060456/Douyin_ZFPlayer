@@ -1,16 +1,17 @@
 //
-//  BaseVC+TZImagePickerController.h
-//  MonkeyKingVideo
+//  UIViewController+TZImagePickerController.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
-#import <MobileCoreServices/MobileCoreServices.h>
+#import <UIKit/UIKit.h>
 #import "TZImagePickerController.h"
+#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
+#import "NSObject+SYSAlertController.h"
+#import "NSObject+SPAlertController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
 
-NS_ASSUME_NONNULL_BEGIN
 ///分别对应 TZImagePickerController 的五种初始化方法
 typedef enum : NSInteger {
     TZImagePickerControllerType_1,//initWithMaxImagesCount/delegate/
@@ -20,7 +21,9 @@ typedef enum : NSInteger {
     TZImagePickerControllerType_5//initCropTypeWithAsset/photo/completion
 } TZImagePickerControllerType;
 
-@interface BaseVC (TZImagePickerController)
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UIViewController (TZImagePickerController)
 <
 TZImagePickerControllerDelegate
 ,UINavigationControllerDelegate
@@ -51,6 +54,7 @@ imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock;
 -(void)camera:(MKDataBlock)doSthBlock;
 
 -(void)pushImagePickerController;
+
 
 @end
 

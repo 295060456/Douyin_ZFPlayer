@@ -1,16 +1,16 @@
 //
-//  BaseVC+BRStringPickerView.h
-//  MonkeyKingVideo
+//  UIViewController+BRPickerView.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
+#import <UIKit/UIKit.h>
+#import "BRPickerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (BRPickerView)
+@interface UIViewController (BRPickerView)
 
 #pragma mark —— BaseVC+BRStringPickerView
 @property(nonatomic,strong)BRStringPickerView *stringPickerView;

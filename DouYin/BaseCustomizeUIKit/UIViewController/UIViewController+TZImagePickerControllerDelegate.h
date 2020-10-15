@@ -1,17 +1,16 @@
 //
-//  BaseVC+TZImagePickerControllerDelegate.h
-//  MonkeyKingVideo
+//  UIViewController+TZImagePickerControllerDelegate.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/11.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
+#import <UIKit/UIKit.h>
 #import "TZImagePickerController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (TZImagePickerControllerDelegate)
+@interface UIViewController (TZImagePickerControllerDelegate)
 
 @property(nonatomic,strong)NSMutableArray *selectedPhotos;
 @property(nonatomic,strong)NSMutableArray *selectedAssets;

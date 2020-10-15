@@ -1,15 +1,13 @@
 //
-//  BaseVC+TZImagePickerControllerDelegate.m
-//  MonkeyKingVideo
+//  UIViewController+TZImagePickerControllerDelegate.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/11.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+TZImagePickerControllerDelegate.h"
-#import "BaseVC+TZImagePickerController.h"
+#import "UIViewController+TZImagePickerControllerDelegate.h"
 
-@implementation BaseVC (TZImagePickerControllerDelegate)
+@implementation UIViewController (TZImagePickerControllerDelegate)
 
 static char *BaseVC_TZImagePickerControllerDelegate_selectedPhotos = "BaseVC_TZImagePickerControllerDelegate_selectedPhotos";
 static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZImagePickerControllerDelegate_selectedAssets";
@@ -135,5 +133,6 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
                              selectedAssets,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 
 @end

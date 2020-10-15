@@ -1,20 +1,13 @@
 //
-//  BaseVC+TZImagePickerController.m
-//  MonkeyKingVideo
+//  UIViewController+TZImagePickerController.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+TZImagePickerController.h"
-#import "BaseVC+TZImagePickerControllerDelegate.h"
-#import "BaseVC+TZLocationManager.h"
-#import "NSObject+SYSAlertController.h"
-#import "NSObject+SPAlertController.h"
-#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
-#import <objc/runtime.h>
+#import "UIViewController+TZImagePickerController.h"
 
-@implementation BaseVC (TZImagePickerController)
+@implementation UIViewController (TZImagePickerController)
 
 static char *BaseVC_TZImagePickerController_imagePickerVC = "BaseVC_TZImagePickerController_imagePickerVC";
 static char *BaseVC_TZImagePickerController_imagePickerVC_Sys = "BaseVC_TZImagePickerController_imagePickerVC_Sys";
@@ -763,5 +756,6 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> 
                              picBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
 
 @end

@@ -1,16 +1,13 @@
 //
-//  BaseVC+GifImageView.m
-//  MonkeyKingVideo
+//  UIViewController+GifImageView.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+GifImageView.h"
-#import "SDWebImageManager.h"
-#import <objc/runtime.h>
+#import "UIViewController+GifImageView.h"
 
-@implementation BaseVC (GifImageView)
+@implementation UIViewController (GifImageView)
 
 static char *BaseVC_GifImageView_gifImageView = "BaseVC_GifImageView_gifImageView";
 static char *BaseVC_GifImageView_path = "BaseVC_GifImageView_path";

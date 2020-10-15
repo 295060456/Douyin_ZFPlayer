@@ -1,15 +1,13 @@
 //
-//  BaseVC+TZLocationManager.m
-//  MonkeyKingVideo
+//  UIViewController+TZLocationManager.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/12.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+TZLocationManager.h"
-#import "BaseVC+TZImagePickerController.h"
+#import "UIViewController+TZLocationManager.h"
 
-@implementation BaseVC (TZLocationManager)
+@implementation UIViewController (TZLocationManager)
 
 static char *BaseVC_TZLocationManager_tzLocationManagerType = "BaseVC_TZLocationManager_tzLocationManagerType";
 @dynamic tzLocationManagerType;
@@ -76,5 +74,6 @@ static char *BaseVC_TZLocationManager_tzLocationManagerType = "BaseVC_TZLocation
                              [NSNumber numberWithInteger:tzImagePickerControllerType],
                              OBJC_ASSOCIATION_ASSIGN);
 }
+
 
 @end

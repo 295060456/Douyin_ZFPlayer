@@ -1,16 +1,15 @@
 //
-//  BaseVC+GifImageView.h
-//  MonkeyKingVideo
+//  UIViewController+GifImageView.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (GifImageView)
+@interface UIViewController (GifImageView)
 
 #pragma mark —— BaseVC+GifImageView
 @property(nonatomic,strong)UIImageView *gifImageView;

@@ -1,12 +1,11 @@
 //
-//  BaseVC+TZLocationManager.h
-//  MonkeyKingVideo
+//  UIViewController+TZLocationManager.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/12.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
+#import <UIKit/UIKit.h>
 #import "TZImagePickerController.h"
 
 ///分别对应 TZImagePickerController 的五种初始化方法
@@ -19,7 +18,7 @@ typedef enum : NSInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (TZLocationManager)
+@interface UIViewController (TZLocationManager)
 
 @property(nonatomic,assign)TZLocationManagerType tzLocationManagerType;
 

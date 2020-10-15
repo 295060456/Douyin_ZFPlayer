@@ -1,15 +1,13 @@
 //
-//  BaseVC+JPImageresizerView.m
-//  MonkeyKingVideo
+//  UIViewController+JPImageresizerView.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/7.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+JPImageresizerView.h"
-#import <objc/runtime.h>
+#import "UIViewController+JPImageresizerView.h"
 
-@implementation BaseVC (JPImageresizerView)
+@implementation UIViewController (JPImageresizerView)
 
 static char *BaseVC_JPImageresizerView_configure = "BaseVC_JPImageresizerView_configure";
 static char *BaseVC_JPImageresizerView_imageresizerView = "BaseVC_JPImageresizerView_imageresizerView";
@@ -407,5 +405,6 @@ static char *BaseVC_JPImageresizerView_fixCompleteBlock = "BaseVC_JPImageresizer
                              fixCompleteBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+
 
 @end

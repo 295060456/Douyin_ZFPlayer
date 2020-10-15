@@ -1,15 +1,13 @@
 //
-//  BaseVC+BWShareView.m
-//  MonkeyKingVideo
+//  UIViewController+BWShareView.m
+//  UBallLive
 //
-//  Created by Jobs on 2020/8/9.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC+BWShareView.h"
-#import <objc/runtime.h>
+#import "UIViewController+BWShareView.h"
 
-@implementation BaseVC (BWShareView)
+@implementation UIViewController (BWShareView)
 
 static char *BaseVC_BWShareView_shareView = "BaseVC_BWShareView_shareView";
 static char *BaseVC_BWShareView_shareViewDataMutArr = "BaseVC_BWShareView_shareViewDataMutArr";
@@ -160,5 +158,6 @@ static char *sizeH = "sizeH";
                              shareTitle,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 
 @end

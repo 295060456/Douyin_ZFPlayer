@@ -1,15 +1,16 @@
 //
-//  BaseVC+MJRefresh.h
-//  DouYin
+//  UIViewController+MJRefresh.h
+//  UBallLive
 //
-//  Created by Jobs on 2020/9/23.
+//  Created by Jobs on 2020/10/12.
 //
 
-#import "BaseVC.h"
+#import <UIKit/UIKit.h>
+#import "MJRefresh.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseVC (MJRefresh)
+@interface UIViewController (MJRefresh)
 
 -(MJRefreshGifHeader *)mjRefreshGifHeader;
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter;

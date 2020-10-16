@@ -13,19 +13,26 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Animation)
-//图片从小放大
-+(void)animationAlert:(UIView *)view;
 
-// 重力弹跳动画效果
+#pragma mark —— 旋转动画
+@property(nonatomic,assign)CGFloat rotateChangeAngle;
+@property(nonatomic,assign)__block CGFloat currentAngle;
+@property(nonatomic,assign)CGFloat durationTime;
+@property(nonatomic,assign)CGFloat delayTime;
+@property(nonatomic,assign)BOOL isStopRotateAnimation;//默认值为NO（一直旋转）
+-(void)startRotateAnimation;//开始旋转动画
+-(void)stopRotateAnimation;//停止旋转动画
+#pragma mark —— 图片从小放大
++(void)animationAlert:(UIView *)view;
+#pragma mark —— 重力弹跳动画效果
 void shakerAnimation (UIView *view,
                       NSTimeInterval duration,
                       float height);
-
+#pragma mark —— 视图上下一直来回跳动的动画
 +(void)视图上下一直来回跳动的动画:(UIView *)view;
-
-///点击放大再缩小
-+ (void)addViewAnimation:(UIView *)sender
-         completionBlock:(MKDataBlock)completionBlock;
+#pragma mark —— 点击放大再缩小
++(void)addViewAnimation:(UIView *)sender
+        completionBlock:(MKDataBlock)completionBlock;
 
 @end
 

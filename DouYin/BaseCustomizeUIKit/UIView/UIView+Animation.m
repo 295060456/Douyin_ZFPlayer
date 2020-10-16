@@ -9,7 +9,110 @@
 #import "UIView+Animation.h"
 
 @implementation UIView (Animation)
-//图片从小放大
+
+#pragma mark —— 旋转动画
+static char *UIView_Rotate_rotateChangeAngle = "UIView_Rotate_rotateChangeAngle";
+static char *UIView_Rotate_currentAngle = "UIView_Rotate_currentAngle";
+static char *UIView_Rotate_durationTime = "UIView_Rotate_durationTime";
+static char *UIView_Rotate_delayTime = "UIView_Rotate_delayTime";
+static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAnimation";
+
+@dynamic rotateChangeAngle;
+@dynamic currentAngle;
+@dynamic durationTime;
+@dynamic delayTime;
+@dynamic isStopRotateAnimation;
+//开始旋转动画
+-(void)startRotateAnimation{
+    @weakify(self)
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(self.currentAngle * (M_PI / 180.0f));
+    [UIView animateWithDuration:self.durationTime
+                          delay:self.delayTime
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+        @strongify(self)
+        self.transform = endAngle;
+    } completion:^(BOOL finished) {
+        @strongify(self)
+        self.currentAngle += self.rotateChangeAngle;
+        if (!self.isStopRotateAnimation) {
+            [self startRotateAnimation];
+        }
+    }];
+}
+//停止旋转动画
+-(void)stopRotateAnimation{
+    self.isStopRotateAnimation = !self.isStopRotateAnimation;
+}
+
+-(CGFloat)rotateChangeAngle{
+    CGFloat RotateChangeAngle = [objc_getAssociatedObject(self, UIView_Rotate_rotateChangeAngle) floatValue];
+    if (RotateChangeAngle == 0) {
+        RotateChangeAngle = 20;
+        objc_setAssociatedObject(self,
+                                 UIView_Rotate_rotateChangeAngle,
+                                 [NSNumber numberWithFloat:RotateChangeAngle],
+                                 OBJC_ASSOCIATION_ASSIGN);
+    }return RotateChangeAngle;
+}
+
+-(void)setRotateChangeAngle:(CGFloat)rotateChangeAngle{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_rotateChangeAngle,
+                             [NSNumber numberWithFloat:rotateChangeAngle],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(CGFloat)currentAngle{
+    return [objc_getAssociatedObject(self, UIView_Rotate_currentAngle) floatValue];
+}
+
+-(void)setCurrentAngle:(CGFloat)currentAngle{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_currentAngle,
+                             [NSNumber numberWithFloat:currentAngle],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(CGFloat)durationTime{
+    CGFloat DurationTime = [objc_getAssociatedObject(self, UIView_Rotate_durationTime) floatValue];
+    if (DurationTime == 0) {
+        DurationTime = 0.1;//缺省值
+    }return DurationTime;
+}
+
+-(void)setDurationTime:(CGFloat)durationTime{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_durationTime,
+                             [NSNumber numberWithFloat:durationTime],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(CGFloat)delayTime{
+    CGFloat DelayTime = [objc_getAssociatedObject(self, UIView_Rotate_delayTime) floatValue];
+    if (DelayTime == 0) {
+        DelayTime = 0.01;//缺省值
+    }return DelayTime;
+}
+
+-(void)setDelayTime:(CGFloat)delayTime{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_delayTime,
+                             [NSNumber numberWithFloat:delayTime],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+-(BOOL)isStopRotateAnimation{
+    return [objc_getAssociatedObject(self, UIView_Rotate_isStopRotateAnimation) boolValue];
+}
+
+-(void)setIsStopRotateAnimation:(BOOL)isStopRotateAnimation{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_isStopRotateAnimation,
+                             [NSNumber numberWithBool:isStopRotateAnimation],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+#pragma mark —— 图片从小放大
 +(void)animationAlert:(UIView *)view{
     CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     popAnimation.duration = 1;
@@ -30,8 +133,7 @@
     [view.layer addAnimation:popAnimation
                       forKey:nil];
 }
-
-// 重力弹跳动画效果
+#pragma mark —— 重力弹跳动画效果
 void shakerAnimation (UIView *view,
                       NSTimeInterval duration,
                       float height){
@@ -55,7 +157,7 @@ void shakerAnimation (UIView *view,
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [view.layer addAnimation:animation forKey:@"kViewShakerAnimationKey"];
 }
-
+#pragma mark —— 视图上下一直来回跳动的动画
 +(void)视图上下一直来回跳动的动画:(UIView *)view{
     CABasicAnimation *hover = [CABasicAnimation animationWithKeyPath:@"position"];
     hover.additive = YES; // fromValue and toValue will be relative instead of absolute values
@@ -66,7 +168,7 @@ void shakerAnimation (UIView *view,
     hover.repeatCount = INFINITY; // The number of times the animation should repeat
     [view.layer addAnimation:hover forKey:@"myHoverAnimation"];
 }
-///点击放大再缩小
+#pragma mark —— 点击放大再缩小
 + (void)addViewAnimation:(UIView *)sender
          completionBlock:(MKDataBlock)completionBlock{
     sender.transform = CGAffineTransformIdentity;
@@ -96,5 +198,7 @@ void shakerAnimation (UIView *view,
         }
     }];
 }
+
+
 
 @end

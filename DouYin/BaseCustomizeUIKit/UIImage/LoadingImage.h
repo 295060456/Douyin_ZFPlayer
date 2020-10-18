@@ -20,17 +20,21 @@ static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
 /// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
 /// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
 static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFolderName,
-                                                    NSString *__nonnull pathForResource,
+                                                    NSString *__nullable pathForResource,
                                                     NSString *__nullable bundle_folderName,
                                                     NSString *__nonnull fileFullNameWithSuffix){
     NSString *filePath = nil;
-    if ([NSString isNullString:blueFolderName]) {
+    if ([NSString isNullString:blueFolderName]) {//最外层是黄色文件夹
         filePath = [[NSBundle mainBundle] pathForResource:pathForResource
                                                    ofType:@"bundle"];
-    }else{
+    }else{//最外层是蓝色文件夹
         filePath = [[NSBundle mainBundle] pathForResource:pathForResource
                                                    ofType:@"bundle"
-                                              inDirectory:blueFolderName];
+                                              inDirectory:blueFolderName];//蓝色文件夹下是bundle
+        
+        if ([NSString isNullString:filePath]) {//蓝色文件夹下是蓝色文件夹
+            filePath = blueFolderName;
+        }
     }
     
     if (![NSString isNullString:bundle_folderName]) {
@@ -38,7 +42,7 @@ static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFol
     }
     
     //容错处理
-    if (![fileFullNameWithSuffix containsString:@"."]) {
+    if (![fileFullNameWithSuffix containsString:@"."]) {//如果是其他格式资源请自带后缀名
         fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
     }
     
@@ -51,7 +55,7 @@ static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFol
 /// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
 /// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
 static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName,
-                                             NSString *__nonnull pathForResource,
+                                             NSString *__nullable pathForResource,
                                              NSString *__nullable bundle_folderName,
                                              NSString *__nonnull fileFullNameWithSuffix){
     

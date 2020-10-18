@@ -46,6 +46,8 @@
 //#import "UIViewController+NavigationBarHiddenMgr.h"
 //UINavigationController
 #import "BaseNavigationVC.h"
+//UICollectionViewCell
+#import "CollectionViewCell.h"
 //UITextField
 #import "HQTextField.h"
 #import "CJTextField.h"

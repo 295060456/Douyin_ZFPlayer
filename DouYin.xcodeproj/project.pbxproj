@@ -166,6 +166,7 @@
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
+		C55AF5AB253C4CA800C558C4 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AF5AA253C4CA800C558C4 /* CollectionViewCell.m */; };
 		C55B2B002534273D0038E50C /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AF82534273D0038E50C /* SuspendView.m */; };
 		C55B2B012534273D0038E50C /* SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AFB2534273D0038E50C /* SuspendBtn.m */; };
 		C55B2B022534273D0038E50C /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AFF2534273D0038E50C /* SuspendLab.m */; };
@@ -601,6 +602,8 @@
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
+		C55AF5A9253C4CA800C558C4 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C55AF5AA253C4CA800C558C4 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C55B2AF82534273D0038E50C /* SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
 		C55B2AF92534273D0038E50C /* SuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendView.h; sourceTree = "<group>"; };
 		C55B2AFB2534273D0038E50C /* SuspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBtn.m; sourceTree = "<group>"; };
@@ -1436,6 +1439,7 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C55AF5A8253C4CA800C558C4 /* UICollectionViewCell */,
 				C5914DA325385356007777A6 /* UINavigationController */,
 				C5914D8825385356007777A6 /* UIViewController */,
 				C54BB3372518D391001591C2 /* 👌UITableViewHeaderFooterView */,
@@ -1908,6 +1912,15 @@
 				C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */,
 			);
 			path = "UITableView 折叠功能";
+			sourceTree = "<group>";
+		};
+		C55AF5A8253C4CA800C558C4 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C55AF5A9253C4CA800C558C4 /* CollectionViewCell.h */,
+				C55AF5AA253C4CA800C558C4 /* CollectionViewCell.m */,
+			);
+			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		C55B2AF72534273D0038E50C /* SuspendView */ = {
@@ -2768,6 +2781,7 @@
 				C54BB2CA2518D363001591C2 /* AVFounationTools.m in Sources */,
 				C54BB11D2518D0C0001591C2 /* BRAddressModel.m in Sources */,
 				C54BB4372518D3F6001591C2 /* SDWebImageCoder.m in Sources */,
+				C55AF5AB253C4CA800C558C4 /* CollectionViewCell.m in Sources */,
 				C54BB3AC2518D391001591C2 /* ViewForHeader.m in Sources */,
 				C54BB3C42518D391001591C2 /* LMHWaterFallLayout.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,

@@ -11,11 +11,21 @@
 
 #import <objc/runtime.h>
 
-#import "CustomSYSUITabBarController.h"
+#import "TabbarControllerSysEx.h"
+
 #import "CustomZFPlayerControlView.h"
 #import "NetworkingAPI.h"
 
 // 数据模型层
 #import "VideoModel.h"
+
+#import "ViewController@1.h"
+#import "ViewController@2.h"
+#import "ViewController@3.h"
+#import "ViewController@4.h"
+#import "ViewController@5.h"
+
+#import "SceneDelegate.h"
+#import "AppDelegate.h"
 
 #endif /* Other_h */

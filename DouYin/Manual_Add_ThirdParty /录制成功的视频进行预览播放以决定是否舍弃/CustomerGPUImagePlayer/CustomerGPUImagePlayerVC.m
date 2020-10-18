@@ -102,7 +102,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -111,7 +110,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = NO;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

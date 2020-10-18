@@ -5,16 +5,9 @@
 //  Created by Jobs on 2020/9/21.
 //
 
-#ifdef DEBUG
-#import <DoraemonKit/DoraemonManager.h>
-#endif
-
 #import "AppDelegate.h"
-#import "CustomSYSUITabBarController.h"
 
 @interface AppDelegate ()
-
-@property(nonatomic,strong)CustomSYSUITabBarController *customSYSUITabBarController;
 
 @end
 
@@ -34,7 +27,6 @@ static AppDelegate *static_appDelegate = nil;
         static_appDelegate = self;
     }return self;
 }
-
 /// 在这里写支持的旋转方向，为了防止横屏方向，应用启动时候界面变为横屏模式
 -(UIInterfaceOrientationMask)application:(UIApplication *)application
  supportedInterfaceOrientationsForWindow:(UIWindow *)window{
@@ -46,13 +38,27 @@ static AppDelegate *static_appDelegate = nil;
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];//保持屏幕常亮
+    /*
+     * 禁止App系统文件夹document同步
+     * 苹果要求：可重复产生的数据不得进行同步,什么叫做可重复数据？这里最好禁止，否则会影响上架，被拒！
+     */
+    [FileFolderHandleTool banSysDocSynchronization];
 #ifdef DEBUG
        [[DoraemonManager shareInstance] install];
 #endif
-    
-    return YES;
+    if (HDDeviceSystemVersion.floatValue < 13.0) {
+        self.window.alpha = 1;
+    }return YES;
+}
+//系统版本低于iOS13.0的设备
+-(void)applicationDidEnterBackground:(UIApplication *)application{
+    NSLog(@"---applicationDidEnterBackground----");//进入后台
+}
+
+//系统版本低于iOS13.0的设备
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    NSLog(@"---applicationDidBecomeActive----");//进入前台
 }
 #pragma mark - UISceneSession lifecycle
 - (UISceneConfiguration *)application:(UIApplication *)application
@@ -109,11 +115,44 @@ didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
     }
 }
 #pragma mark —— lazyLoad
--(CustomSYSUITabBarController *)customSYSUITabBarController{
-    if (!_customSYSUITabBarController) {
-        _customSYSUITabBarController = CustomSYSUITabBarController.new;
-    }return _customSYSUITabBarController;
+//仅仅为了iOS 13 版本向下兼容而存在
+-(UIWindow *)window{
+    if (!_window) {
+        _window = UIWindow.new;
+        _window.frame = [UIScreen mainScreen].bounds;
+        [_window setRootViewController:self.tabbarVC];
+        [_window makeKeyAndVisible];
+    }return _window;
 }
-
+-(TabbarVC *)tabbarVC{
+    if (!_tabbarVC) {
+        _tabbarVC = TabbarVC.new;
+//        _tabbarVC.isOpenScrollTabbar = NO;
+        _tabbarVC.myTabBar.offsetHeight = 5;
+        [_tabbarVC.childMutArr addObject:childViewController_customStyle(ViewController_1.new,
+                                                                         @"首页",
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"community_selected"),
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"community_unselected"),
+                                                                         0,
+                                                                         @"home_priase_animation",
+                                                                         1)];
+        
+        [_tabbarVC.childMutArr addObject:childViewController_customStyle(ViewController_2.new,
+                                                                         @"精彩生活",
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"post_selected"),
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"post_unselected"),
+                                                                         30,
+                                                                         @"green_lottie_tab_home",
+                                                                         1)];
+        
+        [_tabbarVC.childMutArr addObject:childViewController_customStyle(ViewController_3.new,
+                                                                         @"发现",
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"My_selected"),
+                                                                         KBuddleIMG(nil, @"TabbaritemImage", nil, @"My_unselected"),
+                                                                         0,
+                                                                         @"green_lottie_tab_mine",
+                                                                         1)];
+    }return _tabbarVC;
+}
 
 @end

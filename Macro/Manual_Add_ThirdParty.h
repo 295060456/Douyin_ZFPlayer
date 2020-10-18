@@ -9,9 +9,6 @@
 #ifndef Manual_Add_ThirdParty_h
 #define Manual_Add_ThirdParty_h
 
-#import "SceneDelegate.h"
-#import "AppDelegate.h"
-
 #import "AABlock.h"
 
 //NSString

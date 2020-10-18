@@ -9,6 +9,7 @@
 #define MacroDef_Func_h
 
 #import "MacroDef_Sys.h"
+#import "SceneDelegate.h"
 
 static inline UIWindow * getMainWindow(){
     UIWindow *window = nil;

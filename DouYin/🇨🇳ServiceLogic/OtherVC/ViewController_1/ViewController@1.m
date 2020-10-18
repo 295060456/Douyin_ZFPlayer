@@ -71,8 +71,6 @@ UITableViewDataSource
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.currentIndex = 0;//此时cell的第一次生命周期走完，置零
-    [SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden = NO;
-    [self.view bringSubviewToFront:[SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBar];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -257,12 +255,11 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
             }else{
                 make.top.equalTo(self.view.mas_top);
             }
-            
-            if ([SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden) {
+
+            if ([AppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
                 make.bottom.equalTo(self.view.mas_bottom);
             }else{
-                extern CGFloat LZB_TABBAR_HEIGHT;
-                make.bottom.equalTo(self.view.mas_bottom).offset(-LZB_TABBAR_HEIGHT);
+                make.bottom.equalTo(self.view.mas_bottom).offset(-[AppDelegate sharedInstance].tabbarVC.tabBar.height);
             }
         }];
     }return _tableView;

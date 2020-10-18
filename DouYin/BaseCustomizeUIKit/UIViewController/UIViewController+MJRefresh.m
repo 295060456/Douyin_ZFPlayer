@@ -115,13 +115,14 @@
         // 设置颜色
         mjRefreshAutoGifFooter.stateLabel.textColor = KLightGrayColor;
         /** 普通闲置状态 */
-        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(@"刷新", nil, nil,@"header.png")]
+        
+        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(nil, @"刷新", nil,@"header")]
                                  forState:MJRefreshStateIdle];
         [mjRefreshAutoGifFooter setTitle:@"Click or drag up to refresh"
                                 forState:MJRefreshStateIdle];
         
         /** 松开就可以进行刷新的状态 */
-        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(@"刷新", nil, nil, @"Indeterminate Spinner - Small.png")]
+        [mjRefreshAutoGifFooter setImages:@[KBuddleIMG(nil, @"刷新", nil, @"Indeterminate Spinner - Small")]
                                  forState:MJRefreshStatePulling];
         
         /** 正在刷新中的状态 */
@@ -129,7 +130,7 @@
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
             str = [str stringByAppendingString:@".png"];
-            [dataMutArr addObject:KBuddleIMG(@"刷新", nil, @"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
+            [dataMutArr addObject:KBuddleIMG(nil, @"刷新", @"刷新图片 166 * 166 @3x 100 * 100 @2x", str)];
         }
 
         [mjRefreshAutoGifFooter setImages:dataMutArr

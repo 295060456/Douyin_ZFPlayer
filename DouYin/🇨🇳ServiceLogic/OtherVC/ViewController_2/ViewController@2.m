@@ -246,11 +246,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                 make.top.equalTo(self.view.mas_top);
             }
             
-            if ([SceneDelegate sharedInstance].customSYSUITabBarController.lzb_tabBarHidden) {
+            if ([AppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
                 make.bottom.equalTo(self.view.mas_bottom);
             }else{
-                extern CGFloat LZB_TABBAR_HEIGHT;
-                make.bottom.equalTo(self.view.mas_bottom).offset(-LZB_TABBAR_HEIGHT);
+                make.bottom.equalTo(self.view.mas_bottom).offset(-[AppDelegate sharedInstance].tabbarVC.tabBar.height);
             }
         }];
     }return _tableView;

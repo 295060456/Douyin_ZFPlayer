@@ -217,6 +217,8 @@
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
 		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
 		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
+		C588F565253DA61800973CFE /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C588F564253DA61800973CFE /* 1.jpeg */; };
+		C588F56A253DA63700973CFE /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C588F569253DA63700973CFE /* 0.png */; };
 		C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */; };
 		C5914DA725385356007777A6 /* UIViewController+TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8B25385356007777A6 /* UIViewController+TZLocationManager.m */; };
 		C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8C25385356007777A6 /* UIViewController+BWShareView.m */; };
@@ -684,6 +686,8 @@
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
+		C588F564253DA61800973CFE /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		C588F569253DA63700973CFE /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
 		C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JPImageresizerView.m"; sourceTree = "<group>"; };
 		C5914D8A25385356007777A6 /* UIViewController+BackBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackBtn.h"; sourceTree = "<group>"; };
@@ -841,6 +845,8 @@
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
+				C588F569253DA63700973CFE /* 0.png */,
+				C588F564253DA61800973CFE /* 1.jpeg */,
 				C5E2934A251B020300ABAFE9 /* ⚽️PicResource */,
 				C54BB0E92518D025001591C2 /* Macro */,
 				C54BB0EB2518D048001591C2 /* Pods不进去的 */,
@@ -2398,6 +2404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C588F565253DA61800973CFE /* 1.jpeg in Resources */,
 				C57109A3253C1358005B3A0C /* dingdan.json in Resources */,
 				C5B7E19B2524656500BC4E9D /* 刷新.bundle in Resources */,
 				C57109B1253C1358005B3A0C /* record_change.json in Resources */,
@@ -2421,6 +2428,7 @@
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
 				C57109A6253C1358005B3A0C /* tab_me_animate.json in Resources */,
 				C57109AA253C1358005B3A0C /* tab_search_animate.json in Resources */,
+				C588F56A253DA63700973CFE /* 0.png in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,

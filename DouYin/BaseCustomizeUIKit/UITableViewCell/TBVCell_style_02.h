@@ -17,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
                      marginX:(CGFloat)marginX
                      marginY:(CGFloat)marginY;
 ///外部调用实现cell阴影功能
--(void)shadowCell;
+-(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
+                      layerShadowColor:(UIColor *__nullable)layerShadowColor
+                       backgroundColor:(UIColor *__nullable)backgroundColor
+                     layerShadowRadius:(CGFloat)layerShadowRadius
+                    layerShadowOpacity:(CGFloat)layerShadowOpacity;
 
 @end
 

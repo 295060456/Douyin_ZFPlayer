@@ -11,7 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewCell : UICollectionViewCell
 
--(void)shadowCell;
+-(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
+                      layerShadowColor:(UIColor *__nullable)layerShadowColor
+                       backgroundColor:(UIColor *__nullable)backgroundColor
+                     layerShadowRadius:(CGFloat)layerShadowRadius
+                    layerShadowOpacity:(CGFloat)layerShadowOpacity;
 
 @end
 

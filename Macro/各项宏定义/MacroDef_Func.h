@@ -44,6 +44,15 @@ static inline id getSceneDelegate(){
         sceneDelegate = UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
     }return sceneDelegate;
 }
+
+static inline CGFloat Top(){
+    static CGFloat value = 0;
+    static dispatch_once_t once_t = 0;
+    dispatch_once(&once_t, ^{
+        value = isiPhoneX_series() ? 88.0f : 64.0f;
+    });
+    return value;
+}
 #pragma mark ======================================== 字体 ================================================
 #define kFontSize(x) [UIFont systemFontOfSize:x weight:UIFontWeightRegular]
 

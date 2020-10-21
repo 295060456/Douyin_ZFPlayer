@@ -43,9 +43,11 @@
 #import "UIViewController+TZImagePickerController.h"
 #import "UIViewController+TZImagePickerControllerDelegate.h"
 #import "UIViewController+TZLocationManager.h"
-//#import "UIViewController+NavigationBarHiddenMgr.h"
+#import "UIViewController+NavigationBar.h"
 //UINavigationController
 #import "BaseNavigationVC.h"
+//UINavigationBar
+#import "NavigationBar.h"
 //UICollectionViewCell
 #import "CollectionViewCell.h"
 //UITextField

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0162A49EE1FFD9A561CAD5B5 /* Pods_DouYin_DouYinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C39C4A6D504B718EF046A9 /* Pods_DouYin_DouYinUITests.framework */; };
 		4EEC19B2374F7AB65C4E00FA /* Pods_DouYinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAAB3EB4EF92B1B5BF1FD95 /* Pods_DouYinTests.framework */; };
+		892E1FDF98696A36692FF208 /* Pods_DouYinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */; };
 		C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D8DA5251B0849006958FF /* PlayerCell.m */; };
 		C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
@@ -275,10 +275,12 @@
 		0AAAB3EB4EF92B1B5BF1FD95 /* Pods_DouYinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C1E9F41AA0D8ABFD9952F4 /* Pods-DouYin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin.release.xcconfig"; path = "Target Support Files/Pods-DouYin/Pods-DouYin.release.xcconfig"; sourceTree = "<group>"; };
 		281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EA069E263D19CBE771A136 /* Pods-DouYinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		41139A6AA633C1D37F4411C5 /* Pods-DouYin-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		440FABD3F011AD67DAD78DAD /* Pods-DouYin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin.debug.xcconfig"; path = "Target Support Files/Pods-DouYin/Pods-DouYin.debug.xcconfig"; sourceTree = "<group>"; };
+		6469BB4F8706F39F1EC19D69 /* Pods-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA8C51EDACBA2E67817A1EC /* Pods-DouYinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.debug.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A8C39C4A6D504B718EF046A9 /* Pods_DouYin_DouYinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYin_DouYinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51D8DA4251B0849006958FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		C51D8DA5251B0849006958FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
@@ -766,7 +768,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0162A49EE1FFD9A561CAD5B5 /* Pods_DouYin_DouYinUITests.framework in Frameworks */,
+				892E1FDF98696A36692FF208 /* Pods_DouYinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2288,8 +2290,8 @@
 			isa = PBXGroup;
 			children = (
 				281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */,
-				A8C39C4A6D504B718EF046A9 /* Pods_DouYin_DouYinUITests.framework */,
 				0AAAB3EB4EF92B1B5BF1FD95 /* Pods_DouYinTests.framework */,
+				72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2303,6 +2305,8 @@
 				41139A6AA633C1D37F4411C5 /* Pods-DouYin-DouYinUITests.release.xcconfig */,
 				7FA8C51EDACBA2E67817A1EC /* Pods-DouYinTests.debug.xcconfig */,
 				F2F0CEAF7642A0FCD26BC154 /* Pods-DouYinTests.release.xcconfig */,
+				32EA069E263D19CBE771A136 /* Pods-DouYinUITests.debug.xcconfig */,
+				6469BB4F8706F39F1EC19D69 /* Pods-DouYinUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2318,8 +2322,8 @@
 				C54BB0A72518D00E001591C2 /* Sources */,
 				C54BB0A82518D00E001591C2 /* Frameworks */,
 				C54BB0A92518D00E001591C2 /* Resources */,
-				50A10AD6E69B6E91DA902666 /* [CP] Embed Pods Frameworks */,
-				6F97B75ED6AD4AF60B0FFAF4 /* [CP] Copy Pods Resources */,
+				5B7CD890052D6F6DC8DB867A /* [CP] Embed Pods Frameworks */,
+				3C641B33F642DBAA45171167 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2357,8 +2361,6 @@
 				C54BB0D02518D010001591C2 /* Sources */,
 				C54BB0D12518D010001591C2 /* Frameworks */,
 				C54BB0D22518D010001591C2 /* Resources */,
-				D9403572E7CA6ACCF1E42D57 /* [CP] Embed Pods Frameworks */,
-				BBE992572A9E4C95915EE7E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2492,6 +2494,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3C641B33F642DBAA45171167 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3E2A5C5F436E9C44B3EFA8AF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2507,62 +2524,26 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DouYin-DouYinUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DouYinUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		50A10AD6E69B6E91DA902666 /* [CP] Embed Pods Frameworks */ = {
+		5B7CD890052D6F6DC8DB867A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6F97B75ED6AD4AF60B0FFAF4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBE992572A9E4C95915EE7E3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D32819200A97E469C0D47B9F /* [CP] Check Pods Manifest.lock */ = {
@@ -2585,23 +2566,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9403572E7CA6ACCF1E42D57 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F847F025E853696A73B06722 /* [CP] Check Pods Manifest.lock */ = {
@@ -3071,7 +3035,7 @@
 		};
 		C54BB0E42518D010001591C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD7FDAF10237E80D4FE07BB /* Pods-DouYin-DouYinUITests.debug.xcconfig */;
+			baseConfigurationReference = 32EA069E263D19CBE771A136 /* Pods-DouYinUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;
@@ -3090,7 +3054,7 @@
 		};
 		C54BB0E52518D010001591C2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41139A6AA633C1D37F4411C5 /* Pods-DouYin-DouYinUITests.release.xcconfig */;
+			baseConfigurationReference = 6469BB4F8706F39F1EC19D69 /* Pods-DouYinUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;

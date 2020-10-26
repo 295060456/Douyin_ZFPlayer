@@ -73,9 +73,9 @@
         _mkZanView = UIButton.new;
         [_mkZanView setTitle:[NSString ensureNonnullString:self.ZanNumStr ReplaceStr:@"点赞"]
                     forState:UIControlStateNormal];
-        [_mkZanView setImage:KBuddleIMG(nil,@"Others", nil,@"喜欢-未点击")
+        [_mkZanView setImage:KBuddleIMG(@"⚽️PicResource",@"Others", nil,@"喜欢-未点击")
                     forState:UIControlStateNormal];
-        [_mkZanView setImage:KBuddleIMG(nil,@"Others", nil,@"喜欢-点击")
+        [_mkZanView setImage:KBuddleIMG(@"⚽️PicResource",@"Others", nil,@"喜欢-点击")
                     forState:UIControlStateSelected];
         _mkZanView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         @weakify(self)
@@ -106,7 +106,7 @@
     if (!_mkCommentView) {
         _mkCommentView = UIButton.new;
         [_mkCommentView setTitle:@"评论" forState:UIControlStateNormal];
-        [_mkCommentView setImage:KBuddleIMG(nil,@"Others",nil,@"信息")
+        [_mkCommentView setImage:KBuddleIMG(@"⚽️PicResource",@"Others",nil,@"信息")
                         forState:UIControlStateNormal];
         _mkCommentView.titleLabel.font = [UIFont systemFontOfSize:12
                                                            weight:UIFontWeightRegular];
@@ -139,7 +139,7 @@
     if (!_mkShareView) {
         _mkShareView = UIButton.new;
 
-        [_mkShareView setImage:KBuddleIMG(nil, @"Others",nil,@"分享")
+        [_mkShareView setImage:KBuddleIMG(@"⚽️PicResource", @"Others",nil,@"分享")
                       forState:UIControlStateNormal];
         _mkShareView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         @weakify(self)

@@ -17,7 +17,9 @@ static char *UIViewController_JXPagingViewListViewDelegate_scrollCallback = "UIV
 
 #pragma mark —— UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.scrollCallback(scrollView);
+    if (self.scrollCallback) {
+        self.scrollCallback(scrollView);
+    }
 }
 
 #pragma mark —— JXPagerViewListViewDelegate

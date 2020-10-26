@@ -10,7 +10,7 @@ source 'https://github.com/Artsy/Specs.git'# 使用其他来源地址
 # generate_multiple_pod_projects 可以让每个依赖都作为一个单独的项目引入，大大增加了解析速度；cocoapods 1.7 以后支持
 # disable_input_output_paths ？？？
 # 需要特别说明的：在 post_install 时，为了一些版本的兼容，需要遍历所有 target，调整一部分库的版本；但是如果开启了 generate_multiple_pod_projects 的话，由于项目结构的变化，installer.pod_targets 就没办法获得所有 pods 引入的 target 了
-install! 'cocoapods',:deterministic_uuids=>false,generate_multiple_pod_projects: true,disable_input_output_paths: true
+#install! 'cocoapods',:deterministic_uuids=>false,generate_multiple_pod_projects: true,disable_input_output_paths: true
 
 platform :ios, '9.0'
 inhibit_all_warnings!
@@ -27,20 +27,18 @@ def func
   pod 'BRPickerView'
   pod 'GKNavigationBar'
   pod 'JXCategoryView'
+  pod 'JXPagingView/Pager' # https://github.com/pujiaxin33/JXPagingView NO_SMP
   pod 'YYKit'
   pod 'IQKeyboardManager'
   pod 'LYEmptyView'
   pod 'SDWebImage'
   pod 'MBProgressHUD+WJExtension'
-  pod 'LYXAlertController'
   pod 'SPAlertController'# https://github.com/SPStore/SPAlertController 深度定制AlertController
   pod 'JPImageresizerView' # https://github.com/Rogue24/JPImageresizerView 一个专门裁剪图片、GIF、视频的轮子，简单易用，功能丰富（高自由度的参数设定、支持旋转和镜像翻转、蒙版、压缩等），能满足绝大部分裁剪的需求。
   pod 'GPUImage'
   pod 'ZZCircleProgress'
   pod 'TXFileOperation'
   pod 'SZTextView'
-  pod 'GKNavigationBar'
-#  pod 'AWRichText'//有问题不好 用YYLabel
   pod 'FLAnimatedImageView+RGWrapper'
   pod 'LYXAlertController' # https://github.com/liuyunxinok/LYXAlertController 为解决UIAlertController的UI（字体颜色，action背景色,字体大小等）设置局限，故自己封装一个YXAlertController，可以随意进行颜色和字体设置。样式大小，title和message的行距缩进与系统样式保持一致。
   pod 'PPBadgeView' #https://github.com/jkpang/PPBadgeView iOS自定义Badge组件, 支持UIView, UITabBarItem, UIBarButtonItem以及子类

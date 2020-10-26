@@ -50,11 +50,12 @@
 //        NSLog(@"");
 //    }];
     
-    [self PUT:@"https://www.bombom999.top/my-bucketname/images/iosimg.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201019T074421Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=61523129bacc68290a6de367080edd39e0bc9909882ffac0265fd8f4d03b212d"
+    [self PUT:@"https://www.bombom999.top/my-bucketname/images/iosimage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201023T084512Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c9416cd5b090bccf44f08dff3b4776cfc06088f47b5e34211a59ecf669004bb5"
    parameters:nil
      progress:nil
       success:nil
       failure:nil];
+    
     
 //    @weakify(self)
 //    [NetworkingAPI temp];
@@ -97,6 +98,7 @@
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+  
 
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PUT"
                                                                                               URLString:URLString
@@ -118,16 +120,15 @@
         [formData appendPartWithFileData:UIImagePNGRepresentation(KIMG(@"0"))
                                     name:@"file"
                                 fileName:@"image"
-                                mimeType:@"image/jpg"];
-        
-    } error:nil];
-    
-//    [request setValue:@"image/jpeg"
-//   forHTTPHeaderField:@"Content-Type"];
+                                mimeType:@"image/jpeg"];
 
-    __block NSURLSessionDataTask *task;
-    task = [manager uploadTaskWithStreamedRequest:request
-                                         progress:^(NSProgress * _Nonnull uploadProgress) {
+    } error:nil];
+
+    [request setValue:@"image/jpeg"
+   forHTTPHeaderField:@"Content-Type"];
+
+    NSURLSessionUploadTask *task = [manager uploadTaskWithStreamedRequest:request
+                                                                 progress:^(NSProgress * _Nonnull uploadProgress) {
         NSLog(@"");
     } completionHandler:^(NSURLResponse * _Nonnull response,
                           id  _Nullable responseObject,

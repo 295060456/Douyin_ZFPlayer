@@ -215,6 +215,7 @@
 		C57342B125248DAC00CC6A3A /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342B025248DAC00CC6A3A /* ZYTextField+HistoryDataList.m */; };
 		C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BD25248DD800CC6A3A /* TableViewAnimationKit.m */; };
 		C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */; };
+		C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */; };
 		C57F0CFC253336590080EEF0 /* NSObject+OpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = C57F0CFA253336590080EEF0 /* NSObject+OpenURL.m */; };
 		C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A67D251C71A700DD83A1 /* URL_Manager.m */; };
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
@@ -684,6 +685,8 @@
 		C57342BC25248DD800CC6A3A /* UITableView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XSAnimationKit.h"; sourceTree = "<group>"; };
 		C57342BD25248DD800CC6A3A /* TableViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationKit.m; sourceTree = "<group>"; };
 		C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
+		C57672AA2546BC1C00C382C8 /* UIViewController+JXPagerViewListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JXPagerViewListViewDelegate.h"; sourceTree = "<group>"; };
+		C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JXPagerViewListViewDelegate.m"; sourceTree = "<group>"; };
 		C57F0CFA253336590080EEF0 /* NSObject+OpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OpenURL.m"; sourceTree = "<group>"; };
 		C57F0CFB253336590080EEF0 /* NSObject+OpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+OpenURL.h"; sourceTree = "<group>"; };
 		C582A67D251C71A700DD83A1 /* URL_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URL_Manager.m; sourceTree = "<group>"; };
@@ -2160,6 +2163,30 @@
 			path = "专治UITableView相应链断裂";
 			sourceTree = "<group>";
 		};
+		C576725C2546BBA800C382C8 /* UIViewController+TZImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				C5914D9F25385356007777A6 /* UIViewController+TZImagePickerController.h */,
+				C5914D8F25385356007777A6 /* UIViewController+TZImagePickerController.m */,
+				C5914D9925385356007777A6 /* UIViewController+TZImagePickerControllerDelegate.h */,
+				C5914D8E25385356007777A6 /* UIViewController+TZImagePickerControllerDelegate.m */,
+				C5914D9625385356007777A6 /* UIViewController+TZLocationManager.h */,
+				C5914D8B25385356007777A6 /* UIViewController+TZLocationManager.m */,
+			);
+			path = "UIViewController+TZImagePickerController";
+			sourceTree = "<group>";
+		};
+		C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */ = {
+			isa = PBXGroup;
+			children = (
+				C57672AA2546BC1C00C382C8 /* UIViewController+JXPagerViewListViewDelegate.h */,
+				C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */,
+				C5914D9525385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.h */,
+				C5914DA225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m */,
+			);
+			path = "UIViewController+JXCategory";
+			sourceTree = "<group>";
+		};
 		C582A672251C714F00DD83A1 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2210,6 +2237,8 @@
 		C5914D8825385356007777A6 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C576725C2546BBA800C382C8 /* UIViewController+TZImagePickerController */,
+				C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */,
 				C5914D8A25385356007777A6 /* UIViewController+BackBtn.h */,
 				C5914D9725385356007777A6 /* UIViewController+BackBtn.m */,
 				C5914D9225385356007777A6 /* UIViewController+BaseVC.h */,
@@ -2222,20 +2251,12 @@
 				C5914D9425385356007777A6 /* UIViewController+GifImageView.m */,
 				C5914D9825385356007777A6 /* UIViewController+JPImageresizerView.h */,
 				C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */,
-				C5914D9525385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.h */,
-				C5914DA225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m */,
 				C5914D9125385356007777A6 /* UIViewController+MJRefresh.h */,
 				C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */,
 				C57279D025409C8A002373D7 /* UIViewController+NavigationBar.h */,
 				C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */,
 				C5914D9A25385356007777A6 /* UIViewController+Shake.h */,
 				C5914D8D25385356007777A6 /* UIViewController+Shake.m */,
-				C5914D9F25385356007777A6 /* UIViewController+TZImagePickerController.h */,
-				C5914D8F25385356007777A6 /* UIViewController+TZImagePickerController.m */,
-				C5914D9925385356007777A6 /* UIViewController+TZImagePickerControllerDelegate.h */,
-				C5914D8E25385356007777A6 /* UIViewController+TZImagePickerControllerDelegate.m */,
-				C5914D9625385356007777A6 /* UIViewController+TZLocationManager.h */,
-				C5914D8B25385356007777A6 /* UIViewController+TZLocationManager.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -2500,9 +2521,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2537,9 +2560,11 @@
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2770,6 +2795,7 @@
 				C54BB3AC2518D391001591C2 /* ViewForHeader.m in Sources */,
 				C54BB3C42518D391001591C2 /* LMHWaterFallLayout.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
+				C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,
 				C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */,
 				C54BB5002518E398001591C2 /* ViewController@4.m in Sources */,
 				C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */,

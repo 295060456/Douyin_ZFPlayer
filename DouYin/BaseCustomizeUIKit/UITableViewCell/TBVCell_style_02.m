@@ -29,21 +29,6 @@
     }return self;
 }
 
--(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
-                      layerShadowColor:(UIColor *__nullable)layerShadowColor
-                       backgroundColor:(UIColor *__nullable)backgroundColor
-                     layerShadowRadius:(CGFloat)layerShadowRadius
-                    layerShadowOpacity:(CGFloat)layerShadowOpacity{
-    self.contentView.clipsToBounds = YES;
-    self.contentView.layer.cornerRadius = (layerCornerRadius != 0) ? : 20.0f;
-    self.backgroundColor = backgroundColor ? :kClearColor;
-    self.layer.cornerRadius = (layerCornerRadius != 0) ? : self.contentView.layer.cornerRadius;
-    self.layer.shadowColor = (layerShadowColor ? :KDarkGrayColor).CGColor;
-    self.layer.shadowOffset = CGSizeMake(self.contentView.layer.cornerRadius / 2, self.contentView.layer.cornerRadius / 2);
-    self.layer.shadowRadius = (layerShadowRadius != 0) ? : 8.0f;
-    self.layer.shadowOpacity = (layerShadowOpacity != 0) ? : 0.7f;
-}
-
 - (void)setFrame:(CGRect)frame{
     frame.origin.x += self.marginX;
     frame.origin.y += self.marginY;

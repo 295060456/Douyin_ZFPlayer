@@ -22,8 +22,8 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// @param color 作用颜色
 /// @param width 线宽
 /// @param borderType 作用方向
-- (void)setBorderWithView:(UIView *)view
-              borderColor:(UIColor *)color
+- (void)setBorderWithView:(UIView *__nonnull)view
+              borderColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width
                borderType:(UIBorderSideType)borderType;
 /**
@@ -32,7 +32,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
  @param view TargetView
  @param cornerRadiusValue 切角参数
  */
-+(void)cornerCutToCircleWithView:(UIView *)view
++(void)cornerCutToCircleWithView:(UIView *__nonnull)view
                  AndCornerRadius:(CGFloat)cornerRadiusValue;
 
 /**
@@ -42,22 +42,26 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
  @param colour 颜色
  @param WidthOfBorder 边线宽度
  */
-+(void)colourToLayerOfView:(UIView *)view
-                WithColour:(UIColor *)colour
++(void)colourToLayerOfView:(UIView *__nonnull)view
+                WithColour:(UIColor *__nonnull)colour
             AndBorderWidth:(CGFloat)WidthOfBorder;
 
 /**
  *  指定圆切角
  */
-+(void)appointCornerCutToCircleWithTargetView:(UIView *)targetView
++(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
                             byRoundingCorners:(UIRectCorner)corners
                                   cornerRadii:(CGSize)cornerRadii;
 //旋转
 +(void)setTransform:(float)radians
-            forView:(UIView *)view;
+            forView:(UIView *__nonnull)view;
 //view 转 image
-+ (UIImage *)getImageFromView:(UIView *)view;
-
++ (UIImage *)getImageFromView:(UIView *__nonnull)view;
+///外部调用实现cell阴影功能
+-(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
+                      layerShadowColor:(UIColor *__nullable)layerShadowColor
+                     layerShadowRadius:(CGFloat)layerShadowRadius
+                    layerShadowOpacity:(CGFloat)layerShadowOpacity;
 
 
 @end

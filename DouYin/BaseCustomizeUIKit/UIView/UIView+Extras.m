@@ -14,8 +14,8 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 
 @implementation UIView (Extras)
 
-- (void)setBorderWithView:(UIView *)view
-              borderColor:(UIColor *)color
+- (void)setBorderWithView:(UIView *__nonnull)view
+              borderColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width
                borderType:(UIBorderSideType)borderType{
     /// 左
@@ -65,7 +65,7 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
  @param view TargetView
  @param cornerRadiusValue 切角参数
  */
-+(void)cornerCutToCircleWithView:(UIView *)view
++(void)cornerCutToCircleWithView:(UIView *__nonnull)view
                  AndCornerRadius:(CGFloat)cornerRadiusValue{
     view.layer.cornerRadius = cornerRadiusValue;
     view.layer.masksToBounds = YES;
@@ -77,8 +77,8 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
  @param colour 颜色
  @param WidthOfBorder 边线宽度
  */
-+(void)colourToLayerOfView:(UIView *)view
-                WithColour:(UIColor *)colour
++(void)colourToLayerOfView:(UIView *__nonnull)view
+                WithColour:(UIColor *__nonnull)colour
             AndBorderWidth:(CGFloat)WidthOfBorder{
     view.layer.borderColor = colour.CGColor;
     view.layer.borderWidth = WidthOfBorder;
@@ -86,7 +86,7 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 /**
  *  指定圆切角
  */
-+(void)appointCornerCutToCircleWithTargetView:(UIView *)targetView
++(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
                             byRoundingCorners:(UIRectCorner)corners
                                   cornerRadii:(CGSize)cornerRadii{
     //设置切哪个直角
@@ -111,7 +111,7 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 }
 
 +(void)setTransform:(float)radians
-            forView:(UIView *)view{
+            forView:(UIView *__nonnull)view{
     view.transform = CGAffineTransformMakeRotation(M_PI * radians);
     //    使用:例如逆时针旋转40度
     //    [setTransform:40/180 forLable:label]
@@ -126,7 +126,17 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
     UIGraphicsEndImageContext();
     return image;
 }
-
+///外部调用实现cell阴影功能
+-(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
+                      layerShadowColor:(UIColor *__nullable)layerShadowColor
+                     layerShadowRadius:(CGFloat)layerShadowRadius
+                    layerShadowOpacity:(CGFloat)layerShadowOpacity{
+    self.layer.cornerRadius = (layerCornerRadius != 0) ? : layerCornerRadius;
+    self.layer.shadowColor = (layerShadowColor ? :KDarkGrayColor).CGColor;
+    self.layer.shadowOffset = CGSizeMake(self.layer.cornerRadius / 2, self.layer.cornerRadius / 2);
+    self.layer.shadowRadius = (layerShadowRadius != 0) ? : 8.0f;
+    self.layer.shadowOpacity = (layerShadowOpacity != 0) ? : 0.7f;
+}
 
 @end
 

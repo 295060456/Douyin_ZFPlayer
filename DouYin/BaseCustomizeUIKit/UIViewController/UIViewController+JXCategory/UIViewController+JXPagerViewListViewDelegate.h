@@ -22,7 +22,8 @@ JXPagerViewListViewDelegate,
 UIScrollViewDelegate
 >
 
-@property(nonatomic,strong)UIScrollView *scrollView;
+@property(nonatomic,strong)UIScrollView *scrollView;//这个属性一旦有值，说明开启UITableViewHeaderFooterView不悬停。系统在UITableViewStylePlain模式下是默认悬停的
+@property(nonatomic,strong)Class scrollViewClass;
 @property(nonatomic,copy)void(^scrollCallback)(UIScrollView *scrollView);
 
 @end

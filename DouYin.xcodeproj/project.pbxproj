@@ -98,8 +98,6 @@
 		C54BB3A92518D391001591C2 /* UIView+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32E2518D391001591C2 /* UIView+Gradient.m */; };
 		C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */; };
 		C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3362518D391001591C2 /* 移除 系统自带的 UITabBarButton */; };
-		C54BB3AC2518D391001591C2 /* ViewForHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3382518D391001591C2 /* ViewForHeader.m */; };
-		C54BB3AD2518D391001591C2 /* ViewForFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3392518D391001591C2 /* ViewForFooter.m */; };
 		C54BB3AE2518D391001591C2 /* UIImageView+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB33D2518D391001591C2 /* UIImageView+GIF.m */; };
 		C54BB3AF2518D391001591C2 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3402518D391001591C2 /* NSString+Extras.m */; };
 		C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3622518D391001591C2 /* 专治UITableView相应链断裂 */; };
@@ -201,6 +199,8 @@
 		C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A68B251C78BB00DD83A1 /* NetworkingAPI.m */; };
 		C582A69A251C796400DD83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A696251C796400DD83A1 /* DataManager.m */; };
 		C582A69B251C796400DD83A1 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C582A699251C796400DD83A1 /* RequestTool.m */; };
+		C5850B4525483E5F001E6676 /* ViewForTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5850B4025483E5F001E6676 /* ViewForTableViewHeader.m */; };
+		C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */; };
 		C588F565253DA61800973CFE /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C588F564253DA61800973CFE /* 1.jpeg */; };
 		C588F56A253DA63700973CFE /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C588F569253DA63700973CFE /* 0.png */; };
 		C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */; };
@@ -449,10 +449,6 @@
 		C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSystemUITabBarButton.m; sourceTree = "<group>"; };
 		C54BB3352518D391001591C2 /* DeleteSystemUITabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSystemUITabBarButton.h; sourceTree = "<group>"; };
 		C54BB3362518D391001591C2 /* 移除 系统自带的 UITabBarButton */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "移除 系统自带的 UITabBarButton"; sourceTree = "<group>"; };
-		C54BB3382518D391001591C2 /* ViewForHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForHeader.m; sourceTree = "<group>"; };
-		C54BB3392518D391001591C2 /* ViewForFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForFooter.m; sourceTree = "<group>"; };
-		C54BB33A2518D391001591C2 /* ViewForFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForFooter.h; sourceTree = "<group>"; };
-		C54BB33B2518D391001591C2 /* ViewForHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForHeader.h; sourceTree = "<group>"; };
 		C54BB33D2518D391001591C2 /* UIImageView+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GIF.m"; sourceTree = "<group>"; };
 		C54BB33E2518D391001591C2 /* UIImageView+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GIF.h"; sourceTree = "<group>"; };
 		C54BB3402518D391001591C2 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
@@ -656,6 +652,10 @@
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
+		C5850B4025483E5F001E6676 /* ViewForTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewHeader.m; sourceTree = "<group>"; };
+		C5850B4125483E5F001E6676 /* ViewForTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewHeader.h; sourceTree = "<group>"; };
+		C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewFooter.m; sourceTree = "<group>"; };
+		C5850B4425483E5F001E6676 /* ViewForTableViewFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewFooter.h; sourceTree = "<group>"; };
 		C588F564253DA61800973CFE /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C588F569253DA63700973CFE /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
@@ -1409,11 +1409,11 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C5850B3E25483E5F001E6676 /* UITableViewHeaderFooterView */,
 				C57279C125409C33002373D7 /* UINavigationBar */,
 				C57279BE25409C33002373D7 /* UINavigationController */,
 				C55AF5A8253C4CA800C558C4 /* UICollectionViewCell */,
 				C5914D8825385356007777A6 /* UIViewController */,
-				C54BB3372518D391001591C2 /* 👌UITableViewHeaderFooterView */,
 				C54BB3712518D391001591C2 /* CALayer */,
 				C54BB3672518D391001591C2 /* NSArray */,
 				C54BB3762518D391001591C2 /* NSObject */,
@@ -1521,17 +1521,6 @@
 				C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */,
 			);
 			path = DeleteSystemUITabBarButton;
-			sourceTree = "<group>";
-		};
-		C54BB3372518D391001591C2 /* 👌UITableViewHeaderFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB33A2518D391001591C2 /* ViewForFooter.h */,
-				C54BB3392518D391001591C2 /* ViewForFooter.m */,
-				C54BB33B2518D391001591C2 /* ViewForHeader.h */,
-				C54BB3382518D391001591C2 /* ViewForHeader.m */,
-			);
-			path = "👌UITableViewHeaderFooterView";
 			sourceTree = "<group>";
 		};
 		C54BB33C2518D391001591C2 /* UIImageView */ = {
@@ -2153,6 +2142,33 @@
 			path = "App 的所有网络请求Api";
 			sourceTree = "<group>";
 		};
+		C5850B3E25483E5F001E6676 /* UITableViewHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				C5850B3F25483E5F001E6676 /* ViewForTableViewHeader */,
+				C5850B4225483E5F001E6676 /* ViewForTableViewFooter */,
+			);
+			path = UITableViewHeaderFooterView;
+			sourceTree = "<group>";
+		};
+		C5850B3F25483E5F001E6676 /* ViewForTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C5850B4025483E5F001E6676 /* ViewForTableViewHeader.m */,
+				C5850B4125483E5F001E6676 /* ViewForTableViewHeader.h */,
+			);
+			path = ViewForTableViewHeader;
+			sourceTree = "<group>";
+		};
+		C5850B4225483E5F001E6676 /* ViewForTableViewFooter */ = {
+			isa = PBXGroup;
+			children = (
+				C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */,
+				C5850B4425483E5F001E6676 /* ViewForTableViewFooter.h */,
+			);
+			path = ViewForTableViewFooter;
+			sourceTree = "<group>";
+		};
 		C5914D8825385356007777A6 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2535,7 +2551,6 @@
 				C54BB47A2518DACC001591C2 /* BaseGPUImageView.m in Sources */,
 				C54BB2FC2518D363001591C2 /* ShowAvailableFont.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
-				C54BB3AD2518D391001591C2 /* ViewForFooter.m in Sources */,
 				C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
 				C54BB3D52518D391001591C2 /* UITextField+Extend.m in Sources */,
@@ -2544,6 +2559,7 @@
 				C54BB2FD2518D363001591C2 /* PlaySound.m in Sources */,
 				C54BB0C42518D00F001591C2 /* main.m in Sources */,
 				C54BB1212518D0C0001591C2 /* BRBaseView.m in Sources */,
+				C5850B4525483E5F001E6676 /* ViewForTableViewHeader.m in Sources */,
 				C54BB42B2518D3F6001591C2 /* UIImage+GKCategory.m in Sources */,
 				C5914DA925385356007777A6 /* UIViewController+Shake.m in Sources */,
 				C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */,
@@ -2569,6 +2585,7 @@
 				C54BB1242518D0C0001591C2 /* NSDate+BRPickerView.m in Sources */,
 				C5914DAE25385356007777A6 /* UIViewController+GifImageView.m in Sources */,
 				C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */,
+				C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */,
 				C54BB4382518D3F6001591C2 /* NSImage+WebCache.m in Sources */,
 				C57109B9253C1358005B3A0C /* TransitionController.m in Sources */,
 				C54BB5372518E5F6001591C2 /* NSString+ZBUTF8Encoding.m in Sources */,
@@ -2680,7 +2697,6 @@
 				C54BB11D2518D0C0001591C2 /* BRAddressModel.m in Sources */,
 				C54BB4372518D3F6001591C2 /* SDWebImageCoder.m in Sources */,
 				C55AF5AB253C4CA800C558C4 /* CollectionViewCell.m in Sources */,
-				C54BB3AC2518D391001591C2 /* ViewForHeader.m in Sources */,
 				C54BB3C42518D391001591C2 /* LMHWaterFallLayout.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
 				C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,

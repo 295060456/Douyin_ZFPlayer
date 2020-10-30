@@ -55,6 +55,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationBar.hidden = YES;// [self setNavigationBarHidden:YES animated:YES]; 这么写不行
 }
 
 - (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers{
@@ -75,6 +76,12 @@
     [super pushViewController:viewController animated:animated];
 }
 #pragma mark —— UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated{
+    self.navigationBar.hidden = YES;//全局隐藏系统的导航栏，这一句是手势返回的时候，再次隐藏
+}
+
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated{

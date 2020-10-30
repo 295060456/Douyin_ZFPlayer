@@ -50,7 +50,7 @@
 //        NSLog(@"");
 //    }];
     
-    [self PUT:@"https://www.bombom999.top/my-bucketname/images/iosimage.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201023%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201023T084512Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c9416cd5b090bccf44f08dff3b4776cfc06088f47b5e34211a59ecf669004bb5"
+    [self PUT:@"https://www.bombom999.top/my-bucketname/putbyios.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201029%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201029T081659Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=16ffcdbcd00f965b8319012835db01cd1df2bcf8e7626761b59daef061ab83cc"
    parameters:nil
      progress:nil
       success:nil
@@ -96,46 +96,67 @@
     success:(MKDataBlock)success
     failure:(MKDataBlock)failure {
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-  
-
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PUT"
-                                                                                              URLString:URLString
-                                                                                             parameters:nil
-                                                                              constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpeg"];
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
 //
-//        NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];
-//        inputStream.delegate = self;
-//        [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//        [inputStream open];
 //
-//        [formData appendPartWithInputStream:inputStream
-//                                       name:@"file"
-//                                   fileName:@"111"
-//                                     length:UIImagePNGRepresentation(KIMG(@"0")).length
-//                                   mimeType:@"image/jpeg"];
-        
-        [formData appendPartWithFileData:UIImagePNGRepresentation(KIMG(@"0"))
-                                    name:@"file"
-                                fileName:@"image"
-                                mimeType:@"image/jpeg"];
-
-    } error:nil];
-
+//    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"PUT"
+//                                                                                              URLString:URLString
+//                                                                                             parameters:nil
+//                                                                              constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+////        NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpeg"];
+////
+////        NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];
+////        inputStream.delegate = self;
+////        [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+////        [inputStream open];
+////
+////        [formData appendPartWithInputStream:inputStream
+////                                       name:@"file"
+////                                   fileName:@"111"
+////                                     length:UIImagePNGRepresentation(KIMG(@"0")).length
+////                                   mimeType:@"image/jpeg"];
+//
+//        [formData appendPartWithFileData:UIImagePNGRepresentation(KIMG(@"0"))
+//                                    name:@"file"
+//                                fileName:@"image"
+//                                mimeType:@"image/jpeg"];
+//
+//    } error:nil];
+//
+//    [request setValue:@"image/jpeg"
+//   forHTTPHeaderField:@"Content-Type"];
+//
+//    NSURLSessionUploadTask *task = [manager uploadTaskWithStreamedRequest:request
+//                                                                 progress:^(NSProgress * _Nonnull uploadProgress) {
+//        NSLog(@"");
+//    } completionHandler:^(NSURLResponse * _Nonnull response,
+//                          id  _Nullable responseObject,
+//                          NSError * _Nullable error) {
+//        NSLog(@"");
+//    }];
+//    [task resume];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URLString]];
+    request.HTTPMethod = @"PUT";
     [request setValue:@"image/jpeg"
    forHTTPHeaderField:@"Content-Type"];
-
-    NSURLSessionUploadTask *task = [manager uploadTaskWithStreamedRequest:request
-                                                                 progress:^(NSProgress * _Nonnull uploadProgress) {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSURLSessionUploadTask *task = [manager uploadTaskWithRequest:request fromData:UIImagePNGRepresentation(KIMG(@"0")) progress:^(NSProgress * _Nonnull uploadProgress) {
+//        progressBlock(uploadProgress);
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//        completionBlock(error);
         NSLog(@"");
-    } completionHandler:^(NSURLResponse * _Nonnull response,
-                          id  _Nullable responseObject,
-                          NSError * _Nullable error) {
-        NSLog(@"");
+        
     }];
+ 
+//    self.task = task;
+ 
     [task resume];
+    
 }
 
 - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode;

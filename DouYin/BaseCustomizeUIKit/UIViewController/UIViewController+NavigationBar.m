@@ -177,6 +177,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 
 -(void)setIsHiddenNavigationBar:(BOOL)isHiddenNavigationBar{
     self.navigationBar.hidden = isHiddenNavigationBar;
+    self.navigationController.navigationBar.hidden = isHiddenNavigationBar;
     objc_setAssociatedObject(self,
                              UIViewController_NavigationBar_isHiddenNavigationBar,
                              [NSNumber numberWithBool:isHiddenNavigationBar],

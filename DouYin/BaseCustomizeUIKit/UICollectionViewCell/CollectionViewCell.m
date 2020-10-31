@@ -12,5 +12,13 @@
 @end
 
 @implementation CollectionViewCell
+//由具体的子类进行覆写
+-(void)richElementsInCellWithModel:(id _Nullable)model{
+    
+}
+//由具体的子类进行覆写
++(CGSize)cellSizeWithModel:(id _Nullable)model{
+    return CGSizeZero;
+}
 
 @end

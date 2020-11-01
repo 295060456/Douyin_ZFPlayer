@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    ShadowDirection_top = 0,
+    ShadowDirection_down,
+    ShadowDirection_left,
+    ShadowDirection_right,
+    ShadowDirection_leftTop,
+    ShadowDirection_leftDown,
+    ShadowDirection_rightTop,
+    ShadowDirection_rightDown,
+    ShadowDirection_All
+} ShadowDirection;
+
 typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeAll  = 0,
     UIBorderSideTypeTop = 1 << 0,
@@ -56,12 +68,28 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 +(void)setTransform:(float)radians
             forView:(UIView *__nonnull)view;
 //view 转 image
-+ (UIImage *)getImageFromView:(UIView *__nonnull)view;
-///外部调用实现cell阴影功能
--(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
-                      layerShadowColor:(UIColor *__nullable)layerShadowColor
-                     layerShadowRadius:(CGFloat)layerShadowRadius
-                    layerShadowOpacity:(CGFloat)layerShadowOpacity;
++ (UIImage *__nonnull)getImageFromView:(UIView *__nonnull)view;
 
+/// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题
+/// @param targetShadowview 需要作用阴影效果的View
+/// @param superview 该阴影效果的View的父View
+/// @param ShadowDirection 阴影朝向
+/// @param offsetX 贝塞尔曲线X轴偏移量
+/// @param offsetY 贝塞尔曲线Y轴偏移量
+/// @param cornerRadius 圆切角参数，传0表示不切
+/// @param shadowOffset  阴影偏移量
+/// @param shadowOpacity 阴影的不透明度,取值范围在0~1
+/// @param layerShadowColor 阴影颜色
+/// @param layerShadowRadius  模糊计算的半径
++(void)makeTargetShadowview:(UIView *__nonnull)targetShadowview
+                  superView:(UIView *__nullable)superview
+            shadowDirection:(ShadowDirection)ShadowDirection
+          shadowWithOffsetX:(CGFloat)offsetX
+                    offsetY:(CGFloat)offsetY
+               cornerRadius:(CGFloat)cornerRadius
+               shadowOffset:(CGSize)shadowOffset
+              shadowOpacity:(CGFloat)shadowOpacity
+           layerShadowColor:(UIColor *__nullable)layerShadowColor
+          layerShadowRadius:(CGFloat)layerShadowRadius;
 
 @end

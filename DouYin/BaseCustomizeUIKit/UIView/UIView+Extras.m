@@ -126,16 +126,110 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
     UIGraphicsEndImageContext();
     return image;
 }
-///外部调用实现cell阴影功能
--(void)shadowCellWithLayerCornerRadius:(CGFloat)layerCornerRadius
-                      layerShadowColor:(UIColor *__nullable)layerShadowColor
-                     layerShadowRadius:(CGFloat)layerShadowRadius
-                    layerShadowOpacity:(CGFloat)layerShadowOpacity{
-    self.layer.cornerRadius = (layerCornerRadius != 0) ? : layerCornerRadius;
-    self.layer.shadowColor = (layerShadowColor ? :KDarkGrayColor).CGColor;
-    self.layer.shadowOffset = CGSizeMake(self.layer.cornerRadius / 2, self.layer.cornerRadius / 2);
-    self.layer.shadowRadius = (layerShadowRadius != 0) ? : 8.0f;
-    self.layer.shadowOpacity = (layerShadowOpacity != 0) ? : 0.7f;
+
+/// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题
+/// @param targetShadowview 需要作用阴影效果的View
+/// @param superview 该阴影效果的View的父View
+/// @param ShadowDirection 阴影朝向
+/// @param offsetX 贝塞尔曲线X轴偏移量
+/// @param offsetY 贝塞尔曲线Y轴偏移量
+/// @param cornerRadius 圆切角参数，传0表示不切
+/// @param shadowOffset  阴影偏移量
+/// @param shadowOpacity 阴影的不透明度,取值范围在0~1
+/// @param layerShadowColor 阴影颜色
+/// @param layerShadowRadius  模糊计算的半径
++(void)makeTargetShadowview:(UIView *__nonnull)targetShadowview
+                  superView:(UIView *__nullable)superview
+            shadowDirection:(ShadowDirection)ShadowDirection
+          shadowWithOffsetX:(CGFloat)offsetX
+                    offsetY:(CGFloat)offsetY
+               cornerRadius:(CGFloat)cornerRadius
+               shadowOffset:(CGSize)shadowOffset
+              shadowOpacity:(CGFloat)shadowOpacity
+           layerShadowColor:(UIColor *__nullable)layerShadowColor
+          layerShadowRadius:(CGFloat)layerShadowRadius{
+    
+    targetShadowview.layer.cornerRadius = cornerRadius;//圆切角
+    
+    if (superview && CGRectEqualToRect(targetShadowview.frame,CGRectZero)) {
+        [superview layoutIfNeeded];//targetShadowview当在某些masonry约束的时候，没有frame,需要进行刷新得到frame，否则不会出现阴影效果
+    }
+    
+    targetShadowview.layer.shadowOpacity = (shadowOpacity != 0) ? : 0.7f;//shadowOpacity设置了阴影的不透明度,取值范围在0~1;
+    targetShadowview.layer.shadowOffset = shadowOffset;//阴影偏移量
+    targetShadowview.layer.shadowColor = (layerShadowColor ? :KDarkGrayColor).CGColor;//阴影颜色   KLightGrayColor.CGColor;
+    targetShadowview.layer.shadowRadius = (layerShadowRadius != 0) ? : 8.0f;//模糊计算的半径
+    
+    UIBezierPath *path = UIBezierPath.bezierPath;
+
+    //偏移量保持为正数，便于后续计算
+    offsetX = offsetX >= 0 ? offsetX : -offsetX;
+    offsetY = offsetY >= 0 ? offsetY : -offsetY;
+    //偏移量默认值
+    offsetX = offsetX != 0 ? :20;
+    offsetY = offsetY != 0 ? :20;
+
+    switch (ShadowDirection) {
+        case ShadowDirection_top:{
+            [path moveToPoint:CGPointMake(0, -offsetY)];//左上角为绘制的贝塞尔曲线原点
+            [path addLineToPoint:CGPointMake(0, targetShadowview.height)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width, targetShadowview.height)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width, -offsetY)];//👆
+        }break;
+        case ShadowDirection_down:{
+            [path moveToPoint:CGPointMake(0, 0)];//左上角为绘制的贝塞尔曲线原点
+            [path addLineToPoint:CGPointMake(0, targetShadowview.height + offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width, targetShadowview.height + offsetY)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width, 0)];//👆
+        }break;
+        case ShadowDirection_left:{
+            [path moveToPoint:CGPointMake(offsetX, 0)];//左上角
+            [path addLineToPoint:CGPointMake(offsetX, targetShadowview.height)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width, targetShadowview.height)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width, 0)];//👆
+        }break;
+        case ShadowDirection_right:{
+            [path moveToPoint:CGPointMake(0, 0)];//左上角
+            [path addLineToPoint:CGPointMake(0, targetShadowview.height)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, targetShadowview.height)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, 0)];//👆
+        }break;
+        case ShadowDirection_leftTop:{
+            [path moveToPoint:CGPointMake(-offsetX, -offsetY)];//左上角
+            [path addLineToPoint:CGPointMake(-offsetX, targetShadowview.height - offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width - offsetX, targetShadowview.height - offsetY)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width - offsetX, -offsetY)];//👆
+        }break;
+        case ShadowDirection_leftDown:{
+            [path moveToPoint:CGPointMake(-offsetX, offsetY)];//左上角
+            [path addLineToPoint:CGPointMake(-offsetX, targetShadowview.height + offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width - offsetX, targetShadowview.height + offsetX)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width - offsetX, offsetY)];//👆
+        }break;
+        case ShadowDirection_rightTop:{
+            [path moveToPoint:CGPointMake(offsetX, -offsetY)];//左上角
+            [path addLineToPoint:CGPointMake(offsetX, targetShadowview.height - offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, targetShadowview.height - offsetY)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, -offsetY)];//👆
+        }break;
+        case ShadowDirection_rightDown:{
+            [path moveToPoint:CGPointMake(offsetX, offsetY)];//左上角
+            [path addLineToPoint:CGPointMake(offsetX, targetShadowview.height + offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, targetShadowview.height + offsetY)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, offsetY)];//👆
+        }break;
+        case ShadowDirection_All:{
+            [path moveToPoint:CGPointMake(-offsetX, -offsetY)];//左上角
+            [path addLineToPoint:CGPointMake(-offsetX, targetShadowview.height + offsetY)];//👇
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, targetShadowview.height + offsetY)];//👉
+            [path addLineToPoint:CGPointMake(targetShadowview.width + offsetX, -offsetY)];//👆
+        }break;
+            
+        default:
+            break;
+    }
+    
+    targetShadowview.layer.shadowPath = path.CGPath;
 }
 
 @end

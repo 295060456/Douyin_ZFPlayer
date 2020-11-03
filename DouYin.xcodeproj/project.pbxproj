@@ -17,7 +17,6 @@
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
 		C530B1B2254D9B1600EDEDC8 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */; };
 		C530B1B3254D9B1600EDEDC8 /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */; };
-		C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */; };
@@ -165,6 +164,8 @@
 		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
 		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
 		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
+		C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */; };
+		C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
@@ -281,8 +282,6 @@
 		C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C530B1AA254D9B1600EDEDC8 /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
 		C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
-		C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
-		C542A38B251B6C22007B5F88 /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
 		C542A39D251B6EF6007B5F88 /* iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iph_X.mp4; sourceTree = "<group>"; };
 		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
 		C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
@@ -590,6 +589,10 @@
 		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
 		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
+		C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZFPlayer.m"; sourceTree = "<group>"; };
+		C54CC561255146F800C69C1F /* UIView+ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZFPlayer.h"; sourceTree = "<group>"; };
+		C54CC5B725514AC300C69C1F /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
+		C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
 		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
@@ -826,8 +829,8 @@
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
 			isa = PBXGroup;
 			children = (
-				C542A38B251B6C22007B5F88 /* CustomZFPlayerControlView.h */,
-				C542A38A251B6C22007B5F88 /* CustomZFPlayerControlView.m */,
+				C54CC5B725514AC300C69C1F /* CustomZFPlayerControlView.h */,
+				C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */,
 			);
 			path = "播放器控制层";
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C571095B253C1358005B3A0C /* 深度拓展系统UITabBar全家桶 */,
 				C54BB5272518E5BB001591C2 /* 网络请求框架 */,
 				C54BB2552518D363001591C2 /* 💰VerifyCodeButton */,
@@ -1578,6 +1582,8 @@
 				C54BB32C2518D391001591C2 /* UIView+Chain.h */,
 				C54BB3272518D391001591C2 /* UIView+Chain.m */,
 				C54BB3282518D391001591C2 /* UIView+Gradient.h */,
+				C54CC561255146F800C69C1F /* UIView+ZFPlayer.h */,
+				C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */,
 				C54BB32E2518D391001591C2 /* UIView+Gradient.m */,
 				C54BB3312518D391001591C2 /* UIView+Measure.h */,
 				C54BB3292518D391001591C2 /* UIView+Measure.m */,
@@ -1764,7 +1770,6 @@
 				C55D45B1251CB62800E543D6 /* 数据模型层 */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
-				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
 			path = "🇨🇳ServiceLogic";
@@ -2631,6 +2636,7 @@
 				C54BB4272518D3F6001591C2 /* UINavigationController+GKCategory.m in Sources */,
 				C55B2B002534273D0038E50C /* SuspendView.m in Sources */,
 				C54BB1272518D0C0001591C2 /* BRStringPickerView.m in Sources */,
+				C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */,
 				C54BB3CE2518D391001591C2 /* NSObject+Time.m in Sources */,
 				C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */,
 				C54BB3C02518D391001591C2 /* UIView+JHGestureBlock.m in Sources */,
@@ -2745,6 +2751,7 @@
 				C54BB3C82518D391001591C2 /* NSObject+SPAlertController.m in Sources */,
 				C54BB1262518D0C0001591C2 /* BRResultModel.m in Sources */,
 				C54BB5032518E398001591C2 /* ViewController@1.m in Sources */,
+				C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */,
 				C55B2B012534273D0038E50C /* SuspendBtn.m in Sources */,
 				C57109B8253C1358005B3A0C /* TransitionAnimation.m in Sources */,
 				C54BB2F32518D363001591C2 /* UIButton+CountDownBtn.m in Sources */,
@@ -2755,7 +2762,6 @@
 				C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */,
 				C55B2B022534273D0038E50C /* SuspendLab.m in Sources */,
 				C54BB43A2518D3F6001591C2 /* SDWebImageImageIOCoder.m in Sources */,
-				C542A38C251B6C22007B5F88 /* CustomZFPlayerControlView.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
 				C54BB2F52518D363001591C2 /* CountDownBtn.m in Sources */,

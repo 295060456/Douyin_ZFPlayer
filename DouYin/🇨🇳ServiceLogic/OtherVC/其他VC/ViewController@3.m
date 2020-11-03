@@ -40,7 +40,7 @@
       cachePolicy:NSURLRequestUseProtocolCachePolicy
       timeoutInterval:10.0];
     NSDictionary *headers = @{
-      @"Content-Type": @"image/png"
+      @"Content-Type": @"image/jpg"
     };
 
     [request setAllHTTPHeaderFields:headers];

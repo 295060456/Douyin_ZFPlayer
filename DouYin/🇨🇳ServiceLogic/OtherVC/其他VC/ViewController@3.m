@@ -33,8 +33,46 @@
     self.view.backgroundColor = kRedColor;
 }
 
+-(void)dd{
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://222.186.150.148:9000/my-bucketname/images/ios6644d56be5f6483da761c50.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%252F20201103%252Fus-east-1%252Fs3%252Faws4_request&X-Amz-Date=20201103T034552Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=543d3d754733b51c9c05f68d605fd3057d5c3d8a8507e64e1e26e743760d61e6"]
+      cachePolicy:NSURLRequestUseProtocolCachePolicy
+      timeoutInterval:10.0];
+    NSDictionary *headers = @{
+      @"Content-Type": @"image/png"
+    };
+
+    [request setAllHTTPHeaderFields:headers];
+
+    [request setHTTPMethod:@"PUT"];
+    
+    NSData *dd = UIImagePNGRepresentation(KIMG(@"0"));
+    
+    request.HTTPBody = UIImagePNGRepresentation(KIMG(@"0"));
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+      if (error) {
+        NSLog(@"%@", error);
+      } else {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        NSError *parseError = nil;
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+        NSLog(@"%@",responseDictionary);
+        dispatch_semaphore_signal(sema);
+      }
+    }];
+    [dataTask resume];
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+}
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
+    
+    
+    [self dd];
 
 //    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
 //    [DataManager sharedInstance].tag = ReuseIdentifier;
@@ -50,11 +88,11 @@
 //        NSLog(@"");
 //    }];
     
-    [self PUT:@"https://www.bombom999.top/my-bucketname/putbyios.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201029%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201029T081659Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=16ffcdbcd00f965b8319012835db01cd1df2bcf8e7626761b59daef061ab83cc"
-   parameters:nil
-     progress:nil
-      success:nil
-      failure:nil];
+//    [self PUT:@"https://www.bombom999.top/my-bucketname/putbyios.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201029%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201029T081659Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=16ffcdbcd00f965b8319012835db01cd1df2bcf8e7626761b59daef061ab83cc"
+//   parameters:nil
+//     progress:nil
+//      success:nil
+//      failure:nil];
     
     
 //    @weakify(self)

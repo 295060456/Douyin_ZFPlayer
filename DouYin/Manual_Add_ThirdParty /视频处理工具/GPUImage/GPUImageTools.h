@@ -46,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)MKDataBlock vedioToolsSessionStatusCompletedBlock;
 
 ///GPUImageView的点击事件
--(void)actionVedioToolsClickBlock:(MKDataBlock)actionVedioToolsClickBlock;
+-(void)actionVedioToolsClickBlock:(MKDataBlock _Nullable)actionVedioToolsClickBlock;
 ///视频合并处理结束
--(void)vedioToolsSessionStatusCompletedBlock:(MKDataBlock)vedioToolsSessionStatusCompletedBlock;
+-(void)vedioToolsSessionStatusCompletedBlock:(MKDataBlock _Nullable)vedioToolsSessionStatusCompletedBlock;
 
 #pragma mark ——实况视频
 -(void)LIVE;

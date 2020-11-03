@@ -102,7 +102,7 @@
 //    }];
 }
 
--(void)actionBlockImageCodeView:(MKDataBlock)imageCodeViewBlock{
+-(void)actionBlockImageCodeView:(MKDataBlock _Nullable)imageCodeViewBlock{
     _imageCodeViewBlock = imageCodeViewBlock;
 }
 

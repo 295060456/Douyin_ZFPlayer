@@ -31,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(instancetype)initWithURL:(NSURL *)movieURL
                  suspendVC:(UIViewController *)suspendVC;
 ///点击事件回调 参数1：self CustomerAVPlayerView，参数2：手势 UITapGestureRecognizer & UISwipeGestureRecognizer
--(void)actionCustomerAVPlayerBlock:(TwoDataBlock)customerActionAVPlayerBlock;
+-(void)actionCustomerAVPlayerBlock:(TwoDataBlock _Nullable)customerActionAVPlayerBlock;
 ///错误处理
--(void)errorCustomerAVPlayerBlock:(NoResultBlock)customerErrorAVPlayerBlock;
+-(void)errorCustomerAVPlayerBlock:(NoResultBlock _Nullable)customerErrorAVPlayerBlock;
 ///播放
 -(void)play;
 ///暂停

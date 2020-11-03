@@ -33,7 +33,7 @@ typedef enum : NSUInteger {
 -(void)hide;
 ///旋转 以适应不同方向的直线型进度条
 -(void)setTransformRadians:(CGFloat)transformRadians;
--(void)actionWGradientProgressBlock:(TwoDataBlock)WGradientProgressBlock;
+-(void)actionWGradientProgressBlock:(TwoDataBlock _Nullable)WGradientProgressBlock;
 
 -(void)start;
 -(void)pause;

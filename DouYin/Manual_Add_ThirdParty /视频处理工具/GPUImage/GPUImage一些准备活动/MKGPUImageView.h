@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MKGPUImageView : BaseGPUImageView
 
--(void)actionMKGPUImageViewBlock:(MKDataBlock)MKGPUImageViewBlock;
+-(void)actionMKGPUImageViewBlock:(MKDataBlock _Nullable)MKGPUImageViewBlock;
 
 @end
 

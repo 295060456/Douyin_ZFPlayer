@@ -120,7 +120,7 @@
     self.gradLayer.colors = copyArray;
 }
 
--(void)actionWGradientProgressBlock:(TwoDataBlock)WGradientProgressBlock{
+-(void)actionWGradientProgressBlock:(TwoDataBlock _Nullable)WGradientProgressBlock{
     _WGradientProgressBlock = WGradientProgressBlock;
 }
 #pragma mark —— lazyLoad

@@ -74,8 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableParagraphStyle *mps;
 @property(nonatomic,strong)NSMutableAttributedString *mas;
 
--(void)actionCountDownBlock:(MKDataBlock)countDownBlock;//倒计时需要触发调用的方法：倒计时的时候外面同时干的事，随着定时器走，可以不实现
--(void)actionCountDownClickEventBlock:(MKDataBlock)countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
+-(void)actionCountDownBlock:(MKDataBlock _Nullable)countDownBlock;//倒计时需要触发调用的方法：倒计时的时候外面同时干的事，随着定时器走，可以不实现
+-(void)actionCountDownClickEventBlock:(MKDataBlock _Nullable)countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
 -(void)timeFailBeginFrom:(NSInteger)timeCount;//倒计时时间次数 自启动直接调用
 -(void)timerDestroy;//可以不结束直接掐死
 

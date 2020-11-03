@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL isAllowDrag;//是否允许托拽手势
 @property(nonatomic,copy)MKDataBlock suspendViewBlock;
 
--(void)actionSuspendViewBlock:(MKDataBlock)suspendLabBlock;
+-(void)actionSuspendViewBlock:(MKDataBlock _Nullable)suspendLabBlock;
 
 @end
 

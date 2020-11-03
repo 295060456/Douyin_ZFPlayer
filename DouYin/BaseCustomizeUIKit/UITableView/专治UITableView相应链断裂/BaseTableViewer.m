@@ -19,7 +19,7 @@
 
 @implementation BaseTableViewer
 
--(void)actionBlock:(MKDataBlock)block{
+-(void)actionBlock:(MKDataBlock _Nullable)block{
     self.block = block;
 }
 

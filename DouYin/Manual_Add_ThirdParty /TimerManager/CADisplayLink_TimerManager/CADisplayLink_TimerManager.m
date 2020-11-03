@@ -24,7 +24,7 @@
     }
 }
 ///需要定时器做的事情，回调
--(void)actionCADisplayLinkTimerManagerBlock:(MKDataBlock)CADisplayLinkTimerManagerBlock{
+-(void)actionCADisplayLinkTimerManagerBlock:(MKDataBlock _Nullable)CADisplayLinkTimerManagerBlock{
     _CADisplayLinkTimerManagerBlock = CADisplayLinkTimerManagerBlock;
 }
 #pragma mark —— lazyLoad

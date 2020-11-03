@@ -31,11 +31,11 @@
     }return self;
 }
 
--(void)actionNSTimerManagerRunningBlock:(MKDataBlock)NSTimerManagerRunningBlock{
+-(void)actionNSTimerManagerRunningBlock:(MKDataBlock _Nullable)NSTimerManagerRunningBlock{
     _NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
 }
 
--(void)actionNSTimerManagerFinishBlock:(MKDataBlock)NSTimerManagerFinishBlock{
+-(void)actionNSTimerManagerFinishBlock:(MKDataBlock _Nullable)NSTimerManagerFinishBlock{
     _NSTimerManagerFinishBlock = NSTimerManagerFinishBlock;
 }
 ///定时器启动 系统自动添加到RunLoop

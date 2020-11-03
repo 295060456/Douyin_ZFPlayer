@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///播放器的控制层
 @interface CustomZFPlayerControlView : ZFPlayerControlView <ZFPlayerMediaControl>
 
--(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock)CustomZFPlayerControlViewBlock;
+-(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)CustomZFPlayerControlViewBlock;
 
 @end
 

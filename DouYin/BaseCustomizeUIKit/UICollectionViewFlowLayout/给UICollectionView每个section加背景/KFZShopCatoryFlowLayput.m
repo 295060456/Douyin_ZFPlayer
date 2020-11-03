@@ -26,12 +26,16 @@
     [super applyLayoutAttributes:layoutAttributes];
     self.backgroundColor = kWhiteColor;
     //加阴影立体效果
-    [self shadowCellWithLayerCornerRadius:defaultValue
-                         layerShadowColor:defaultObj
-                        layerShadowRadius:defaultValue
-                       layerShadowOpacity:defaultValue];
-    
-    self.layer.cornerRadius = 8;
+    [UIView makeTargetShadowview:self
+                       superView:nil
+                 shadowDirection:ShadowDirection_rightDown
+               shadowWithOffsetX:5
+                         offsetY:5
+                    cornerRadius:8
+                    shadowOffset:defaultSize
+                   shadowOpacity:1
+                layerShadowColor:defaultObj
+               layerShadowRadius:defaultValue];
 }
 
 @end

@@ -74,6 +74,7 @@ static inline CGFloat Top(){
 #pragma mark ======================================== 默认值 ========================================
 #define defaultValue 0
 #define defaultObj Nil
+#define defaultSize CGSizeZero
 //判断是否登录,没有登录进行跳转
 #define kGuardLogin if ([IsLogin isLogin]) { \
 UIViewController *rootViewController = kKeyWindow.rootViewController; \

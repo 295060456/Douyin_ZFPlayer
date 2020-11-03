@@ -38,7 +38,7 @@
     }
 }
 //点击的是哪一个按钮
--(void)actionBlockMKRightBtnView:(MKDataBlock)MKRightBtnViewBlock{
+-(void)actionBlockMKRightBtnView:(MKDataBlock _Nullable)MKRightBtnViewBlock{
     _MKRightBtnViewBlock = MKRightBtnViewBlock;
 }
 

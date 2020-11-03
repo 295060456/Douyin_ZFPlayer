@@ -40,7 +40,7 @@
     }
 }
 ///删除按钮 点击事件回调
--(void)actionBlockHistoryDataListTBVCell:(MKDataBlock)historyDataListTBVCellBlock{
+-(void)actionBlockHistoryDataListTBVCell:(MKDataBlock _Nullable)historyDataListTBVCellBlock{
     _historyDataListTBVCellBlock = historyDataListTBVCellBlock;
 }
 #pragma mark —— lazyLoad

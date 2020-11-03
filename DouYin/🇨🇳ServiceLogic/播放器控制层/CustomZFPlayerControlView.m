@@ -16,7 +16,7 @@
 
 @implementation CustomZFPlayerControlView
 
--(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock)CustomZFPlayerControlViewBlock{
+-(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)CustomZFPlayerControlViewBlock{
     _CustomZFPlayerControlViewBlock = CustomZFPlayerControlViewBlock;
 }
 

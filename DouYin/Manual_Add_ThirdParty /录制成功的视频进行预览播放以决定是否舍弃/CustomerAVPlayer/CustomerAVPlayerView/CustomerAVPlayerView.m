@@ -59,11 +59,11 @@
     [self.repeatPlayer play];
 }
 
--(void)actionCustomerAVPlayerBlock:(TwoDataBlock)customerActionAVPlayerBlock{
+-(void)actionCustomerAVPlayerBlock:(TwoDataBlock _Nullable)customerActionAVPlayerBlock{
     self.customerActionAVPlayerBlock = customerActionAVPlayerBlock;
 }
 
--(void)errorCustomerAVPlayerBlock:(NoResultBlock)customerErrorAVPlayerBlock{
+-(void)errorCustomerAVPlayerBlock:(NoResultBlock _Nullable)customerErrorAVPlayerBlock{
     self.customerErrorAVPlayerBlock = customerErrorAVPlayerBlock;
 }
 

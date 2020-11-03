@@ -65,7 +65,7 @@
     }
 }
 
--(void)actionBlockPlayerCell:(TwoDataBlock)playerCellBlock{
+-(void)actionBlockPlayerCell:(TwoDataBlock _Nullable)playerCellBlock{
     _playerCellBlock = playerCellBlock;
 }
 #pragma mark —— lazyLoad

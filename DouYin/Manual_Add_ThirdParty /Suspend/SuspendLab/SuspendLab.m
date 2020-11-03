@@ -27,7 +27,7 @@
     self.panRcognize.enabled = self.isAllowDrag;
 }
 
--(void)actionSuspendViewBlock:(MKDataBlock)suspendLabBlock{
+-(void)actionSuspendViewBlock:(MKDataBlock _Nullable)suspendLabBlock{
     self.suspendLabBlock = suspendLabBlock;
 }
 

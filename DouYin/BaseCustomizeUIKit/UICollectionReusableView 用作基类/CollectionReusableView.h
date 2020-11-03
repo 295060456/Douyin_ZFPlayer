@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign)BOOL selected;
 
 +(CGSize)collectionReusableViewSizeWithModel:(id _Nullable)model;//由具体的子类进行覆写
--(void)actionBlockCollectionReusableView:(MKDataBlock)collectionReusableViewBlock;
+-(void)actionBlockCollectionReusableView:(MKDataBlock _Nullable)collectionReusableViewBlock;
 
 @end
 

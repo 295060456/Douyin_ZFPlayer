@@ -332,11 +332,11 @@
     }
 }
 ///videoCamera的点击事件
--(void)actionVedioToolsClickBlock:(MKDataBlock)actionVedioToolsClickBlock{
+-(void)actionVedioToolsClickBlock:(MKDataBlock _Nullable)actionVedioToolsClickBlock{
     self.actionVedioToolsClickBlock = actionVedioToolsClickBlock;
 }
 ///视频合并处理结束
--(void)vedioToolsSessionStatusCompletedBlock:(MKDataBlock)vedioToolsSessionStatusCompletedBlock{
+-(void)vedioToolsSessionStatusCompletedBlock:(MKDataBlock _Nullable)vedioToolsSessionStatusCompletedBlock{
     self.vedioToolsSessionStatusCompletedBlock = vedioToolsSessionStatusCompletedBlock;
 }
 #pragma mark —— lazyLoad

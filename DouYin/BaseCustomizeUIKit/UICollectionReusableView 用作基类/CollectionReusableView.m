@@ -20,7 +20,7 @@
     }
 }
 
--(void)actionBlockCollectionReusableView:(MKDataBlock)collectionReusableViewBlock{
+-(void)actionBlockCollectionReusableView:(MKDataBlock _Nullable)collectionReusableViewBlock{
     self.collectionReusableViewBlock = collectionReusableViewBlock;
 }
 //由具体的子类进行覆写

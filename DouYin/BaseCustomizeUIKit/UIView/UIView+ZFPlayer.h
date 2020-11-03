@@ -38,6 +38,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 
+-(void)enterBackgroundStopPlayer;
+
 @end
 
 NS_ASSUME_NONNULL_END
+
+/** 用法
+ self.playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X" ofType:@"mp4"]];
+ @weakify(self)
+ [self.customPlayerControlView actionCustomZFPlayerControlViewBlock:^(NSString *data, NSNumber *data2) {
+     @strongify(self)
+     if ([data isEqualToString:@"gestureSingleTapped:"]) {
+         if (self.livingVideoViewBlock) {
+             self.livingVideoViewBlock(data);
+         }
+     }
+ }];
+ */

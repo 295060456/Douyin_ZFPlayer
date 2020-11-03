@@ -17,10 +17,6 @@ static char *UIView_ZFPlayer_customPlayerControlView = "UIView_ZFPlayer_customPl
 @dynamic playerManager;
 @dynamic customPlayerControlView;
 
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 -(void)enterBackgroundStopPlayer{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(notification:)

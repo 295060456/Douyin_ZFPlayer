@@ -62,7 +62,8 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 @dynamic mps;
 @dynamic mas;
 @dynamic btnRunType;
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 -(instancetype)initWithType:(CountDownBtnType)countDownBtnType
                     runType:(CountDownBtnRunType)runType
            layerBorderWidth:(CGFloat)layerBorderWidth
@@ -73,52 +74,59 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
              titleLabelFont:(UIFont *_Nullable)titleLabelFont{
 
     if (self = [super init]) {
+        
         self.countDownBtnType = countDownBtnType;
         self.btnRunType = runType;
+        self.titleBeginStr = titleBeginStr;
+        self.layerBorderColor = layerBorderColor;
+        self.layerCornerRadius = layerCornerRadius;
+        self.titleLabelFont = titleLabelFont;
+        self.layerBorderWidth = layerBorderWidth;
+        self.titleColor = titleColor;
         
-        if (self.countDownBtnType) {
-            // CountDownBtn 的点击事件回调
-            @weakify(self)
-            [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-                @strongify(self)
-                if ((self.isCountDownClockFinished && self.btnRunType == CountDownBtnRunType_auto) ||//自启动模式
-                    self.btnRunType == CountDownBtnRunType_manual) {//手动启动模式
-                    
-                    self.isCountDownClockFinished = NO;
-                    self.isCountDownClockOpen = NO;
-                    
-//                    [self timeFailBeginFrom:self.count];//根据需求来
-                }
+        [self setTitle:self.titleBeginStr
+              forState:UIControlStateNormal];
+        self.layer.borderColor = self.layerBorderColor.CGColor;
+        self.layer.cornerRadius = self.layerCornerRadius;
+        self.titleLabel.font = self.titleLabelFont;
+        self.layer.borderWidth = self.layerBorderWidth;
+        [self setTitleColor:self.titleColor
+                   forState:UIControlStateNormal];
+        
+        [self.titleLabel sizeToFit];
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+        
+        // CountDownBtn 的点击事件回调
+        @weakify(self)
+        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @strongify(self)
+            if ((self.isCountDownClockFinished && self.btnRunType == CountDownBtnRunType_auto) ||//自启动模式
+                self.btnRunType == CountDownBtnRunType_manual) {//手动启动模式
                 
-                if (self.countDownClickEventBlock) {
-                    self.countDownClickEventBlock(self);
-                }
-            }];
-            
-            switch (self.btnRunType) {
-                case CountDownBtnRunType_manual:{//手动触发计时器模式
-                    [self setTitle:@"发送验证码"
-                          forState:UIControlStateNormal];
-                    
-                    self.layer.borderColor = layerBorderColor.CGColor;
-                    self.layer.cornerRadius = layerCornerRadius;
-                    self.titleLabel.font = titleLabelFont;
-                    self.layer.borderWidth = layerBorderWidth;
-                    [self setTitleColor:titleColor
-                               forState:UIControlStateNormal];
-                }break;
-                case CountDownBtnRunType_auto:{//自启动模式
-
-                }break;
-                default:
-                    break;
+                self.isCountDownClockFinished = NO;
+                self.isCountDownClockOpen = NO;
+                
+//                    [self timeFailBeginFrom:self.count];//根据需求来
             }
             
-            [self.titleLabel sizeToFit];
-            self.titleLabel.adjustsFontSizeToFitWidth = YES;
+            if (self.countDownClickEventBlock) {
+                self.countDownClickEventBlock(self);
+            }
+        }];
+        
+        switch (self.btnRunType) {
+            case CountDownBtnRunType_manual:{//手动触发计时器模式
+
+            }break;
+            case CountDownBtnRunType_auto:{//自启动模式
+
+            }break;
+            default:
+                break;
         }
     }return self;
 }
+#pragma clang diagnostic pop
 
 //先走timeFailBeginFrom 再走drawRect
 -(void)drawRect:(CGRect)rect{

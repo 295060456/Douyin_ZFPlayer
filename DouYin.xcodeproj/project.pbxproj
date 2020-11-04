@@ -21,6 +21,7 @@
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */; };
 		C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */; };
+		C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B3D302552605B003BE195 /* UIFont+Extras.m */; };
 		C54BB0B02518D00E001591C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* AppDelegate.m */; };
 		C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* SceneDelegate.m */; };
 		C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54BB0B72518D00E001591C2 /* Main.storyboard */; };
@@ -76,7 +77,6 @@
 		C54BB2F92518D363001591C2 /* WGradientProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2652518D363001591C2 /* WGradientProgress.m */; };
 		C54BB2FA2518D363001591C2 /* 水平进度条.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2662518D363001591C2 /* 水平进度条.png */; };
 		C54BB2FB2518D363001591C2 /* WGradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2672518D363001591C2 /* WGradientProgressView.m */; };
-		C54BB2FC2518D363001591C2 /* ShowAvailableFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB26B2518D363001591C2 /* ShowAvailableFont.m */; };
 		C54BB2FD2518D363001591C2 /* PlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB26D2518D363001591C2 /* PlaySound.m */; };
 		C54BB2FE2518D363001591C2 /* 带有按键音的按钮 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB26E2518D363001591C2 /* 带有按键音的按钮 */; };
 		C54BB2FF2518D363001591C2 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C54BB26F2518D363001591C2 /* Sound.wav */; };
@@ -292,6 +292,8 @@
 		C5470FB225309D3400651ACE /* MacroDef_Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Func.h; sourceTree = "<group>"; };
 		C5470FB325309D3400651ACE /* MacroDef_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Size.h; sourceTree = "<group>"; };
 		C5470FB425309D3400651ACE /* MacroDef_Cor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Cor.h; sourceTree = "<group>"; };
+		C54B3D2F2552605B003BE195 /* UIFont+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extras.h"; sourceTree = "<group>"; };
+		C54B3D302552605B003BE195 /* UIFont+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extras.m"; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0AE2518D00E001591C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54BB0AF2518D00E001591C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -412,8 +414,6 @@
 		C54BB2662518D363001591C2 /* 水平进度条.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水平进度条.png"; sourceTree = "<group>"; };
 		C54BB2672518D363001591C2 /* WGradientProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGradientProgressView.m; sourceTree = "<group>"; };
 		C54BB2682518D363001591C2 /* WGradientProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGradientProgress.h; sourceTree = "<group>"; };
-		C54BB26A2518D363001591C2 /* ShowAvailableFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAvailableFont.h; sourceTree = "<group>"; };
-		C54BB26B2518D363001591C2 /* ShowAvailableFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAvailableFont.m; sourceTree = "<group>"; };
 		C54BB26D2518D363001591C2 /* PlaySound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaySound.m; sourceTree = "<group>"; };
 		C54BB26E2518D363001591C2 /* 带有按键音的按钮 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "带有按键音的按钮"; sourceTree = "<group>"; };
 		C54BB26F2518D363001591C2 /* Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sound.wav; sourceTree = "<group>"; };
@@ -889,6 +889,15 @@
 			path = "各项宏定义";
 			sourceTree = "<group>";
 		};
+		C54B3D2E2552605B003BE195 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				C54B3D2F2552605B003BE195 /* UIFont+Extras.h */,
+				C54B3D302552605B003BE195 /* UIFont+Extras.m */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
@@ -1079,7 +1088,6 @@
 				C54BB2602518D363001591C2 /* 网络数据实时监测 */,
 				C54BB2012518D363001591C2 /* 文件夹操作 */,
 				C54BB2852518D363001591C2 /* ECAuthorizationTools */,
-				C54BB2692518D363001591C2 /* iOS打印全员字体 */,
 				C54BB2042518D363001591C2 /* LBLaunchImageAd. */,
 				C54BB26C2518D363001591C2 /* SoundBtn */,
 				C54BB20C2518D363001591C2 /* Suspend */,
@@ -1399,15 +1407,6 @@
 			path = "水平进度条";
 			sourceTree = "<group>";
 		};
-		C54BB2692518D363001591C2 /* iOS打印全员字体 */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB26A2518D363001591C2 /* ShowAvailableFont.h */,
-				C54BB26B2518D363001591C2 /* ShowAvailableFont.m */,
-			);
-			path = "iOS打印全员字体";
-			sourceTree = "<group>";
-		};
 		C54BB26C2518D363001591C2 /* SoundBtn */ = {
 			isa = PBXGroup;
 			children = (
@@ -1493,6 +1492,7 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C54B3D2E2552605B003BE195 /* UIFont */,
 				C54BB3712518D391001591C2 /* CALayer */,
 				C54BB3672518D391001591C2 /* NSArray */,
 				C54BB3762518D391001591C2 /* NSObject */,
@@ -2600,6 +2600,7 @@
 				C54BB42F2518D3F6001591C2 /* ZZCountingLabel.m in Sources */,
 				C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */,
 				C54BB3C22518D391001591C2 /* NSArray+Extend.m in Sources */,
+				C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */,
 				C54BB2C62518D363001591C2 /* YHGPUImageBeautifyFilter.m in Sources */,
 				C54BB4312518D3F6001591C2 /* UIImage+WebP.m in Sources */,
 				C54BB39C2518D391001591C2 /* UIImage+Extras.m in Sources */,
@@ -2617,7 +2618,6 @@
 				C54BB42A2518D3F6001591C2 /* UINavigationItem+GKCategory.m in Sources */,
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
 				C54BB47A2518DACC001591C2 /* BaseGPUImageView.m in Sources */,
-				C54BB2FC2518D363001591C2 /* ShowAvailableFont.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,

@@ -18,6 +18,7 @@
 } while (0)
 
 //#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 //#pragma clang diagnostic ignored "-Wundeclared-selector"
 //#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
 //#pragma clang diagnostic ignored "-Wincomplete-implementation"

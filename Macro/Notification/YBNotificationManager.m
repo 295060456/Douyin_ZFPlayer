@@ -9,6 +9,7 @@
 NSString *const kUserAssert = @"kUserAssert";
 
 NSString *const UBLEnterBackgroundStopPlayer = @"UBLEnterBackgroundStopPlayer";//进入后台发通知停止播放器
+NSString *const MKAFNReachability = @"AFNReachability";
 
 @implementation YBNotificationManager
 

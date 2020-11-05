@@ -9,6 +9,7 @@
 extern NSString *const kUserAssert;
 
 FOUNDATION_EXTERN NSString *const UBLEnterBackgroundStopPlayer;
+FOUNDATION_EXTERN NSString *const MKAFNReachability;
 
 NS_ASSUME_NONNULL_BEGIN
 

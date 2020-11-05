@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TimerManager.h"
+#import "UILabel+RichText.h"
 
 typedef enum : NSUInteger {
     ShowTimeType_SS = 0,//秒
@@ -26,8 +27,8 @@ typedef enum : NSUInteger {
 } CountDownBtnNewLineType;
 
 typedef enum : NSUInteger {
-    CequenceForShowTitleRuningStrType_front = 0,//TitleRuningStr（固定值） 相对于 currentTime（浮动值）在前面
-    CequenceForShowTitleRuningStrType_tail//TitleRuningStr（固定值） 相对于 currentTime（浮动值）在后面
+    CequenceForShowTitleRuningStrType_front = 0,//TitleRuningStr（固定值） 相对于 currentTime（浮动值）在前面 | 首在前
+    CequenceForShowTitleRuningStrType_tail//TitleRuningStr（固定值） 相对于 currentTime（浮动值）在后面 | 首在后
 } CequenceForShowTitleRuningStrType;
 
 typedef enum : NSUInteger {
@@ -69,10 +70,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL isCountDownClockFinished;//倒计时是否结束
 @property(nonatomic,assign)BOOL isCountDownClockOpen;//倒计时是否开始
 
-@property(nonatomic,strong)NSString *countStr;
-@property(nonatomic,strong)NSString *str;
-@property(nonatomic,strong)NSMutableParagraphStyle *mps;
-@property(nonatomic,strong)NSMutableAttributedString *mas;
+@property(nonatomic,strong)NSString *formatTimeStr;//根据ShowTimeType格式化以后的时间
+@property(nonatomic,strong)NSString *finalTitleStr;//最终的title
+@property(nonatomic,strong)NSAttributedString *attributedString;//富文本
+@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*richTextRunningDataMutArr;
 
 -(void)actionCountDownBlock:(MKDataBlock _Nullable)countDownBlock;//倒计时需要触发调用的方法：倒计时的时候外面同时干的事，随着定时器走，可以不实现
 -(void)actionCountDownClickEventBlock:(MKDataBlock _Nullable)countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
@@ -80,6 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)timerDestroy;//可以不结束直接掐死
 
 ///用这个初始化方法
+//不使用富文本
 - (instancetype)initWithType:(CountDownBtnType)countDownBtnType
                      runType:(CountDownBtnRunType)runType
             layerBorderWidth:(CGFloat)layerBorderWidth
@@ -88,6 +90,17 @@ NS_ASSUME_NONNULL_BEGIN
                   titleColor:(UIColor *_Nullable)titleColor
                titleBeginStr:(NSString *_Nullable)titleBeginStr
               titleLabelFont:(UIFont *_Nullable)titleLabelFont;
+//使用富文本
+-(instancetype)initWithRichTextRunningDataMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextRunningDataMutArr
+                                countDownBtnType:(CountDownBtnType)countDownBtnType
+                                         runType:(CountDownBtnRunType)runType
+                                layerBorderWidth:(CGFloat)layerBorderWidth
+                               layerCornerRadius:(CGFloat)layerCornerRadius
+                                layerBorderColor:(UIColor *_Nullable)layerBorderColor
+                                      titleColor:(UIColor *_Nullable)titleColor
+                                   titleBeginStr:(NSString *_Nullable)titleBeginStr
+                                  titleLabelFont:(UIFont *_Nullable)titleLabelFont;
+
 
 @end
 

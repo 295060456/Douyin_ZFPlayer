@@ -51,49 +51,69 @@
 
 @end
 
+
+@implementation RichLabelDataStringsModel
+
+#pragma mark —— default
+-(NSString *)dataString{
+    if (!_dataString) {
+        _dataString = @"";
+    }return _dataString;
+}
+
+@end
+
 @implementation UILabel (RichText)
 
--(void)makeRichTextWithDataStr:(NSString * _Nonnull)dataStr
-                richLabelFonts:(NSArray <RichLabelFontModel *>* _Nullable)richLabelFonts
-             richLabelTextCors:(NSArray <RichLabelTextCorModel *>* _Nullable)richLabelTextCors
-           richLabelUnderlines:(NSArray <RichLabelUnderlineModel *>* _Nullable)richLabelUnderlines
-      richLabelParagraphStyles:(NSArray <RichLabelParagraphStyleModel *>* _Nullable)richLabelParagraphStyles
-                 richLabelURLs:(NSArray <RichLabelURLModel *>* _Nullable)richLabelURLs{
+-(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr{
     
-    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:dataStr];
+    NSString *resultString = @"";
     
-    //添加字体 & 设置作用域
-    for (RichLabelFontModel *richLabelFontModel in richLabelFonts) {
-        [attrStr addAttribute:NSFontAttributeName
-                        value:richLabelFontModel.font
-                        range:richLabelFontModel.range];
-    }
-    //添加文字颜色 & 设置作用域
-    for (RichLabelTextCorModel *richLabelTextCorModel in richLabelTextCors) {
-        [attrStr addAttribute:NSForegroundColorAttributeName
-                        value:richLabelTextCorModel.cor
-                        range:richLabelTextCorModel.range];
-    }
-    //添加下划线 & 设置作用域
-    for (RichLabelUnderlineModel *richLabelUnderlineModel in richLabelUnderlines) {
-        [attrStr addAttribute:NSUnderlineStyleAttributeName
-                        value:[NSNumber numberWithInteger:richLabelUnderlineModel.underlineStyle]
-                        range:richLabelUnderlineModel.range];
-    }
-    //添加段落样式 & 设置作用域
-    for (RichLabelParagraphStyleModel *richLabelParagraphStyleModel in richLabelParagraphStyles) {
-        [attrStr addAttribute:NSParagraphStyleAttributeName
-                        value:richLabelParagraphStyleModel.paragraphStyle
-                        range:richLabelParagraphStyleModel.range];
-    }
-    //添加链接 & 设置作用域
-    for (RichLabelURLModel *richLabelURLModel in richLabelURLs) {
-        [attrStr addAttribute:NSParagraphStyleAttributeName
-                        value:[NSURL URLWithString:richLabelURLModel.urlStr]
-                        range:richLabelURLModel.range];
+    //先拼接字符串
+    for (RichLabelDataStringsModel *model in richTextDataConfigMutArr) {
+        if (model.dataString) {
+            resultString = [resultString stringByAppendingString:model.dataString];
+            NSLog(@"resultString = %@",resultString);
+        }
     }
     
-    self.attributedText = attrStr;
+    NSLog(@"resultString = %@",resultString);
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:resultString];
+    
+    for (int i = 0; i < richTextDataConfigMutArr.count; i++) {
+        RichLabelDataStringsModel *richLabelDataStringsModel = (RichLabelDataStringsModel *)richTextDataConfigMutArr[i];
+        
+        //添加字体 & 设置作用域
+        if (richLabelDataStringsModel.richLabelFontModel.font) {
+            [attrString addAttribute:NSFontAttributeName
+                               value:richLabelDataStringsModel.richLabelFontModel.font
+                               range:richLabelDataStringsModel.richLabelFontModel.range];//NSMakeRange(0, 0)
+        }
+        //添加文字颜色 & 设置作用域
+        if (richLabelDataStringsModel.richLabelTextCorModel.cor) {
+            [attrString addAttribute:NSForegroundColorAttributeName
+                               value:richLabelDataStringsModel.richLabelTextCorModel.cor
+                               range:richLabelDataStringsModel.richLabelTextCorModel.range];
+        }
+        //添加下划线 & 设置作用域
+        [attrString addAttribute:NSUnderlineStyleAttributeName
+                        value:[NSNumber numberWithInteger:richLabelDataStringsModel.richLabelUnderlineModel.underlineStyle]
+                        range:richLabelDataStringsModel.richLabelUnderlineModel.range];
+        //添加段落样式 & 设置作用域
+        if (richLabelDataStringsModel.richLabelParagraphStyleModel.paragraphStyle) {
+            [attrString addAttribute:NSParagraphStyleAttributeName
+                               value:richLabelDataStringsModel.richLabelParagraphStyleModel.paragraphStyle
+                               range:richLabelDataStringsModel.richLabelParagraphStyleModel.range];
+        }
+        //添加链接 & 设置作用域
+        [attrString addAttribute:NSParagraphStyleAttributeName
+                           value:[NSURL URLWithString:richLabelDataStringsModel.richLabelURLModel.urlStr]
+                           range:richLabelDataStringsModel.richLabelURLModel.range];
+    }
+    
+    self.attributedText = attrString;
+    
+    return self.attributedText;
 }
 
 @end

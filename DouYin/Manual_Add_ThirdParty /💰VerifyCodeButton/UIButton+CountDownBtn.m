@@ -33,9 +33,9 @@ static char *UIButton_CountDownBtn_countDownBtnNewLineType = "UIButton_CountDown
 static char *UIButton_CountDownBtn_cequenceForShowTitleRuningStrType = "UIButton_CountDownBtn_cequenceForShowTitleRuningStrType";
 static char *UIButton_CountDownBtn_countStr = "UIButton_CountDownBtn_countStr";
 static char *UIButton_CountDownBtn_str = "UIButton_CountDownBtn_str";
-static char *UIButton_CountDownBtn_mps = "UIButton_CountDownBtn_mps";
-static char *UIButton_CountDownBtn_mas = "UIButton_CountDownBtn_mas";
 static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunType";
+static char *UIButton_CountDownBtn_attributedString = "UIButton_CountDownBtn_attributedString";
+static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDownBtn_richTextRunningDataMutArr";
 
 @dynamic nsTimerManager;
 @dynamic titleBeginStr;
@@ -57,22 +57,33 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 @dynamic isCountDownClockOpen;
 @dynamic countDownBtnNewLineType;
 @dynamic cequenceForShowTitleRuningStrType;
-@dynamic countStr;
-@dynamic str;
-@dynamic mps;
-@dynamic mas;
+@dynamic formatTimeStr;
+@dynamic finalTitleStr;
 @dynamic btnRunType;
+@dynamic attributedString;
+@dynamic richTextRunningDataMutArr;
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
--(instancetype)initWithType:(CountDownBtnType)countDownBtnType
-                    runType:(CountDownBtnRunType)runType
-           layerBorderWidth:(CGFloat)layerBorderWidth
-          layerCornerRadius:(CGFloat)layerCornerRadius
-           layerBorderColor:(UIColor *_Nullable)layerBorderColor
-                 titleColor:(UIColor *_Nullable)titleColor
-              titleBeginStr:(NSString *_Nullable)titleBeginStr
-             titleLabelFont:(UIFont *_Nullable)titleLabelFont{
-
+//不使用富文本
+/// 有些默认的button属性最好还是在初始化进行传入，如果后续传入，不太好把控其生命周期导致赋值失败
+/// @param countDownBtnType 定时器是顺时针旋转还是逆时针旋转
+/// @param runType 定时器是自动触发还是用户自己触发
+/// @param layerBorderWidth 描边的线框
+/// @param layerCornerRadius 圆切角
+/// @param layerBorderColor 描边颜色
+/// @param titleColor 不使用富文本的情况下，正常的title颜色
+/// @param titleBeginStr 不使用富文本的情况下，正常的title，不是定时器运行的时候的title，注意加以区分
+/// @param titleLabelFont 不使用富文本的情况下，正常的title的字体
+- (instancetype)initWithType:(CountDownBtnType)countDownBtnType
+                     runType:(CountDownBtnRunType)runType
+            layerBorderWidth:(CGFloat)layerBorderWidth
+           layerCornerRadius:(CGFloat)layerCornerRadius
+            layerBorderColor:(UIColor *_Nullable)layerBorderColor
+                  titleColor:(UIColor *_Nullable)titleColor
+               titleBeginStr:(NSString *_Nullable)titleBeginStr
+              titleLabelFont:(UIFont *_Nullable)titleLabelFont{
+    
     if (self = [super init]) {
         
         self.countDownBtnType = countDownBtnType;
@@ -83,6 +94,8 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
         self.titleLabelFont = titleLabelFont;
         self.layerBorderWidth = layerBorderWidth;
         self.titleColor = titleColor;
+        
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         
         [self setTitle:self.titleBeginStr
               forState:UIControlStateNormal];
@@ -95,7 +108,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
         
         [self.titleLabel sizeToFit];
         self.titleLabel.adjustsFontSizeToFitWidth = YES;
-        
+
         // CountDownBtn 的点击事件回调
         @weakify(self)
         [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -126,6 +139,31 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
         }
     }return self;
 }
+//使用富文本
+-(instancetype)initWithRichTextRunningDataMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextRunningDataMutArr
+                                countDownBtnType:(CountDownBtnType)countDownBtnType
+                                         runType:(CountDownBtnRunType)runType
+                                layerBorderWidth:(CGFloat)layerBorderWidth
+                               layerCornerRadius:(CGFloat)layerCornerRadius
+                                layerBorderColor:(UIColor *_Nullable)layerBorderColor
+                                      titleColor:(UIColor *_Nullable)titleColor
+                                   titleBeginStr:(NSString *_Nullable)titleBeginStr
+                                  titleLabelFont:(UIFont *_Nullable)titleLabelFont{
+    
+    if (self = [self initWithType:countDownBtnType
+                          runType:runType
+                 layerBorderWidth:layerBorderWidth
+                layerCornerRadius:layerCornerRadius
+                 layerBorderColor:layerBorderColor
+                       titleColor:titleColor
+                    titleBeginStr:titleBeginStr
+                   titleLabelFont:titleLabelFont]) {
+        
+        self.richTextRunningDataMutArr = (NSMutableArray *)richTextRunningDataMutArr;
+        self.attributedString = [self.titleLabel makeRichTextWithDataConfigMutArr:self.richTextRunningDataMutArr];
+        [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
+    }return self;
+}
 #pragma clang diagnostic pop
 
 //先走timeFailBeginFrom 再走drawRect
@@ -143,10 +181,10 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
                           forState:UIControlStateNormal];
                 }break;
                 case CountDownBtnNewLineType_newLine:{
-                    NSLog(@"%@",self.titleBeginStr);
-                    self.str = self.titleBeginStr;
-                    [self setAttributedTitle:self.mas
-                                    forState:UIControlStateNormal];
+                    self.finalTitleStr = [self.titleBeginStr stringByAppendingString:@"\n"];
+                    NSLog(@"self.finalTitleStr = %@",self.finalTitleStr);
+                    //富文本
+                    [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
                 }break;
                     
                 default:
@@ -157,20 +195,21 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 }
 //倒计时方法:
 - (void)timeFailBeginFrom:(NSInteger)timeCount {
+    
     switch (self.countDownBtnNewLineType) {
         case CountDownBtnNewLineType_normal:{
             [self setTitle:self.titleBeginStr
                   forState:UIControlStateNormal];
         }break;
         case CountDownBtnNewLineType_newLine:{
-            NSLog(@"%@",self.titleBeginStr);
-            self.str = self.titleBeginStr;
-            [self setAttributedTitle:self.mas
-                            forState:UIControlStateNormal];
+            self.finalTitleStr = [self.titleBeginStr stringByAppendingString:@"\n"];
+            NSLog(@"self.finalTitleStr = %@",self.finalTitleStr);
         }break;
         default:
             break;
     }
+    //富文本
+    [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
     
     self.countDownBtnType = CountDownBtnType_countDown;
     self.count = timeCount;
@@ -184,49 +223,119 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 }
 //
 - (void)timerRuning:(long)currentTime {
-    self.enabled = NO;//倒计时期间，不接受任何的点击事件
+    self.enabled = NO;//倒计时期间，不接受任何的点击事件  🇨🇳
+    // 显示的时间格式
     switch (self.showTimeType) {
         case ShowTimeType_SS:{
-            self.countStr = [NSString stringWithFormat:@"%ld秒",(long)currentTime];
+            self.formatTimeStr = [NSString stringWithFormat:@"%ld秒",(long)currentTime];
         }break;
         case ShowTimeType_MMSS:{
-            self.countStr = [self getMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
+            self.formatTimeStr = [self getMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
         }break;
         case ShowTimeType_HHMMSS:{
-            self.countStr = [self getHHMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
+            self.formatTimeStr = [self getHHMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
         }break;
         default:
-            self.countStr = @"异常值";
+            self.formatTimeStr = @"异常值";
             break;
+    }
+    //字符串拼接
+    switch (self.cequenceForShowTitleRuningStrType) {
+        case CequenceForShowTitleRuningStrType_front:{//首在前
+            if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine){//提行
+                self.titleRuningStr = [self.titleRuningStr stringByAppendingString:@"\n"];
+            }
+            
+            self.finalTitleStr = [self.titleRuningStr stringByAppendingString:self.formatTimeStr];
+        }break;
+        case CequenceForShowTitleRuningStrType_tail:{//首在后
+            if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行
+                self.formatTimeStr = [self.formatTimeStr stringByAppendingString:@"\n"];
+            }
+            
+            self.finalTitleStr = [self.formatTimeStr stringByAppendingString:self.titleRuningStr];
+        }break;
+        default:
+            self.finalTitleStr = @"异常值";
+            break;
+    }
+    
+    NSLog(@"%@",self.formatTimeStr);
+    NSLog(@"self.finalTitleStr = %@",self.finalTitleStr);
+    
+    [self setTitle:self.finalTitleStr
+          forState:UIControlStateNormal];
+    
+    //富文本 每一次时间触发方法都刷新数据并赋值
+    NSMutableArray *tempDataMutArr = NSMutableArray.array;
+    RichLabelDataStringsModel *formatTimeModel = RichLabelDataStringsModel.new;
+    RichLabelDataStringsModel *titleRuningModel = RichLabelDataStringsModel.new;
+
+    for (int i = 0; i < self.richTextRunningDataMutArr.count; i ++) {
+        RichLabelDataStringsModel *richLabelDataStringsModel = self.richTextRunningDataMutArr[i];
+
+        if (i == 0) {
+            
+            //修改range
+            if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
+                richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(0, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(0, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(0, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(0, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(0, self.titleRuningStr.length);
+            }else if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_tail){
+                richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(0, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(0, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(0, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(0, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(0, self.formatTimeStr.length);
+            }else{}
+            
+            formatTimeModel.dataString = self.formatTimeStr;
+            formatTimeModel.richLabelFontModel = richLabelDataStringsModel.richLabelFontModel;
+            formatTimeModel.richLabelTextCorModel = richLabelDataStringsModel.richLabelTextCorModel;
+            formatTimeModel.richLabelUnderlineModel = richLabelDataStringsModel.richLabelUnderlineModel;
+            formatTimeModel.richLabelParagraphStyleModel = richLabelDataStringsModel.richLabelParagraphStyleModel;
+            formatTimeModel.richLabelURLModel = richLabelDataStringsModel.richLabelURLModel;
+        }else if (i == 1){
+            
+            //修改range
+            if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
+                richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(self.titleRuningStr.length, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(self.titleRuningStr.length, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(self.titleRuningStr.length, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(self.titleRuningStr.length, self.formatTimeStr.length);
+                richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(self.titleRuningStr.length, self.formatTimeStr.length);
+            }else if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_tail){
+                richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(self.formatTimeStr.length, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(self.formatTimeStr.length, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(self.formatTimeStr.length, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(self.formatTimeStr.length, self.titleRuningStr.length);
+                richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(self.formatTimeStr.length, self.titleRuningStr.length);
+            }else{}
+            
+            titleRuningModel.dataString = self.titleRuningStr;
+            titleRuningModel.richLabelFontModel = richLabelDataStringsModel.richLabelFontModel;
+            titleRuningModel.richLabelTextCorModel = richLabelDataStringsModel.richLabelTextCorModel;
+            titleRuningModel.richLabelUnderlineModel = richLabelDataStringsModel.richLabelUnderlineModel;
+            titleRuningModel.richLabelParagraphStyleModel = richLabelDataStringsModel.richLabelParagraphStyleModel;
+            titleRuningModel.richLabelURLModel = richLabelDataStringsModel.richLabelURLModel;
+        }else{}
+    }
+    
+    if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
+        [tempDataMutArr addObject:titleRuningModel];
+        [tempDataMutArr addObject:formatTimeModel];
+        
+        
+    }else if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_tail){
+        [tempDataMutArr addObject:formatTimeModel];
+        [tempDataMutArr addObject:titleRuningModel];
+        
     }
 
-    switch (self.cequenceForShowTitleRuningStrType) {
-        case CequenceForShowTitleRuningStrType_front:{
-            self.str = [self.titleRuningStr stringByAppendingString:self.countStr];
-        }break;
-        case CequenceForShowTitleRuningStrType_tail:{
-            self.str = [self.countStr stringByAppendingString:self.titleRuningStr];
-        }break;
-        default:
-            self.str = @"异常值";
-            break;
-    }
-        
-    switch (self.countDownBtnNewLineType) {
-        case CountDownBtnNewLineType_normal:{
-            [self setTitle:self.str
-                  forState:UIControlStateNormal];
-        }break;
-        case CountDownBtnNewLineType_newLine:{
-            NSLog(@"%@",self.mas);
-            NSLog(@"%@",self.countStr);
-            [self setAttributedTitle:self.mas
-                            forState:UIControlStateNormal];
-        }break;
-            
-        default:
-            break;
-    }
+    self.attributedString = [self.titleLabel makeRichTextWithDataConfigMutArr:tempDataMutArr];
+    [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
 
     self.backgroundColor = self.bgCountDownColor;
 }
@@ -240,9 +349,10 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
                   forState:UIControlStateNormal];
         }break;
         case CountDownBtnNewLineType_newLine:{
-            self.str = self.titleEndStr;
-            [self setAttributedTitle:self.mas
-                            forState:UIControlStateNormal];
+            self.finalTitleStr = [self.titleEndStr stringByAppendingString:@"\n"];
+            NSLog(@"self.finalTitleStr = %@",self.finalTitleStr);
+            //富文本
+            [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
         }break;
         default:
             break;
@@ -296,6 +406,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
     @weakify(self)
     //倒计时启动
     [timerManager actionNSTimerManagerRunningBlock:^(id data) {
+        NSLog(@"正在倒计时...");
         self.isCountDownClockOpen = YES;
         @strongify(self)
         if ([data isKindOfClass:NSTimerManager.class]) {
@@ -312,7 +423,6 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
         @strongify(self)
         [self timerDestroy];
     }];
-    
     return timerManager;
 }
 
@@ -326,7 +436,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 -(NSString *)titleBeginStr{
     NSString *TitleBeginStr = objc_getAssociatedObject(self, UIButton_CountDownBtn_titleBeginStr);
     if (!TitleBeginStr) {
-        TitleBeginStr = @"开始";
+        TitleBeginStr = @"titleBeginStr 开始";
         objc_setAssociatedObject(self,
                                  UIButton_CountDownBtn_titleBeginStr,
                                  TitleBeginStr,
@@ -345,7 +455,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 -(NSString *)titleRuningStr{
     NSString *TitleRuningStr = objc_getAssociatedObject(self, UIButton_CountDownBtn_titleRuningStr);
     if (!TitleRuningStr) {
-        TitleRuningStr = @"开始";
+        TitleRuningStr = @"titleRuningStr 开始";
         objc_setAssociatedObject(self,
                                  UIButton_CountDownBtn_titleRuningStr,
                                  TitleRuningStr,
@@ -363,7 +473,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 -(NSString *)titleEndStr{
     NSString *TitleEndStr = objc_getAssociatedObject(self, UIButton_CountDownBtn_titleEndStr);
     if (!TitleEndStr) {
-        TitleEndStr = @"结束";
+        TitleEndStr = @"titleEndStr 结束";
         objc_setAssociatedObject(self,
                                  UIButton_CountDownBtn_titleEndStr,
                                  TitleEndStr,
@@ -607,100 +717,53 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
                              OBJC_ASSOCIATION_ASSIGN);
 }
 #pragma mark —— @property(nonatomic,strong)NSString *countStr;
--(NSString *)countStr{
+-(NSString *)formatTimeStr{
     NSString *CountStr = objc_getAssociatedObject(self, UIButton_CountDownBtn_countStr);
     return CountStr;
 }
 
--(void)setCountStr:(NSString *)countStr{
+-(void)setFormatTimeStr:(NSString *)countStr{
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_countStr,
                              countStr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)NSString *str;
--(NSString *)str{
+-(NSString *)finalTitleStr{
     NSString *Str = objc_getAssociatedObject(self, UIButton_CountDownBtn_str);
     return Str;
 }
 
--(void)setStr:(NSString *)str{
+-(void)setFinalTitleStr:(NSString *)str{
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_str,
                              str,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)NSMutableParagraphStyle *mps;
--(NSMutableParagraphStyle *)mps{
-    NSMutableParagraphStyle *MPS = objc_getAssociatedObject(self, UIButton_CountDownBtn_mps);
-    if (!MPS) {
-        MPS = NSMutableParagraphStyle.new;
-        MPS.lineSpacing = 0;
-        MPS.alignment = NSTextAlignmentCenter;
-        objc_setAssociatedObject(self,
-                                 UIButton_CountDownBtn_mps,
-                                 MPS,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return MPS;
+#pragma mark —— @property(nonatomic,strong)NSAttributedString *attributedString;//富文本
+-(NSString *)attributedString{
+    NSString *AttributedString = objc_getAssociatedObject(self, UIButton_CountDownBtn_attributedString);
+    return AttributedString;
 }
 
--(void)setMps:(NSMutableParagraphStyle *)mps{
+-(void)setAttributedString:(NSAttributedString *)attributedString{
     objc_setAssociatedObject(self,
-                             UIButton_CountDownBtn_mps,
-                             mps,
+                             UIButton_CountDownBtn_attributedString,
+                             attributedString,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)NSMutableAttributedString *mas;
--(NSMutableAttributedString *)mas{//重新发送 正常 发送验证码 不正常
-    NSMutableAttributedString *MAS = objc_getAssociatedObject(self, UIButton_CountDownBtn_mas);
-    if (![NSString isNullString:self.countStr]) {
-        MAS = [[NSMutableAttributedString alloc] initWithString:self.str];
-        NSLog(@"%@",self.mps);
-        NSLog(@"%@",self.titleRuningStr);
-        NSLog(@"%@",self.countStr);
-        NSLog(@"%ld",self.countStr.length);//2
-        NSLog(@"%ld",self.titleRuningStr.length);//5
-        if (!self.isCountDownClockFinished) {//倒计时没结束的时候走这个，否则会崩，因为重新设定了值
-            [MAS addAttribute:NSParagraphStyleAttributeName
-                        value:self.mps
-                        range:NSMakeRange(0, self.titleRuningStr.length)];
-            
-            if (self.isCountDownClockOpen) {
-                [MAS addAttribute:NSParagraphStyleAttributeName
-                            value:self.mps
-                            range:NSMakeRange(self.titleRuningStr.length, self.countStr.length)];
-                [MAS addAttribute:NSForegroundColorAttributeName
-                            value:self.titleColor
-                            range:NSMakeRange(0, self.titleRuningStr.length + self.countStr.length)];
-                [MAS addAttribute:NSFontAttributeName
-                            value:self.titleLabelFont
-                            range:NSMakeRange(0, self.titleRuningStr.length + self.countStr.length)];
-            }else{
-                [MAS addAttribute:NSParagraphStyleAttributeName
-                            value:self.mps
-                            range:NSMakeRange(0, self.titleRuningStr.length)];
-                [MAS addAttribute:NSForegroundColorAttributeName
-                            value:self.titleColor
-                            range:NSMakeRange(0, self.titleRuningStr.length)];
-                [MAS addAttribute:NSFontAttributeName
-                            value:self.titleLabelFont
-                            range:NSMakeRange(0, self.titleRuningStr.length)];
-            }
-        }
-        objc_setAssociatedObject(self,
-                                 UIButton_CountDownBtn_mas,
-                                 MAS,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return MAS;
+#pragma mark —— @property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*richTextRunningDataMutArr;
+-(NSMutableArray<RichLabelDataStringsModel *> *)richTextRunningDataMutArr{
+    NSMutableArray *RichTextRunningDataMutArr = objc_getAssociatedObject(self, UIButton_CountDownBtn_richTextRunningDataMutArr);
+    return RichTextRunningDataMutArr;
 }
 
--(void)setMas:(NSMutableAttributedString *)mas{
+-(void)setRichTextRunningDataMutArr:(NSMutableArray<RichLabelDataStringsModel *> *)richTextRunningDataMutArr{
     objc_setAssociatedObject(self,
-                             UIButton_CountDownBtn_mas,
-                             mas,
+                             UIButton_CountDownBtn_richTextRunningDataMutArr,
+                             richTextRunningDataMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 
 @end

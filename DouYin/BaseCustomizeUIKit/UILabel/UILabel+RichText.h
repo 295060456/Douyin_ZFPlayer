@@ -44,14 +44,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface RichLabelDataStringsModel : NSObject
+
+@property(nonatomic,strong)NSString *dataString;
+
+@property(nonatomic,strong)RichLabelFontModel *richLabelFontModel;
+@property(nonatomic,strong)RichLabelTextCorModel *richLabelTextCorModel;
+@property(nonatomic,strong)RichLabelUnderlineModel *richLabelUnderlineModel;
+@property(nonatomic,strong)RichLabelParagraphStyleModel *richLabelParagraphStyleModel;
+@property(nonatomic,strong)RichLabelURLModel *richLabelURLModel;
+
+@end
+
 @interface UILabel (RichText)
 
--(void)makeRichTextWithDataStr:(NSString *_Nonnull)dataStr
-                richLabelFonts:(NSArray <RichLabelFontModel *>*_Nullable)richLabelFonts
-             richLabelTextCors:(NSArray <RichLabelTextCorModel *>*_Nullable)richLabelTextCors
-           richLabelUnderlines:(NSArray <RichLabelUnderlineModel *>*_Nullable)richLabelUnderlines
-      richLabelParagraphStyles:(NSArray <RichLabelParagraphStyleModel *>*_Nullable)richLabelParagraphStyles
-                 richLabelURLs:(NSArray <RichLabelURLModel *>*_Nullable)richLabelURLs;
+-(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr;
 
 @end
 

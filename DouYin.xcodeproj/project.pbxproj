@@ -73,8 +73,6 @@
 		C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2522518D363001591C2 /* iOS 获取手机型号、系统版本.png */; };
 		C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2542518D363001591C2 /* UIDevice+XMUtils.m */; };
 		C54BB2F32518D363001591C2 /* UIButton+CountDownBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2562518D363001591C2 /* UIButton+CountDownBtn.m */; };
-		C54BB2F42518D363001591C2 /* 验证码按钮单例封装 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2572518D363001591C2 /* 验证码按钮单例封装 */; };
-		C54BB2F52518D363001591C2 /* CountDownBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB25A2518D363001591C2 /* CountDownBtn.m */; };
 		C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2612518D363001591C2 /* MonitorNetwoking.m */; };
 		C54BB2F92518D363001591C2 /* WGradientProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2652518D363001591C2 /* WGradientProgress.m */; };
 		C54BB2FA2518D363001591C2 /* 水平进度条.png in Resources */ = {isa = PBXBuildFile; fileRef = C54BB2662518D363001591C2 /* 水平进度条.png */; };
@@ -177,6 +175,8 @@
 		C55B2B022534273D0038E50C /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AFF2534273D0038E50C /* SuspendLab.m */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
+		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
+		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
 		C56E3E83254715AB00B9F555 /* 资源文件 in Resources */ = {isa = PBXBuildFile; fileRef = C56E3E82254715AB00B9F555 /* 资源文件 */; };
 		C56E41E72547173A00B9F555 /* ⚽️PicResource in Resources */ = {isa = PBXBuildFile; fileRef = C56E41E62547173A00B9F555 /* ⚽️PicResource */; };
 		C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C571095F253C1358005B3A0C /* UITabBarItem+TLAnimation.m */; };
@@ -409,10 +409,7 @@
 		C54BB2532518D363001591C2 /* UIDevice+XMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+XMUtils.h"; sourceTree = "<group>"; };
 		C54BB2542518D363001591C2 /* UIDevice+XMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+XMUtils.m"; sourceTree = "<group>"; };
 		C54BB2562518D363001591C2 /* UIButton+CountDownBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CountDownBtn.m"; sourceTree = "<group>"; };
-		C54BB2572518D363001591C2 /* 验证码按钮单例封装 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "验证码按钮单例封装"; sourceTree = "<group>"; };
-		C54BB2582518D363001591C2 /* CountDownBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDownBtn.h; sourceTree = "<group>"; };
 		C54BB2592518D363001591C2 /* UIButton+CountDownBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CountDownBtn.h"; sourceTree = "<group>"; };
-		C54BB25A2518D363001591C2 /* CountDownBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDownBtn.m; sourceTree = "<group>"; };
 		C54BB2612518D363001591C2 /* MonitorNetwoking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonitorNetwoking.m; sourceTree = "<group>"; };
 		C54BB2622518D363001591C2 /* MonitorNetwoking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNetwoking.h; sourceTree = "<group>"; };
 		C54BB2642518D363001591C2 /* WGradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGradientProgressView.h; sourceTree = "<group>"; };
@@ -616,6 +613,10 @@
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AFNReachability.h"; sourceTree = "<group>"; };
+		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
+		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
+		C562093C2554006100FE435F /* 验证码按钮单例封装.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "验证码按钮单例封装.md"; sourceTree = "<group>"; };
 		C56E3E82254715AB00B9F555 /* 资源文件 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "资源文件"; sourceTree = "<group>"; };
 		C56E41E62547173A00B9F555 /* ⚽️PicResource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "⚽️PicResource"; sourceTree = "<group>"; };
 		C571095C253C1358005B3A0C /* TabbarControllerSysEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarControllerSysEx.h; sourceTree = "<group>"; };
@@ -1308,6 +1309,7 @@
 		C54BB2252518D363001591C2 /* 高度自定义的按钮 */ = {
 			isa = PBXGroup;
 			children = (
+				C56209382554004700FE435F /* 高度自定义的按钮.md */,
 				C54BB2262518D363001591C2 /* UIButton+ImageTitleSpacing.h */,
 				C54BB2272518D363001591C2 /* UIButton+ImageTitleSpacing.m */,
 			);
@@ -1393,9 +1395,7 @@
 		C54BB2552518D363001591C2 /* 💰VerifyCodeButton */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB2572518D363001591C2 /* 验证码按钮单例封装 */,
-				C54BB2582518D363001591C2 /* CountDownBtn.h */,
-				C54BB25A2518D363001591C2 /* CountDownBtn.m */,
+				C562093C2554006100FE435F /* 验证码按钮单例封装.md */,
 				C54BB2592518D363001591C2 /* UIButton+CountDownBtn.h */,
 				C54BB2562518D363001591C2 /* UIButton+CountDownBtn.m */,
 			);
@@ -1692,6 +1692,8 @@
 			isa = PBXGroup;
 			children = (
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
+				C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */,
+				C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */,
 				C54BB37E2518D391001591C2 /* NSObject+Extras.h */,
 				C54BB3842518D391001591C2 /* NSObject+Extras.m */,
 				C54BB3872518D391001591C2 /* NSObject+Measure.h */,
@@ -2456,7 +2458,6 @@
 				C5B7E2A72524751B00BC4E9D /* WhiteRightArrow@3x.png in Resources */,
 				C5B7E2A62524751B00BC4E9D /* WhiteRightArrow@2x.png in Resources */,
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
-				C54BB2F42518D363001591C2 /* 验证码按钮单例封装 in Resources */,
 				C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
@@ -2491,6 +2492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2735,6 +2737,7 @@
 				C57279C425409C33002373D7 /* BaseNavigationVC.m in Sources */,
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */,
+				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */,
 				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
@@ -2783,7 +2786,6 @@
 				C54BB43A2518D3F6001591C2 /* SDWebImageImageIOCoder.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
-				C54BB2F52518D363001591C2 /* CountDownBtn.m in Sources */,
 				C54BB2CA2518D363001591C2 /* AVFounationTools.m in Sources */,
 				C54BB11D2518D0C0001591C2 /* BRAddressModel.m in Sources */,
 				C54BB4372518D3F6001591C2 /* SDWebImageCoder.m in Sources */,

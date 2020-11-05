@@ -69,7 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)MKDataBlock countDownClickEventBlock;
 @property(nonatomic,assign)BOOL isCountDownClockFinished;//倒计时是否结束
 @property(nonatomic,assign)BOOL isCountDownClockOpen;//倒计时是否开始
-@property(nonatomic,assign)BOOL isDataStrMakeNewLine;//给原始数据只添加一次 \n 【内部使用，外部禁止调用🚫】
+@property(nonatomic,assign,readonly)BOOL isDataStrMakeNewLine;//readonly作用外部不能赋值，只能内部赋值
+@property(nonatomic,assign)BOOL isCanBeClickWhenTimerCycle;// 倒计时期间，默认不接受任何的点击事件
 
 @property(nonatomic,strong)NSString *formatTimeStr;//根据ShowTimeType格式化以后的时间
 @property(nonatomic,strong)NSString *finalTitleStr;//最终的title

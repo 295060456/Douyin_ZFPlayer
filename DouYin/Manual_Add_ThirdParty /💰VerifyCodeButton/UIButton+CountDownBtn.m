@@ -37,6 +37,7 @@ static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunTyp
 static char *UIButton_CountDownBtn_attributedString = "UIButton_CountDownBtn_attributedString";
 static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDownBtn_richTextRunningDataMutArr";
 static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn_isDataStrMakeNewLine";
+static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountDownBtn_isCanBeClickWhenTimerCycle";
 
 @dynamic nsTimerManager;
 @dynamic titleBeginStr;
@@ -64,6 +65,7 @@ static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn
 @dynamic attributedString;
 @dynamic richTextRunningDataMutArr;
 @dynamic isDataStrMakeNewLine;
+@dynamic isCanBeClickWhenTimerCycle;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
@@ -225,7 +227,7 @@ static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn
 }
 //
 - (void)timerRuning:(long)currentTime {
-    self.enabled = NO;//倒计时期间，不接受任何的点击事件  🇨🇳
+    self.enabled = self.isCanBeClickWhenTimerCycle;//倒计时期间，默认不接受任何的点击事件
     // 显示的时间格式
     switch (self.showTimeType) {
         case ShowTimeType_SS:{
@@ -256,11 +258,7 @@ static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn
         }break;
         case CequenceForShowTitleRuningStrType_tail:{//首在后
             if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行
-                
-                if (!self.isDataStrMakeNewLine) {
-                    self.formatTimeStr = [self.formatTimeStr stringByAppendingString:@"\n"];
-                    self.isDataStrMakeNewLine = YES;
-                }
+                self.formatTimeStr = [self.formatTimeStr stringByAppendingString:@"\n"];//每次都要刷新，所以不必用isDataStrMakeNewLine来进行约束是否加\n
             }
             
             self.finalTitleStr = [self.formatTimeStr stringByAppendingString:self.titleRuningStr];
@@ -784,6 +782,18 @@ static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_isDataStrMakeNewLine,
                              [NSNumber numberWithBool:isDataStrMakeNewLine],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+#pragma mark —— @property(nonatomic,assign)BOOL isCanBeClickWhenTimerCycle;
+-(BOOL)isCanBeClickWhenTimerCycle{
+    BOOL IsCanBeClickWhenTimerCycle = [objc_getAssociatedObject(self, UIButton_CountDownBtn_isCanBeClickWhenTimerCycle) boolValue];
+    return IsCanBeClickWhenTimerCycle;
+}
+
+-(void)setIsCanBeClickWhenTimerCycle:(BOOL)isCanBeClickWhenTimerCycle{
+    objc_setAssociatedObject(self,
+                             UIButton_CountDownBtn_isCanBeClickWhenTimerCycle,
+                             [NSNumber numberWithBool:isCanBeClickWhenTimerCycle],
                              OBJC_ASSOCIATION_ASSIGN);
 }
 

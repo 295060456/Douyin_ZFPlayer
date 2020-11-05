@@ -36,6 +36,7 @@ static char *UIButton_CountDownBtn_str = "UIButton_CountDownBtn_str";
 static char *UIButton_CountDownBtn_btnRunType = "UIButton_CountDownBtn_btnRunType";
 static char *UIButton_CountDownBtn_attributedString = "UIButton_CountDownBtn_attributedString";
 static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDownBtn_richTextRunningDataMutArr";
+static char *UIButton_CountDownBtn_isDataStrMakeNewLine = "UIButton_CountDownBtn_isDataStrMakeNewLine";
 
 @dynamic nsTimerManager;
 @dynamic titleBeginStr;
@@ -62,6 +63,7 @@ static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDo
 @dynamic btnRunType;
 @dynamic attributedString;
 @dynamic richTextRunningDataMutArr;
+@dynamic isDataStrMakeNewLine;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
@@ -243,14 +245,22 @@ static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDo
     switch (self.cequenceForShowTitleRuningStrType) {
         case CequenceForShowTitleRuningStrType_front:{//首在前
             if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine){//提行
-                self.titleRuningStr = [self.titleRuningStr stringByAppendingString:@"\n"];
+                
+                if (!self.isDataStrMakeNewLine) {
+                    self.titleRuningStr = [self.titleRuningStr stringByAppendingString:@"\n"];
+                    self.isDataStrMakeNewLine = YES;
+                }
             }
             
             self.finalTitleStr = [self.titleRuningStr stringByAppendingString:self.formatTimeStr];
         }break;
         case CequenceForShowTitleRuningStrType_tail:{//首在后
             if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行
-                self.formatTimeStr = [self.formatTimeStr stringByAppendingString:@"\n"];
+                
+                if (!self.isDataStrMakeNewLine) {
+                    self.formatTimeStr = [self.formatTimeStr stringByAppendingString:@"\n"];
+                    self.isDataStrMakeNewLine = YES;
+                }
             }
             
             self.finalTitleStr = [self.formatTimeStr stringByAppendingString:self.titleRuningStr];
@@ -764,6 +774,17 @@ static char *UIButton_CountDownBtn_richTextRunningDataMutArr = "UIButton_CountDo
                              richTextRunningDataMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+#pragma mark —— @property(nonatomic,assign)BOOL isDataStrMakeNewLine;//给原始数据只添加一次 \n
+-(BOOL)isDataStrMakeNewLine{
+    BOOL IsDataStrMakeNewLine = [objc_getAssociatedObject(self, UIButton_CountDownBtn_isDataStrMakeNewLine) boolValue];
+    return IsDataStrMakeNewLine;
+}
 
+-(void)setIsDataStrMakeNewLine:(BOOL)isDataStrMakeNewLine{
+    objc_setAssociatedObject(self,
+                             UIButton_CountDownBtn_isDataStrMakeNewLine,
+                             [NSNumber numberWithBool:isDataStrMakeNewLine],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
 
 @end

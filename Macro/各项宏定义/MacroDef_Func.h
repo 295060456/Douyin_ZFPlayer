@@ -10,7 +10,6 @@
 
 #import "MacroDef_Sys.h"
 #import "SceneDelegate.h"
-
 static inline UIWindow * getMainWindow(){
     UIWindow *window = nil;
     if (@available(iOS 13.0, *)) {
@@ -45,14 +44,6 @@ static inline id getSceneDelegate(){
     }return sceneDelegate;
 }
 
-static inline CGFloat Top(){
-    static CGFloat value = 0;
-    static dispatch_once_t once_t = 0;
-    dispatch_once(&once_t, ^{
-        value = isiPhoneX_series() ? 88.0f : 64.0f;
-    });
-    return value;
-}
 #pragma mark ======================================== 字体 ================================================
 #define kFontSize(x) [UIFont systemFontOfSize:x weight:UIFontWeightRegular]
 
@@ -70,11 +61,11 @@ static inline CGFloat Top(){
 #define GetUserDefaultBoolForKey(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
 #define DeleUserDefaultWithKey(key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
 #define UserDefaultSynchronize  [[NSUserDefaults standardUserDefaults] synchronize]
-
 #pragma mark ======================================== 默认值 ========================================
 #define defaultValue 0
 #define defaultObj Nil
 #define defaultSize CGSizeZero
+
 //判断是否登录,没有登录进行跳转
 #define kGuardLogin if ([IsLogin isLogin]) { \
 UIViewController *rootViewController = kKeyWindow.rootViewController; \
@@ -94,7 +85,7 @@ return; \
 #pragma mark ======================================== 其他 =================================================
 #define ReuseIdentifier NSStringFromClass ([self class])
 #define CurrentThread [NSThread currentThread]
-#define PrintRetainCount(obj) printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(obj)));
+#define PrintRetainCount(obj) printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(obj)));//打印引用计数器
 //- (void)add:(NSString *)txt{}
 #define addText(fmt, ...) [self add:[NSString stringWithFormat:fmt, ##__VA_ARGS__]]//多参数
 

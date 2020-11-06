@@ -45,6 +45,8 @@
 #define SCREEN_MAX_LENGTH   (MAX(Device_Width, Device_Height))
 #define SCREEN_MIN_LENGTH   (MIN(Device_Width, Device_Height))
 
+#import <UIKit/UIKit.h>
+
 static inline CGFloat rectOfStatusbar(){
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
@@ -66,7 +68,44 @@ static inline CGFloat rectOfStatusbar(){
 #pragma clang diagnostic pop
 }
 
-#define rectOfNavigationbar self.navigationController.navigationBar.frame.size.height//获取导航栏的高
-
+#import "MacroDef_Func.h"
+//非刘海屏：状态栏高度(20.f) + 导航栏高度(44.f) = 64.f
+//刘海屏系列：状态栏高度(44.f) + 导航栏高度(44.f) = 88.f
+static inline CGFloat Top(){
+    static CGFloat value = 0;
+    static dispatch_once_t once_t = 0;
+    dispatch_once(&once_t, ^{
+        value = isiPhoneX_series() ? 88.0f : 64.0f;
+    });
+    return value;
+}
+//获取状态栏的高度，全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
+//状态栏高度
+static inline CGFloat StatusBarHeight(){
+    if (@available(iOS 13.0, *)) {
+        return getMainWindow().windowScene.statusBarManager.statusBarFrame.size.height;
+    }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+        return [[UIApplication sharedApplication] statusBarFrame].size.height;
+#pragma clang diagnostic pop
+    }
+}
+//导航栏高度
+static inline CGFloat NavigationHeight(){
+    return StatusBarHeight() + 44;
+}
+//tabbar高度
+static inline CGFloat TabBarHeight(){
+    return StatusBarHeight() == 44 ? 83 : 49;
+}
+//顶部的安全距离
+static inline CGFloat TopSafeAreaHeight(){
+    return StatusBarHeight() - 20;
+}
+//底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
+static inline CGFloat BottomSafeAreaHeight(){
+    return TabBarHeight() - 49;
+}
 
 #endif /* MacroDef_Size_h */

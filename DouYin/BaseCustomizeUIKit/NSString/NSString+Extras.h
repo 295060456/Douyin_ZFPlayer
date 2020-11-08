@@ -67,9 +67,14 @@ NS_ASSUME_NONNULL_BEGIN
                                           withFontSize:(float)fontSize
                                  boundingRectWithWidth:(CGFloat)width;
 
+/// 根据字符串以及其对应的行宽、行高和字体字号，计算该文本占用的高度
+/// @param lineSpacing 行与行之间的间距
+/// @param effectString 影响的字符串
+/// @param font 该字符串的字号和字体
+/// @param width 文本的宽度
 +(CGFloat)getContentHeightWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
-                                         fontWithString:(NSString *)fontWithString
-                                             fontOfSize:(CGFloat)fontOfSize
+                                           effectString:(NSString *)effectString
+                                                   font:(UIFont *)font
                                   boundingRectWithWidth:(CGFloat)width;
 
 +(float)textHitWithStirng:(NSString*)stingS

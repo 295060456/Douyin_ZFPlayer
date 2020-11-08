@@ -349,27 +349,42 @@
     height = lableSize.height;
     return height;
 }
-
+/// 根据字符串以及其对应的行宽、行高和字体字号，计算该文本占用的高度
+/// @param lineSpacing 行与行之间的间距
+/// @param effectString 影响的字符串
+/// @param font 该字符串的字号和字体
+/// @param width 文本的宽度
 +(CGFloat)getContentHeightWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
-                                         fontWithString:(NSString *)fontWithString
-                                             fontOfSize:(CGFloat)fontOfSize
+                                           effectString:(NSString *)effectString
+                                                   font:(UIFont *)font
                                   boundingRectWithWidth:(CGFloat)width{
-    float height = 0;
-    CGSize lableSize = CGSizeZero;
-//    if(IS_IOS7)
-    if([fontWithString respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
-        NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-        paragraphStyle.lineSpacing = lineSpacing;
-        CGSize sizeTemp = [fontWithString boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                                       options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                                    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontOfSize],
-                                                                 NSParagraphStyleAttributeName:paragraphStyle}
-                                                       context: nil].size;
-        lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                               ceilf(sizeTemp.height));
+    if(@available(iOS 7.0, *)){
+        float height = 0;
+        CGSize lableSize = CGSizeZero;
+        if([effectString respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
+            NSMutableDictionary *attributesMutDic = NSMutableDictionary.dictionary;
+            [attributesMutDic setObject:font
+                                 forKey:NSFontAttributeName];
+            if (lineSpacing) {
+                NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+                paragraphStyle.lineSpacing = lineSpacing;
+                [attributesMutDic setObject:paragraphStyle
+                                     forKey:NSParagraphStyleAttributeName];
+            }
+        
+            CGSize sizeTemp = [effectString boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+                                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                                      attributes:attributesMutDic
+                                                         context:nil].size;
+            lableSize = CGSizeMake(ceilf(sizeTemp.width),
+                                   ceilf(sizeTemp.height));
+        }
+        height = lableSize.height;
+        return height;
+    }else{
+        NSAssert(NO, @"系统版本低于iOS 7，不兼容Api，请升级系统");
+        return 0;
     }
-    height = lableSize.height;
-    return height;
 }
 #pragma mark —— 根据字符串返回承接控件等相关Frame
 //返回一个矩形，大小等于文本绘制完占据的宽和高。

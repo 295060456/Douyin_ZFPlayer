@@ -2420,6 +2420,7 @@
 		C54BB0A32518D00E001591C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DouYin;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					C54BB0AA2518D00E001591C2 = {

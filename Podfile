@@ -10,7 +10,7 @@ source 'https://github.com/Artsy/Specs.git'# 使用其他来源地址
 # generate_multiple_pod_projects 可以让每个依赖都作为一个单独的项目引入，大大增加了解析速度；cocoapods 1.7 以后支持
 # disable_input_output_paths ？？？
 # 需要特别说明的：在 post_install 时，为了一些版本的兼容，需要遍历所有 target，调整一部分库的版本；但是如果开启了 generate_multiple_pod_projects 的话，由于项目结构的变化，installer.pod_targets 就没办法获得所有 pods 引入的 target 了
-#install! 'cocoapods',:deterministic_uuids=>false,generate_multiple_pod_projects: true,disable_input_output_paths: true
+install! 'cocoapods',:deterministic_uuids=>false,generate_multiple_pod_projects: true,disable_input_output_paths: true
 
 platform :ios, '9.0'
 inhibit_all_warnings!
@@ -53,8 +53,8 @@ def func
   pod 'ZFPlayer/ControlView'
   pod 'ZFPlayer/AVPlayer'
   pod 'ZFPlayer/ijkplayer'
-  pod 'KTVHTTPCache' # 边下边播
-  pod 'VIMediaCache' # https://github.com/vitoziv/VIMediaCache 边下边播
+#  pod 'KTVHTTPCache' # 边下边播
+#  pod 'VIMediaCache' # https://github.com/vitoziv/VIMediaCache 边下边播
   end
 
 # 基础的公共配置

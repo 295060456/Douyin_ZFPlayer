@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -919,13 +919,9 @@
 		C54BB0A22518D00E001591C2 = {
 			isa = PBXGroup;
 			children = (
-				C588F569253DA63700973CFE /* 0.png */,
-				C588F564253DA61800973CFE /* 1.jpeg */,
-				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
-				C54BB0E92518D025001591C2 /* Macro */,
-				C54BB0EB2518D048001591C2 /* Pods不进去的 */,
-				C54BB0EA2518D037001591C2 /* Other */,
 				C54BB0AD2518D00E001591C2 /* DouYin */,
+				C54BB0CC2518D010001591C2 /* DouYinTests */,
+				C54BB0D72518D010001591C2 /* DouYinUITests */,
 				FA1C06BB505DC305521A56E1 /* Pods */,
 				D1AD156D1AC3B11A7FEFCD84 /* Frameworks */,
 			);
@@ -945,11 +941,16 @@
 		C54BB0AD2518D00E001591C2 /* DouYin */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0C22518D00F001591C2 /* Info.plist */,
+				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
+				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
+				C54BB0E92518D025001591C2 /* 🌹Macro */,
+				C54BB0EB2518D048001591C2 /* Pods不进去的 */,
+				C54BB0EA2518D037001591C2 /* Others */,
 				C54BB3DC2518D39E001591C2 /* AppDelegate & SceneDelegate */,
 				C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */,
 				C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */,
 				C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */,
+				C54BB0C22518D00F001591C2 /* Info.plist */,
 			);
 			path = DouYin;
 			sourceTree = "<group>";
@@ -972,7 +973,7 @@
 			path = DouYinUITests;
 			sourceTree = "<group>";
 		};
-		C54BB0E92518D025001591C2 /* Macro */ = {
+		C54BB0E92518D025001591C2 /* 🌹Macro */ = {
 			isa = PBXGroup;
 			children = (
 				C5470FB025309D2200651ACE /* 各项宏定义 */,
@@ -985,10 +986,10 @@
 				C54BB0F52518D064001591C2 /* Pods.h */,
 				C54BB0F82518D064001591C2 /* PrefixHeader.pch */,
 			);
-			path = Macro;
+			path = "🌹Macro";
 			sourceTree = "<group>";
 		};
-		C54BB0EA2518D037001591C2 /* Other */ = {
+		C54BB0EA2518D037001591C2 /* Others */ = {
 			isa = PBXGroup;
 			children = (
 				C54BB0B72518D00E001591C2 /* Main.storyboard */,
@@ -996,11 +997,9 @@
 				C54BB0BF2518D00F001591C2 /* LaunchScreen.storyboard */,
 				C54BB0C32518D00F001591C2 /* main.m */,
 				C54BB0BA2518D00E001591C2 /* DouYin.xcdatamodeld */,
-				C54BB0CC2518D010001591C2 /* DouYinTests */,
-				C54BB0D72518D010001591C2 /* DouYinUITests */,
 				C54BB0AC2518D00E001591C2 /* Products */,
 			);
-			path = Other;
+			path = Others;
 			sourceTree = "<group>";
 		};
 		C54BB0EB2518D048001591C2 /* Pods不进去的 */ = {
@@ -2298,6 +2297,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C5C4FEBB255A616B002F407A /* 进入编译期的资源 */ = {
+			isa = PBXGroup;
+			children = (
+				C588F569253DA63700973CFE /* 0.png */,
+				C588F564253DA61800973CFE /* 1.jpeg */,
+			);
+			path = "进入编译期的资源";
+			sourceTree = "<group>";
+		};
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2512,11 +2520,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2551,11 +2557,9 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2979,7 +2983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Macro/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3001,7 +3005,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Macro/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (

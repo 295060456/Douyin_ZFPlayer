@@ -25,7 +25,7 @@
 #import "ViewController@4.h"
 #import "ViewController@5.h"
 
-#import "SceneDelegate.h"
-#import "AppDelegate.h"
+#import "DouYinSceneDelegate.h"
+#import "DouYinAppDelegate.h"
 
 #endif /* Other_h */

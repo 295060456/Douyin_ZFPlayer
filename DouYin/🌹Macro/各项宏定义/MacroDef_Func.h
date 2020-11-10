@@ -9,11 +9,11 @@
 #define MacroDef_Func_h
 
 #import "MacroDef_Sys.h"
-#import "SceneDelegate.h"
+#import "DouYinSceneDelegate.h"
 static inline UIWindow * getMainWindow(){
     UIWindow *window = nil;
     if (@available(iOS 13.0, *)) {
-        window = [SceneDelegate sharedInstance].window;
+        window = [DouYinSceneDelegate sharedInstance].window;
     }else{
         window = UIApplication.sharedApplication.delegate.window;
 //        [UIApplication sharedApplication].keyWindow

@@ -246,10 +246,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                 make.top.equalTo(self.view.mas_top);
             }
             
-            if ([AppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
+            if ([DouYinAppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
                 make.bottom.equalTo(self.view.mas_bottom);
             }else{
-                make.bottom.equalTo(self.view.mas_bottom).offset(-[AppDelegate sharedInstance].tabbarVC.tabBar.height);
+                make.bottom.equalTo(self.view.mas_bottom).offset(-[DouYinAppDelegate sharedInstance].tabbarVC.tabBar.height);
             }
         }];
     }return _tableView;
@@ -277,7 +277,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
         _player.orientationWillChange = ^(ZFPlayerController * _Nonnull player,
                                           BOOL isFullScreen) {
-            AppDelegate.sharedInstance.allowOrentitaionRotation = isFullScreen;
+            DouYinAppDelegate.sharedInstance.allowOrentitaionRotation = isFullScreen;
             @zf_strongify(self)
             self->_player.controlView.hidden = YES;
         };

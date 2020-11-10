@@ -256,10 +256,10 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
                 make.top.equalTo(self.view.mas_top);
             }
 
-            if ([AppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
+            if ([DouYinAppDelegate sharedInstance].tabbarVC.tabBar.isHidden) {
                 make.bottom.equalTo(self.view.mas_bottom);
             }else{
-                make.bottom.equalTo(self.view.mas_bottom).offset(-[AppDelegate sharedInstance].tabbarVC.tabBar.height);
+                make.bottom.equalTo(self.view.mas_bottom).offset(-[DouYinAppDelegate sharedInstance].tabbarVC.tabBar.height);
             }
         }];
     }return _tableView;

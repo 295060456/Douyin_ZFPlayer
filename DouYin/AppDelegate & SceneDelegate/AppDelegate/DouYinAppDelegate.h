@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  DouYinAppDelegate.h
 //  DouYin
 //
 //  Created by Jobs on 2020/9/21.
@@ -12,7 +12,7 @@
 #import <DoraemonKit/DoraemonManager.h>
 #endif
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface DouYinAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(readonly,strong)NSPersistentCloudKitContainer *persistentContainer;
 @property(nonatomic,assign)BOOL allowOrentitaionRotation;

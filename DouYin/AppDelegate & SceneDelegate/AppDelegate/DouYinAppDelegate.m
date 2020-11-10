@@ -1,23 +1,23 @@
 //
-//  AppDelegate.m
+//  DouYinAppDelegate.m
 //  DouYin
 //
 //  Created by Jobs on 2020/9/21.
 //
 
-#import "AppDelegate.h"
+#import "DouYinAppDelegate.h"
 
-@interface AppDelegate ()
+@interface DouYinAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation DouYinAppDelegate
 
-static AppDelegate *static_appDelegate = nil;
+static DouYinAppDelegate *static_appDelegate = nil;
 +(instancetype)sharedInstance{
     @synchronized(self){
         if (!static_appDelegate) {
-            static_appDelegate = AppDelegate.new;
+            static_appDelegate = DouYinAppDelegate.new;
         }
     }return static_appDelegate;
 }

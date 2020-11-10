@@ -24,8 +24,8 @@
 		C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B3D302552605B003BE195 /* UIFont+Extras.m */; };
 		C54B40202552980E003BE195 /* UILabel+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401C2552980E003BE195 /* UILabel+RichText.m */; };
 		C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401F2552980E003BE195 /* UILabel+Extra.m */; };
-		C54BB0B02518D00E001591C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* AppDelegate.m */; };
-		C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* SceneDelegate.m */; };
+		C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */; };
+		C54BB0B32518D00E001591C2 /* DouYinSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* DouYinSceneDelegate.m */; };
 		C54BB0B92518D00E001591C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54BB0B72518D00E001591C2 /* Main.storyboard */; };
 		C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0BA2518D00E001591C2 /* DouYin.xcdatamodeld */; };
 		C54BB0BE2518D00F001591C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C54BB0BD2518D00F001591C2 /* Assets.xcassets */; };
@@ -301,10 +301,10 @@
 		C54B401E2552980E003BE195 /* UILabel+RichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+RichText.h"; sourceTree = "<group>"; };
 		C54B401F2552980E003BE195 /* UILabel+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extra.m"; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C54BB0AE2518D00E001591C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C54BB0AF2518D00E001591C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C54BB0B12518D00E001591C2 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		C54BB0B22518D00E001591C2 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		C54BB0AE2518D00E001591C2 /* DouYinAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouYinAppDelegate.h; sourceTree = "<group>"; };
+		C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouYinAppDelegate.m; sourceTree = "<group>"; };
+		C54BB0B12518D00E001591C2 /* DouYinSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouYinSceneDelegate.h; sourceTree = "<group>"; };
+		C54BB0B22518D00E001591C2 /* DouYinSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouYinSceneDelegate.m; sourceTree = "<group>"; };
 		C54BB0B82518D00E001591C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C54BB0BB2518D00E001591C2 /* DouYin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DouYin.xcdatamodel; sourceTree = "<group>"; };
 		C54BB0BD2518D00F001591C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2298,8 +2298,8 @@
 		C5C40C50255A7254002F407A /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0AE2518D00E001591C2 /* AppDelegate.h */,
-				C54BB0AF2518D00E001591C2 /* AppDelegate.m */,
+				C54BB0AE2518D00E001591C2 /* DouYinAppDelegate.h */,
+				C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -2307,8 +2307,8 @@
 		C5C40C51255A725B002F407A /* SceneDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0B12518D00E001591C2 /* SceneDelegate.h */,
-				C54BB0B22518D00E001591C2 /* SceneDelegate.m */,
+				C54BB0B12518D00E001591C2 /* DouYinSceneDelegate.h */,
+				C54BB0B22518D00E001591C2 /* DouYinSceneDelegate.m */,
 			);
 			path = SceneDelegate;
 			sourceTree = "<group>";
@@ -2726,7 +2726,7 @@
 				C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */,
 				C54BB3A12518D391001591C2 /* UITableViewCell+WhiteArrows.m in Sources */,
 				C57279D125409C8A002373D7 /* UIViewController+NavigationBar.m in Sources */,
-				C54BB0B02518D00E001591C2 /* AppDelegate.m in Sources */,
+				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
 				C54BB4282518D3F6001591C2 /* UIBarButtonItem+GKCategory.m in Sources */,
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
@@ -2766,7 +2766,7 @@
 				C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */,
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,
 				C54BB4232518D3F6001591C2 /* GKPushAnimatedTransition.m in Sources */,
-				C54BB0B32518D00E001591C2 /* SceneDelegate.m in Sources */,
+				C54BB0B32518D00E001591C2 /* DouYinSceneDelegate.m in Sources */,
 				C54BB3A92518D391001591C2 /* UIView+Gradient.m in Sources */,
 				C54BB2FB2518D363001591C2 /* WGradientProgressView.m in Sources */,
 				C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */,

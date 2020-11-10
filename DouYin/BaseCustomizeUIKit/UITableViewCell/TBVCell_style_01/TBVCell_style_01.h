@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface TBVCell_style_01 : UITableViewCell
 
+@property(nonatomic,strong)NSIndexPath *indexPath;
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style
              reuseIdentifier:(NSString *)reuseIdentifier
                       margin:(CGFloat)margin;

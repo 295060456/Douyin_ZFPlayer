@@ -833,6 +833,24 @@
 			path = "UICollectionReusableView 用作基类";
 			sourceTree = "<group>";
 		};
+		C531CD42255A82A8005304F6 /* TBVCell_style_01 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB31E2518D391001591C2 /* TBVCell_style_01.h */,
+				C54BB31B2518D390001591C2 /* TBVCell_style_01.m */,
+			);
+			path = TBVCell_style_01;
+			sourceTree = "<group>";
+		};
+		C531CD43255A82AB005304F6 /* TBVCell_style_02 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB31C2518D390001591C2 /* TBVCell_style_02.h */,
+				C54BB3192518D390001591C2 /* TBVCell_style_02.m */,
+			);
+			path = TBVCell_style_02;
+			sourceTree = "<group>";
+		};
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1558,10 +1576,8 @@
 		C54BB3182518D390001591C2 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB31E2518D391001591C2 /* TBVCell_style_01.h */,
-				C54BB31B2518D390001591C2 /* TBVCell_style_01.m */,
-				C54BB31C2518D390001591C2 /* TBVCell_style_02.h */,
-				C54BB3192518D390001591C2 /* TBVCell_style_02.m */,
+				C531CD43255A82AB005304F6 /* TBVCell_style_02 */,
+				C531CD42255A82A8005304F6 /* TBVCell_style_01 */,
 				C54BB31A2518D390001591C2 /* UITableViewCell+WhiteArrows.h */,
 				C54BB31D2518D391001591C2 /* UITableViewCell+WhiteArrows.m */,
 				C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */,

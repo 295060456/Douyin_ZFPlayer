@@ -14,7 +14,7 @@
 @implementation AppDelegate
 
 static AppDelegate *static_appDelegate = nil;
-+(AppDelegate *)sharedInstance{
++(instancetype)sharedInstance{
     @synchronized(self){
         if (!static_appDelegate) {
             static_appDelegate = AppDelegate.new;

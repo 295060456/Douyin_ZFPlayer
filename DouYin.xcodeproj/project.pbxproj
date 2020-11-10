@@ -1775,10 +1775,8 @@
 		C54BB3DC2518D39E001591C2 /* AppDelegate & SceneDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0AE2518D00E001591C2 /* AppDelegate.h */,
-				C54BB0AF2518D00E001591C2 /* AppDelegate.m */,
-				C54BB0B12518D00E001591C2 /* SceneDelegate.h */,
-				C54BB0B22518D00E001591C2 /* SceneDelegate.m */,
+				C5C40C50255A7254002F407A /* AppDelegate */,
+				C5C40C51255A725B002F407A /* SceneDelegate */,
 			);
 			path = "AppDelegate & SceneDelegate";
 			sourceTree = "<group>";
@@ -2295,6 +2293,24 @@
 				C5ED33842521C842001A04FE /* ZFDouYinCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C5C40C50255A7254002F407A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0AE2518D00E001591C2 /* AppDelegate.h */,
+				C54BB0AF2518D00E001591C2 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C5C40C51255A725B002F407A /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0B12518D00E001591C2 /* SceneDelegate.h */,
+				C54BB0B22518D00E001591C2 /* SceneDelegate.m */,
+			);
+			path = SceneDelegate;
 			sourceTree = "<group>";
 		};
 		C5C4FEBB255A616B002F407A /* 进入编译期的资源 */ = {

@@ -119,9 +119,9 @@
         [_iconBtn addGestureRecognizer:self.iconBtnTap];
         [self addSubview:_iconBtn];
         [_iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(SCALING_RATIO(20), SCALING_RATIO(20)));
-            make.top.equalTo(self).offset(-SCALING_RATIO(20) / 2);
-            make.right.equalTo(self).offset(SCALING_RATIO(20) / 2);
+            make.size.mas_equalTo(CGSizeMake(20,20));
+            make.top.equalTo(self).offset(-20 / 2);
+            make.right.equalTo(self).offset(20 / 2);
         }];
     }return _iconBtn;
 }

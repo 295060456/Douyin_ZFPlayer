@@ -7,10 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
-#ifdef DEBUG
-#import <DoraemonKit/DoraemonManager.h>
-#endif
+#import "TabbarVC.h"
 
 @interface DouYinAppDelegate : UIResponder <UIApplicationDelegate>
 

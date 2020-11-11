@@ -24,6 +24,10 @@
 #import <YYKit/YYKit.h>
 #import "WHToast.h"
 
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
+
 #pragma mark —— ZFPlayer 播放器相关
 //Core
 #import "ZFPlayer.h"

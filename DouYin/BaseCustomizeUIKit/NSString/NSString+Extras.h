@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSUInteger, CalcLabelHeight_Width) {
+    CalcLabelHeight = 0,
+    CalcLabelWidth
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Extras)
@@ -62,24 +67,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param timeStampString 服务器返回的13位时间戳，毫秒
 /// iOS 生成的时间戳是10位
 +(NSString *)getTimeString:(NSString *)timeStampString;
-#pragma mark -限宽计算AttributeString与String的高度
-+(CGFloat)getAttributeContentHeightWithAttributeString:(NSAttributedString*)atributedString
-                                          withFontSize:(float)fontSize
-                                 boundingRectWithWidth:(CGFloat)width;
-
-/// 根据字符串以及其对应的行宽、行高和字体字号，计算该文本占用的高度
+/// 根据字符串以及其对应的行宽（行高）、行高和字体字号，计算该文本占用的高度（宽度）
 /// @param lineSpacing 行与行之间的间距
+/// @param calcLabelHeight_Width 计算的结论是宽或者高
 /// @param effectString 影响的字符串
 /// @param font 该字符串的字号和字体
-/// @param width 文本的宽度
-+(CGFloat)getContentHeightWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
-                                           effectString:(NSString *)effectString
-                                                   font:(UIFont *)font
-                                  boundingRectWithWidth:(CGFloat)width;
-
-+(float)textHitWithStirng:(NSString*)stingS
-                     font:(float)font
-                     widt:(float)wid;
+/// @param Height_Width  文本的宽度
++(CGFloat)getContentHeightOrWidthWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
+                                         calcLabelHeight_Width:(CalcLabelHeight_Width)calcLabelHeight_Width
+                                                  effectString:(NSString *_Nonnull)effectString
+                                                          font:(UIFont *_Nullable)font
+                                  boundingRectWithHeight_Width:(CGFloat)Height_Width;
 
 @end
 

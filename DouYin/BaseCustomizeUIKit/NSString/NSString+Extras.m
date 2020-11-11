@@ -331,172 +331,69 @@
     NSString *dateString = [[NSString DateFormatter] stringFromDate:[NSString strToDate:timeStampString]];
     return dateString;
 }
-#pragma mark -限宽计算AttributeString与String的高度
-+(CGFloat)getAttributeContentHeightWithAttributeString:(NSAttributedString*)atributedString
-                                          withFontSize:(float)fontSize
-                                 boundingRectWithWidth:(CGFloat)width{
-    float height = 0;
-    CGSize lableSize = CGSizeZero;
-//    if(IS_IOS7)
-    if ([atributedString respondsToSelector:@selector(boundingRectWithSize:options:context:)]){
-        CGSize sizeTemp = [atributedString boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                           
-                                                        context:nil].size;
-        lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                               ceilf(sizeTemp.height));
-    }
-    height = lableSize.height;
-    return height;
-}
-/// 根据字符串以及其对应的行宽、行高和字体字号，计算该文本占用的高度
+/// 根据字符串以及其对应的行宽（行高）、行高和字体字号，计算该文本占用的高度（宽度）
 /// @param lineSpacing 行与行之间的间距
+/// @param calcLabelHeight_Width 计算的结论是宽或者高
 /// @param effectString 影响的字符串
 /// @param font 该字符串的字号和字体
-/// @param width 文本的宽度
-+(CGFloat)getContentHeightWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
-                                           effectString:(NSString *)effectString
-                                                   font:(UIFont *)font
-                                  boundingRectWithWidth:(CGFloat)width{
+/// @param Height_Width  文本的宽度
++(CGFloat)getContentHeightOrWidthWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
+                                         calcLabelHeight_Width:(CalcLabelHeight_Width)calcLabelHeight_Width
+                                                  effectString:(NSString *_Nonnull)effectString
+                                                          font:(UIFont *_Nullable)font
+                                  boundingRectWithHeight_Width:(CGFloat)Height_Width{
     if(@available(iOS 7.0, *)){
-        float height = 0;
         CGSize lableSize = CGSizeZero;
         if([effectString respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
             NSMutableDictionary *attributesMutDic = NSMutableDictionary.dictionary;
-            [attributesMutDic setObject:font
-                                 forKey:NSFontAttributeName];
+            if (font) {
+                [attributesMutDic setObject:font
+                                     forKey:NSFontAttributeName];
+            }
             if (lineSpacing) {
                 NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
                 paragraphStyle.lineSpacing = lineSpacing;
                 [attributesMutDic setObject:paragraphStyle
                                      forKey:NSParagraphStyleAttributeName];
             }
-        
-            CGSize sizeTemp = [effectString boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
+            
+            CGSize size;
+            
+            switch (calcLabelHeight_Width) {
+                case CalcLabelHeight:{
+                    size = CGSizeMake(Height_Width, MAXFLOAT);
+                }break;
+                case CalcLabelWidth:{
+                    size = CGSizeMake(MAXFLOAT, Height_Width);
+                }break;
+                default:{
+                    size = CGSizeZero;
+                }break;
+            }
+            
+            CGSize sizeTemp = [effectString boundingRectWithSize:size
                                                          options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                                                       attributes:attributesMutDic
                                                          context:nil].size;
             lableSize = CGSizeMake(ceilf(sizeTemp.width),
                                    ceilf(sizeTemp.height));
         }
-        height = lableSize.height;
-        return height;
+        
+        switch (calcLabelHeight_Width) {
+            case CalcLabelHeight:{
+                return lableSize.height;;
+            }break;
+            case CalcLabelWidth:{
+                return lableSize.width;;
+            }break;
+            default:{
+                return 0;
+            }break;
+        }
     }else{
         NSAssert(NO, @"系统版本低于iOS 7，不兼容Api，请升级系统");
         return 0;
     }
-}
-#pragma mark —— 根据字符串返回承接控件等相关Frame
-//返回一个矩形，大小等于文本绘制完占据的宽和高。
-+(CGSize)sizeWithString:(NSString*)str
-                andFont:(UIFont*)font
-             andMaxSize:(CGSize)size{
-    //特殊的格式要求都写在属性字典中
-    NSDictionary *attrs = @{NSFontAttributeName: font};
-    
-    return  [str boundingRectWithSize:size
-                              options:NSStringDrawingUsesLineFragmentOrigin
-                           attributes:attrs
-                              context:nil].size;
-}
-// 根据字体大小 和宽度计算文字的高
-+(float)textHitWithStirng:(NSString*)stingS
-                     font:(float)font
-                     widt:(float)wid{
-    if (!font) {
-        font = 14.0;
-    }
-    if (!stingS) {
-        stingS = @"";
-    }
-    if (!wid || wid == 0.0) {
-        wid = 20;
-    }
-    CGRect rect=[stingS boundingRectWithSize:CGSizeMake(wid, MAXFLOAT)
-                                     options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
-                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]}
-                                     context:nil];
-    return rect.size.height;
-}
-// 根据字体大小 和高度计算文字的宽
-+(float)textWidthWithStirng:(NSString*)stingS
-                       font:(float)font
-                        hit:(float)hit{
-    if (!font) {
-        font = 14.0;
-    }
-    if (!stingS) {
-        stingS = @"";
-    }
-    if (!hit || hit == 0.0) {
-        hit = 20;
-    }
-    CGRect rect = [stingS boundingRectWithSize:CGSizeMake( MAXFLOAT, hit)
-                                       options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
-                                    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]}
-                                       context:nil];
-    return rect.size.width;
-}
-//限宽计算AttributeString与String的宽度
-+(CGFloat)calculateTextWidth:(NSString *)string
-                withFontSize:(float)fontSize
-                   withWidth:(float)width{
-    float resultWidth = 0;
-    CGSize lableSize = CGSizeZero;
-    if([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-        NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:fontSize]
-                                                                     forKey: NSFontAttributeName];
-        CGSize sizeTemp = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                               options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                            attributes:stringAttributes
-                                               context:nil].size;
-        lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                               ceilf(sizeTemp.height));
-    }
-    resultWidth = lableSize.width;
-    return resultWidth;
-}
-
-+(CGFloat)calculateAttributeTextWidth:(NSAttributedString *)atributedString
-                         withFontSize:(float)fontSize
-                            withWidth:(float)width{
-    float resultWidth = 0;
-    CGSize lableSize = CGSizeZero;
-    if([atributedString respondsToSelector:@selector(boundingRectWithSize:options:context:)]) {
-        
-        //        [atributedString setAttributes:@{ NSFontAttributeName:kFontSize(fontSize)} range:NSMakeRange(0,atributedString.length)];
-        
-        CGSize sizeTemp = [atributedString boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                                        context:nil].size;
-
-        //                           boundingRectWithSize: CGSizeMake(width, MAXFLOAT)
-        //                                               options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-        //                                            attributes: stringAttributes
-        //                                               context: nil].size;//string
-        lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                               ceilf(sizeTemp.height));
-    }
-    resultWidth = lableSize.width;
-    return resultWidth;
-}
-//限高计算AttributeString与String的宽度
-+(CGFloat)getTextWidth:(NSString *)string
-          withFontSize:(UIFont *)font
-            withHeight:(CGFloat)height{
-    float width = 0;
-    CGSize lableSize = CGSizeZero;
-    if([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
-        NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:font forKey: NSFontAttributeName];
-        CGSize sizeTemp = [string boundingRectWithSize:CGSizeMake(MAXFLOAT, height)
-                                               options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                            attributes:stringAttributes
-                                               context:nil].size;
-        lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                               ceilf(sizeTemp.height));
-    }
-    width = lableSize.width;
-    return width;
 }
 #warning —— 以下待考证真伪及其严谨性
 #pragma mark —— 绘制AttributeString 与 NSTextAttachment不同大小颜色

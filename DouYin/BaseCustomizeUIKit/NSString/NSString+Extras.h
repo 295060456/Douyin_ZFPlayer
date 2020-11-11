@@ -56,17 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param standardChar 需要被检出的标准
 + (BOOL)isAllSameCharInString:(NSString *)originString
                  standardChar:(char)standardChar;
-#pragma mark —— 时间相关
-/// 获取系统时间戳
-+(NSString *)getSysTimeStamp;
-//服务器时间转化为某固定格式
-+(NSString *)getMMSSFromSS:(NSInteger)totalTime;
-//将秒数转换为字符串格式
-+(NSString *)timeWithSecond:(NSInteger)second;
-/// 以固定格式解析并返回服务器时间戳
-/// @param timeStampString 服务器返回的13位时间戳，毫秒
-/// iOS 生成的时间戳是10位
-+(NSString *)getTimeString:(NSString *)timeStampString;
 /// 根据字符串以及其对应的行宽（行高）、行高和字体字号，计算该文本占用的高度（宽度）
 /// @param lineSpacing 行与行之间的间距
 /// @param calcLabelHeight_Width 计算的结论是宽或者高

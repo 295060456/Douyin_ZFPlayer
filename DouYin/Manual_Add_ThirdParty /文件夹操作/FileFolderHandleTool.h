@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
+#import <TXFileOperation.h>
+#import "TimeModel.h"
 
 typedef enum : NSUInteger {
     TXT = 0,

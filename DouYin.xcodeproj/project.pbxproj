@@ -105,7 +105,6 @@
 		C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3342518D391001591C2 /* DeleteSystemUITabBarButton.m */; };
 		C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3362518D391001591C2 /* 移除 系统自带的 UITabBarButton */; };
 		C54BB3AE2518D391001591C2 /* UIImageView+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB33D2518D391001591C2 /* UIImageView+GIF.m */; };
-		C54BB3AF2518D391001591C2 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3402518D391001591C2 /* NSString+Extras.m */; };
 		C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB3622518D391001591C2 /* 专治UITableView相应链断裂 */; };
 		C54BB3BF2518D391001591C2 /* BaseTableViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3632518D391001591C2 /* BaseTableViewer.m */; };
 		C54BB3C02518D391001591C2 /* UIView+JHGestureBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3652518D391001591C2 /* UIView+JHGestureBlock.m */; };
@@ -168,6 +167,9 @@
 		C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
+		C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D1255BFDE2005C1361 /* NSString+Extras.m */; };
+		C55697D8255BFDE3005C1361 /* NSString+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D5255BFDE3005C1361 /* NSString+Time.m */; };
+		C55697D9255BFDE3005C1361 /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D6255BFDE3005C1361 /* TimeModel.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
 		C55B2B002534273D0038E50C /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55B2AF82534273D0038E50C /* SuspendView.m */; };
@@ -472,8 +474,6 @@
 		C54BB3362518D391001591C2 /* 移除 系统自带的 UITabBarButton */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "移除 系统自带的 UITabBarButton"; sourceTree = "<group>"; };
 		C54BB33D2518D391001591C2 /* UIImageView+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GIF.m"; sourceTree = "<group>"; };
 		C54BB33E2518D391001591C2 /* UIImageView+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GIF.h"; sourceTree = "<group>"; };
-		C54BB3402518D391001591C2 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
-		C54BB3412518D391001591C2 /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
 		C54BB3612518D391001591C2 /* BaseTableViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewer.h; sourceTree = "<group>"; };
 		C54BB3622518D391001591C2 /* 专治UITableView相应链断裂 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "专治UITableView相应链断裂"; sourceTree = "<group>"; };
 		C54BB3632518D391001591C2 /* BaseTableViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewer.m; sourceTree = "<group>"; };
@@ -600,6 +600,12 @@
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
+		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
+		C55697D2255BFDE3005C1361 /* TimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeModel.h; sourceTree = "<group>"; };
+		C55697D3255BFDE3005C1361 /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
+		C55697D4255BFDE3005C1361 /* NSString+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Time.h"; sourceTree = "<group>"; };
+		C55697D5255BFDE3005C1361 /* NSString+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Time.m"; sourceTree = "<group>"; };
+		C55697D6255BFDE3005C1361 /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
@@ -1656,8 +1662,12 @@
 		C54BB33F2518D391001591C2 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB3412518D391001591C2 /* NSString+Extras.h */,
-				C54BB3402518D391001591C2 /* NSString+Extras.m */,
+				C55697D3255BFDE3005C1361 /* NSString+Extras.h */,
+				C55697D1255BFDE2005C1361 /* NSString+Extras.m */,
+				C55697D4255BFDE3005C1361 /* NSString+Time.h */,
+				C55697D5255BFDE3005C1361 /* NSString+Time.m */,
+				C55697D2255BFDE3005C1361 /* TimeModel.h */,
+				C55697D6255BFDE3005C1361 /* TimeModel.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -2668,6 +2678,7 @@
 				C54BB3A72518D391001591C2 /* UIView+SuspendView.m in Sources */,
 				C54BB3D02518D391001591C2 /* CJTextField.m in Sources */,
 				C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */,
+				C55697D8255BFDE3005C1361 /* NSString+Time.m in Sources */,
 				C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */,
 				C54BB3C72518D391001591C2 /* NSObject+Random.m in Sources */,
 				C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -2688,6 +2699,7 @@
 				C5850B4525483E5F001E6676 /* ViewForTableViewHeader.m in Sources */,
 				C54BB42B2518D3F6001591C2 /* UIImage+GKCategory.m in Sources */,
 				C5914DA925385356007777A6 /* UIViewController+Shake.m in Sources */,
+				C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */,
 				C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */,
 				C54BB5022518E398001591C2 /* ViewController@5.m in Sources */,
 				C54BB1252518D0C0001591C2 /* BRDatePickerView.m in Sources */,
@@ -2754,7 +2766,6 @@
 				C54BB3BF2518D391001591C2 /* BaseTableViewer.m in Sources */,
 				C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */,
 				C54BB5012518E398001591C2 /* ViewController@2.m in Sources */,
-				C54BB3AF2518D391001591C2 /* NSString+Extras.m in Sources */,
 				C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */,
 				C582A67F251C71A700DD83A1 /* URL_Manager.m in Sources */,
 				C5914DB125385356007777A6 /* UIViewController+BaseVC.m in Sources */,
@@ -2767,6 +2778,7 @@
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
 				C54BB1232518D0C0001591C2 /* BRDatePickerView+BR.m in Sources */,
+				C55697D9255BFDE3005C1361 /* TimeModel.m in Sources */,
 				C54BB3CA2518D391001591C2 /* NSObject+Sound.m in Sources */,
 				C57109B5253C1358005B3A0C /* JobsPullListTBVCell.m in Sources */,
 				C54BB1222518D0C0001591C2 /* NSBundle+BRPickerView.m in Sources */,

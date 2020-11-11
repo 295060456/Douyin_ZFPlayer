@@ -7,7 +7,6 @@
 //
 
 #import "FileFolderHandleTool.h"
-#import <TXFileOperation.h>
 
 @implementation FileFolderHandleTool
 
@@ -77,7 +76,7 @@
 /// @param fileNameEx 文件后缀名
 +(NSString *)createCacheFolderPath:(NSString * __nullable)folderNameEx
                             fileEx:(NSString * __nullable)fileNameEx{
-    NSString *folderName = [NSString getTimeString:[NSString getSysTimeStamp]];
+    NSString *folderName = TimeModel.new.currentTimestampStr;
     NSString *cachePath;
     if ([NSString isNullString:folderNameEx]) {
         // Library/Caches/时间戳

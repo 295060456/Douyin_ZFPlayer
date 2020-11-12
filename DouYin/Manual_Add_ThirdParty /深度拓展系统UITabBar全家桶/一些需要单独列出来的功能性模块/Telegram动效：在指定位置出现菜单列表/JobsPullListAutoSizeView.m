@@ -95,7 +95,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsPullListTBVCell *cell = [JobsPullListTBVCell cellWith:tableView];
+    JobsPullListTBVCell *cell = [JobsPullListTBVCell cellWithTableView:tableView];
     cell.contentView.backgroundColor = self.bgColorListTBV;
     cell.indexRow = indexPath.row;
     cell.indexSection = indexPath.section;

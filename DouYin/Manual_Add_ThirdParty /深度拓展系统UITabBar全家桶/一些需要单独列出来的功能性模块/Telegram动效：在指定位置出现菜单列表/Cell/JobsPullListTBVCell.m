@@ -13,7 +13,7 @@
 
 @implementation JobsPullListTBVCell
 
-+(instancetype)cellWith:(UITableView *)tableView{
++(instancetype)cellWithTableView:(UITableView *)tableView{
     JobsPullListTBVCell *cell = (JobsPullListTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [[JobsPullListTBVCell alloc] initWithStyle:UITableViewCellStyleDefault

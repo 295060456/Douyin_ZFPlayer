@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)ZFPlayerController *player;
 @property(nonatomic,assign)long index;
 
-+(instancetype)cellWith:(UITableView *)tableView;
++(instancetype)cellWithTableView:(UITableView *)tableView;
 +(CGFloat)cellHeightWithModel:(id _Nullable)model;
 -(void)richElementsInCellWithModel:(id _Nullable)model;
 -(void)actionBlockPlayerCell:(TwoDataBlock _Nullable)playerCellBlock;

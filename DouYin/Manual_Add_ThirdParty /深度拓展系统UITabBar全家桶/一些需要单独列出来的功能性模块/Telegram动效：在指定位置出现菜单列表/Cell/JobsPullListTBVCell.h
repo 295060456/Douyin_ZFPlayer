@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)long indexRow;
 @property(nonatomic,assign)long indexSection;
 
-+(instancetype)cellWith:(UITableView *)tableView;
++(instancetype)cellWithTableView:(UITableView *)tableView;
 -(void)richElementsInCellWithModel:(id _Nullable)model;
 
 @end

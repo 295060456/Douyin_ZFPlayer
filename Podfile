@@ -18,6 +18,7 @@ use_frameworks!
 
 def func
   pod 'DoraemonKit' # https://github.com/didi/DoraemonKit 滴滴打车出的工具
+  pod 'FBRetainCycleDetector' # https://github.com/facebook/FBRetainCycleDetector
   pod 'Masonry'
   pod 'AFNetworking'
   pod 'TZImagePickerController'

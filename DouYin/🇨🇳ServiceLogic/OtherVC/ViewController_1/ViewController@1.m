@@ -165,7 +165,7 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PlayerCell *cell = [PlayerCell cellWith:tableView];
+    PlayerCell *cell = [PlayerCell cellWithTableView:tableView];
     cell.index = indexPath.row;
     [cell richElementsInCellWithModel:@{
         @"index":@(indexPath.row),

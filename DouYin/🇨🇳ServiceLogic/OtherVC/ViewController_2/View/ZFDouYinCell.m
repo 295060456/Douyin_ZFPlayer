@@ -19,7 +19,7 @@
 
 @implementation ZFDouYinCell
 
-+(instancetype)cellWith:(UITableView *)tableView{
++(instancetype)cellWithTableView:(UITableView *)tableView{
     ZFDouYinCell *cell = (ZFDouYinCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [[ZFDouYinCell alloc] initWithStyle:UITableViewCellStyleSubtitle

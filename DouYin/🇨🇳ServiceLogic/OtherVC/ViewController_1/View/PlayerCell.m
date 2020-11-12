@@ -27,7 +27,7 @@
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
 
-+(instancetype)cellWith:(UITableView *)tableView{
++(instancetype)cellWithTableView:(UITableView *)tableView{
     PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [[PlayerCell alloc]initWithStyle:UITableViewCellStyleSubtitle

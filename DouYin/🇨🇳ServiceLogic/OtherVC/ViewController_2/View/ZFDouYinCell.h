@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)ZFTableData *data;
 @property(nonatomic,weak)id<ZFDouYinCellDelegate> delegate;
 
-+(instancetype)cellWith:(UITableView *)tableView;
++(instancetype)cellWithTableView:(UITableView *)tableView;
 +(CGFloat)cellHeightWithModel:(id _Nullable)model;
 -(void)richElementsInCellWithModel:(id _Nullable)model;
 

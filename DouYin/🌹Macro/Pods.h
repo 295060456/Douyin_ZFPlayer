@@ -9,23 +9,103 @@
 #ifndef Pods_h
 #define Pods_h
 
-#import <Masonry/Masonry.h>
-#import "SPAlertController.h"
-#import <ReactiveObjC.h>
-#import "MJExtension.h"
-#import "MJRefresh.h"
-#import "AFNetworking.h"
-#import "BRPickerView.h"
-#import "JPImageresizerView-umbrella.h"
-#import "SDWebImage-umbrella.h"//不支持图片后处理
-#import "JXCategoryView.h"
-#import "GKNavigationBar.h"
-#import "PPBadgeView.h"
-#import <YYKit/YYKit.h>
-#import "WHToast.h"
+#if DEBUG
 
-#ifdef DEBUG
+#if __has_include(<FBRetainCycleDetector/FBRetainCycleDetector.h>)
+#import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+#else
+#import "FBRetainCycleDetector.h"
+#endif
+
+#if __has_include(<DoraemonManager/DoraemonManager.h>)
 #import <DoraemonKit/DoraemonManager.h>
+#else
+#import "DoraemonManager.h"
+#endif
+
+#endif
+
+#if __has_include(<Masonry/Masonry.h>)
+#import <Masonry/Masonry.h>
+#else
+#import "Masonry.h"
+#endif
+#if __has_include(<SPAlertController/SPAlertController.h>)
+#import <SPAlertController/SPAlertController.h>
+#else
+#import "SPAlertController.h"
+#endif
+
+#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
+#import <ReactiveObjC/ReactiveObjC.h>
+#else
+#import "ReactiveObjC.h"
+#endif
+
+#if __has_include(<MJExtension/MJExtension.h>)
+#import <MJExtension/MJExtension.h>
+#else
+#import "MJExtension.h"
+#endif
+
+#if __has_include(<MJRefresh/MJRefresh.h>)
+#import <MJRefresh/MJRefresh.h>
+#else
+#import "MJRefresh.h"
+#endif
+
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFNetworking.h>
+#else
+#import "AFNetworking.h"
+#endif
+
+#if __has_include(<BRPickerView/BRPickerView.h>)
+#import <BRPickerView/BRPickerView.h>
+#else
+#import "BRPickerView.h"
+#endif
+
+#if __has_include(<JPImageresizerView/JPImageresizerView.h>)
+#import <JPImageresizerView/JPImageresizerView.h>
+#else
+#import "JPImageresizerView.h"
+#endif
+
+#if __has_include(<SDWebImage/SDWebImage.h>)
+#import <SDWebImage/SDWebImage.h>
+#else
+#import "SDWebImage.h"
+#endif
+
+#if __has_include(<JXCategoryView/JXCategoryView.h>)
+#import <JXCategoryView/JXCategoryView.h>
+#else
+#import "JXCategoryView.h"
+#endif
+
+#if __has_include(<GKNavigationBar/GKNavigationBar.h>)
+#import <GKNavigationBar/GKNavigationBar.h>
+#else
+#import "GKNavigationBar.h"
+#endif
+
+#if __has_include(<PPBadgeView/PPBadgeView.h>)
+#import <PPBadgeView/PPBadgeView.h>
+#else
+#import "PPBadgeView.h"
+#endif
+
+#if __has_include(<YYKit/YYKit.h>)
+#import <YYKit/YYKit.h>
+#else
+#import "YYKit.h"
+#endif
+
+#if __has_include(<WHToast/WHToast.h>)
+#import <WHToast/WHToast.h>
+#else
+#import "WHToast.h"
 #endif
 
 #pragma mark —— ZFPlayer 播放器相关

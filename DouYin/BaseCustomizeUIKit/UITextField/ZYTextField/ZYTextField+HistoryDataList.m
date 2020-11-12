@@ -22,7 +22,7 @@
 
 @implementation HistoryDataListTBVCell
 
-+(instancetype)cellWith:(UITableView *)tableView{
++(instancetype)cellWithTableView:(UITableView *)tableView{
     HistoryDataListTBVCell *cell = (HistoryDataListTBVCell *)[tableView dequeueReusableCellWithIdentifier:@"InfoTBVCell"];
     if (!cell) {
         cell = [[HistoryDataListTBVCell alloc]initWithStyle:UITableViewCellStyleSubtitle
@@ -137,7 +137,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HistoryDataListTBVCell *cell = [HistoryDataListTBVCell cellWith:tableView];
+    HistoryDataListTBVCell *cell = [HistoryDataListTBVCell cellWithTableView:tableView];
     cell.cellHeight = self.tableviewCellHeight;
     cell.cellWidth = self.mj_w;
     cell.index = indexPath.row;

@@ -76,7 +76,7 @@ static AVFounationTools *avfounationTools = nil;
 - (void)initLayersAndConnections {
     if (self.vc) {
         AVCaptureVideoPreviewLayer *previewLayer1 = [[AVCaptureVideoPreviewLayer alloc] initWithSessionWithNoConnection:self.session];
-        previewLayer1.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        previewLayer1.frame = CGRectMake(0, 0, MAINSCREEN_WIDTH, MAINSCREEN_HEIGHT);
         previewLayer1.videoGravity = AVLayerVideoGravityResizeAspectFill;
         [self.vc.view.layer addSublayer:previewLayer1];
         AVCaptureConnection *c1 = [AVCaptureConnection connectionWithInputPort:self.inputs[0].ports.firstObject videoPreviewLayer:previewLayer1];

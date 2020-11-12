@@ -82,7 +82,7 @@ didScrollToCardViewWithIndex:(NSInteger)index {
 
 -(CGSize)JhtBannerCardViewSize{
     if (CGSizeEqualToSize(CGSizeZero, _JhtBannerCardViewSize)) {
-        _JhtBannerCardViewSize = CGSizeMake(SCREEN_WIDTH / self.dataArr.count, self.mj_h);
+        _JhtBannerCardViewSize = CGSizeMake(MAINSCREEN_WIDTH / self.dataArr.count, self.mj_h);
     }return _JhtBannerCardViewSize;
 }
 

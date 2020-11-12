@@ -29,9 +29,9 @@ static char *UIView_SuspendView_panRcognize = "UIView_SuspendView_panRcognize";
         }
             break;
         case UIGestureRecognizerStateEnded:{
-            CGPoint stopPoint = CGPointMake(0, SCREEN_HEIGHT / 2.0);
-            if (recognizer.view.center.x < SCREEN_WIDTH / 2.0) {
-                if (recognizer.view.center.y <= SCREEN_HEIGHT/2.0) {
+            CGPoint stopPoint = CGPointMake(0, MAINSCREEN_HEIGHT / 2.0);
+            if (recognizer.view.center.x < MAINSCREEN_WIDTH / 2.0) {
+                if (recognizer.view.center.y <= MAINSCREEN_HEIGHT/2.0) {
                     //左上
                     if (recognizer.view.center.x  >= recognizer.view.center.y) {
                         stopPoint = CGPointMake(recognizer.view.center.x,
@@ -42,45 +42,45 @@ static char *UIView_SuspendView_panRcognize = "UIView_SuspendView_panRcognize";
                     }
                 }else{
                     //左下
-                    if (recognizer.view.center.x  >= SCREEN_HEIGHT - recognizer.view.center.y) {
+                    if (recognizer.view.center.x  >= MAINSCREEN_HEIGHT - recognizer.view.center.y) {
                         stopPoint = CGPointMake(recognizer.view.center.x,
-                                                SCREEN_HEIGHT - self.width/2.0);
+                                                MAINSCREEN_HEIGHT - self.width/2.0);
                     }else{
                         stopPoint = CGPointMake(self.width / 2.0,
                                                 recognizer.view.center.y);
                     }
                 }
             }else{
-                if (recognizer.view.center.y <= SCREEN_HEIGHT/2.0) {
+                if (recognizer.view.center.y <= MAINSCREEN_HEIGHT/2.0) {
                     //右上
-                    if (SCREEN_WIDTH - recognizer.view.center.x  >= recognizer.view.center.y) {
+                    if (MAINSCREEN_WIDTH - recognizer.view.center.x  >= recognizer.view.center.y) {
                         stopPoint = CGPointMake(recognizer.view.center.x,
                                                 self.width/2.0);
                     }else{
-                        stopPoint = CGPointMake(SCREEN_WIDTH - self.width/2.0,
+                        stopPoint = CGPointMake(MAINSCREEN_WIDTH - self.width/2.0,
                                                 recognizer.view.center.y);
                     }
                 }else{
                     //右下
-                    if (SCREEN_WIDTH - recognizer.view.center.x  >= SCREEN_HEIGHT - recognizer.view.center.y) {
+                    if (MAINSCREEN_WIDTH - recognizer.view.center.x  >= MAINSCREEN_HEIGHT - recognizer.view.center.y) {
                         stopPoint = CGPointMake(recognizer.view.center.x,
-                                                SCREEN_HEIGHT - self.width/2.0);
+                                                MAINSCREEN_HEIGHT - self.width/2.0);
                     }else{
-                        stopPoint = CGPointMake(SCREEN_WIDTH - self.width/2.0,
+                        stopPoint = CGPointMake(MAINSCREEN_WIDTH - self.width/2.0,
                                                 recognizer.view.center.y);
                     }
                 }
             }
             //如果按钮超出屏幕边缘
-            if (stopPoint.y + self.width + 40 >= SCREEN_HEIGHT) {
-                stopPoint = CGPointMake(stopPoint.x, SCREEN_HEIGHT - self.width / 2.0 - 49);
+            if (stopPoint.y + self.width + 40 >= MAINSCREEN_HEIGHT) {
+                stopPoint = CGPointMake(stopPoint.x, MAINSCREEN_HEIGHT - self.width / 2.0 - 49);
                 NSLog(@"超出屏幕下方了！！"); //这里注意iphoneX的适配。。X的SCREEN高度算法有变化。
             }
             if (stopPoint.x - self.width / 2.0 <= 0) {
                 stopPoint = CGPointMake(self.width / 2.0, stopPoint.y);
             }
-            if (stopPoint.x + self.width / 2.0 >= SCREEN_WIDTH) {
-                stopPoint = CGPointMake(SCREEN_WIDTH - self.width/2.0, stopPoint.y);
+            if (stopPoint.x + self.width / 2.0 >= MAINSCREEN_WIDTH) {
+                stopPoint = CGPointMake(MAINSCREEN_WIDTH - self.width/2.0, stopPoint.y);
             }
             if (stopPoint.y - self.width / 2.0 <= 0) {
                 stopPoint = CGPointMake(stopPoint.x, self.width/2.0);

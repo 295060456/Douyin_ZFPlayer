@@ -21,6 +21,10 @@
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */; };
 		C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */; };
+		C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB2AB255E61B2000A314D /* UITableViewCell+Margin.m */; };
+		C54AB2B2255E61B3000A314D /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */; };
+		C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */; };
+		C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */; };
 		C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B3D302552605B003BE195 /* UIFont+Extras.m */; };
 		C54B40202552980E003BE195 /* UILabel+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401C2552980E003BE195 /* UILabel+RichText.m */; };
 		C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401F2552980E003BE195 /* UILabel+Extra.m */; };
@@ -82,9 +86,6 @@
 		C54BB39C2518D391001591C2 /* UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3112518D390001591C2 /* UIImage+Extras.m */; };
 		C54BB39D2518D391001591C2 /* UIImage+SYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3122518D390001591C2 /* UIImage+SYS.m */; };
 		C54BB39E2518D391001591C2 /* UIImage+Overlay.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3162518D390001591C2 /* UIImage+Overlay.m */; };
-		C54BB39F2518D391001591C2 /* TBVCell_style_02.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3192518D390001591C2 /* TBVCell_style_02.m */; };
-		C54BB3A02518D391001591C2 /* TBVCell_style_01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB31B2518D390001591C2 /* TBVCell_style_01.m */; };
-		C54BB3A12518D391001591C2 /* UITableViewCell+WhiteArrows.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB31D2518D391001591C2 /* UITableViewCell+WhiteArrows.m */; };
 		C54BB3A22518D391001591C2 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3202518D391001591C2 /* UIButton+Block.m */; };
 		C54BB3A32518D391001591C2 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3232518D391001591C2 /* UIColor+Hex.m */; };
 		C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3272518D391001591C2 /* UIView+Chain.m */; };
@@ -203,8 +204,6 @@
 		C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */; };
 		C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB242538425B000E1C5F /* UIView+Animation.m */; };
 		C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB262538425B000E1C5F /* UIView+Extras.m */; };
-		C5B7E2A62524751B00BC4E9D /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */; };
-		C5B7E2A72524751B00BC4E9D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2A52524751B00BC4E9D /* WhiteRightArrow@3x.png */; };
 		C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */; };
 		C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2AC252477A500BC4E9D /* del_Photo@3x.png */; };
 		C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */; };
@@ -272,6 +271,12 @@
 		C5470FB225309D3400651ACE /* MacroDef_Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Func.h; sourceTree = "<group>"; };
 		C5470FB325309D3400651ACE /* MacroDef_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Size.h; sourceTree = "<group>"; };
 		C5470FB425309D3400651ACE /* MacroDef_Cor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Cor.h; sourceTree = "<group>"; };
+		C54AB2AA255E61B2000A314D /* UITableViewCell+Margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Margin.h"; sourceTree = "<group>"; };
+		C54AB2AB255E61B2000A314D /* UITableViewCell+Margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Margin.m"; sourceTree = "<group>"; };
+		C54AB2AD255E61B3000A314D /* UITableViewCell+WhiteArrows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+WhiteArrows.h"; sourceTree = "<group>"; };
+		C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
+		C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
+		C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WhiteArrows.m"; sourceTree = "<group>"; };
 		C54B3D2F2552605B003BE195 /* UIFont+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extras.h"; sourceTree = "<group>"; };
 		C54B3D302552605B003BE195 /* UIFont+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extras.m"; sourceTree = "<group>"; };
 		C54B401C2552980E003BE195 /* UILabel+RichText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+RichText.m"; sourceTree = "<group>"; };
@@ -404,12 +409,6 @@
 		C54BB3152518D390001591C2 /* UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extras.h"; sourceTree = "<group>"; };
 		C54BB3162518D390001591C2 /* UIImage+Overlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Overlay.m"; sourceTree = "<group>"; };
 		C54BB3172518D390001591C2 /* UIImage+screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+screenshot.h"; sourceTree = "<group>"; };
-		C54BB3192518D390001591C2 /* TBVCell_style_02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBVCell_style_02.m; sourceTree = "<group>"; };
-		C54BB31A2518D390001591C2 /* UITableViewCell+WhiteArrows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+WhiteArrows.h"; sourceTree = "<group>"; };
-		C54BB31B2518D390001591C2 /* TBVCell_style_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBVCell_style_01.m; sourceTree = "<group>"; };
-		C54BB31C2518D390001591C2 /* TBVCell_style_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBVCell_style_02.h; sourceTree = "<group>"; };
-		C54BB31D2518D391001591C2 /* UITableViewCell+WhiteArrows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WhiteArrows.m"; sourceTree = "<group>"; };
-		C54BB31E2518D391001591C2 /* TBVCell_style_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBVCell_style_01.h; sourceTree = "<group>"; };
 		C54BB3202518D391001591C2 /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
 		C54BB3212518D391001591C2 /* UIButton+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		C54BB3232518D391001591C2 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -642,8 +641,6 @@
 		C5AEEB252538425B000E1C5F /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
 		C5AEEB262538425B000E1C5F /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
 		C5AEEB272538425B000E1C5F /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
-		C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
-		C5B7E2A52524751B00BC4E9D /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
 		C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@2x.png"; sourceTree = "<group>"; };
 		C5B7E2AC252477A500BC4E9D /* del_Photo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@3x.png"; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
@@ -764,24 +761,6 @@
 			path = "UICollectionReusableView 用作基类";
 			sourceTree = "<group>";
 		};
-		C531CD42255A82A8005304F6 /* TBVCell_style_01 */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB31E2518D391001591C2 /* TBVCell_style_01.h */,
-				C54BB31B2518D390001591C2 /* TBVCell_style_01.m */,
-			);
-			path = TBVCell_style_01;
-			sourceTree = "<group>";
-		};
-		C531CD43255A82AB005304F6 /* TBVCell_style_02 */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB31C2518D390001591C2 /* TBVCell_style_02.h */,
-				C54BB3192518D390001591C2 /* TBVCell_style_02.m */,
-			);
-			path = TBVCell_style_02;
-			sourceTree = "<group>";
-		};
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,6 +822,26 @@
 				C5470FB125309D3400651ACE /* MacroDef_Sys.h */,
 			);
 			path = "各项宏定义";
+			sourceTree = "<group>";
+		};
+		C54AB2A9255E61B2000A314D /* 重设边距 */ = {
+			isa = PBXGroup;
+			children = (
+				C54AB2AA255E61B2000A314D /* UITableViewCell+Margin.h */,
+				C54AB2AB255E61B2000A314D /* UITableViewCell+Margin.m */,
+			);
+			path = "重设边距";
+			sourceTree = "<group>";
+		};
+		C54AB2AC255E61B3000A314D /* 自定义右侧小箭头图标 */ = {
+			isa = PBXGroup;
+			children = (
+				C54AB2AD255E61B3000A314D /* UITableViewCell+WhiteArrows.h */,
+				C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */,
+				C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */,
+				C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */,
+			);
+			path = "自定义右侧小箭头图标";
 			sourceTree = "<group>";
 		};
 		C54B3D2E2552605B003BE195 /* UIFont */ = {
@@ -1443,12 +1442,8 @@
 		C54BB3182518D390001591C2 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C531CD43255A82AB005304F6 /* TBVCell_style_02 */,
-				C531CD42255A82A8005304F6 /* TBVCell_style_01 */,
-				C54BB31A2518D390001591C2 /* UITableViewCell+WhiteArrows.h */,
-				C54BB31D2518D391001591C2 /* UITableViewCell+WhiteArrows.m */,
-				C5B7E2A42524751B00BC4E9D /* WhiteRightArrow@2x.png */,
-				C5B7E2A52524751B00BC4E9D /* WhiteRightArrow@3x.png */,
+				C54AB2A9255E61B2000A314D /* 重设边距 */,
+				C54AB2AC255E61B3000A314D /* 自定义右侧小箭头图标 */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -2291,18 +2286,18 @@
 			files = (
 				C588F565253DA61800973CFE /* 1.jpeg in Resources */,
 				C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */,
-				C5B7E2A72524751B00BC4E9D /* WhiteRightArrow@3x.png in Resources */,
-				C5B7E2A62524751B00BC4E9D /* WhiteRightArrow@2x.png in Resources */,
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
 				C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
 				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
+				C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */,
 				C588F56A253DA63700973CFE /* 0.png in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,
 				C5ED338D2521C887001A04FE /* data.json in Resources */,
 				C57109B7253C1358005B3A0C /* 功能性动效：手势横向滚动子VC联动Tabbar切换 in Resources */,
+				C54AB2B2255E61B3000A314D /* WhiteRightArrow@2x.png in Resources */,
 				C57109BA253C1358005B3A0C /* 参考demo in Resources */,
 				C54BB2FE2518D363001591C2 /* 带有按键音的按钮 in Resources */,
 				C54BB2DF2518D363001591C2 /* iOS小技巧：用runtime 解决UIButton 重复点击问题 in Resources */,
@@ -2502,6 +2497,7 @@
 				C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */,
 				C56188BF255D6D74004E7B47 /* XHLaunchAdButton.m in Sources */,
 				C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */,
+				C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */,
 				C57109B9253C1358005B3A0C /* TransitionController.m in Sources */,
 				C54BB5372518E5F6001591C2 /* NSString+ZBUTF8Encoding.m in Sources */,
 				C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */,
@@ -2525,7 +2521,6 @@
 				C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */,
 				C54BB39A2518D391001591C2 /* UIImage+Tailor.m in Sources */,
 				C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */,
-				C54BB3A12518D391001591C2 /* UITableViewCell+WhiteArrows.m in Sources */,
 				C57279D125409C8A002373D7 /* UIViewController+NavigationBar.m in Sources */,
 				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
@@ -2550,6 +2545,7 @@
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
 				C55697D9255BFDE3005C1361 /* TimeModel.m in Sources */,
+				C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */,
 				C54BB3CA2518D391001591C2 /* NSObject+Sound.m in Sources */,
 				C57109B5253C1358005B3A0C /* JobsPullListTBVCell.m in Sources */,
 				C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */,
@@ -2560,7 +2556,6 @@
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */,
 				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
-				C54BB3A02518D391001591C2 /* TBVCell_style_01.m in Sources */,
 				C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */,
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,
 				C54BB0B32518D00E001591C2 /* DouYinSceneDelegate.m in Sources */,
@@ -2575,7 +2570,6 @@
 				C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
-				C54BB39F2518D391001591C2 /* TBVCell_style_02.m in Sources */,
 				C54BB2E02518D363001591C2 /* UIControl+XY.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,

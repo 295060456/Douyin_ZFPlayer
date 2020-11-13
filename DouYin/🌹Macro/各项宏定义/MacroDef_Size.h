@@ -82,7 +82,7 @@ static inline CGFloat TopSafeAreaHeight(){
 //底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat BottomSafeAreaHeight(){
     NSLog(@"%f",TabBarHeight());
-    return TabBarHeight() - 49;
+    return TabBarHeight() - 49 - DouYinAppDelegate.sharedInstance.tabbarVC.myTabBar.offsetHeight;
 }
 
 #endif /* MacroDef_Size_h */

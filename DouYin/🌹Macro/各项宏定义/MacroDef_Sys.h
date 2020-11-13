@@ -7,7 +7,7 @@
 
 #ifndef MacroDef_Sys_h
 #define MacroDef_Sys_h
-
+// http://ww1.fuckingclangwarnings.com/
 //警告处理⚠️
 #define SuppressPerformSelectorLeakWarning(Stuff) \
     do { \
@@ -22,6 +22,7 @@
 //#pragma clang diagnostic ignored "-Wundeclared-selector"
 //#pragma clang diagnostic ignored "-Wincompatible-pointer-types"
 //#pragma clang diagnostic ignored "-Wincomplete-implementation"
+//#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 //#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 //#pragma clang diagnostic ignored "-Warc-performSelector-leaks" [targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i] ReplaceStr:@"defaultFunc"]) withObject:Nil];
 //#pragma clang diagnostic pop

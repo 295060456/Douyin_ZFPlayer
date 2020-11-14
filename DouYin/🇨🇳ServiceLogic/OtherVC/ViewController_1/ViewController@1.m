@@ -9,6 +9,9 @@
 #import "ViewController@1.h"
 #import "PlayerCell.h"
 
+#import "UBLCustomGifHeader.h"
+
+
 @interface ViewController_1 ()
 <
 UITableViewDelegate,
@@ -39,7 +42,7 @@ UITableViewDataSource
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = KBrownColor;
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
     [DataManager sharedInstance].tag = ReuseIdentifier;
     /**
@@ -222,7 +225,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = kRedColor;
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.pagingEnabled = YES;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -230,13 +233,19 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         
-        _tableView.mj_header = self.mjRefreshGifHeader;
-        _tableView.mj_header.automaticallyChangeAlpha = YES;
+//        _tableView.mj_header = self.mjRefreshGifHeader;
+//        _tableView.mj_header.automaticallyChangeAlpha = YES;
         
         _tableView.mj_footer = self.mjRefreshAutoGifFooter;
         // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
 //        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
         _tableView.mj_footer.hidden = NO;
+        
+        WeakSelf
+        _tableView.mj_header = [UBLCustomGifHeader headerWithRefreshingBlock:^{
+            [weakSelf  pullToRefresh];
+            
+        }];
         
         if(@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

@@ -20,6 +20,7 @@
     [super drawRect:rect];
     if (!self.isOk) {
         [self setUpUI];
+        self.isOk = YES;
     }
 }
 

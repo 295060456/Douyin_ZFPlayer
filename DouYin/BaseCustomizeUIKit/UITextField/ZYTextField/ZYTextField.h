@@ -3,7 +3,7 @@
 
 @interface ZYTextField : CJTextField
 
-@property(nonatomic,assign)BOOL isInputting;//是否正在输入(键盘弹起中)
+@property(nonatomic,assign)CGFloat TFRiseHeight;// 键盘在此手机上的最高弹起，区别于全面屏结合非全面屏，有一个安全区域34
 
 @property(nonatomic,strong)UIFont *ZYtextFont;//字体大小
 @property(nonatomic,strong)UIColor *ZYtextColor;//文本颜色
@@ -22,7 +22,5 @@
 @property(nonatomic,assign)CGFloat ZYTextFieldBorderWidth;
 @property(nonatomic,assign)UIColor *ZYTextFieldBorderColor;
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
-
-@property(nonatomic,assign)BOOL __block isEditting;//当前TF是否正在发起攻击（正在编辑之中）
 
 @end

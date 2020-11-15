@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "LoadingImage.h"
-#import <Lottie/Lottie.h>
+#if __has_include(<lottie-ios/Lottie.h>)
+#import <lottie-ios/Lottie.h>
+#else
+#import "Lottie.h"
+#endif
 
+#if __has_include(<PPBadgeView/PPBadgeView.h>)
+#import <PPBadgeView/PPBadgeView.h>
+#else
+#import "PPBadgeView.h"
+#endif
+
+#import "LoadingImage.h"
 #import "NSObject+Sound.h"
 #import "NSObject+Extras.h"
 
@@ -19,7 +29,6 @@
 #import "TabBarItem.h"
 #import "UIView+Measure.h"
 #import "CustomTabBar.h"
-#import "PPBadgeView.h"
 #import "SuspendBtn.h"
 
 #import "TabBarControllerConfig.h"

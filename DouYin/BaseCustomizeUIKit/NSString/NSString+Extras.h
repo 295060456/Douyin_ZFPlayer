@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)emojiEncodeStr:(NSString *)str;
 //解码emoji
 +(NSString *)emojiDecodeStr:(NSString *)str;
+// 读取本地JSON文件
++(NSDictionary *)readLocalFileWithName:(NSString *)name;
 //JSON 转 NSDictionary
 +(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 // NSDictionary 转 json字符串方法//==[dic mj_JSONString]

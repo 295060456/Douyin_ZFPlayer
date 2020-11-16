@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4EEC19B2374F7AB65C4E00FA /* Pods_DouYinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAAB3EB4EF92B1B5BF1FD95 /* Pods_DouYinTests.framework */; };
+		527E5CC3255FCDA100150376 /* UBLCustomGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 527E5CC2255FCDA100150376 /* UBLCustomGifHeader.m */; };
+		527E5CC9255FD10800150376 /* testjson in Resources */ = {isa = PBXBuildFile; fileRef = 527E5CC8255FD10800150376 /* testjson */; };
 		892E1FDF98696A36692FF208 /* Pods_DouYinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */; };
 		C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D8DA5251B0849006958FF /* PlayerCell.m */; };
 		C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B199254D9B1500EDEDC8 /* LMHWaterFallLayout.m */; };
@@ -241,6 +243,9 @@
 		32EA069E263D19CBE771A136 /* Pods-DouYinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		41139A6AA633C1D37F4411C5 /* Pods-DouYin-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		440FABD3F011AD67DAD78DAD /* Pods-DouYin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin.debug.xcconfig"; path = "Target Support Files/Pods-DouYin/Pods-DouYin.debug.xcconfig"; sourceTree = "<group>"; };
+		527E5CC1255FCDA100150376 /* UBLCustomGifHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBLCustomGifHeader.h; sourceTree = "<group>"; };
+		527E5CC2255FCDA100150376 /* UBLCustomGifHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBLCustomGifHeader.m; sourceTree = "<group>"; };
+		527E5CC8255FD10800150376 /* testjson */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testjson; sourceTree = "<group>"; };
 		6469BB4F8706F39F1EC19D69 /* Pods-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA8C51EDACBA2E67817A1EC /* Pods-DouYinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.debug.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -685,6 +690,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52184D55255E867A007A43B4 /* UBCustomGifHeader */ = {
+			isa = PBXGroup;
+			children = (
+				527E5CC1255FCDA100150376 /* UBLCustomGifHeader.h */,
+				527E5CC2255FCDA100150376 /* UBLCustomGifHeader.m */,
+			);
+			path = UBCustomGifHeader;
+			sourceTree = "<group>";
+		};
+		52184D61255E8A3D007A43B4 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				527E5CC8255FD10800150376 /* testjson */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		C51D8DA3251B0816006958FF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,6 +911,7 @@
 		C54BB0AD2518D00E001591C2 /* DouYin */ = {
 			isa = PBXGroup;
 			children = (
+				52184D61255E8A3D007A43B4 /* Json */,
 				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
 				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
 				C54BB0E92518D025001591C2 /* 🌹Macro */,
@@ -1391,6 +1414,7 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				52184D55255E867A007A43B4 /* UBCustomGifHeader */,
 				C54B401B2552980E003BE195 /* UILabel */,
 				C54B3D2E2552605B003BE195 /* UIFont */,
 				C54BB3712518D391001591C2 /* CALayer */,
@@ -2294,6 +2318,7 @@
 				C588F56A253DA63700973CFE /* 0.png in Resources */,
 				C54BB2C72518D363001591C2 /* 视频水印.gif in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
+				527E5CC9255FD10800150376 /* testjson in Resources */,
 				C54BB2F12518D363001591C2 /* iOS 获取手机型号、系统版本.png in Resources */,
 				C5ED338D2521C887001A04FE /* data.json in Resources */,
 				C57109B7253C1358005B3A0C /* 功能性动效：手势横向滚动子VC联动Tabbar切换 in Resources */,
@@ -2530,6 +2555,7 @@
 				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
 				C5914DAF25385356007777A6 /* UIViewController+BackBtn.m in Sources */,
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
+				527E5CC3255FCDA100150376 /* UBLCustomGifHeader.m in Sources */,
 				C54BB3BF2518D391001591C2 /* BaseTableViewer.m in Sources */,
 				C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */,
 				C54BB5012518E398001591C2 /* ViewController@2.m in Sources */,
@@ -2783,15 +2809,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K92UCMVH8G;
+				DEVELOPMENT_TEAM = C7HBXG9Y85;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin;
+				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";
@@ -2808,7 +2834,7 @@
 				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

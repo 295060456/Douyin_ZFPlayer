@@ -8,6 +8,7 @@
 #import "UBLCustomGifHeader.h"
 #import <Lottie/Lottie.h>
 
+/// 下拉刷新动画
 @interface UBLCustomGifHeader ()
 
 /// 加载json 动画

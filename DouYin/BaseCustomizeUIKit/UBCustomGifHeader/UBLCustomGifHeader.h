@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 下拉刷新动画
 @interface UBLCustomGifHeader : MJRefreshGifHeader
 
 @end

@@ -7,10 +7,6 @@
 //
 
 #import "ViewController@1.h"
-#import "PlayerCell.h"
-
-#import "UBLCustomGifHeader.h"
-
 
 @interface ViewController_1 ()
 <
@@ -44,22 +40,22 @@ UITableViewDataSource
     self.view.backgroundColor = KBrownColor;
     self.view.backgroundColor = [UIColor whiteColor];
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
-    [DataManager sharedInstance].tag = ReuseIdentifier;
-    /**
-     公共配置
-     插件机制
-     证书设置
-     */
-    [RequestTool setupPublicParameters];
-    @weakify(self)
-    [NetworkingAPI requestVedioWithBlock:^(id data) {
-        @strongify(self)
-        NSLog(@"");
-        if ([data isKindOfClass:NSArray.class]) {
-            self.dataMutArr = (NSMutableArray *)data;
-        }
-        [self.tableView reloadData];
-    }];
+//    [DataManager sharedInstance].tag = ReuseIdentifier;
+//    /**
+//     公共配置
+//     插件机制
+//     证书设置
+//     */
+//    [RequestTool setupPublicParameters];
+//    @weakify(self)
+//    [NetworkingAPI requestVedioWithBlock:^(id data) {
+//        @strongify(self)
+//        NSLog(@"");
+//        if ([data isKindOfClass:NSArray.class]) {
+//            self.dataMutArr = (NSMutableArray *)data;
+//        }
+//        [self.tableView reloadData];
+//    }];
     
     self.tableView.alpha = 1;
     [self monitorScrollView];
@@ -241,12 +237,22 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 //        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
         _tableView.mj_footer.hidden = NO;
         
-        WeakSelf
-        _tableView.mj_header = [UBLCustomGifHeader headerWithRefreshingBlock:^{
-            [weakSelf  pullToRefresh];
-            
+        @weakify(self)
+        _tableView.mj_header = [CustomGifHeader headerWithRefreshingBlock:^{
+            @strongify(self)
+//            [weakSelf  pullToRefresh];
         }];
         
+//        _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
+//                                                          titleStr:@"没有评论"
+//                                                         detailStr:@"来发布第一条吧"];
+//        
+//        if (self.mjModel.listMutArr.count) {
+//            [_tableView ly_hideEmptyView];
+//        }else{
+//            [_tableView ly_showEmptyView];
+//        }
+             
         if(@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }else{

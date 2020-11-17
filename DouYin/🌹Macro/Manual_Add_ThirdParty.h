@@ -82,4 +82,6 @@
 #import "TXFileOperation.h"
 #import "FileFolderHandleTool.h"
 
+#import "EmptyView.h"
+
 #endif /* Manual_Add_ThirdParty_h */

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomGifHeader.h"
+#import "PlayerCell.h"
+
 //这个类是我自己的理解
 NS_ASSUME_NONNULL_BEGIN
 

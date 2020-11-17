@@ -12,9 +12,7 @@
 <
 UITableViewDelegate,
 UITableViewDataSource
->{
-
-}
+>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*__block dataMutArr;
@@ -221,7 +219,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundColor = kWhiteColor;
         _tableView.pagingEnabled = YES;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -232,7 +230,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 //        _tableView.mj_header = self.mjRefreshGifHeader;
 //        _tableView.mj_header.automaticallyChangeAlpha = YES;
         
-        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+//        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
         // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
 //        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
         _tableView.mj_footer.hidden = NO;
@@ -240,18 +238,19 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         @weakify(self)
         _tableView.mj_header = [CustomGifHeader headerWithRefreshingBlock:^{
             @strongify(self)
-//            [weakSelf  pullToRefresh];
+            sleep(3);
+            [self pullToRefresh];
         }];
         
-//        _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
-//                                                          titleStr:@"没有评论"
-//                                                         detailStr:@"来发布第一条吧"];
-//        
-//        if (self.mjModel.listMutArr.count) {
-//            [_tableView ly_hideEmptyView];
-//        }else{
-//            [_tableView ly_showEmptyView];
-//        }
+        _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
+                                                          titleStr:@"没有评论"
+                                                         detailStr:@"来发布第一条吧"];
+        
+        if (self.dataMutArr.count) {
+            [_tableView ly_hideEmptyView];
+        }else{
+            [_tableView ly_showEmptyView];
+        }
              
         if(@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;

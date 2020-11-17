@@ -114,6 +114,12 @@
 #import "Lottie.h"
 #endif
 
+#if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)
+#import <LYEmptyView/LYEmptyViewHeader.h>
+#else
+#import "LYEmptyViewHeader.h"
+#endif
+
 #pragma mark —— ZFPlayer 播放器相关
 //Core
 #import "ZFPlayer.h"

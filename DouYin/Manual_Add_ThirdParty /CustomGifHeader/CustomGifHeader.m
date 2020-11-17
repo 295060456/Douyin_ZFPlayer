@@ -7,6 +7,8 @@
 
 #import "CustomGifHeader.h"
 
+static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel 和 AnimationView 之间的间距
+
 /// 下拉刷新动画
 @interface CustomGifHeader ()
 /// 加载 Json 动画
@@ -20,13 +22,14 @@
 
 - (void)prepare{
     [super prepare];
-    [self addSubview:self.animationView];
+    self.animationView.alpha = 1;
     @weakify(self)
     self.endRefreshingCompletionBlock = ^{
         @strongify(self)
         [self updateStateLabelText];
     };
-    self.stateLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
+    self.stateLabel.font = [UIFont systemFontOfSize:14
+                                             weight:UIFontWeightRegular];
     [self updateStateLabelText];
 }
 // 执行重新给子视图布局的时候
@@ -34,13 +37,9 @@
     [super placeSubviews];
     //隐藏更新时间文字
     self.lastUpdatedTimeLabel.hidden = YES;
-    self.animationView.bounds = CGRectMake(50, 0, 60, 60);
-    self.animationView.center = CGPointMake(120, self.mj_h / 2.0);
-    
     self.stateLabel.mj_w = self.stateLabel.mj_textWidth;
-    
     self.stateLabel.center = CGPointMake(self.mj_w / 2.0 + 15, self.mj_h / 2.0 + 0.0);
-    self.animationView.center = CGPointMake(self.stateLabel.mj_x - 15 - 5, self.mj_h / 2.0);
+    self.animationView.mj_x = self.stateLabel.mj_x - OffsetBetweenStateLabelAndAnimationView - self.animationView.mj_w;
 }
 
 - (void)beginRefreshing{
@@ -90,10 +89,11 @@
 #pragma mark —— lazyLoad
 - (LOTAnimationView *)animationView{
     if (!_animationView) {
-        NSString *filePaths = pathForBuddleIMG(nil, @"JsonRes", nil, @"Test.json");
+        NSString *filePaths = pathForBuddleIMG(nil, @"JsonRes", nil, @"任务.json");
         _animationView = [LOTAnimationView animationWithFilePath:filePaths];
         _animationView.loopAnimation = YES;
         _animationView.frame = CGRectMake(0, 0, 60, 60);
+        [self addSubview:_animationView];
     }return _animationView;
 }
 

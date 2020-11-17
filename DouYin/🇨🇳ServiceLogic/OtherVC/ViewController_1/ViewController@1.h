@@ -10,6 +10,12 @@
 #import "CustomGifHeader.h"
 #import "PlayerCell.h"
 
+#if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)
+#import <LYEmptyView/LYEmptyViewHeader.h>
+#else
+#import "LYEmptyViewHeader.h"
+#endif
+
 //这个类是我自己的理解
 NS_ASSUME_NONNULL_BEGIN
 

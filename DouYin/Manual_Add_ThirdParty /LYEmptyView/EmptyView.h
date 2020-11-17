@@ -6,7 +6,11 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import <LYEmptyView/LYEmptyView.h>
+#if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)
+#import <LYEmptyView/LYEmptyViewHeader.h>
+#else
+#import "LYEmptyViewHeader.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -229,7 +229,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma clang diagnostic pop
         }
         
-        _tableView.mj_header = self.mjRefreshGifHeader;
+//        _tableView.mj_header = self.mjRefreshGifHeader;
         _tableView.mj_header.automaticallyChangeAlpha = YES;
         
 //        _tableView.mj_footer = self.mjRefreshAutoGifFooter;

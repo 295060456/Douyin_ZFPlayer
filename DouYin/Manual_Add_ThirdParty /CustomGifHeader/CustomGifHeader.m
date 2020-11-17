@@ -40,6 +40,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
     self.stateLabel.mj_w = self.stateLabel.mj_textWidth;
     self.stateLabel.center = CGPointMake(self.mj_w / 2.0 + 15, self.mj_h / 2.0 + 0.0);
     self.animationView.mj_x = self.stateLabel.mj_x - OffsetBetweenStateLabelAndAnimationView - self.animationView.mj_w;
+    self.animationView.centerY = self.stateLabel.centerY;
 }
 
 - (void)beginRefreshing{
@@ -89,10 +90,10 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 #pragma mark —— lazyLoad
 - (LOTAnimationView *)animationView{
     if (!_animationView) {
-        NSString *filePaths = pathForBuddleIMG(nil, @"JsonRes", nil, @"任务.json");
+        NSString *filePaths = pathForBuddleIMG(nil, @"JsonRes", nil, @"下拉刷新.json");
         _animationView = [LOTAnimationView animationWithFilePath:filePaths];
         _animationView.loopAnimation = YES;
-        _animationView.frame = CGRectMake(0, 0, 60, 60);
+        _animationView.size = CGSizeMake(30, 30);
         [self addSubview:_animationView];
     }return _animationView;
 }

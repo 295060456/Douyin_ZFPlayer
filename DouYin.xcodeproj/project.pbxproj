@@ -198,12 +198,12 @@
 		C5914DAD25385356007777A6 /* UIViewController+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9325385356007777A6 /* UIViewController+BRPickerView.m */; };
 		C5914DAE25385356007777A6 /* UIViewController+GifImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9425385356007777A6 /* UIViewController+GifImageView.m */; };
 		C5914DAF25385356007777A6 /* UIViewController+BackBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9725385356007777A6 /* UIViewController+BackBtn.m */; };
-		C5914DB025385356007777A6 /* UIViewController+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */; };
 		C5914DB125385356007777A6 /* UIViewController+BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9E25385356007777A6 /* UIViewController+BaseVC.m */; };
 		C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914DA225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m */; };
 		C591E40D25639BB7005B78CC /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C591E40C25639BB7005B78CC /* EmptyView.m */; };
 		C591E4B12563A478005B78CC /* CustomGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C591E4AD2563A477005B78CC /* CustomGifHeader.m */; };
 		C591E50C2563A7B6005B78CC /* JsonRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C591E50B2563A7B6005B78CC /* JsonRes.bundle */; };
+		C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */; };
 		C59B9E0C2526F06C0039B485 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C59B9E0B2526F06C0039B485 /* ZYTextField.bundle */; };
 		C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB242538425B000E1C5F /* UIView+Animation.m */; };
 		C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB262538425B000E1C5F /* UIView+Extras.m */; };
@@ -2594,8 +2594,8 @@
 				C54BB3A92518D391001591C2 /* UIView+Gradient.m in Sources */,
 				C54BB2FB2518D363001591C2 /* WGradientProgressView.m in Sources */,
 				C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */,
-				C5914DB025385356007777A6 /* UIViewController+MJRefresh.m in Sources */,
 				C5914DAA25385356007777A6 /* UIViewController+TZImagePickerControllerDelegate.m in Sources */,
+				C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */,
 				C54BB3D12518D391001591C2 /* ZYTextField.m in Sources */,
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
 				C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */,

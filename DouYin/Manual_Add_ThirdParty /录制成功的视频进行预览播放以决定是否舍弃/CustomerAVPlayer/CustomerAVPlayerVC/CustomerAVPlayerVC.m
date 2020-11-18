@@ -150,10 +150,10 @@
         [self.view.layer addSublayer:_AVPlayerView.playerLayer];
         [_AVPlayerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.view);
-            if (self.gk_navigationBar.hidden) {
-                make.top.equalTo(self.view);
-            }else{
+            if (self.gk_navBarAlpha && !self.gk_navigationBar.hidden) {//显示
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }else{
+                make.top.equalTo(self.view.mas_top);
             }
         }];
     }return _AVPlayerView;

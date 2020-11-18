@@ -240,7 +240,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.view);
-            if (self.gk_navBarAlpha) {
+            if (self.gk_navBarAlpha && !self.gk_navigationBar.hidden) {//显示
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
             }else{
                 make.top.equalTo(self.view.mas_top);

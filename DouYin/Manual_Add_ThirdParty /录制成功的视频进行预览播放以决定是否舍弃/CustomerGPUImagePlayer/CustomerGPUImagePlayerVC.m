@@ -143,10 +143,10 @@
         [_filterView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.view);
             make.height.mas_equalTo(self.view.frame.size.height / 2);
-            if (self.gk_navigationBar.hidden) {
-                make.top.equalTo(self.view);
-            }else{
+            if (self.gk_navBarAlpha && !self.gk_navigationBar.hidden) {//显示
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }else{
+                make.top.equalTo(self.view.mas_top);
             }
         }];
     }return _filterView;

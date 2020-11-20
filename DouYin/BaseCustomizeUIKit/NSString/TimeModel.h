@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger currentMin;//当前分
 @property(nonatomic,assign)NSInteger currentSec;//当前秒
 @property(nonatomic,assign)NSInteger currentNanoSec;//当前纳秒
-@property(nonatomic,assign)NSInteger currentWeekday;//当前星期几
+@property(nonatomic,assign)NSInteger currentWeekday;//当前星期几 表示周里面的天 1代表周日 2代表周一 7代表周六
 @property(nonatomic,assign)NSInteger currentWeekdayOrdinal;//
 @property(nonatomic,assign)NSInteger currentQuarter;
 @property(nonatomic,assign)NSInteger currentWeekOfMonth;//该月份的第几周
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger customMin;//当前分
 @property(nonatomic,assign)NSInteger customSec;//当前秒
 @property(nonatomic,assign)NSInteger customNanoSec;//当前纳秒
-@property(nonatomic,assign)NSInteger customWeekday;//当前星期几
+@property(nonatomic,assign)NSInteger customWeekday;//当前星期几 表示周里面的天 1代表周日 2代表周一 7代表周六
 @property(nonatomic,assign)NSInteger customWeekdayOrdinal;//
 @property(nonatomic,assign)NSInteger customQuarter;
 @property(nonatomic,assign)NSInteger customWeekOfMonth;//该月份的第几周
@@ -66,6 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger customTimeOffset;//自定义时区与格林威治时间的时间差
 
 -(void)makeSpecificTime;//各个具体时间的拆解
+//以当前手机系统时间（包含了时区）为基准，给定一个日期偏移值（正值代表未来，负值代表过去，0代表现在），返回字符串特定格式的“星期几”
++(NSString *)whatDayOfWeekDistanceNow:(NSInteger)offsetDay;
 
 @end
 

@@ -154,9 +154,11 @@ UIViewController *childViewController_SystemStyle(UIViewController *viewControll
             [viewController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 0)];//修改文字偏移量
         }
 
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
-        nav.title = config.title;
-        [self.childMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
+        if (![viewController isKindOfClass:UINavigationController.class]) {//防止UIImagePickerController崩，见个人中心 -(void)takePhoto
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+            nav.title = config.title;
+            [self.childMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
+        }
     }
 #warning 这句话走了以后 才会有self.tabBar
     self.viewControllers = self.childMutArr;

@@ -27,5 +27,9 @@
 +(CGSize)collectionReusableViewSizeWithModel:(id _Nullable)model{
     return CGSizeZero;
 }
+//由具体的子类进行覆写
+-(void)richElementsInCellWithModel:(id _Nullable)model{
+    
+}
 
 @end

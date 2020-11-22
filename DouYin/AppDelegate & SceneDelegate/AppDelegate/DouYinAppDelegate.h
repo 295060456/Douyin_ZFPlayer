@@ -13,7 +13,7 @@
 
 @property(readonly,strong)NSPersistentCloudKitContainer *persistentContainer;
 @property(nonatomic,assign)BOOL allowOrentitaionRotation;
-@property(nonatomic,strong)TabbarVC *tabbarVC;
+@property(nonatomic,strong)TabbarVC *tabBarVC;
 @property(nonatomic,strong)UIWindow *window;//仅仅为了iOS 13 版本向下兼容而存在
 
 +(instancetype)sharedInstance;

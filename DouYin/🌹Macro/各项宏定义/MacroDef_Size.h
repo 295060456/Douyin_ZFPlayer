@@ -71,7 +71,7 @@ static inline CGFloat NavigationHeight(){
 #import "TabbarVC.h"
 static inline CGFloat TabBarHeight(){
     //即时获取
-    CGFloat tabBarHeight = DouYinAppDelegate.sharedInstance.tabbarVC.tabBar.frame.size.height;
+    CGFloat tabBarHeight = DouYinAppDelegate.sharedInstance.tabBarVC.tabBar.frame.size.height;
     NSLog(@"tabBarHeight = %f",tabBarHeight);
     return tabBarHeight;
 }
@@ -82,7 +82,7 @@ static inline CGFloat TopSafeAreaHeight(){
 //底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat BottomSafeAreaHeight(){
     NSLog(@"%f",TabBarHeight());
-    return TabBarHeight() - 49 - DouYinAppDelegate.sharedInstance.tabbarVC.myTabBar.offsetHeight;
+    return TabBarHeight() - 49 - DouYinAppDelegate.sharedInstance.tabBarVC.myTabBar.offsetHeight;
 }
 
 #endif /* MacroDef_Size_h */

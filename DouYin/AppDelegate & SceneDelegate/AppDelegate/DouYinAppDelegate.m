@@ -120,11 +120,11 @@ didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
     if (!_window) {
         _window = UIWindow.new;
         _window.frame = [UIScreen mainScreen].bounds;
-        [_window setRootViewController:self.tabbarVC];
+        [_window setRootViewController:self.tabBarVC];
         [_window makeKeyAndVisible];
     }return _window;
 }
--(TabbarVC *)tabbarVC{
+-(TabbarVC *)tabBarVC{
     if (!_tabbarVC) {
         _tabbarVC = TabbarVC.new;
 //        _tabbarVC.isOpenScrollTabbar = NO;

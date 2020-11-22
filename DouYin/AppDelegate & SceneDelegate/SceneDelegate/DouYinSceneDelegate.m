@@ -73,7 +73,7 @@ willConnectToSession:(UISceneSession *)session
 }
 #pragma mark —— lazyLoad
 -(UIWindow *)window{
-    [_window setRootViewController:DouYinAppDelegate.sharedInstance.tabbarVC];
+    [_window setRootViewController:DouYinAppDelegate.sharedInstance.tabBarVC];
     [_window makeKeyAndVisible];
     return _window;
 }

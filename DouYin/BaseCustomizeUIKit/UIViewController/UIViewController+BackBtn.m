@@ -13,7 +13,7 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
 @dynamic backBtnCategory;
 
 #pragma mark —— 子类需要覆写
--(void)backBtnClickEvent:(UIButton *)sender{
+-(void)backBtnClickEvent:(UIButton *_Nullable)sender{
     if (self.navigationController) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{

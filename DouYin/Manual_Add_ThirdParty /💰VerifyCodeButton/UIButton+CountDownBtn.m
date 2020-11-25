@@ -164,7 +164,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
                    titleLabelFont:titleLabelFont]) {
         
         self.richTextRunningDataMutArr = (NSMutableArray *)richTextRunningDataMutArr;
-        self.attributedString = [self.titleLabel makeRichTextWithDataConfigMutArr:self.richTextRunningDataMutArr];
+        self.attributedString = [NSObject makeRichTextWithDataConfigMutArr:self.richTextRunningDataMutArr];
         [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
     }return self;
 }
@@ -342,7 +342,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
         
     }
 
-    self.attributedString = [self.titleLabel makeRichTextWithDataConfigMutArr:tempDataMutArr];
+    self.attributedString = [NSObject makeRichTextWithDataConfigMutArr:tempDataMutArr];
     [self setAttributedTitle:self.attributedString forState:UIControlStateNormal];
 
     self.backgroundColor = self.bgCountDownColor;

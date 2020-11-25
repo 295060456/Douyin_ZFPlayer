@@ -63,9 +63,9 @@
 
 @end
 
-@implementation UILabel (RichText)
+@implementation NSObject (RichText)
 
--(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr{
++(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr{
     
     NSString *resultString = @"";
     
@@ -111,9 +111,7 @@
                            range:richLabelDataStringsModel.richLabelURLModel.range];
     }
     
-    self.attributedText = attrString;
-    
-    return self.attributedText;
+    return attrString;
 }
 
 @end

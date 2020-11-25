@@ -56,9 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface UILabel (RichText)
+@interface NSObject (RichText)
 
--(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr;
++(NSAttributedString *)makeRichTextWithDataConfigMutArr:(NSArray <RichLabelDataStringsModel *>*_Nonnull)richTextDataConfigMutArr;
 
 @end
 

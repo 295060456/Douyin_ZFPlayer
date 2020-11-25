@@ -13,12 +13,15 @@
 static inline UIWindow * getMainWindow(){
     UIWindow *window = nil;
     if (@available(iOS 13.0, *)) {
-//        window = [DouYinSceneDelegate sharedInstance].window;
-        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes){
-            if (windowScene.activationState == UISceneActivationStateForegroundActive){
-                window = windowScene.windows.firstObject;
-                break;
-            }
+        window = [DouYinSceneDelegate sharedInstance].window;
+        //以下方法有时候会拿不到window
+        {
+//            for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes){
+//                if (windowScene.activationState == UISceneActivationStateForegroundActive){
+//                    window = windowScene.windows.firstObject;
+//                    break;
+//                }
+//            }
         }
     }else{
         window = UIApplication.sharedApplication.delegate.window;

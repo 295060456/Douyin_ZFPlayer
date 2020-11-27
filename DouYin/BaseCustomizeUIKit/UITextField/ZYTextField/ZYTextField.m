@@ -9,6 +9,8 @@
 
 @implementation ZYTextField
 
+@synthesize richLabelDataStringsForPlaceHolderMutArr = _richLabelDataStringsForPlaceHolderMutArr;
+
 -(instancetype)init{
     if (self = [super init]) {
         self.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -31,12 +33,17 @@
     self.textColor = self.ZYtextColor;
     //光标颜色
     self.tintColor = self.ZYtintColor;
-    //占位符的颜色和大小
-    UILabel *placeholderLabel = object_getIvar(self,
-                                               class_getInstanceVariable(UITextField.class,
-                                                                         "_placeholderLabel"));
-    placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_1;
-    placeholderLabel.font = self.ZYplaceholderLabelFont_1;
+    
+    if (@available(iOS 13.0, *)) {
+
+    }else{
+        //占位符的颜色和大小
+        UILabel *placeholderLabel = object_getIvar(self,
+                                                   class_getInstanceVariable(UITextField.class,
+                                                                             "_placeholderLabel"));
+        placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_1;
+        placeholderLabel.font = self.ZYplaceholderLabelFont_1;
+    }
     // 不成为第一响应者
     [self resignFirstResponder];
     self.isOk = YES;
@@ -45,25 +52,33 @@
  * 当前文本框聚焦时就会调用
  */
 - (BOOL)becomeFirstResponder{
-    // 修改占位文字颜色
-    UILabel *placeholderLabel = object_getIvar(self,
-                                               class_getInstanceVariable(UITextField.class,
-                                                                         "_placeholderLabel"));
-    placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_2;
-    placeholderLabel.font = self.ZYplaceholderLabelFont_2;
+    if (@available(iOS 13.0, *)) {
+
+    }else{
+        // 修改占位文字颜色
+        UILabel *placeholderLabel = object_getIvar(self,
+                                                   class_getInstanceVariable(UITextField.class,
+                                                                             "_placeholderLabel"));
+        placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_2;
+        placeholderLabel.font = self.ZYplaceholderLabelFont_2;
+    }
+    
     return [super becomeFirstResponder];
 }
 /**
  * 当前文本框失去焦点时就会调用
  */
 - (BOOL)resignFirstResponder{
-    // 修改占位文字颜色
-    UILabel *placeholderLabel = object_getIvar(self,
-                                               class_getInstanceVariable(UITextField.class,
-                                                                         "_placeholderLabel"));
-    placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_1;
-    placeholderLabel.font = self.ZYplaceholderLabelFont_1;
-    return [super resignFirstResponder];
+    if (@available(iOS 13.0, *)) {
+
+    }else{
+        // 修改占位文字颜色
+        UILabel *placeholderLabel = object_getIvar(self,
+                                                   class_getInstanceVariable(UITextField.class,
+                                                                             "_placeholderLabel"));
+        placeholderLabel.textColor = self.ZYplaceholderLabelTextColor_1;
+        placeholderLabel.font = self.ZYplaceholderLabelFont_1;
+    }return [super resignFirstResponder];
 }
 #pragma mark —— 重写父类方法
 -(void)drawPlaceholderInRect:(CGRect)rect {
@@ -90,11 +105,32 @@
 }
 //控制placeHolder的位置
 -(CGRect)placeholderRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x + self.offset,
-                              bounds.origin.y,
-                              bounds.size.width - self.offset,
-                              bounds.size.height);
-    return inset;
+    
+    CGRect newbounds = bounds;
+    CGSize size = [self.placeholder sizeWithAttributes:@{NSFontAttributeName:self.font}];
+    
+    switch (self.placeHolderAlignment) {
+        case PlaceHolderAlignmentLeft:{
+            newbounds.origin.x += self.placeHolderOffset;
+            return newbounds;
+        }break;
+        case PlaceHolderAlignmentCenter:{
+            CGFloat width = bounds.size.width - size.width;
+            newbounds.origin.x = width / 2 + self.placeHolderOffset;
+            newbounds.size.width = size.width;
+            return newbounds;
+        }break;
+        case PlaceHolderAlignmentRight:{
+
+            CGFloat width = bounds.size.width - size.width;
+            newbounds.origin.x = width - self.placeHolderOffset;
+            newbounds.size.width = size.width;
+            return newbounds;
+        }break;
+        default:
+            return CGRectZero;
+            break;
+    }
 }
 //控制显示文本的位置
 -(CGRect)textRectForBounds:(CGRect)bounds{
@@ -129,16 +165,14 @@
 #pragma mark —— lazyLoad
 -(UIFont *)ZYtextFont{
     if (!_ZYtextFont) {
-        _ZYtextFont = [UIFont systemFontOfSize:17
+        _ZYtextFont = [UIFont systemFontOfSize:10
                                         weight:UIFontWeightRegular];
     }return _ZYtextFont;
 }
 
 -(UIColor *)ZYtextColor{
     if (!_ZYtextColor) {
-        _ZYtextColor = RGBCOLOR(77,
-                                150,
-                                132);
+        _ZYtextColor = KGreenColor;
     }return _ZYtextColor;
 }
 
@@ -200,6 +234,31 @@
     if (!_ZYTextFieldBorderColor) {
         _ZYTextFieldBorderColor = kBlackColor;
     }return _ZYTextFieldBorderColor;
+}
+
+-(NSMutableArray<RichLabelDataStringsModel *> *)richLabelDataStringsForPlaceHolderMutArr{
+    if (!_richLabelDataStringsForPlaceHolderMutArr) {
+        _richLabelDataStringsForPlaceHolderMutArr = NSMutableArray.array;
+        
+        RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+        richLabelFontModel.font = self.ZYtextFont;
+        richLabelFontModel.range = NSMakeRange(0, self.placeholder.length);
+        
+        RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+        richLabelTextCorModel.cor = self.ZYtextColor;
+        richLabelTextCorModel.range = NSMakeRange(0, self.placeholder.length);
+        
+        RichLabelDataStringsModel *richLabelDataStringsModel = RichLabelDataStringsModel.new;
+        richLabelDataStringsModel.dataString = self.placeholder;
+        richLabelDataStringsModel.richLabelFontModel = richLabelFontModel;
+        richLabelDataStringsModel.richLabelTextCorModel = richLabelTextCorModel;
+        
+        [_richLabelDataStringsForPlaceHolderMutArr addObject:richLabelDataStringsModel];
+    }return _richLabelDataStringsForPlaceHolderMutArr;
+}
+
+-(void)setRichLabelDataStringsForPlaceHolderMutArr:(NSMutableArray<RichLabelDataStringsModel *> *)richLabelDataStringsForPlaceHolderMutArr{
+    _richLabelDataStringsForPlaceHolderMutArr = richLabelDataStringsForPlaceHolderMutArr;
 }
 
 @end

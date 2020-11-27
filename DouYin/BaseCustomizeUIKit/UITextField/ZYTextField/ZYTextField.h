@@ -1,5 +1,12 @@
 #import <UIKit/UIKit.h>
 #import "CJTextField.h"
+#import "NSObject+RichText.h"
+
+typedef NS_ENUM(NSUInteger, PlaceHolderAlignment){
+    PlaceHolderAlignmentLeft,// 左对齐 默认
+    PlaceHolderAlignmentCenter,// 居中对齐
+    PlaceHolderAlignmentRight// 右对齐
+};
 
 @interface ZYTextField : CJTextField
 
@@ -22,5 +29,9 @@
 @property(nonatomic,assign)CGFloat ZYTextFieldBorderWidth;
 @property(nonatomic,assign)UIColor *ZYTextFieldBorderColor;
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
+@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment;//PlaceHolder的位置
+@property(nonatomic,assign)CGFloat placeHolderOffset;//左/右/居中 对齐的时候的偏移量 传正值
+
+@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*richLabelDataStringsForPlaceHolderMutArr;
 
 @end

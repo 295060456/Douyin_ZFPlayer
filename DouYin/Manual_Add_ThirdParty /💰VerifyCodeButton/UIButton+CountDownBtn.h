@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TimerManager.h"
-#import "UILabel+RichText.h"
+#import "NSObject+RichText.h"
 
 typedef enum : NSUInteger {
     ShowTimeType_SS = 0,//秒

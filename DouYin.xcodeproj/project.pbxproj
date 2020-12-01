@@ -26,7 +26,6 @@
 		C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */; };
 		C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */; };
 		C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B3D302552605B003BE195 /* UIFont+Extras.m */; };
-		C54B40202552980E003BE195 /* UILabel+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401C2552980E003BE195 /* UILabel+RichText.m */; };
 		C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401F2552980E003BE195 /* UILabel+Extra.m */; };
 		C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */; };
 		C54BB0B32518D00E001591C2 /* DouYinSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0B22518D00E001591C2 /* DouYinSceneDelegate.m */; };
@@ -217,6 +216,7 @@
 		C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F52518D363001591C2 /* FMARCNetwork.m */; };
 		C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F82518D363001591C2 /* FMHttpRequest.m */; };
 		C5F451832529A18200066AAB /* FMHttpResonse.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F02518D363001591C2 /* FMHttpResonse.m */; };
+		C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = C5FF99222575F51D00E38D8D /* NSObject+RichText.m */; };
 		E02313BA119E3F33410DB620 /* Pods_DouYin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */; };
 /* End PBXBuildFile section */
 
@@ -282,9 +282,7 @@
 		C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WhiteArrows.m"; sourceTree = "<group>"; };
 		C54B3D2F2552605B003BE195 /* UIFont+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extras.h"; sourceTree = "<group>"; };
 		C54B3D302552605B003BE195 /* UIFont+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extras.m"; sourceTree = "<group>"; };
-		C54B401C2552980E003BE195 /* UILabel+RichText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+RichText.m"; sourceTree = "<group>"; };
 		C54B401D2552980E003BE195 /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
-		C54B401E2552980E003BE195 /* UILabel+RichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+RichText.h"; sourceTree = "<group>"; };
 		C54B401F2552980E003BE195 /* UILabel+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extra.m"; sourceTree = "<group>"; };
 		C54BB0AB2518D00E001591C2 /* DouYin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0AE2518D00E001591C2 /* DouYinAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouYinAppDelegate.h; sourceTree = "<group>"; };
@@ -661,6 +659,8 @@
 		C5ED338A2521C887001A04FE /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		C5ED338B2521C887001A04FE /* ZFTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTableData.m; sourceTree = "<group>"; };
 		C5ED338C2521C887001A04FE /* ZFTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTableData.h; sourceTree = "<group>"; };
+		C5FF99222575F51D00E38D8D /* NSObject+RichText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RichText.m"; sourceTree = "<group>"; };
+		C5FF99232575F51D00E38D8D /* NSObject+RichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RichText.h"; sourceTree = "<group>"; };
 		EFD7FDAF10237E80D4FE07BB /* Pods-DouYin-DouYinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYin-DouYinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DouYin-DouYinUITests/Pods-DouYin-DouYinUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F2F0CEAF7642A0FCD26BC154 /* Pods-DouYinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.release.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -864,9 +864,7 @@
 		C54B401B2552980E003BE195 /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
-				C54B401C2552980E003BE195 /* UILabel+RichText.m */,
 				C54B401D2552980E003BE195 /* UILabel+Extra.h */,
-				C54B401E2552980E003BE195 /* UILabel+RichText.h */,
 				C54B401F2552980E003BE195 /* UILabel+Extra.m */,
 			);
 			path = UILabel;
@@ -1583,6 +1581,8 @@
 			isa = PBXGroup;
 			children = (
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
+				C5FF99232575F51D00E38D8D /* NSObject+RichText.h */,
+				C5FF99222575F51D00E38D8D /* NSObject+RichText.m */,
 				C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */,
 				C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */,
 				C54BB37E2518D391001591C2 /* NSObject+Extras.h */,
@@ -2496,6 +2496,7 @@
 				C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */,
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
 				C54BB47A2518DACC001591C2 /* BaseGPUImageView.m in Sources */,
+				C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
@@ -2641,7 +2642,6 @@
 				C54BB2DD2518D363001591C2 /* RepeatPlayer.m in Sources */,
 				C57342B125248DAC00CC6A3A /* ZYTextField+HistoryDataList.m in Sources */,
 				C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */,
-				C54B40202552980E003BE195 /* UILabel+RichText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

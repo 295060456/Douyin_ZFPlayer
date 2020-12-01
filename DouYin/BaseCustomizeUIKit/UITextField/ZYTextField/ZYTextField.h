@@ -1,5 +1,4 @@
 #import <UIKit/UIKit.h>
-#import "CJTextField.h"
 #import "NSObject+RichText.h"
 
 typedef NS_ENUM(NSUInteger, PlaceHolderAlignment){

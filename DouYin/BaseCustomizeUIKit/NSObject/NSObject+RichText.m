@@ -5,7 +5,7 @@
 //  Created by Jobs on 2020/11/4.
 //
 
-#import "UILabel+RichText.h"
+#import "NSObject+RichText.h"
 
 @implementation RichLabelFontModel
 
@@ -110,7 +110,6 @@
                            value:[NSURL URLWithString:richLabelDataStringsModel.richLabelURLModel.urlStr]
                            range:richLabelDataStringsModel.richLabelURLModel.range];
     }
-    
     return attrString;
 }
 

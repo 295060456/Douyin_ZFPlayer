@@ -40,3 +40,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+ 
+ [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_1
+                               title:nil
+                             message:nil
+                     customAlertView:nil
+                    customHeaderView:nil
+            customActionSequenceView:nil
+                      preferredStyle:SPAlertControllerStyleActionSheet
+                       animationType:SPAlertAnimationTypeFromBottom
+                 alertActionTitleArr:@[@"继续关注",@"取消关注",@"取消"]
+                 alertActionStyleArr:@[@(SPAlertActionStyleDefault),@(SPAlertActionStyleDestructive),@(SPAlertActionStyleCancel)]
+                      alertBtnAction:@[@"continueToFocusOn",@"unfollow",@"cancel"]
+                            targetVC:self
+                        alertVCBlock:^(id data, id data2) {
+     
+ }];
+ 
+ */

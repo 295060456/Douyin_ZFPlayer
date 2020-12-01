@@ -25,8 +25,9 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
                 comingStyle:(ComingStyle)comingStyle
           presentationStyle:(UIModalPresentationStyle)presentationStyle
               requestParams:(nullable id)requestParams
-                    success:(MKDataBlock)successBlock
-                   animated:(BOOL)animated{
+   hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
+                   animated:(BOOL)animated
+                    success:(MKDataBlock)successBlock{
     toVC.requestParams = requestParams;
     @weakify(rootVC)
     switch (comingStyle) {
@@ -36,6 +37,7 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
                 if (successBlock) {
                     successBlock(toVC);
                 }
+                toVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed;//下面有黑条
                 [weak_rootVC.navigationController pushViewController:toVC
                                                             animated:animated];
             }else{

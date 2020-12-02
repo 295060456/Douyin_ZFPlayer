@@ -243,8 +243,8 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         }];
         
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
-                                                          titleStr:@"没有评论"
-                                                         detailStr:@"来发布第一条吧"];
+                                                          titleStr:@"暂无数据"
+                                                         detailStr:@"骚等片刻"];
         
         if (self.dataMutArr.count) {
             [_tableView ly_hideEmptyView];

@@ -11,10 +11,20 @@
 @interface CustomZFPlayerControlView ()
 
 @property(nonatomic,copy)TwoDataBlock customZFPlayerControlViewBlock;
+@property(nonatomic,assign)BOOL isOK;
+@property(nonatomic,strong)UILabel *tipsLab;
 
 @end
 
 @implementation CustomZFPlayerControlView
+
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    if (!self.isOK) {
+        self.tipsLab.alpha = 1;
+        self.isOK = YES;
+    }
+}
 
 -(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)customZFPlayerControlViewBlock{
     self.customZFPlayerControlViewBlock = customZFPlayerControlViewBlock;
@@ -60,6 +70,25 @@
 -(void)gesturePinched:(ZFPlayerGestureControl *)gestureControl
                 scale:(float)scale{
     
+}
+#pragma mark —— lazyLoad
+-(UILabel *)tipsLab{
+    if (!_tipsLab) {
+        _tipsLab = UILabel.new;
+        _tipsLab.text = @"自定义控制层子视图";
+        _tipsLab.textColor = kRedColor;
+        [_tipsLab sizeToFit];
+        [self addSubview:_tipsLab];
+        [_tipsLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).offset(50);
+            make.top.equalTo(self).offset(10);
+            make.height.mas_equalTo(150);
+        }];
+        [UIView cornerCutToCircleWithView:_tipsLab AndCornerRadius:3];
+        [UIView colourToLayerOfView:_tipsLab
+                         WithColour:kWhiteColor
+                     AndBorderWidth:1];
+    }return _tipsLab;
 }
 
 @end

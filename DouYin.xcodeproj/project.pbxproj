@@ -123,11 +123,6 @@
 		C54BB5012518E398001591C2 /* ViewController@2.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB4FA2518E398001591C2 /* ViewController@2.m */; };
 		C54BB5022518E398001591C2 /* ViewController@5.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB4FC2518E398001591C2 /* ViewController@5.m */; };
 		C54BB5032518E398001591C2 /* ViewController@1.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB4FD2518E398001591C2 /* ViewController@1.m */; };
-		C54BB5362518E5F6001591C2 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52C2518E5F5001591C2 /* ZBRequestManager.m */; };
-		C54BB5372518E5F6001591C2 /* NSString+ZBUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52E2518E5F5001591C2 /* NSString+ZBUTF8Encoding.m */; };
-		C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */; };
-		C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5312518E5F5001591C2 /* ZBCacheManager.m */; };
-		C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */; };
 		C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */; };
 		C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
@@ -156,6 +151,11 @@
 		C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */; };
 		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
+		C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F42578936C00D054D0 /* ZBRequestManager.m */; };
+		C56BA9022578936D00D054D0 /* NSString+ZBUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */; };
+		C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F92578936C00D054D0 /* ZBCacheManager.m */; };
+		C56BA9052578936D00D054D0 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */; };
+		C56BA9062578936D00D054D0 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */; };
 		C56E3E83254715AB00B9F555 /* 资源文件 in Resources */ = {isa = PBXBuildFile; fileRef = C56E3E82254715AB00B9F555 /* 资源文件 */; };
 		C56E41E72547173A00B9F555 /* ⚽️PicResource in Resources */ = {isa = PBXBuildFile; fileRef = C56E41E62547173A00B9F555 /* ⚽️PicResource */; };
 		C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C571095F253C1358005B3A0C /* UITabBarItem+TLAnimation.m */; };
@@ -483,19 +483,6 @@
 		C54BB4FC2518E398001591C2 /* ViewController@5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@5.m"; sourceTree = "<group>"; };
 		C54BB4FD2518E398001591C2 /* ViewController@1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@1.m"; sourceTree = "<group>"; };
 		C54BB4FE2518E398001591C2 /* ViewController@2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@2.h"; sourceTree = "<group>"; };
-		C54BB5292518E5F5001591C2 /* ZBURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBURLRequest.h; sourceTree = "<group>"; };
-		C54BB52A2518E5F5001591C2 /* ZBCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCacheManager.h; sourceTree = "<group>"; };
-		C54BB52B2518E5F5001591C2 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
-		C54BB52C2518E5F5001591C2 /* ZBRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestManager.m; sourceTree = "<group>"; };
-		C54BB52D2518E5F5001591C2 /* ZBRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestManager.h; sourceTree = "<group>"; };
-		C54BB52E2518E5F5001591C2 /* NSString+ZBUTF8Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUTF8Encoding.m"; sourceTree = "<group>"; };
-		C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
-		C54BB5302518E5F5001591C2 /* ZBNetworking */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ZBNetworking; sourceTree = "<group>"; };
-		C54BB5312518E5F5001591C2 /* ZBCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCacheManager.m; sourceTree = "<group>"; };
-		C54BB5322518E5F5001591C2 /* NSString+ZBUTF8Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUTF8Encoding.h"; sourceTree = "<group>"; };
-		C54BB5332518E5F6001591C2 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
-		C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
-		C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
 		C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZFPlayer.m"; sourceTree = "<group>"; };
 		C54CC561255146F800C69C1F /* UIView+ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZFPlayer.h"; sourceTree = "<group>"; };
 		C54CC5B725514AC300C69C1F /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
@@ -551,6 +538,19 @@
 		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
 		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
 		C562093C2554006100FE435F /* 验证码按钮单例封装.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "验证码按钮单例封装.md"; sourceTree = "<group>"; };
+		C56BA8F42578936C00D054D0 /* ZBRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestManager.m; sourceTree = "<group>"; };
+		C56BA8F52578936C00D054D0 /* ZBURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBURLRequest.h; sourceTree = "<group>"; };
+		C56BA8F62578936C00D054D0 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
+		C56BA8F72578936C00D054D0 /* ZBRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestManager.h; sourceTree = "<group>"; };
+		C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUTF8Encoding.m"; sourceTree = "<group>"; };
+		C56BA8F92578936C00D054D0 /* ZBCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCacheManager.m; sourceTree = "<group>"; };
+		C56BA8FA2578936C00D054D0 /* ZBNetworking */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ZBNetworking; path = "../../../../../My_BaseProj/My_BaseProj/🔨Manual_Add_ThirdParty /网络请求/ZBNetworking/ZBNetworking"; sourceTree = "<group>"; };
+		C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
+		C56BA8FC2578936C00D054D0 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
+		C56BA8FD2578936C00D054D0 /* ZBCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCacheManager.h; sourceTree = "<group>"; };
+		C56BA8FE2578936C00D054D0 /* NSString+ZBUTF8Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUTF8Encoding.h"; sourceTree = "<group>"; };
+		C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
+		C56BA9002578936D00D054D0 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
 		C56E3E82254715AB00B9F555 /* 资源文件 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "资源文件"; sourceTree = "<group>"; };
 		C56E41E62547173A00B9F555 /* ⚽️PicResource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "⚽️PicResource"; sourceTree = "<group>"; };
 		C571095C253C1358005B3A0C /* TabbarControllerSysEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarControllerSysEx.h; sourceTree = "<group>"; };
@@ -608,7 +608,6 @@
 		C582A697251C796400DD83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		C582A698251C796400DD83A1 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C582A699251C796400DD83A1 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
-		C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C5850B4025483E5F001E6676 /* ViewForTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewHeader.m; sourceTree = "<group>"; };
 		C5850B4125483E5F001E6676 /* ViewForTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewHeader.h; sourceTree = "<group>"; };
 		C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewFooter.m; sourceTree = "<group>"; };
@@ -1731,20 +1730,19 @@
 		C54BB5282518E5CD001591C2 /* ZBNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB5302518E5F5001591C2 /* ZBNetworking */,
-				C582A6AB251C9A4300DD83A1 /* NetworkingConstant.h */,
-				C54BB5322518E5F5001591C2 /* NSString+ZBUTF8Encoding.h */,
-				C54BB52E2518E5F5001591C2 /* NSString+ZBUTF8Encoding.m */,
-				C54BB52A2518E5F5001591C2 /* ZBCacheManager.h */,
-				C54BB5312518E5F5001591C2 /* ZBCacheManager.m */,
-				C54BB5332518E5F6001591C2 /* ZBNetworking.h */,
-				C54BB52B2518E5F5001591C2 /* ZBRequestConst.h */,
-				C54BB5352518E5F6001591C2 /* ZBRequestEngine.h */,
-				C54BB5342518E5F6001591C2 /* ZBRequestEngine.m */,
-				C54BB52D2518E5F5001591C2 /* ZBRequestManager.h */,
-				C54BB52C2518E5F5001591C2 /* ZBRequestManager.m */,
-				C54BB5292518E5F5001591C2 /* ZBURLRequest.h */,
-				C54BB52F2518E5F5001591C2 /* ZBURLRequest.m */,
+				C56BA8FE2578936C00D054D0 /* NSString+ZBUTF8Encoding.h */,
+				C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */,
+				C56BA8FD2578936C00D054D0 /* ZBCacheManager.h */,
+				C56BA8F92578936C00D054D0 /* ZBCacheManager.m */,
+				C56BA8FA2578936C00D054D0 /* ZBNetworking */,
+				C56BA8F62578936C00D054D0 /* ZBNetworking.h */,
+				C56BA8FC2578936C00D054D0 /* ZBRequestConst.h */,
+				C56BA9002578936D00D054D0 /* ZBRequestEngine.h */,
+				C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */,
+				C56BA8F72578936C00D054D0 /* ZBRequestManager.h */,
+				C56BA8F42578936C00D054D0 /* ZBRequestManager.m */,
+				C56BA8F52578936C00D054D0 /* ZBURLRequest.h */,
+				C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
 			sourceTree = "<group>";
@@ -2493,11 +2491,13 @@
 				C54BB2DE2518D363001591C2 /* UIButton+ImageTitleSpacing.m in Sources */,
 				C571099B253C1358005B3A0C /* TabBarItem.m in Sources */,
 				C54BB3C52518D391001591C2 /* CALayer+Transition.m in Sources */,
+				C56BA9062578936D00D054D0 /* ZBRequestEngine.m in Sources */,
 				C54BB42F2518D3F6001591C2 /* ZZCountingLabel.m in Sources */,
 				C56188C1255D6D74004E7B47 /* XHLaunchAdConst.m in Sources */,
 				C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */,
 				C54BB3C22518D391001591C2 /* NSArray+Extend.m in Sources */,
 				C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */,
+				C56BA9052578936D00D054D0 /* ZBURLRequest.m in Sources */,
 				C56188C2255D6D74004E7B47 /* XHLaunchAd.m in Sources */,
 				C54BB2C62518D363001591C2 /* YHGPUImageBeautifyFilter.m in Sources */,
 				C54BB39C2518D391001591C2 /* UIImage+Extras.m in Sources */,
@@ -2516,6 +2516,7 @@
 				C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */,
 				C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */,
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
+				C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */,
 				C54BB47A2518DACC001591C2 /* BaseGPUImageView.m in Sources */,
 				C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
@@ -2529,7 +2530,6 @@
 				C5850B4525483E5F001E6676 /* ViewForTableViewHeader.m in Sources */,
 				C5914DA925385356007777A6 /* UIViewController+Shake.m in Sources */,
 				C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */,
-				C54BB53A2518E5F6001591C2 /* ZBCacheManager.m in Sources */,
 				C54BB5022518E398001591C2 /* ViewController@5.m in Sources */,
 				C55B2B002534273D0038E50C /* SuspendView.m in Sources */,
 				C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */,
@@ -2538,11 +2538,11 @@
 				C56188C4255D6D74004E7B47 /* XHLaunchAdDownloader.m in Sources */,
 				C54BB3C02518D391001591C2 /* UIView+JHGestureBlock.m in Sources */,
 				C54BB3A22518D391001591C2 /* UIButton+Block.m in Sources */,
-				C54BB5362518E5F6001591C2 /* ZBRequestManager.m in Sources */,
 				C5914DAD25385356007777A6 /* UIViewController+BRPickerView.m in Sources */,
 				C54BB3012518D363001591C2 /* LGiOSBtn.m in Sources */,
 				C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */,
 				C54BB3042518D363001591C2 /* Nanosecond_TimerManager.m in Sources */,
+				C56BA9022578936D00D054D0 /* NSString+ZBUTF8Encoding.m in Sources */,
 				C54BB39D2518D391001591C2 /* UIImage+SYS.m in Sources */,
 				C54BB2DC2518D363001591C2 /* CustomerAVPlayerVC.m in Sources */,
 				C5914DAE25385356007777A6 /* UIViewController+GifImageView.m in Sources */,
@@ -2552,7 +2552,6 @@
 				C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */,
 				C54FE3C8257672F500937C11 /* BaseViewController.m in Sources */,
 				C57109B9253C1358005B3A0C /* TransitionController.m in Sources */,
-				C54BB5372518E5F6001591C2 /* NSString+ZBUTF8Encoding.m in Sources */,
 				C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */,
 				C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */,
 				C54BB2F92518D363001591C2 /* WGradientProgress.m in Sources */,
@@ -2572,7 +2571,6 @@
 				C54BB3A32518D391001591C2 /* UIColor+Hex.m in Sources */,
 				C54BB4302518D3F6001591C2 /* ZZCircleProgress.m in Sources */,
 				C54BB39B2518D391001591C2 /* UIImage+screenshot.m in Sources */,
-				C54BB53B2518E5F6001591C2 /* ZBRequestEngine.m in Sources */,
 				C54BB39A2518D391001591C2 /* UIImage+Tailor.m in Sources */,
 				C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */,
 				C57279D125409C8A002373D7 /* UIViewController+NavigationBar.m in Sources */,
@@ -2580,7 +2578,6 @@
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
 				C54BB2CF2518D363001591C2 /* BWShareView.m in Sources */,
-				C54BB5382518E5F6001591C2 /* ZBURLRequest.m in Sources */,
 				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
 				C5914DAF25385356007777A6 /* UIViewController+BackBtn.m in Sources */,
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
@@ -2638,6 +2635,7 @@
 				C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */,
 				C55B2B012534273D0038E50C /* SuspendBtn.m in Sources */,
 				C57109B8253C1358005B3A0C /* TransitionAnimation.m in Sources */,
+				C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */,
 				C54BB2F32518D363001591C2 /* UIButton+CountDownBtn.m in Sources */,
 				C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */,
 				C54BB3062518D363001591C2 /* ECAuthorizationTools.m in Sources */,

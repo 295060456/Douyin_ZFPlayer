@@ -27,5 +27,4 @@
     self.rightViewMode = UITextFieldViewModeWhileEditing;
 }
 
-
 @end

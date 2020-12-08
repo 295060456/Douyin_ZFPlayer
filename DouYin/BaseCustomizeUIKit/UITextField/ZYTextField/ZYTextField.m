@@ -103,7 +103,7 @@
     iconRect.origin.x -= self.rightViewOffsetX;
     return iconRect;
 }
-//控制placeHolder的位置
+// placeholder起始位置
 -(CGRect)placeholderRectForBounds:(CGRect)bounds{
     
     CGRect newbounds = bounds;
@@ -111,19 +111,18 @@
     
     switch (self.placeHolderAlignment) {
         case PlaceHolderAlignmentLeft:{
-            newbounds.origin.x += self.placeHolderOffset;
+            newbounds.origin.x += self.placeHolderOffset + self.leftViewOffsetX;
             return newbounds;
         }break;
         case PlaceHolderAlignmentCenter:{
             CGFloat width = bounds.size.width - size.width;
-            newbounds.origin.x = width / 2 + self.placeHolderOffset;
+            newbounds.origin.x = width / 2 + self.placeHolderOffset + self.leftViewOffsetX;
             newbounds.size.width = size.width;
             return newbounds;
         }break;
         case PlaceHolderAlignmentRight:{
-
             CGFloat width = bounds.size.width - size.width;
-            newbounds.origin.x = width - self.placeHolderOffset;
+            newbounds.origin.x = width - (self.placeHolderOffset + self.leftViewOffsetX);
             newbounds.size.width = size.width;
             return newbounds;
         }break;
@@ -132,19 +131,19 @@
             break;
     }
 }
-//控制显示文本的位置
+//未编辑状态下的起始位置
 -(CGRect)textRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x + self.offset,
+    CGRect inset = CGRectMake(bounds.origin.x + self.offset + self.leftViewOffsetX,
                               bounds.origin.y,
-                              bounds.size.width - self.offset,
+                              bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX),
                               bounds.size.height);
     return inset;
 }
-//控制编辑文本的位置
+//编辑状态下的起始位置
 -(CGRect)editingRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x + self.offset,
+    CGRect inset = CGRectMake(bounds.origin.x + self.offset + self.leftViewOffsetX,
                               bounds.origin.y,
-                              bounds.size.width - self.offset,
+                              bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX),
                               bounds.size.height);
     return inset;
 }
@@ -162,6 +161,34 @@
         }
     }
 }
+///输入的和某个预设定值不一致的时候，抖动动画
+- (void)isValidate:(NSString *)validate{
+    if (![self.text isEqualToString:validate]) {
+        [self shakeAnimationForView:self];
+    }
+}
+///输入的为空，抖动动画
+-(void)isEmptyText{
+    if ([NSString isNullString:self.text]) {
+        [self shakeAnimationForView:self];
+    }
+}
+
+-(void)shakeAnimationForView:(UIView *)view{
+    CALayer *lay_lb = [view layer];
+    CGPoint pos_lb = [lay_lb position];
+    CGPoint y = CGPointMake(pos_lb.x-10, pos_lb.y);
+    CGPoint x = CGPointMake(pos_lb.x+10, pos_lb.y);
+    CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [animation setFromValue:[NSValue valueWithCGPoint:x]];
+    [animation setToValue:[NSValue valueWithCGPoint:y]];
+    [animation setAutoreverses:YES];
+    [animation setDuration:0.08];
+    [animation setRepeatCount:3];
+    [lay_lb addAnimation:animation forKey:nil];
+}
+
 #pragma mark —— lazyLoad
 -(UIFont *)ZYtextFont{
     if (!_ZYtextFont) {

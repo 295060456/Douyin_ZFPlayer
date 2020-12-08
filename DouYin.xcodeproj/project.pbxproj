@@ -1735,26 +1735,9 @@
 		C54FE3CC257672FB00937C11 /* UIViewController+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C5D78797257F79720087FC92 /* UIViewController+Others */,
 				C576725C2546BBA800C382C8 /* UIViewController+TZImagePickerController */,
 				C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */,
-				C5914D8A25385356007777A6 /* UIViewController+BackBtn.h */,
-				C5914D9725385356007777A6 /* UIViewController+BackBtn.m */,
-				C5914D9225385356007777A6 /* UIViewController+BaseVC.h */,
-				C5914D9E25385356007777A6 /* UIViewController+BaseVC.m */,
-				C5914DA025385356007777A6 /* UIViewController+BRPickerView.h */,
-				C5914D9325385356007777A6 /* UIViewController+BRPickerView.m */,
-				C5914D9B25385356007777A6 /* UIViewController+BWShareView.h */,
-				C5914D8C25385356007777A6 /* UIViewController+BWShareView.m */,
-				C5914DA125385356007777A6 /* UIViewController+GifImageView.h */,
-				C5914D9425385356007777A6 /* UIViewController+GifImageView.m */,
-				C5914D9825385356007777A6 /* UIViewController+JPImageresizerView.h */,
-				C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */,
-				C5914D9125385356007777A6 /* UIViewController+MJRefresh.h */,
-				C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */,
-				C57279D025409C8A002373D7 /* UIViewController+NavigationBar.h */,
-				C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */,
-				C5914D9A25385356007777A6 /* UIViewController+Shake.h */,
-				C5914D8D25385356007777A6 /* UIViewController+Shake.m */,
 			);
 			path = "UIViewController+Category";
 			sourceTree = "<group>";
@@ -2190,6 +2173,31 @@
 				C5D77493257F59790087FC92 /* CJTextField.m */,
 			);
 			path = CJTextField;
+			sourceTree = "<group>";
+		};
+		C5D78797257F79720087FC92 /* UIViewController+Others */ = {
+			isa = PBXGroup;
+			children = (
+				C5914D8A25385356007777A6 /* UIViewController+BackBtn.h */,
+				C5914D9725385356007777A6 /* UIViewController+BackBtn.m */,
+				C5914D9225385356007777A6 /* UIViewController+BaseVC.h */,
+				C5914D9E25385356007777A6 /* UIViewController+BaseVC.m */,
+				C5914DA025385356007777A6 /* UIViewController+BRPickerView.h */,
+				C5914D9325385356007777A6 /* UIViewController+BRPickerView.m */,
+				C5914D9B25385356007777A6 /* UIViewController+BWShareView.h */,
+				C5914D8C25385356007777A6 /* UIViewController+BWShareView.m */,
+				C5914DA125385356007777A6 /* UIViewController+GifImageView.h */,
+				C5914D9425385356007777A6 /* UIViewController+GifImageView.m */,
+				C5914D9825385356007777A6 /* UIViewController+JPImageresizerView.h */,
+				C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */,
+				C5914D9125385356007777A6 /* UIViewController+MJRefresh.h */,
+				C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */,
+				C57279D025409C8A002373D7 /* UIViewController+NavigationBar.h */,
+				C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */,
+				C5914D9A25385356007777A6 /* UIViewController+Shake.h */,
+				C5914D8D25385356007777A6 /* UIViewController+Shake.m */,
+			);
+			path = "UIViewController+Others";
 			sourceTree = "<group>";
 		};
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {

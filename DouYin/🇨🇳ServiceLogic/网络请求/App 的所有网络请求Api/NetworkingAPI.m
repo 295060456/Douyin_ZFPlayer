@@ -15,10 +15,11 @@
     NSDictionary *headers = @{};
     
     [ZBRequestManager requestWithConfig:^(ZBURLRequest * _Nullable request) {
+
+        request.server = server_URL;
+        request.url = [URL_Manager sharedInstance].MKVideosRecommendVideosPOST;
         
-        request.URLString = append(@"%@%@",server_URL,[URL_Manager sharedInstance].MKVideosRecommendVideosPOST);
-        
-        NSLog(@"request.URLString = %@",request.URLString);
+        NSLog(@"request.URLString = %@",[request.server stringByAppendingString:request.url]);
         
         request.methodType = ZBMethodTypePOST;//默认为GET
         request.apiType = ZBRequestTypeRefresh;//（默认为ZBRequestTypeRefresh 不读取缓存，不存储缓存）
@@ -53,36 +54,6 @@
                 NSError * _Nullable error,
                 ZBURLRequest * _Nullable request){
         NSLog(@"请求完成 userInfo:%@",request.userInfo);
-    }];
-}
-
-+(void)temp{
-    NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/testImage.png"];
-    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
-    
-    [ZBRequestManager requestWithConfig:^(ZBURLRequest * request) {
-        request.URLString = @"https://www.bombom999.top/my-bucketname/images/iosimg.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20201019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20201019T074421Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=61523129bacc68290a6de367080edd39e0bc9909882ffac0265fd8f4d03b212d";
-        request.methodType = ZBMethodTypeUpload;
-        request.requestSerializer = ZBHTTPResponseSerializer;
-        
-       // [request addFormDataWithName:@"image[]" fileData:fileData];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"jpeg"];
-
-//        NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:path];
-//        inputStream.delegate = self;
-//        [inputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//        [inputStream open];
-        
-        [request addFormDataWithName:@"11111" fileURL:[NSURL URLWithString:path]];
-        
-    } progress:^(NSProgress * _Nullable progress) {
-        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
-        
-    } success:^(id  responseObject,ZBURLRequest * request) {
-        NSLog(@"responseObject: %@", responseObject);
-    } failure:^(NSError * _Nullable error) {
-        NSLog(@"error: %@", error);
     }];
 }
 

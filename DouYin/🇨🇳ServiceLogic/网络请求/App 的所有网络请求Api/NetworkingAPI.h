@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)requestVedioWithBlock:(MKDataBlock)successBlock;
 
-+(void)temp;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -537,7 +537,6 @@
 		C56BA8F72578936C00D054D0 /* ZBRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestManager.h; sourceTree = "<group>"; };
 		C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZBUTF8Encoding.m"; sourceTree = "<group>"; };
 		C56BA8F92578936C00D054D0 /* ZBCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBCacheManager.m; sourceTree = "<group>"; };
-		C56BA8FA2578936C00D054D0 /* ZBNetworking */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ZBNetworking; path = "../../../../../My_BaseProj/My_BaseProj/🔨Manual_Add_ThirdParty /网络请求/ZBNetworking/ZBNetworking"; sourceTree = "<group>"; };
 		C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
 		C56BA8FC2578936C00D054D0 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
 		C56BA8FD2578936C00D054D0 /* ZBCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBCacheManager.h; sourceTree = "<group>"; };
@@ -654,6 +653,8 @@
 		C5D77494257F59790087FC92 /* CJTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTextField.h; sourceTree = "<group>"; };
 		C5D77C07257F5E5A0087FC92 /* ZYTextField+HistoryDataList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZYTextField+HistoryDataList.h"; sourceTree = "<group>"; };
 		C5D77C08257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZYTextField+HistoryDataList.m"; sourceTree = "<group>"; };
+		C5D7844E257F653C0087FC92 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
+		C5D78452257F65650087FC92 /* ZBNetworking.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ZBNetworking.md; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
 		C5ED334F2521C137001A04FE /* ZFCustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCustomControlView.m; sourceTree = "<group>"; };
@@ -1695,11 +1696,12 @@
 		C54BB5282518E5CD001591C2 /* ZBNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				C5D78452257F65650087FC92 /* ZBNetworking.md */,
+				C5D7844E257F653C0087FC92 /* NetworkingConstant.h */,
 				C56BA8FE2578936C00D054D0 /* NSString+ZBUTF8Encoding.h */,
 				C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */,
 				C56BA8FD2578936C00D054D0 /* ZBCacheManager.h */,
 				C56BA8F92578936C00D054D0 /* ZBCacheManager.m */,
-				C56BA8FA2578936C00D054D0 /* ZBNetworking */,
 				C56BA8F62578936C00D054D0 /* ZBNetworking.h */,
 				C56BA8FC2578936C00D054D0 /* ZBRequestConst.h */,
 				C56BA9002578936D00D054D0 /* ZBRequestEngine.h */,

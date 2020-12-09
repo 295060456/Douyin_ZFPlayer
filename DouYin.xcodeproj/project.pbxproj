@@ -1536,8 +1536,6 @@
 				C55697D1255BFDE2005C1361 /* NSString+Extras.m */,
 				C55697D4255BFDE3005C1361 /* NSString+Time.h */,
 				C55697D5255BFDE3005C1361 /* NSString+Time.m */,
-				C55697D2255BFDE3005C1361 /* TimeModel.h */,
-				C55697D6255BFDE3005C1361 /* TimeModel.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1587,24 +1585,8 @@
 			isa = PBXGroup;
 			children = (
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
-				C5FF99232575F51D00E38D8D /* NSObject+RichText.h */,
-				C5FF99222575F51D00E38D8D /* NSObject+RichText.m */,
-				C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */,
-				C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */,
-				C54BB37E2518D391001591C2 /* NSObject+Extras.h */,
-				C54BB3842518D391001591C2 /* NSObject+Extras.m */,
-				C54BB3872518D391001591C2 /* NSObject+Measure.h */,
-				C54BB3812518D391001591C2 /* NSObject+Measure.m */,
-				C57F0CFB253336590080EEF0 /* NSObject+OpenURL.h */,
-				C57F0CFA253336590080EEF0 /* NSObject+OpenURL.m */,
-				C54BB3822518D391001591C2 /* NSObject+Random.h */,
-				C54BB3772518D391001591C2 /* NSObject+Random.m */,
-				C54BB37D2518D391001591C2 /* NSObject+Shake.h */,
-				C54BB3852518D391001591C2 /* NSObject+Shake.m */,
-				C54BB3832518D391001591C2 /* NSObject+Sound.h */,
-				C54BB37F2518D391001591C2 /* NSObject+Sound.m */,
-				C54BB3802518D391001591C2 /* NSObject+Time.h */,
-				C54BB3862518D391001591C2 /* NSObject+Time.m */,
+				C55563A42580A495004DB33A /* NSObject+Others */,
+				C55563912580A477004DB33A /* TimeModel */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1740,6 +1722,40 @@
 				C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */,
 			);
 			path = "UIViewController+Category";
+			sourceTree = "<group>";
+		};
+		C55563912580A477004DB33A /* TimeModel */ = {
+			isa = PBXGroup;
+			children = (
+				C55697D2255BFDE3005C1361 /* TimeModel.h */,
+				C55697D6255BFDE3005C1361 /* TimeModel.m */,
+			);
+			path = TimeModel;
+			sourceTree = "<group>";
+		};
+		C55563A42580A495004DB33A /* NSObject+Others */ = {
+			isa = PBXGroup;
+			children = (
+				C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */,
+				C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */,
+				C54BB37E2518D391001591C2 /* NSObject+Extras.h */,
+				C54BB3842518D391001591C2 /* NSObject+Extras.m */,
+				C54BB3872518D391001591C2 /* NSObject+Measure.h */,
+				C54BB3812518D391001591C2 /* NSObject+Measure.m */,
+				C57F0CFB253336590080EEF0 /* NSObject+OpenURL.h */,
+				C57F0CFA253336590080EEF0 /* NSObject+OpenURL.m */,
+				C54BB3822518D391001591C2 /* NSObject+Random.h */,
+				C54BB3772518D391001591C2 /* NSObject+Random.m */,
+				C5FF99232575F51D00E38D8D /* NSObject+RichText.h */,
+				C5FF99222575F51D00E38D8D /* NSObject+RichText.m */,
+				C54BB37D2518D391001591C2 /* NSObject+Shake.h */,
+				C54BB3852518D391001591C2 /* NSObject+Shake.m */,
+				C54BB3832518D391001591C2 /* NSObject+Sound.h */,
+				C54BB37F2518D391001591C2 /* NSObject+Sound.m */,
+				C54BB3802518D391001591C2 /* NSObject+Time.h */,
+				C54BB3862518D391001591C2 /* NSObject+Time.m */,
+			);
+			path = "NSObject+Others";
 			sourceTree = "<group>";
 		};
 		C55B2AF72534273D0038E50C /* SuspendView */ = {

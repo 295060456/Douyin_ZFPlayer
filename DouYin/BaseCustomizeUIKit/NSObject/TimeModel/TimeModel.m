@@ -242,5 +242,22 @@
             break;
     }
 }
+/// 获取一个格式化的字符串时间
+/// @param date 传空则是当前iOS系统时间
+/// @param dateFormatStr 传空则格式是@"yyyy-MM-dd HH:mm:ss zzz"
+-(NSString *)getDayWithDate:(NSDate *_Nullable)date
+              dateFormatStr:(NSString *_Nullable)dateFormatStr{
+    if (!date) {
+        date = self.currentDate;
+    }
+    
+    NSDateFormatter *dateFormatter = nil;
+    if ([NSString isNullString:dateFormatStr]) {
+        dateFormatter = self.dateFormatter;
+    }else{
+        dateFormatter = NSDateFormatter.new;
+        dateFormatter.dateFormat = dateFormatStr;
+    }return [dateFormatter stringFromDate:date];
+}
 
 @end

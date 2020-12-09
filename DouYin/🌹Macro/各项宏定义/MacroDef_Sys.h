@@ -48,4 +48,48 @@
 #define isiPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)//是否iPhone
 #define isRetina ([[UIScreen mainScreen] scale] >= 2.0)// 非Retain屏幕 1.0
 
+#pragma mark ======================================== 日志打印 ========================================
+//对NSLog
+#if DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+//对DLog
+#ifdef DEBUG
+#define DLog( s, ... ) NSLog( @"< %@:(%d) > %@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define DLog( s, ... )
+#endif
+
+///LOG等级
+#define ITTLOGLEVEL_INFO        10
+#define ITTLOGLEVEL_WARNING     3
+#define ITTLOGLEVEL_ERROR       1
+///LOG最高等级
+#ifndef ITTMAXLOGLEVEL
+#ifdef DEBUG
+#define ITTMAXLOGLEVEL ITTLOGLEVEL_INFO
+#else
+#define ITTMAXLOGLEVEL ITTLOGLEVEL_ERROR
+#endif
+#endif
+///DEBUG模式
+#define ITTDEBUG
+/** 条件LOG **/
+#ifdef ITTDEBUG
+#define ITTDCONDITIONLOG(condition, xx, ...)\
+\
+{\
+if ((condition))\
+{\
+ITTDPRINT(xx, ##__VA_ARGS__);\
+}\
+}
+#else
+#define ITTDCONDITIONLOG(condition, xx, ...)\
+\
+((void)0)
+#endif
+
 #endif /* MacroDef_Sys_h */

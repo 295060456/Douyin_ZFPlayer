@@ -68,6 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)makeSpecificTime;//各个具体时间的拆解
 //以当前手机系统时间（包含了时区）为基准，给定一个日期偏移值（正值代表未来，负值代表过去，0代表现在），返回字符串特定格式的“星期几”
 +(NSString *)whatDayOfWeekDistanceNow:(NSInteger)offsetDay;
+/// 获取一个格式化的字符串时间
+/// @param date 传空则是当前iOS系统时间
+/// @param dateFormatStr 传空则格式是@"yyyy-MM-dd HH:mm:ss zzz"
+-(NSString *)getDayWithDate:(NSDate *_Nullable)date
+              dateFormatStr:(NSString *_Nullable)dateFormatStr;
 
 @end
 

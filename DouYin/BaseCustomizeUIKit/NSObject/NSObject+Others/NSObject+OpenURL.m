@@ -11,35 +11,24 @@
 
 ///跳转系统设置
 +(void)pushToSysConfig{
+
     [NSObject OpenURL:UIApplicationOpenSettingsURLString
               options:@{}
-             showText:@""
-            superView:getMainWindow()
-            useAssert:NO
-    completionHandler:^{
-            //TODO
+completionOpenSuccessHandler:^{
+        //TODO
+    }
+completionOpenFailHandler:^{
+        //TODO
     }];
 }
 
 +(BOOL)OpenURL:(NSString *)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
-      showText:(NSString *)showTextStr
-     superView:(UIView *)superView
-     useAssert:(BOOL)isuseAssert
-completionHandler:(NoResultBlock)openSuccessBlock{
+completionOpenSuccessHandler:(NoResultBlock)openSuccessBlock
+completionOpenFailHandler:(NoResultBlock)openFailBlock{
     
     BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:URLStr]];
-    showTextStr = [NSString ensureNonnullString:showTextStr ReplaceStr:@"打开失败"];
-    options = options ? options :@{};
-    
-    NoResultBlock block = ^(){
-        NSLog(@"打开失败");
-        if (isuseAssert) {
-            NSAssert(canOpen,@"打开失败");
-        }else{
-//            [MBProgressHUD wj_showPlainText:showTextStr view:superView];
-        }
-    };
+    options = options ? options : @{};
     
     if (@available(iOS 10.0, *)) {
         if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
@@ -53,13 +42,13 @@ completionHandler:(NoResultBlock)openSuccessBlock{
                     }
                 }];return YES;
             }else{
-                if (block) {
-                    block();
+                if (openFailBlock) {
+                    openFailBlock();
                 }return NO;
             }
         }else {
-            if (block) {
-                block();
+            if (openFailBlock) {
+                openFailBlock();
             }return NO;
         }
     }else {
@@ -70,8 +59,8 @@ completionHandler:(NoResultBlock)openSuccessBlock{
 #pragma clang diagnostic pop
             return YES;
         }else{
-            if (block) {
-                block();
+            if (openFailBlock) {
+                openFailBlock();
             }return NO;
         }
     }

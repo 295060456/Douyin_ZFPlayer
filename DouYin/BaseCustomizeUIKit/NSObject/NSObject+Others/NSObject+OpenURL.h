@@ -16,10 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 ///对OpenURL的处理
 +(BOOL)OpenURL:(NSString *)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
-      showText:(NSString *)showTextStr
-     superView:(UIView *)superView
-     useAssert:(BOOL)isuseAssert
-completionHandler:(NoResultBlock)openSuccessBlock;
+completionOpenSuccessHandler:(NoResultBlock)openSuccessBlock
+completionOpenFailHandler:(NoResultBlock)openFailBlock;
 
 @end
 

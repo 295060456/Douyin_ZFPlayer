@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NetworkingAPI : NSObject
 
-+(void)requestVedioWithBlock:(MKDataBlock)successBlock;
++(void)requestApi:(NSString *_Nonnull)requestApi
+       parameters:(id)parameters
+     successBlock:(MKDataBlock)successBlock;
 
 @end
 

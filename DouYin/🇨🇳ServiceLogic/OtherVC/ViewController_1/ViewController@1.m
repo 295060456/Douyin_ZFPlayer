@@ -46,7 +46,9 @@ UITableViewDataSource
      */
     [RequestTool setupPublicParameters];
     @weakify(self)
-    [NetworkingAPI requestVedioWithBlock:^(id data) {
+    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+                   parameters:@""
+                 successBlock:^(id data) {
         @strongify(self)
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {

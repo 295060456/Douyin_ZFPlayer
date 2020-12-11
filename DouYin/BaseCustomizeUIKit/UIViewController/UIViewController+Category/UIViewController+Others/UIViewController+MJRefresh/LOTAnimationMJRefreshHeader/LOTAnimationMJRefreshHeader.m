@@ -5,12 +5,12 @@
 //  Created by John on 2020/11/14.
 //
 
-#import "CustomGifHeader.h"
+#import "LOTAnimationMJRefreshHeader.h"
 
 static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel 和 AnimationView 之间的间距
 
 /// 下拉刷新动画
-@interface CustomGifHeader ()
+@interface LOTAnimationMJRefreshHeader ()
 /// 加载 Json 动画
 @property(nonatomic,strong)LOTAnimationView *animationView;
 /// 加载过程中中间显示的随机文案
@@ -18,7 +18,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 
 @end
 
-@implementation CustomGifHeader
+@implementation LOTAnimationMJRefreshHeader
 
 - (void)prepare{
     [super prepare];
@@ -57,7 +57,13 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
     [self setTitle:self.randomTitle forState:MJRefreshStatePulling];
     [self setTitle:self.randomTitle forState:MJRefreshStateRefreshing];
 }
-
+/**
+ MJRefreshStateIdle,   //   普通闲置状态
+ MJRefreshStatePulling,   //   松开就可以进行刷新的状态
+ MJRefreshStateRefreshing,   //   正在刷新中的状态
+ MJRefreshStateWillRefresh,   //   即将刷新的状态
+ MJRefreshStateNoMoreData   //   所有数据加载完毕，没有更多的数据了
+ */
 - (void)setState:(MJRefreshState)state{
     MJRefreshCheckState;
     switch (state) {

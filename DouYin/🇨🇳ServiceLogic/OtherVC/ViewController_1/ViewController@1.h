@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomGifHeader.h"
+#import "LOTAnimationMJRefreshHeader.h"
 #import "PlayerCell.h"
 
 #if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)

@@ -230,6 +230,25 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
+
+///下拉刷新
+-(void)pullToRefresh{
+    NSLog(@"下拉刷新");
+    // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 结束刷新
+        [self.tableView.mj_header endRefreshing];
+    });
+}
+///上拉加载更多
+- (void)loadMoreRefresh{
+    NSLog(@"上拉加载更多");
+    // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 结束刷新
+        [self.tableView.mj_footer endRefreshing];
+    });
+}
 #pragma mark —— lazyLoad
 - (UITableView *)tableView{
     if (!_tableView) {
@@ -251,18 +270,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma clang diagnostic pop
         }
         
-//        _tableView.mj_header = self.mjRefreshGifHeader;
-//        _tableView.mj_header.automaticallyChangeAlpha = YES;
-        
-//        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-//        // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
-////        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
-//        _tableView.mj_footer.hidden = NO;
-        
-        _tableView.mj_header.automaticallyChangeAlpha = YES;
+        _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
         _tableView.mj_header = [self mjRefreshGifHeader];
         _tableView.mj_footer = [self mjRefreshAutoGifFooter];
-        
+        _tableView.mj_footer.hidden = NO;
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {

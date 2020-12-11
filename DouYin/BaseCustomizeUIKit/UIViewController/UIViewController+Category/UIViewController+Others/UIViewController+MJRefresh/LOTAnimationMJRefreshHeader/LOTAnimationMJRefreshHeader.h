@@ -20,7 +20,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 下拉刷新动画
-@interface CustomGifHeader : MJRefreshGifHeader
+@interface LOTAnimationMJRefreshHeader : MJRefreshGifHeader
 
 @end
 

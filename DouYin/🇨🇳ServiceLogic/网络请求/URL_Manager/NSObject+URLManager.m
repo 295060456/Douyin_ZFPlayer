@@ -38,13 +38,6 @@
 //    return @""//生产环境
 #endif
 }
-
-#pragma mark —— Demo
-///Demo
-+(URLManagerModel *)demoRequestDataPOST{
-    return [NSObject url:@"app/videos/recommendVideos"
-                funcName:NSStringFromSelector(_cmd)];
-}
 #pragma mark —— 数据统计相关接口
 ///活跃用户 POST
 +(URLManagerModel *)addActiveUserDataPOST{

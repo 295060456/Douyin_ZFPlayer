@@ -220,7 +220,6 @@
 		C5D4F12225824ADA00C165EA /* NetworkingAPI+MsgApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F11125824ADA00C165EA /* NetworkingAPI+MsgApi.m */; };
 		C5D4F12D25824B8600C165EA /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F12B25824B8600C165EA /* NSObject+URLManager.m */; };
 		C5D4F12E25824B8600C165EA /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F12C25824B8600C165EA /* URLManagerModel.m */; };
-		C5D4F13525824DDB00C165EA /* NetworkingAPI+DemoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F13425824DDB00C165EA /* NetworkingAPI+DemoApi.m */; };
 		C5D4F4C225825AD800C165EA /* KeychainIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F4BF25825AD800C165EA /* KeychainIDFA.m */; };
 		C5D4F4C325825AD800C165EA /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F4C125825AD800C165EA /* KeychainHelper.m */; };
 		C5D77495257F59790087FC92 /* ZYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77486257F59790087FC92 /* ZYTextField.m */; };
@@ -694,8 +693,6 @@
 		C5D4F12A25824B8600C165EA /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
 		C5D4F12B25824B8600C165EA /* NSObject+URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+URLManager.m"; sourceTree = "<group>"; };
 		C5D4F12C25824B8600C165EA /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
-		C5D4F13325824DDB00C165EA /* NetworkingAPI+DemoApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkingAPI+DemoApi.h"; sourceTree = "<group>"; };
-		C5D4F13425824DDB00C165EA /* NetworkingAPI+DemoApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetworkingAPI+DemoApi.m"; sourceTree = "<group>"; };
 		C5D4F4BE25825AD800C165EA /* KeychainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainHelper.h; sourceTree = "<group>"; };
 		C5D4F4BF25825AD800C165EA /* KeychainIDFA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainIDFA.m; sourceTree = "<group>"; };
 		C5D4F4C025825AD800C165EA /* KeychainIDFA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainIDFA.h; sourceTree = "<group>"; };
@@ -2103,7 +2100,6 @@
 		C582A6AE251C9B5D00DD83A1 /* App 的所有网络请求Api */ = {
 			isa = PBXGroup;
 			children = (
-				C5D4F13225824DB700C165EA /* Demo */,
 				C5D4F0E325824AD900C165EA /* 数据统计相关接口 */,
 				C5D4F0EF25824ADA00C165EA /* APP登录信息相关接口 */,
 				C5D4F10425824ADA00C165EA /* APP广告相关接口 */,
@@ -2365,15 +2361,6 @@
 				C5D4F11225824ADA00C165EA /* NetworkingAPI+MsgApi.h */,
 			);
 			path = "App消息相关接口";
-			sourceTree = "<group>";
-		};
-		C5D4F13225824DB700C165EA /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				C5D4F13325824DDB00C165EA /* NetworkingAPI+DemoApi.h */,
-				C5D4F13425824DDB00C165EA /* NetworkingAPI+DemoApi.m */,
-			);
-			path = Demo;
 			sourceTree = "<group>";
 		};
 		C5D4F4BD25825AD800C165EA /* KeychainIDFA */ = {
@@ -2816,7 +2803,6 @@
 				C5850B4525483E5F001E6676 /* ViewForTableViewHeader.m in Sources */,
 				C5914DA925385356007777A6 /* UIViewController+Shake.m in Sources */,
 				C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */,
-				C5D4F13525824DDB00C165EA /* NetworkingAPI+DemoApi.m in Sources */,
 				C54BB5022518E398001591C2 /* ViewController@5.m in Sources */,
 				C5D77495257F59790087FC92 /* ZYTextField.m in Sources */,
 				C5D4F11A25824ADA00C165EA /* NetworkingAPI+EarnApi.m in Sources */,

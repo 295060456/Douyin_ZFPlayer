@@ -21,7 +21,6 @@
 #import "NetworkingAPI+BankCardApi.h"//APP银行卡相关接口
 #import "NetworkingAPI+UserFansApi.h"//APP用户粉丝相关接口
 #import "NetworkingAPI+UserInfoApi.h"//APP用户信息相关接口
-#import "NetworkingAPI+DemoApi.h"//Demo
 /*
  * 只定义successBlock处理我们想要的最正确的答案,并向外抛出
  * 错误在内部处理不向外抛出

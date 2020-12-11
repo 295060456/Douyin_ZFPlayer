@@ -22,8 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— BaseURL
 +(NSString *)BaseUrl_1;
 +(NSString *)BaseUrl_H5;
-///Demo
-+(URLManagerModel *)demoRequestDataPOST;
 #pragma mark —— 数据统计相关接口
 ///活跃用户 POST
 +(URLManagerModel *)addActiveUserDataPOST;

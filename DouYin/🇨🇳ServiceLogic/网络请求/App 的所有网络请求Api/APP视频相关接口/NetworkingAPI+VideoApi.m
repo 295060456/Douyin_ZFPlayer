@@ -257,7 +257,6 @@
 /// 推荐的视频列表
 +(void)recommendVideosPOST:(id)parameters
           withsuccessBlock:(MKDataBlock)successBlock{
-    NSDictionary *parameterss = @{};
     NSDictionary *headers = @{};
     
     [ZBRequestManager requestWithConfig:^(ZBURLRequest * _Nullable request) {
@@ -269,7 +268,7 @@
         
         request.methodType = ZBMethodTypePOST;//默认为GET
         request.apiType = ZBRequestTypeRefresh;//（默认为ZBRequestTypeRefresh 不读取缓存，不存储缓存）
-        request.parameters = parameterss;//与公共配置 Parameters 兼容
+        request.parameters = parameters;//与公共配置 Parameters 兼容
         request.headers = headers;//与公共配置 Headers 兼容
         request.retryCount = 1;//请求失败 单次请求 重新连接次数 优先级大于 全局设置，不影响其他请求设置
         request.timeoutInterval = 10;//默认30 //优先级 高于 公共配置,不影响其他请求设置

@@ -65,7 +65,6 @@ UITableViewDataSource
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView.mj_header beginRefreshing];
-
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -231,7 +230,6 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.tableFooterView = UIView.new;
         
         _tableView.mj_header = self.lotAnimationMJRefreshHeader;
-//        _tableView.mj_header.triggerAutomaticallyRefreshPercent = 0.5;
         _tableView.mj_header.automaticallyChangeAlpha = YES;
         _tableView.mj_footer = self.mjRefreshAutoGifFooter;
         _tableView.mj_footer.hidden = NO;

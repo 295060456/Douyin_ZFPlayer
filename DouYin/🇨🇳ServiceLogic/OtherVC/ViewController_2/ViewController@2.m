@@ -63,7 +63,7 @@ ZFDouYinCellDelegate
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self requestData];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 //- (void)loadNewData {
@@ -112,14 +112,16 @@ ZFDouYinCellDelegate
     [RequestTool setupPublicParameters];
     @weakify(self)
     [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
-                   parameters:@""
+                   parameters:@{@"pageSize":NSObject.recommendVideosPOST.pageSize,
+                                @"pageNum":NSObject.recommendVideosPOST.currentPageNum}
                  successBlock:^(id data) {
         @strongify(self)
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {
             self.dataSource = (NSMutableArray *)data;
+            [self.tableView.mj_header endRefreshing];// 结束刷新
+            [self.tableView reloadData];
         }
-        [self.tableView reloadData];
     }];
 }
 
@@ -218,7 +220,7 @@ numberOfRowsInSection:(NSInteger)section {
     cell.index = indexPath.row;
     [cell richElementsInCellWithModel:@{
         @"index":@(indexPath.row),
-        @"res":self.dataSource[indexPath.row]//ZFTableData
+        @"res":self.dataSource[indexPath.row]
     }];return cell;
 }
 
@@ -230,24 +232,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-
 ///下拉刷新
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
-    // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 结束刷新
-        [self.tableView.mj_header endRefreshing];
-    });
+    [self requestData];
 }
 ///上拉加载更多
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
-    // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        // 结束刷新
-        [self.tableView.mj_footer endRefreshing];
-    });
+    [self requestData];
 }
 #pragma mark —— lazyLoad
 - (UITableView *)tableView{
@@ -270,10 +263,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma clang diagnostic pop
         }
         
+        _tableView.mj_header = self.mjRefreshGifHeader;
         _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
-        _tableView.mj_header = [self mjRefreshGifHeader];
-        _tableView.mj_footer = [self mjRefreshAutoGifFooter];
-        _tableView.mj_footer.hidden = NO;
+        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+//        _tableView.mj_footer.hidden = NO;
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {

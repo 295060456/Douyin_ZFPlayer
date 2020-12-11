@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSString *url;
 @property(nonatomic,strong)NSString *funcName;
+@property(nonatomic,strong)NSNumber *pageSize;//每页数据容量
+@property(nonatomic,strong)NSNumber *currentPageNum;//当前页码
 
 @end
 

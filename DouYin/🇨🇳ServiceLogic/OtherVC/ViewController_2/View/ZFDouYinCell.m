@@ -41,17 +41,17 @@
     if ([model isKindOfClass:NSDictionary.class]) {
         NSDictionary *dic = (NSDictionary *)model;
         self.label.text = [NSString stringWithFormat:@"%d",[dic[@"index"] intValue]];
-        self.data = (ZFTableData *)dic[@"res"];
-        self.rbView.alpha = 1;
+        self.data = (VideoModel_Core *)dic[@"res"];
         self.rotation.alpha = 1;
-        [self.coverImageView setImageWithURLString:self.data.thumbnail_url
+        [self.coverImageView setImageWithURLString:self.data.videoImg
                                        placeholder:KBuddleIMG(@"⚽️PicResource",@"Others", nil, @"loading_bgView")];
 //        self.titleLabel.text = data.title;
-        if (self.data.video_width > self.data.video_height) { /// 横屏视频才支持旋转
-            self.rotation.hidden = NO;
-        }else{
-            self.rotation.hidden = YES;
-        }
+        self.rbView.alpha = 1;
+//        if (self.data.video_width > self.data.video_height) { /// 横屏视频才支持旋转
+//            self.rotation.hidden = NO;
+//        }else{
+//            self.rotation.hidden = YES;
+//        }
     }
 }
 

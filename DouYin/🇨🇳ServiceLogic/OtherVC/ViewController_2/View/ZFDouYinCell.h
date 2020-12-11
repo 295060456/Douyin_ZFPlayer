@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ZFDouYinCell : UITableViewCell
 
 @property(nonatomic,assign)long index;
-@property(nonatomic,strong)ZFTableData *data;
+@property(nonatomic,strong)VideoModel_Core *data;
 @property(nonatomic,weak)id<ZFDouYinCellDelegate> delegate;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;

@@ -2450,9 +2450,9 @@
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
 			isa = PBXGroup;
 			children = (
+				C5ED33552521C2A7001A04FE /* ZFDouYinCellDelegate.h */,
 				C5ED33892521C87B001A04FE /* data */,
 				C5C3397C2522238E00F8CC53 /* View */,
-				C5ED33552521C2A7001A04FE /* ZFDouYinCellDelegate.h */,
 				C54BB4FE2518E398001591C2 /* ViewController@2.h */,
 				C54BB4FA2518E398001591C2 /* ViewController@2.m */,
 			);
@@ -3125,7 +3125,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C7HBXG9Y85;
+				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = DouYin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3133,7 +3133,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin1;
+				PRODUCT_BUNDLE_IDENTIFIER = "My-BaseProj";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";

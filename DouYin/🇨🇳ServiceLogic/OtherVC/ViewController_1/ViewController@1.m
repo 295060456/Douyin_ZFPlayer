@@ -37,6 +37,7 @@ UITableViewDataSource
     [super viewDidLoad];
     self.view.backgroundColor = KBrownColor;
     self.view.backgroundColor = [UIColor whiteColor];
+    
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
     [DataManager sharedInstance].tag = ReuseIdentifier;
     /**
@@ -56,7 +57,7 @@ UITableViewDataSource
         }
         [self.tableView reloadData];
     }];
-    
+
     self.tableView.alpha = 1;
     [self monitorScrollView];
 }
@@ -74,7 +75,7 @@ UITableViewDataSource
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"noti1" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"noti1" object:nil];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{

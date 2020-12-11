@@ -31,7 +31,7 @@ ZFDouYinCellDelegate
 @property(nonatomic,strong)ZFCustomControlView *fullControlView;
 @property(nonatomic,strong)ZFAVPlayerManager *playerManager;
 
-@property(nonatomic,strong)NSMutableArray *dataSource;
+@property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*dataSource;
 
 @end
 
@@ -65,36 +65,62 @@ ZFDouYinCellDelegate
     [super viewWillAppear:animated];
 }
 
-- (void)loadNewData {
-    [self.dataSource removeAllObjects];
-    @zf_weakify(self)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-                                 (int64_t)(1 * NSEC_PER_SEC)),
-                   dispatch_get_main_queue(), ^{
-        /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
-        [self.player stopCurrentPlayingCell];
-        [self requestData];
-        [self.tableView reloadData];
-        /// 找到可以播放的视频并播放
-        [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-            @zf_strongify(self)
-            [self playTheVideoAtIndexPath:indexPath];
-        }];
-    });
-}
+//- (void)loadNewData {
+//    [self.dataSource removeAllObjects];
+//    @weakify(self)
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+//                                 (int64_t)(1 * NSEC_PER_SEC)),
+//                   dispatch_get_main_queue(), ^{
+//        @strongify(self)
+//        /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
+//        [self.player stopCurrentPlayingCell];
+//        [self requestData];
+//        [self.tableView reloadData];
+//
+//        /// 找到可以播放的视频并播放
+//        @weakify(self)
+//        [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
+//            @zf_strongify(self)
+//            [self playTheVideoAtIndexPath:indexPath];
+//        }];
+//    });
+//}
 
-- (void)requestData {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
-    NSArray *videoList = [rootDict objectForKey:@"list"];
-    for (NSDictionary *dataDic in videoList) {
-        ZFTableData *data = [[ZFTableData alloc] init];
-        [data setValuesForKeysWithDictionary:dataDic];
-        [self.dataSource addObject:data];
-    }
-    [self.tableView.mj_header endRefreshing];
+//- (void)requestData {
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+//
+//    NSArray *videoList = [rootDict objectForKey:@"list"];
+//    for (NSDictionary *dataDic in videoList) {
+//        ZFTableData *data = [[ZFTableData alloc] init];
+//        [data setValuesForKeysWithDictionary:dataDic];
+//        [self.dataSource addObject:data];
+//    }
+//    [self.tableView.mj_header endRefreshing];
+//}
+
+
+-(void)requestData{
+    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
+    [DataManager sharedInstance].tag = ReuseIdentifier;
+    /**
+     公共配置
+     插件机制
+     证书设置
+     */
+    [RequestTool setupPublicParameters];
+    @weakify(self)
+    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+                   parameters:@""
+                 successBlock:^(id data) {
+        @strongify(self)
+        NSLog(@"");
+        if ([data isKindOfClass:NSArray.class]) {
+            self.dataSource = (NSMutableArray *)data;
+        }
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)playTheIndex:(NSInteger)index {
@@ -114,10 +140,6 @@ ZFDouYinCellDelegate
     }
 }
 
--(void)backItemClick:(id)sender{
-    NSLog(@"返回按钮点击事件");
-}
-
 -(BOOL)shouldAutorotate{
     return NO;
 }
@@ -131,14 +153,14 @@ ZFDouYinCellDelegate
 }
 /// play the video
 -(void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath{
-    ZFTableData *data = self.dataSource[indexPath.row];
+    VideoModel_Core *data = self.dataSource[indexPath.row];
     [self.player playTheIndexPath:indexPath
-                         assetURL:[NSURL URLWithString:data.video_url]];
+                         assetURL:[NSURL URLWithString:data.videoIdcUrl]];
 //    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:[NSURL URLWithString:data.video_url]]];
     [self.controlView resetControlView];
-    [self.controlView showCoverViewWithUrl:data.thumbnail_url];
+    [self.controlView showCoverViewWithUrl:data.videoImg];
     [self.fullControlView showTitle:@"custom landscape controlView"
-                     coverURLString:data.thumbnail_url
+                     coverURLString:data.videoImg
                      fullScreenMode:ZFFullScreenModeLandscape];
 }
 #pragma mark - ZFTableViewCellDelegate
@@ -230,12 +252,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         
 //        _tableView.mj_header = self.mjRefreshGifHeader;
-        _tableView.mj_header.automaticallyChangeAlpha = YES;
+//        _tableView.mj_header.automaticallyChangeAlpha = YES;
         
 //        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
 //        // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
 ////        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
 //        _tableView.mj_footer.hidden = NO;
+        
+        _tableView.mj_header.automaticallyChangeAlpha = YES;
+        _tableView.mj_header = [self mjRefreshGifHeader];
+        _tableView.mj_footer = [self mjRefreshAutoGifFooter];
+        
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -245,12 +272,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             }else{
                 make.top.equalTo(self.view.mas_top);
             }
-            
-            if ([DouYinAppDelegate sharedInstance].tabBarVC.tabBar.isHidden) {
-                make.bottom.equalTo(self.view.mas_bottom);
-            }else{
-                make.bottom.equalTo(self.view.mas_bottom).offset(-[DouYinAppDelegate sharedInstance].tabBarVC.tabBar.height);
-            }
+            make.bottom.equalTo(self.view.mas_bottom);
         }];
     }return _tableView;
 }
@@ -354,7 +376,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }return _fullControlView;
 }
 
-- (NSMutableArray *)dataSource {
+-(NSMutableArray<VideoModel_Core *> *)dataSource{
     if (!_dataSource) {
         _dataSource = NSMutableArray.array;
     }return _dataSource;

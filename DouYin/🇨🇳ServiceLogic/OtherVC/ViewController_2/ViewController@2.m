@@ -32,6 +32,8 @@ ZFDouYinCellDelegate
 @property(nonatomic,strong)ZFAVPlayerManager *playerManager;
 
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*dataSource;
+@property(nonatomic,strong)NSNumber *pageSize;//每页数据容量
+@property(nonatomic,strong)NSNumber *currentPageNum;//当前页码
 
 @end
 
@@ -100,8 +102,10 @@ ZFDouYinCellDelegate
 //    }
 //    [self.tableView.mj_header endRefreshing];
 //}
-
+// 刷新加载最新数据（以前的数据全部清空）
 -(void)requestData{
+    /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
+    [self.player stopCurrentPlayingCell];
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
     [DataManager sharedInstance].tag = ReuseIdentifier;
     /**
@@ -112,15 +116,25 @@ ZFDouYinCellDelegate
     [RequestTool setupPublicParameters];
     @weakify(self)
     [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
-                   parameters:@{@"pageSize":NSObject.recommendVideosPOST.pageSize,
-                                @"pageNum":NSObject.recommendVideosPOST.currentPageNum}
+                   parameters:@{@"pageSize":self.pageSize,
+                                @"pageNum":self.currentPageNum}
                  successBlock:^(id data) {
         @strongify(self)
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {
             self.dataSource = (NSMutableArray *)data;
             [self.tableView.mj_header endRefreshing];// 结束刷新
+            if (!self.tableView.mj_footer.hidden) {
+                [self.tableView.mj_footer endRefreshing];// 结束刷新
+            }
             [self.tableView reloadData];
+            self.tableView.mj_footer.hidden = NO;
+            /// 找到可以播放的视频并播放
+            @weakify(self)
+            [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
+                @zf_strongify(self)
+                [self playTheVideoAtIndexPath:indexPath];
+            }];
         }
     }];
 }
@@ -135,7 +149,7 @@ ZFDouYinCellDelegate
         [self playTheVideoAtIndexPath:indexPath];
     }];
     /// 如果是最后一行，去请求新数据
-    if (index == self.dataSource.count-1) {
+    if (index == self.dataSource.count - 1) {
         /// 加载下一页数据
         [self requestData];
         [self.tableView reloadData];
@@ -235,11 +249,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 ///下拉刷新
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
+    // 初始化
+    [self.dataSource removeAllObjects];
+    self.currentPageNum = @(0);
     [self requestData];
 }
 ///上拉加载更多
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
+    self.currentPageNum = @(self.currentPageNum.intValue + 1);
+    NSLog(@"currentPageNum = %@",self.currentPageNum);
     [self requestData];
 }
 #pragma mark —— lazyLoad
@@ -266,7 +285,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _tableView.mj_header = self.mjRefreshGifHeader;
         _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
         _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-//        _tableView.mj_footer.hidden = NO;
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -384,6 +402,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_dataSource) {
         _dataSource = NSMutableArray.array;
     }return _dataSource;
+}
+
+-(NSNumber *)pageSize{
+    if (!_pageSize) {
+        _pageSize = @(6);
+    }return _pageSize;
+}
+
+-(NSNumber *)currentPageNum{
+    if (!_currentPageNum) {
+        _currentPageNum = @(0);
+    }return _currentPageNum;
 }
 
 @end

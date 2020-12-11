@@ -38,28 +38,28 @@ UITableViewDataSource
     self.view.backgroundColor = KBrownColor;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
-    [DataManager sharedInstance].tag = ReuseIdentifier;
-    /**
-     公共配置
-     插件机制
-     证书设置
-     */
-    [RequestTool setupPublicParameters];
-    @weakify(self)
-    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
-                   parameters:@""
-                 successBlock:^(id data) {
-        @strongify(self)
-        NSLog(@"");
-        if ([data isKindOfClass:NSArray.class]) {
-            self.dataMutArr = (NSMutableArray *)data;
-        }
-        [self.tableView reloadData];
-    }];
-
-    self.tableView.alpha = 1;
-    [self monitorScrollView];
+//    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
+//    [DataManager sharedInstance].tag = ReuseIdentifier;
+//    /**
+//     公共配置
+//     插件机制
+//     证书设置
+//     */
+//    [RequestTool setupPublicParameters];
+//    @weakify(self)
+//    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+//                   parameters:@""
+//                 successBlock:^(id data) {
+//        @strongify(self)
+//        NSLog(@"");
+//        if ([data isKindOfClass:NSArray.class]) {
+//            self.dataMutArr = (NSMutableArray *)data;
+//        }
+//        [self.tableView reloadData];
+//    }];
+//
+//    self.tableView.alpha = 1;
+//    [self monitorScrollView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

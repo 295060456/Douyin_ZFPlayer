@@ -97,7 +97,7 @@
                                                     id  _Nullable responseObject,
                                                     NSError * _Nullable __autoreleasing * _Nullable error) {
         NSLog(@"成功回调 数据返回之前");
-        if ([request.userInfo[@"info"] isEqualToString:@"ViewController_1"]) {//分辨接口，预防个别接口的处理方式和大众不太一样
+        if ([request.userInfo[@"info"] isEqualToString:@"ViewController_1"] || [request.userInfo[@"info"] isEqualToString:@"ViewController_2"]) {//分辨接口，预防个别接口的处理方式和大众不太一样
             if ([responseObject isKindOfClass:NSDictionary.class]) {
                 NSDictionary *dataDic = (NSDictionary *)responseObject;
                 

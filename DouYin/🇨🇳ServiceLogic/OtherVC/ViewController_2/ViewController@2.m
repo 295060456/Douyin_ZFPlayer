@@ -58,11 +58,12 @@ ZFDouYinCellDelegate
     self.gk_navTitleFont = [UIFont systemFontOfSize:17
                                              weight:UIFontWeightBold];
     self.tableView.alpha = 1;
-    [self requestData];
+   
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self requestData];
 }
 
 //- (void)loadNewData {
@@ -99,7 +100,6 @@ ZFDouYinCellDelegate
 //    }
 //    [self.tableView.mj_header endRefreshing];
 //}
-
 
 -(void)requestData{
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);

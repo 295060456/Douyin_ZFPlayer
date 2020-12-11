@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIFont *font;
 #pragma mark —— TextColor
 @property(nonatomic,strong)UIColor *textColor;
+#pragma mark —— duration
+@property(nonatomic,assign)CGFloat stateIdleDuration;
+@property(nonatomic,assign)CGFloat pullingDuration;
+@property(nonatomic,assign)CGFloat refreshingDuration;
+@property(nonatomic,assign)CGFloat willRefreshDuration;
+@property(nonatomic,assign)CGFloat noMoreDataDuration;
 #pragma mark —— title
 @property(nonatomic,strong)NSString *stateIdleTitle;
 @property(nonatomic,strong)NSString *pullingTitle;

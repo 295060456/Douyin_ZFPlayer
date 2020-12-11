@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark —— MJRefreshHeader
 -(MJRefreshGifHeader *)mjRefreshGifHeader;
-//-(LOTAnimationMJRefreshHeader *)lotAnimationMJRefreshHeader;
+-(LOTAnimationMJRefreshHeader *)lotAnimationMJRefreshHeader;
 
 #pragma mark —— MJRefreshFooter
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter;

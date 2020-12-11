@@ -230,21 +230,12 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         
-//        _tableView.mj_header = self.mjRefreshGifHeader;
-//        _tableView.mj_header.automaticallyChangeAlpha = YES;
-        
-//        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-        // 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）
-//        _tableView.mj_footer.triggerAutomaticallyRefreshPercent = 0.5;
+        _tableView.mj_header = self.lotAnimationMJRefreshHeader;
+//        _tableView.mj_header.triggerAutomaticallyRefreshPercent = 0.5;
+        _tableView.mj_header.automaticallyChangeAlpha = YES;
+        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
         _tableView.mj_footer.hidden = NO;
-        
-        @weakify(self)
-        _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
-            @strongify(self)
-            sleep(3);
-            [self pullToRefresh];
-        }];
-        
+
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
                                                           titleStr:@"暂无数据"
                                                          detailStr:@"骚等片刻"];

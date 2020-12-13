@@ -20,8 +20,6 @@
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C544B96A25835CF400C6CF2A /* MJRefreshConfigModel.m */; };
-		C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */; };
-		C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */; };
 		C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB2AB255E61B2000A314D /* UITableViewCell+Margin.m */; };
 		C54AB2B2255E61B3000A314D /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */; };
 		C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */; };
@@ -109,7 +107,6 @@
 		C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */; };
 		C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
-		C54FE3C8257672F500937C11 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54FE3C7257672F500937C11 /* BaseViewController.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D1255BFDE2005C1361 /* NSString+Extras.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
@@ -156,7 +153,6 @@
 		C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710997253C1358005B3A0C /* CustomTabBar.m */; };
 		C57279C425409C33002373D7 /* BaseNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279BF25409C33002373D7 /* BaseNavigationVC.m */; };
 		C57279C525409C33002373D7 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279C225409C33002373D7 /* NavigationBar.m */; };
-		C57279D125409C8A002373D7 /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */; };
 		C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BD25248DD800CC6A3A /* TableViewAnimationKit.m */; };
 		C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */; };
 		C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */; };
@@ -207,6 +203,8 @@
 		C5D4F12E25824B8600C165EA /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F12C25824B8600C165EA /* URLManagerModel.m */; };
 		C5D4F4C225825AD800C165EA /* KeychainIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F4BF25825AD800C165EA /* KeychainIDFA.m */; };
 		C5D4F4C325825AD800C165EA /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F4C125825AD800C165EA /* KeychainHelper.m */; };
+		C5D6008925862FDB00029AFF /* UIViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6008725862FDA00029AFF /* UIViewController+NavigationBar.m */; };
+		C5D6009225862FFA00029AFF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6009125862FFA00029AFF /* BaseViewController.m */; };
 		C5D6D80025860D5D00029AFF /* NSObject+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D7FC25860D5D00029AFF /* NSObject+Time.m */; };
 		C5D6D80125860D5D00029AFF /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D7FE25860D5D00029AFF /* TimeModel.m */; };
 		C5D6D80B25860D7400029AFF /* NSTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D80A25860D7400029AFF /* NSTimerManager.m */; };
@@ -277,10 +275,6 @@
 		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
 		C544B96925835CF400C6CF2A /* MJRefreshConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshConfigModel.h; sourceTree = "<group>"; };
 		C544B96A25835CF400C6CF2A /* MJRefreshConfigModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConfigModel.m; sourceTree = "<group>"; };
-		C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
-		C546C3D4252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
-		C546C3D6252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		C5470FB125309D3400651ACE /* MacroDef_Sys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Sys.h; sourceTree = "<group>"; };
 		C5470FB225309D3400651ACE /* MacroDef_Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Func.h; sourceTree = "<group>"; };
 		C5470FB325309D3400651ACE /* MacroDef_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Size.h; sourceTree = "<group>"; };
@@ -465,8 +459,6 @@
 		C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
 		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
-		C54FE3C6257672F500937C11 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		C54FE3C7257672F500937C11 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
@@ -557,8 +549,6 @@
 		C57279C025409C33002373D7 /* BaseNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationVC.h; sourceTree = "<group>"; };
 		C57279C225409C33002373D7 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 		C57279C325409C33002373D7 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
-		C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
-		C57279D025409C8A002373D7 /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
 		C57342B925248DD800CC6A3A /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
 		C57342BA25248DD800CC6A3A /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
 		C57342BB25248DD800CC6A3A /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
@@ -657,6 +647,10 @@
 		C5D4F4BF25825AD800C165EA /* KeychainIDFA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainIDFA.m; sourceTree = "<group>"; };
 		C5D4F4C025825AD800C165EA /* KeychainIDFA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainIDFA.h; sourceTree = "<group>"; };
 		C5D4F4C125825AD800C165EA /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
+		C5D6008725862FDA00029AFF /* UIViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationBar.m"; sourceTree = "<group>"; };
+		C5D6008825862FDA00029AFF /* UIViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationBar.h"; sourceTree = "<group>"; };
+		C5D6009025862FFA00029AFF /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		C5D6009125862FFA00029AFF /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		C5D6D7FB25860D5D00029AFF /* NSObject+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Time.h"; sourceTree = "<group>"; };
 		C5D6D7FC25860D5D00029AFF /* NSObject+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Time.m"; sourceTree = "<group>"; };
 		C5D6D7FE25860D5D00029AFF /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
@@ -896,8 +890,8 @@
 		C544B8C325835A1500C6CF2A /* UIViewController+NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				C57279D025409C8A002373D7 /* UIViewController+NavigationBar.h */,
-				C57279CF25409C8A002373D7 /* UIViewController+NavigationBar.m */,
+				C5D6008825862FDA00029AFF /* UIViewController+NavigationBar.h */,
+				C5D6008725862FDA00029AFF /* UIViewController+NavigationBar.m */,
 			);
 			path = "UIViewController+NavigationBar";
 			sourceTree = "<group>";
@@ -929,17 +923,6 @@
 				C544B96A25835CF400C6CF2A /* MJRefreshConfigModel.m */,
 			);
 			path = ConfigModel;
-			sourceTree = "<group>";
-		};
-		C546C3D2252C23E2003694FF /* FDFullscreenPopGesture */ = {
-			isa = PBXGroup;
-			children = (
-				C546C3D6252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.h */,
-				C546C3D5252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m */,
-				C546C3D4252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.h */,
-				C546C3D3252C23EA003694FF /* UIScrollView+FDFullscreenPopGesture.m */,
-			);
-			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
 		C5470FB025309D2200651ACE /* 各项宏定义 */ = {
@@ -1081,7 +1064,6 @@
 			isa = PBXGroup;
 			children = (
 				C56188A7255D6D74004E7B47 /* XHLaunchAd */,
-				C546C3D2252C23E2003694FF /* FDFullscreenPopGesture */,
 				C54BB3FE2518D3F6001591C2 /* ZZCircleProgress */,
 			);
 			path = "Pods不进去的";
@@ -1710,8 +1692,8 @@
 		C54FE3C5257672EE00937C11 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C54FE3C6257672F500937C11 /* BaseViewController.h */,
-				C54FE3C7257672F500937C11 /* BaseViewController.m */,
+				C5D6009025862FFA00029AFF /* BaseViewController.h */,
+				C5D6009125862FFA00029AFF /* BaseViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -2802,7 +2784,6 @@
 				C582A68C251C78BB00DD83A1 /* NetworkingAPI.m in Sources */,
 				C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */,
 				C54BB3C72518D391001591C2 /* NSObject+Random.m in Sources */,
-				C546C3D8252C23EB003694FF /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C530B1B3254D9B1600EDEDC8 /* CollectionReusableView.m in Sources */,
 				C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */,
 				C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */,
@@ -2846,7 +2827,6 @@
 				C56188BF255D6D74004E7B47 /* XHLaunchAdButton.m in Sources */,
 				C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */,
 				C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */,
-				C54FE3C8257672F500937C11 /* BaseViewController.m in Sources */,
 				C57109B9253C1358005B3A0C /* TransitionController.m in Sources */,
 				C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */,
 				C5D4F11325824ADA00C165EA /* NetworkingAPI+StatisticsApi.m in Sources */,
@@ -2873,7 +2853,6 @@
 				C5D6D80025860D5D00029AFF /* NSObject+Time.m in Sources */,
 				C54BB39A2518D391001591C2 /* UIImage+Tailor.m in Sources */,
 				C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */,
-				C57279D125409C8A002373D7 /* UIViewController+NavigationBar.m in Sources */,
 				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
@@ -2887,6 +2866,7 @@
 				C56188C3255D6D74004E7B47 /* XHLaunchAdController.m in Sources */,
 				C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */,
 				C5914DB125385356007777A6 /* UIViewController+BaseVC.m in Sources */,
+				C5D6009225862FFA00029AFF /* BaseViewController.m in Sources */,
 				C5D4F4C225825AD800C165EA /* KeychainIDFA.m in Sources */,
 				C54BB3992518D391001591C2 /* UIImage+YBGIF.m in Sources */,
 				C54BB3C92518D391001591C2 /* NSObject+SYSAlertController.m in Sources */,
@@ -2915,7 +2895,6 @@
 				C5D7749A257F59790087FC92 /* CJTextField.m in Sources */,
 				C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */,
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
-				C546C3D7252C23EB003694FF /* UIScrollView+FDFullscreenPopGesture.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
 				C54BB2E02518D363001591C2 /* UIControl+XY.m in Sources */,
@@ -2949,6 +2928,7 @@
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
+				C5D6008925862FDB00029AFF /* UIViewController+NavigationBar.m in Sources */,
 				C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */,
 				C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,
 				C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */,

@@ -176,8 +176,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 }
 
 -(void)setIsHiddenNavigationBar:(BOOL)isHiddenNavigationBar{
-    self.navigationBar.hidden = isHiddenNavigationBar;
-    self.navigationController.navigationBar.hidden = isHiddenNavigationBar;
+    [self.navigationController setNavigationBarHidden:isHiddenNavigationBar animated:true];
     objc_setAssociatedObject(self,
                              UIViewController_NavigationBar_isHiddenNavigationBar,
                              [NSNumber numberWithBool:isHiddenNavigationBar],
@@ -239,7 +238,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)foregroundColorAttributeNameCor{
     UIColor *ForegroundColorAttributeNameCor = objc_getAssociatedObject(self, UIViewController_NavigationBar_foregroundColorAttributeNameCor);
     if (!ForegroundColorAttributeNameCor) {
-        ForegroundColorAttributeNameCor = kBlackColor;
+        ForegroundColorAttributeNameCor = KGreenColor;//kBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_foregroundColorAttributeNameCor,
                                  ForegroundColorAttributeNameCor,
@@ -268,7 +267,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)tintColor{
     UIColor *TintColor = objc_getAssociatedObject(self, UIViewController_NavigationBar_tintColor);
     if (!TintColor) {
-        TintColor = kBlackColor;
+        TintColor = KGreenColor;//kBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_tintColor,
                                  TintColor,
@@ -286,7 +285,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)barTintColor{
     UIColor *BarTintColor = objc_getAssociatedObject(self, UIViewController_NavigationBar_barTintColor);
     if (!BarTintColor) {
-        BarTintColor = kBlackColor;
+        BarTintColor = KGreenColor;//kBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_barTintColor,
                                  BarTintColor,

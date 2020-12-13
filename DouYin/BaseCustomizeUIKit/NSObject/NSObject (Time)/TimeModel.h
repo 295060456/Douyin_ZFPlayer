@@ -9,6 +9,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, IntervalStyle) {
+    intervalBySec = 0,//单位：秒
+    intervalByMilliSec//单位：毫秒
+};
+
+//以应对同一时间不同格式的需求
+@interface TimeFormatterModel : NSObject
+
+@property(nonatomic,strong)NSDate *date;
+@property(nonatomic,strong)NSString *dateStr;
+@property(nonatomic,assign)NSTimeInterval intervalBySec;//单位：秒
+@property(nonatomic,assign)NSTimeInterval intervalByMilliSec;//单位：毫秒
+
+@end
+
 @interface TimeModel : NSObject
 
 /*
@@ -65,14 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger timeOffset;//当前时区与格林威治时间的时间差
 @property(nonatomic,assign)NSInteger customTimeOffset;//自定义时区与格林威治时间的时间差
 
--(void)makeSpecificTime;//各个具体时间的拆解
-//以当前手机系统时间（包含了时区）为基准，给定一个日期偏移值（正值代表未来，负值代表过去，0代表现在），返回字符串特定格式的“星期几”
-+(NSString *)whatDayOfWeekDistanceNow:(NSInteger)offsetDay;
-/// 获取一个格式化的字符串时间
-/// @param date 传空则是当前iOS系统时间
-/// @param dateFormatStr 传空则格式是@"yyyy-MM-dd HH:mm:ss zzz"
--(NSString *)getDayWithDate:(NSDate *_Nullable)date
-              dateFormatStr:(NSString *_Nullable)dateFormatStr;
 
 @end
 

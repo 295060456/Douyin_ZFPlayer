@@ -13,6 +13,7 @@
 @property(nonatomic,strong)NSDate *date;
 @property(nonatomic,copy)MKDataBlock NSTimerManagerRunningBlock;
 @property(nonatomic,copy)MKDataBlock NSTimerManagerFinishBlock;
+@property(nonatomic,assign)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @end
 
@@ -32,91 +33,101 @@
 }
 
 -(void)actionNSTimerManagerRunningBlock:(MKDataBlock _Nullable)NSTimerManagerRunningBlock{
-    _NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
+    self.NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
 }
 
 -(void)actionNSTimerManagerFinishBlock:(MKDataBlock _Nullable)NSTimerManagerFinishBlock{
-    _NSTimerManagerFinishBlock = NSTimerManagerFinishBlock;
+    self.NSTimerManagerFinishBlock = NSTimerManagerFinishBlock;
 }
-///定时器启动 系统自动添加到RunLoop
+///定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop{
     switch (self.timerType) {
         case ScheduledTimerType_0:{
             @weakify(self)
-            self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
-                                                           repeats:self.repeats
-                                                             block:^(NSTimer * _Nonnull timer) {//在block里面进行内循环
-                @strongify(self)
-                switch (self.timerStyle) {
-                    case TimerStyle_clockwise:{//顺时针模式
-                        if (self.NSTimerManagerRunningBlock) {
-                            self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
-                        }
-                    }break;
-                    case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
-                        if (self.anticlockwiseTime >= 1) {
+            if (!_nsTimer) {
+                self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
+                                                               repeats:self.repeats
+                                                                 block:^(NSTimer * _Nonnull timer) {//在block里面进行内循环
+                    @strongify(self)
+                    switch (self.timerStyle) {
+                        case TimerStyle_clockwise:{//顺时针模式
                             if (self.NSTimerManagerRunningBlock) {
                                 self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
                             }
-                            self.anticlockwiseTime -= self.timeInterval;
-                        }else{
-                            
-                            if (weak_self.nsTimer) {
-                                [weak_self nsTimeDestroy];
-                                if (self.NSTimerManagerFinishBlock) {
-                                    self.NSTimerManagerFinishBlock(self);
+                        }break;
+                        case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
+                            if (self.anticlockwiseTime >= 1) {
+                                if (self.NSTimerManagerRunningBlock) {
+                                    self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
+                                }
+                                self.anticlockwiseTime -= self.timeInterval;
+                            }else{
+                                if (weak_self.nsTimer) {
+                                    [weak_self nsTimeDestroy];
+                                    if (self.NSTimerManagerFinishBlock) {
+                                        self.NSTimerManagerFinishBlock(self);
+                                    }
                                 }
                             }
-                        }
-                    }break;
-                        
-                    default:
-                        break;
-                }
-            }];
+                        }break;
+                            
+                        default:
+                            break;
+                    }
+                }];
+                self.timerCurrentStatus = NSTimerCurrentStatusRun;
+            }
         }break;
         case ScheduledTimerType_1:{
-            self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
-                                                        invocation:self.invocation
-                                                           repeats:self.repeats];
+            if (!_nsTimer) {
+                self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
+                                                            invocation:self.invocation
+                                                               repeats:self.repeats];
+                self.timerCurrentStatus = NSTimerCurrentStatusRun;
+            }
         }break;
         case ScheduledTimerType_2:{
-            self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
-                                                            target:self.target
-                                                          selector:self.selector
-                                                          userInfo:self.userInfo
-                                                           repeats:self.repeats];
+            if (!_nsTimer) {
+                self.nsTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval
+                                                                target:self.target
+                                                              selector:self.selector
+                                                              userInfo:self.userInfo
+                                                               repeats:self.repeats];
+                self.timerCurrentStatus = NSTimerCurrentStatusRun;
+            }
         }break;
 
-        default:
+        default:{
             self.nsTimer = nil;
-            break;
-    }
-    return self.nsTimer;
+        }break;
+    }return self.nsTimer;
 }
 ///定时器启动 手动添加定时器到RunLoop
-+(void)nsTimeStart:(NSTimer *)nsTimer
++(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
        withRunLoop:(NSRunLoop *_Nullable)runLoop{
-    if (nsTimer) {
+    if (timerManager.nsTimer) {
         if (!runLoop) {
             runLoop = NSRunLoop.mainRunLoop;
         }
-        [runLoop addTimer:nsTimer
+        [runLoop addTimer:timerManager.nsTimer
                   forMode:NSRunLoopCommonModes];
+        timerManager.timerCurrentStatus = NSTimerCurrentStatusRun;
     }else{
          NSAssert(0,@"属性 nsTimer 没有被成功创建,请检查");
     }
 }
 ///定时器暂停
-+(void)nsTimePause:(NSTimer *)nsTimer{
-    if (nsTimer) {
-        [nsTimer setFireDate:NSDate.distantFuture];
++(void)nsTimePause:(NSTimerManager *)timerManager{
+    if (timerManager.nsTimer) {
+        [timerManager.nsTimer setFireDate:NSDate.distantFuture];
+        timerManager.timerCurrentStatus = NSTimerCurrentStatusPause;
     }
 }
 ///定时器继续
-+(void)nsTimecontinue:(NSTimer *)nsTimer{
-    if (nsTimer) {
-        [nsTimer setFireDate:NSDate.distantPast];
++(void)nsTimecontinue:(NSTimerManager *)timerManager{
+    if (timerManager.nsTimer) {
+        [timerManager.nsTimer setFireDate:NSDate.distantPast];
+        timerManager.timerCurrentStatus = NSTimerCurrentStatusRun;
     }
 }
 ///销毁定时器
@@ -124,6 +135,7 @@
     if (_nsTimer) {
         [_nsTimer invalidate];//这个是唯一一个可以将计时器从runloop中移出的方法
         _nsTimer = nil;
+        self.timerCurrentStatus = NSTimerCurrentStatusDestroy;
     }
 }
 #pragma mark —— lazyLoad
@@ -199,12 +211,13 @@
                     break;
             }
         }];
+        self.timerCurrentStatus = NSTimerCurrentStatusRun;
     }return _nsTimer;
 }
 
 -(NSDate *)date{
     if (!_date) {
-        _date = [[NSDate alloc] initWithTimeIntervalSinceNow:self.timeSecIntervalSinceDate];
+        _date = [NSObject getDateFromCurrentAfterTimeInterval:self.timeSecIntervalSinceDate];
     }return _date;
 }
 

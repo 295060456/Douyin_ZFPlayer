@@ -33,7 +33,7 @@
 
 -(void)makeTimer_color{
     //启动方式——1
-    [NSTimerManager nsTimeStart:self.nsTimerManager_color.nsTimer
+    [NSTimerManager nsTimeStart:self.nsTimerManager_color
                     withRunLoop:nil];
     //启动方式——2
 //    [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
@@ -41,7 +41,7 @@
 
 -(void)makeTimer_length{
     //启动方式——1
-    [NSTimerManager nsTimeStart:self.nsTimerManager_length.nsTimer
+    [NSTimerManager nsTimeStart:self.nsTimerManager_length
                     withRunLoop:nil];
     //启动方式——2
 //    [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
@@ -67,11 +67,11 @@
 }
 //暂停
 -(void)pause{
-    [NSTimerManager nsTimePause:self.nsTimerManager_length.nsTimer];
+    [NSTimerManager nsTimePause:self.nsTimerManager_length];
 }
 //重新开始
 -(void)resume{
-    [NSTimerManager nsTimecontinue:self.nsTimerManager_length.nsTimer];
+    [NSTimerManager nsTimecontinue:self.nsTimerManager_length];
 }
 //归位
 -(void)reset{
@@ -88,7 +88,7 @@
 }
 
 -(void)hide{
-    [NSTimerManager nsTimePause:self.nsTimerManager_color.nsTimer];
+    [NSTimerManager nsTimePause:self.nsTimerManager_color];
     if ([self superview]) {
         [self removeFromSuperview];
     }

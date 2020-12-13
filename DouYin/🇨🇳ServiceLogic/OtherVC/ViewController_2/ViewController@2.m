@@ -68,27 +68,6 @@ ZFDouYinCellDelegate
     [self.tableView.mj_header beginRefreshing];
 }
 
-//- (void)loadNewData {
-//    [self.dataSource removeAllObjects];
-//    @weakify(self)
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-//                                 (int64_t)(1 * NSEC_PER_SEC)),
-//                   dispatch_get_main_queue(), ^{
-//        @strongify(self)
-//        /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
-//        [self.player stopCurrentPlayingCell];
-//        [self requestData];
-//        [self.tableView reloadData];
-//
-//        /// 找到可以播放的视频并播放
-//        @weakify(self)
-//        [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-//            @zf_strongify(self)
-//            [self playTheVideoAtIndexPath:indexPath];
-//        }];
-//    });
-//}
-
 //- (void)requestData {
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
 //    NSData *data = [NSData dataWithContentsOfFile:path];
@@ -122,7 +101,8 @@ ZFDouYinCellDelegate
         @strongify(self)
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {
-            self.dataSource = (NSMutableArray *)data;
+            NSArray *dataArr = (NSMutableArray *)data;
+            [self.dataSource addObjectsFromArray:dataArr];
             [self.tableView.mj_header endRefreshing];// 结束刷新
             if (!self.tableView.mj_footer.hidden) {
                 [self.tableView.mj_footer endRefreshing];// 结束刷新
@@ -274,6 +254,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _tableView.scrollsToTop = NO;
         
         if (@available(iOS 11.0, *)) {
+            
+            _tableView.estimatedRowHeight = 0;
+            _tableView.estimatedSectionFooterHeight = 0;
+            _tableView.estimatedSectionHeaderHeight = 0;
+            
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         } else {
 #pragma clang diagnostic push

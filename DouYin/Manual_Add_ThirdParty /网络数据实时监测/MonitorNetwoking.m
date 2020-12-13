@@ -38,7 +38,7 @@ static MonitorNetwoking *monitorNetwoking = nil;
 }
 
 -(void)getInternetface{
-    long long int rate;
+    long long int rate = 0;
     long long int currentBytes = [self getInterfaceBytes];
     if(self.lastBytes) {
         //用上当前的下行总流量减去上一秒的下行流量达到下行速录

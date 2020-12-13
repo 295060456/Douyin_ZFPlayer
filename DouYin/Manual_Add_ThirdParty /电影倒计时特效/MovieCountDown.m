@@ -8,8 +8,8 @@
 
 #import "MovieCountDown.h"
 
-#define MAINSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define MAINSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//#define MAINSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+//#define MAINSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 @interface MovieCountDown ()
 
@@ -34,7 +34,7 @@
 
 -(void)makeTimer{
     //启动方式——1
-    //    [NSTimerManager nsTimeStart:self.nsTimerManager.nsTimer
+    //    [NSTimerManager nsTimeStart:self.nsTimerManager
     //                    withRunLoop:nil];
     //启动方式——2
     [self.nsTimerManager nsTimeStartSysAutoInRunLoop];

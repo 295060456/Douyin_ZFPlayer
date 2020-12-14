@@ -109,7 +109,6 @@ static NSString *const itemCell = @"itemCell";
         }
     }];
 }
-
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
@@ -284,7 +283,5 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         _otherArray = NSArray.array;
     }return _otherArray;
 }
-
-
 
 @end

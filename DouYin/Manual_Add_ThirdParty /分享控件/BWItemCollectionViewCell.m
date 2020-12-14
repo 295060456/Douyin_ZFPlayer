@@ -13,30 +13,29 @@
 
 @interface BWItemCollectionViewCell ()
 
-@property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, strong) UILabel *titleLabel;
+@property(nonatomic,strong)UIImageView *imgView;
+@property(nonatomic,strong)UILabel *titleLabel;
 
 @end
 
 @implementation BWItemCollectionViewCell
 
-- (instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = RGBColor(245, 245, 245);
         [self loadSubViews];
     }return self;
 }
 
-- (void)loadSubViews{
+-(void)loadSubViews{
     [self.contentView addSubview:self.imgView];
     [self.contentView addSubview:self.titleLabel];
 }
 
-- (void)updateContent:(BWItemModel *)model{
+-(void)updateContent:(BWItemModel *)model{
     self.imgView.image = [UIImage imageNamed:model.img];
     self.titleLabel.text = [NSString stringWithFormat:@"%@", model.text];
 }
-
 #pragma mark - LazyLoad
 - (UIImageView *)imgView{
     if (!_imgView) {
@@ -61,10 +60,5 @@
         _titleLabel.font = [UIFont systemFontOfSize:14];
     }return _titleLabel;
 }
-
-
-
-
-
 
 @end

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BWItemCollectionViewCell : UICollectionViewCell
 
-- (void)updateContent:(BWItemModel *)model;
+-(void)updateContent:(BWItemModel *)model;
 
 @end
 

@@ -163,8 +163,8 @@ ZFDouYinCellDelegate
 /// play the video
 -(void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath{
     VideoModel_Core *data = self.dataSource[indexPath.row];
-    [self.player playTheIndexPath:indexPath//data.videoIdcUrl
-                         assetURL:[NSURL URLWithString:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"]];
+    [self.player playTheIndexPath:indexPath//
+                         assetURL:[NSURL URLWithString:data.videoIdcUrl]];//@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
 //    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:[NSURL URLWithString:data.video_url]]];
     [self.controlView resetControlView];
     [self.controlView showCoverViewWithUrl:data.videoImg];

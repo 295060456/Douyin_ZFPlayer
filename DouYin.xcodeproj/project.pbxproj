@@ -10,6 +10,9 @@
 		4EEC19B2374F7AB65C4E00FA /* Pods_DouYinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AAAB3EB4EF92B1B5BF1FD95 /* Pods_DouYinTests.framework */; };
 		892E1FDF98696A36692FF208 /* Pods_DouYinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FC574B60FCCA60AAB8593C /* Pods_DouYinUITests.framework */; };
 		C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D8DA5251B0849006958FF /* PlayerCell.m */; };
+		C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C522694F258757F7004447FB /* BWItemCollectionViewCell.m */; };
+		C5226957258757F7004447FB /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5226951258757F7004447FB /* BWShareView.m */; };
+		C5226958258757F7004447FB /* BWItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5226954258757F7004447FB /* BWItemModel.m */; };
 		C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B199254D9B1500EDEDC8 /* LMHWaterFallLayout.m */; };
 		C530B1AD254D9B1600EDEDC8 /* KFZShopCatoryFlowLayput.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B19C254D9B1500EDEDC8 /* KFZShopCatoryFlowLayput.m */; };
 		C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B19E254D9B1500EDEDC8 /* HQCollectionViewFlowLayout.m */; };
@@ -39,10 +42,6 @@
 		C54BB0D92518D010001591C2 /* DouYinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0D82518D010001591C2 /* DouYinUITests.m */; };
 		C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0EE2518D055001591C2 /* YBNotificationManager.m */; };
 		C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1DF2518D363001591C2 /* ImageCodeView.m */; };
-		C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1FA2518D363001591C2 /* BWItemModel.m */; };
-		C54BB2CF2518D363001591C2 /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1FB2518D363001591C2 /* BWShareView.m */; };
-		C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */ = {isa = PBXBuildFile; fileRef = C54BB1FC2518D363001591C2 /* 分享控件的用法 */; };
-		C54BB2D12518D363001591C2 /* BWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1FD2518D363001591C2 /* BWItemCollectionViewCell.m */; };
 		C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2032518D363001591C2 /* FileFolderHandleTool.m */; };
 		C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */; };
 		C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2062518D363001591C2 /* LBLaunchImageAdView.m */; };
@@ -258,6 +257,13 @@
 		7FA8C51EDACBA2E67817A1EC /* Pods-DouYinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.debug.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C51D8DA4251B0849006958FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		C51D8DA5251B0849006958FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		C522694E258757F7004447FB /* 分享控件的用法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "分享控件的用法.md"; sourceTree = "<group>"; };
+		C522694F258757F7004447FB /* BWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemCollectionViewCell.m; sourceTree = "<group>"; };
+		C5226950258757F7004447FB /* BWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemCollectionViewCell.h; sourceTree = "<group>"; };
+		C5226951258757F7004447FB /* BWShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWShareView.m; sourceTree = "<group>"; };
+		C5226952258757F7004447FB /* BWItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemModel.h; sourceTree = "<group>"; };
+		C5226953258757F7004447FB /* BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWShareView.h; sourceTree = "<group>"; };
+		C5226954258757F7004447FB /* BWItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemModel.m; sourceTree = "<group>"; };
 		C530B198254D9B1500EDEDC8 /* LMHWaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHWaterFallLayout.h; sourceTree = "<group>"; };
 		C530B199254D9B1500EDEDC8 /* LMHWaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHWaterFallLayout.m; sourceTree = "<group>"; };
 		C530B19B254D9B1500EDEDC8 /* KFZShopCatoryFlowLayput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFZShopCatoryFlowLayput.h; sourceTree = "<group>"; };
@@ -332,13 +338,6 @@
 		C54BB1F62518D363001591C2 /* FMHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHttpRequest.h; sourceTree = "<group>"; };
 		C54BB1F72518D363001591C2 /* FMARCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMARCNetwork.h; sourceTree = "<group>"; };
 		C54BB1F82518D363001591C2 /* FMHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHttpRequest.m; sourceTree = "<group>"; };
-		C54BB1FA2518D363001591C2 /* BWItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemModel.m; sourceTree = "<group>"; };
-		C54BB1FB2518D363001591C2 /* BWShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWShareView.m; sourceTree = "<group>"; };
-		C54BB1FC2518D363001591C2 /* 分享控件的用法 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "分享控件的用法"; sourceTree = "<group>"; };
-		C54BB1FD2518D363001591C2 /* BWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemCollectionViewCell.m; sourceTree = "<group>"; };
-		C54BB1FE2518D363001591C2 /* BWItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemModel.h; sourceTree = "<group>"; };
-		C54BB1FF2518D363001591C2 /* BWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemCollectionViewCell.h; sourceTree = "<group>"; };
-		C54BB2002518D363001591C2 /* BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWShareView.h; sourceTree = "<group>"; };
 		C54BB2022518D363001591C2 /* FileFolderHandleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileFolderHandleTool.h; sourceTree = "<group>"; };
 		C54BB2032518D363001591C2 /* FileFolderHandleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileFolderHandleTool.m; sourceTree = "<group>"; };
 		C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LBLaunchImage.m"; sourceTree = "<group>"; };
@@ -1193,13 +1192,13 @@
 		C54BB1F92518D363001591C2 /* 分享控件 */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB1FC2518D363001591C2 /* 分享控件的用法 */,
-				C54BB1FF2518D363001591C2 /* BWItemCollectionViewCell.h */,
-				C54BB1FD2518D363001591C2 /* BWItemCollectionViewCell.m */,
-				C54BB1FE2518D363001591C2 /* BWItemModel.h */,
-				C54BB1FA2518D363001591C2 /* BWItemModel.m */,
-				C54BB2002518D363001591C2 /* BWShareView.h */,
-				C54BB1FB2518D363001591C2 /* BWShareView.m */,
+				C522694E258757F7004447FB /* 分享控件的用法.md */,
+				C5226950258757F7004447FB /* BWItemCollectionViewCell.h */,
+				C522694F258757F7004447FB /* BWItemCollectionViewCell.m */,
+				C5226952258757F7004447FB /* BWItemModel.h */,
+				C5226954258757F7004447FB /* BWItemModel.m */,
+				C5226953258757F7004447FB /* BWShareView.h */,
+				C5226951258757F7004447FB /* BWShareView.m */,
 			);
 			path = "分享控件";
 			sourceTree = "<group>";
@@ -2706,7 +2705,6 @@
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
 				C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */,
 				C54BB2FF2518D363001591C2 /* Sound.wav in Resources */,
-				C54BB2D02518D363001591C2 /* 分享控件的用法 in Resources */,
 				C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */,
 				C588F56A253DA63700973CFE /* 0.png in Resources */,
 				C54BB3BE2518D391001591C2 /* 专治UITableView相应链断裂 in Resources */,
@@ -2950,7 +2948,7 @@
 				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
-				C54BB2CF2518D363001591C2 /* BWShareView.m in Sources */,
+				C5226958258757F7004447FB /* BWItemModel.m in Sources */,
 				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
 				C5914DAF25385356007777A6 /* UIViewController+BackBtn.m in Sources */,
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
@@ -2977,7 +2975,6 @@
 				C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */,
 				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
-				C54BB2CE2518D363001591C2 /* BWItemModel.m in Sources */,
 				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
 				C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */,
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,
@@ -2990,6 +2987,7 @@
 				C5D7749A257F59790087FC92 /* CJTextField.m in Sources */,
 				C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */,
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
+				C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
 				C54BB2E02518D363001591C2 /* UIControl+XY.m in Sources */,
@@ -2997,6 +2995,7 @@
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
 				C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */,
 				C5D4F11725824ADA00C165EA /* NetworkingAPI+LoginApi.m in Sources */,
+				C5226957258757F7004447FB /* BWShareView.m in Sources */,
 				C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */,
 				C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */,
 				C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */,
@@ -3031,7 +3030,6 @@
 				C5D4F11D25824ADA00C165EA /* NetworkingAPI+UserInfoApi.m in Sources */,
 				C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */,
 				C5D4F11925824ADA00C165EA /* NetworkingAPI+MsgStateApi.m in Sources */,
-				C54BB2D12518D363001591C2 /* BWItemCollectionViewCell.m in Sources */,
 				C54BB3AE2518D391001591C2 /* UIImageView+GIF.m in Sources */,
 				C530B1AD254D9B1600EDEDC8 /* KFZShopCatoryFlowLayput.m in Sources */,
 				C591E4B12563A478005B78CC /* LOTAnimationMJRefreshHeader.m in Sources */,

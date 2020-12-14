@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)removeChildView;
 
-@property (nonatomic, copy) void (^shareItemClick) (BWItemModel *model);
+@property(nonatomic,copy)void(^shareItemClick) (BWItemModel *model);
 
 
 

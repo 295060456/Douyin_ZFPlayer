@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Chain.h"
+#import <objc/runtime.h>
 
 @implementation UIView (Chain)
 

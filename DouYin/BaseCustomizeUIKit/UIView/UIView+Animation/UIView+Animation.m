@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Animation.h"
+#import <objc/runtime.h>
 
 @implementation UIView (Animation)
 

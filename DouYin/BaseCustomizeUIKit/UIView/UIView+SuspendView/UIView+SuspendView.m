@@ -7,6 +7,7 @@
 //
 
 #import "UIView+SuspendView.h"
+#import <objc/runtime.h>
 
 @implementation UIView (SuspendView)
 

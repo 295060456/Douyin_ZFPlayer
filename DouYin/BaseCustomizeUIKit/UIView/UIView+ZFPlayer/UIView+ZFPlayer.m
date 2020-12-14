@@ -6,6 +6,7 @@
 //
 
 #import "UIView+ZFPlayer.h"
+#import <objc/runtime.h>
 
 @implementation UIView (ZFPlayer)
 

@@ -35,6 +35,8 @@ ZFDouYinCellDelegate
 @property(nonatomic,strong)NSNumber *pageSize;//每页数据容量
 @property(nonatomic,strong)NSNumber *currentPageNum;//当前页码
 
+@property(nonatomic,strong)JobsBitsMonitorSuspendLab *bitsMonitorSuspendLab;
+
 @end
 
 @implementation ViewController_2
@@ -60,18 +62,29 @@ ZFDouYinCellDelegate
     self.gk_navTitleFont = [UIFont systemFontOfSize:17
                                              weight:UIFontWeightBold];
     self.tableView.alpha = 1;
-   
+    self.bitsMonitorSuspendLab.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.tableView.mj_header beginRefreshing];
+    JobsBitsMonitorCore.sharedInstance.bitsMonitorRunMode = BitsMonitorManualRun;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [JobsBitsMonitorCore.sharedInstance stop];
 }
 
 //- (void)requestData {
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+//    /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
+//    [self.player stopCurrentPlayingCell];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"data"
+//                                                     ofType:@"json"];
 //    NSData *data = [NSData dataWithContentsOfFile:path];
-//    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+//    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data
+//                                                             options:NSJSONReadingAllowFragments
+//                                                               error:nil];
 //
 //    NSArray *videoList = [rootDict objectForKey:@"list"];
 //    for (NSDictionary *dataDic in videoList) {
@@ -150,8 +163,8 @@ ZFDouYinCellDelegate
 /// play the video
 -(void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath{
     VideoModel_Core *data = self.dataSource[indexPath.row];
-    [self.player playTheIndexPath:indexPath
-                         assetURL:[NSURL URLWithString:data.videoIdcUrl]];
+    [self.player playTheIndexPath:indexPath//data.videoIdcUrl
+                         assetURL:[NSURL URLWithString:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"]];
 //    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:[NSURL URLWithString:data.video_url]]];
     [self.controlView resetControlView];
     [self.controlView showCoverViewWithUrl:data.videoImg];
@@ -400,5 +413,23 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _currentPageNum = @(0);
     }return _currentPageNum;
 }
+
+-(JobsBitsMonitorSuspendLab *)bitsMonitorSuspendLab{
+    if (!_bitsMonitorSuspendLab) {
+        _bitsMonitorSuspendLab = JobsBitsMonitorSuspendLab.new;
+        _bitsMonitorSuspendLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightBold];
+        _bitsMonitorSuspendLab.backgroundColor = KLightGrayColor;
+        _bitsMonitorSuspendLab.textColor = kRedColor;
+        @weakify(self)
+        _bitsMonitorSuspendLab.vc = weak_self;
+        _bitsMonitorSuspendLab.isAllowDrag = YES;//悬浮效果必须要的参数
+        [self.view addSubview:_bitsMonitorSuspendLab];
+        _bitsMonitorSuspendLab.frame = CGRectMake(20,
+                                                  MAINSCREEN_HEIGHT - 200,
+                                                  80,
+                                                  30);
+    }return _bitsMonitorSuspendLab;
+}
+
 
 @end

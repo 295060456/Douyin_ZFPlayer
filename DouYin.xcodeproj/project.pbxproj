@@ -24,6 +24,8 @@
 		C54AB2B2255E61B3000A314D /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */; };
 		C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */; };
 		C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */; };
+		C54AEBBC25871C08001A4630 /* JobsBitsMonitorSuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AEBB825871C08001A4630 /* JobsBitsMonitorSuspendLab.m */; };
+		C54AEBBD25871C08001A4630 /* JobsBitsMonitorCore.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AEBBA25871C08001A4630 /* JobsBitsMonitorCore.m */; };
 		C54B3D312552605B003BE195 /* UIFont+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B3D302552605B003BE195 /* UIFont+Extras.m */; };
 		C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C54B401F2552980E003BE195 /* UILabel+Extra.m */; };
 		C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */; };
@@ -285,6 +287,11 @@
 		C54AB2AE255E61B3000A314D /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
 		C54AB2AF255E61B3000A314D /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
 		C54AB2B0255E61B3000A314D /* UITableViewCell+WhiteArrows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WhiteArrows.m"; sourceTree = "<group>"; };
+		C54AEBB725871C08001A4630 /* JobsBitsMonitorSuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBitsMonitorSuspendLab.h; sourceTree = "<group>"; };
+		C54AEBB825871C08001A4630 /* JobsBitsMonitorSuspendLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBitsMonitorSuspendLab.m; sourceTree = "<group>"; };
+		C54AEBBA25871C08001A4630 /* JobsBitsMonitorCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBitsMonitorCore.m; sourceTree = "<group>"; };
+		C54AEBBB25871C08001A4630 /* JobsBitsMonitorCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBitsMonitorCore.h; sourceTree = "<group>"; };
+		C54AEBC425871CDE001A4630 /* JobsBitsMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBitsMonitor.h; sourceTree = "<group>"; };
 		C54B3D2F2552605B003BE195 /* UIFont+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Extras.h"; sourceTree = "<group>"; };
 		C54B3D302552605B003BE195 /* UIFont+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Extras.m"; sourceTree = "<group>"; };
 		C54B401D2552980E003BE195 /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
@@ -956,6 +963,34 @@
 			path = "自定义右侧小箭头图标";
 			sourceTree = "<group>";
 		};
+		C54AEBB525871C08001A4630 /* JobsBitsMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				C54AEBC425871CDE001A4630 /* JobsBitsMonitor.h */,
+				C54AEBB625871C08001A4630 /* JobsBitsMonitorSuspendLab */,
+				C54AEBB925871C08001A4630 /* JobsBitsMonitorCore */,
+			);
+			path = JobsBitsMonitor;
+			sourceTree = "<group>";
+		};
+		C54AEBB625871C08001A4630 /* JobsBitsMonitorSuspendLab */ = {
+			isa = PBXGroup;
+			children = (
+				C54AEBB725871C08001A4630 /* JobsBitsMonitorSuspendLab.h */,
+				C54AEBB825871C08001A4630 /* JobsBitsMonitorSuspendLab.m */,
+			);
+			path = JobsBitsMonitorSuspendLab;
+			sourceTree = "<group>";
+		};
+		C54AEBB925871C08001A4630 /* JobsBitsMonitorCore */ = {
+			isa = PBXGroup;
+			children = (
+				C54AEBBB25871C08001A4630 /* JobsBitsMonitorCore.h */,
+				C54AEBBA25871C08001A4630 /* JobsBitsMonitorCore.m */,
+			);
+			path = JobsBitsMonitorCore;
+			sourceTree = "<group>";
+		};
 		C54B3D2E2552605B003BE195 /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,6 +1116,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C54AEBB525871C08001A4630 /* JobsBitsMonitor */,
 				C54BB2762518D363001591C2 /* TimerManager */,
 				C591E40A25639BB7005B78CC /* LYEmptyView */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
@@ -2846,6 +2882,7 @@
 				C54BB3002518D363001591C2 /* SoundBtn.m in Sources */,
 				C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */,
 				C595D164258713F1002A4531 /* SuspendBtn.m in Sources */,
+				C54AEBBD25871C08001A4630 /* JobsBitsMonitorCore.m in Sources */,
 				C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C5D4F12125824ADA00C165EA /* NetworkingAPI+VideoApi.m in Sources */,
@@ -2872,6 +2909,7 @@
 				C54BB3012518D363001591C2 /* LGiOSBtn.m in Sources */,
 				C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */,
 				C54BB3042518D363001591C2 /* Nanosecond_TimerManager.m in Sources */,
+				C54AEBBC25871C08001A4630 /* JobsBitsMonitorSuspendLab.m in Sources */,
 				C56BA9022578936D00D054D0 /* NSString+ZBUTF8Encoding.m in Sources */,
 				C5D4F11B25824ADA00C165EA /* NetworkingAPI+UserFansApi.m in Sources */,
 				C54BB39D2518D391001591C2 /* UIImage+SYS.m in Sources */,

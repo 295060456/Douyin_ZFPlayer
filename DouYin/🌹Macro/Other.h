@@ -14,6 +14,9 @@
 #import "TabbarControllerSysEx.h"
 #import "CustomZFPlayerControlView.h"
 
+//网络监控
+#import "JobsBitsMonitor.h"
+
 // 网络框架
 #import "URLManagerModel.h"
 #import "NSObject+URLManager.h"

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+Sound.h"
 
 /**
  自定义 buttom 按下有按键音
  */
-
 @interface SoundBtn : UIButton
 
 @end

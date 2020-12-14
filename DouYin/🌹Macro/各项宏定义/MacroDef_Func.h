@@ -121,26 +121,4 @@ dispatch_async(queue, block);\
 /** 毫秒数 */
 #define Milliseconds(Days)      (24.f * 60.f * 60.f * 1000.f * (Days))
 
-#pragma mark ======================================== 重写NSLog,Debug模式下打印日志和当前行数 ========================================
-#if DEBUG
-#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
-
-#else
-#define NSLog(FORMAT, ...) nil
-#endif
-///DEBUG模式
-#define ITTDEBUG
-///LOG等级
-#define ITTLOGLEVEL_INFO        10
-#define ITTLOGLEVEL_WARNING     3
-#define ITTLOGLEVEL_ERROR       1
-///LOG最高等级
-#ifndef ITTMAXLOGLEVEL
-#ifdef DEBUG
-#define ITTMAXLOGLEVEL ITTLOGLEVEL_INFO
-#else
-#define ITTMAXLOGLEVEL ITTLOGLEVEL_ERROR
-#endif
-#endif
-
 #endif /* MacroDef_Func_h */

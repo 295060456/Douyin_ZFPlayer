@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "UIControl+XY.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param fileName 文件名 包含后缀
  */
-+ (void)playSoundWithFileName:(NSString *)fileName;
++(void)playSoundWithFileName:(NSString *)fileName;
+
++(void)playSoundEffect:(NSString*)name
+                  type:(NSString*)type;
 
 @end
 

@@ -1,16 +1,15 @@
 //
-//  UIImage+screenshot.h
-//  Shooting
+//  UIImage+ScreenShot.h
+//  DouYin
 //
-//  Created by Jobs on 2020/9/20.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/12/16.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIImage (screenshot)
+@interface UIImage (ScreenShot)
 
 /** 获取屏幕截图 */
 +(UIImage *)getCurrentScreenShot;

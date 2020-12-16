@@ -1,14 +1,13 @@
 //
-//  UIImage+screenshot.m
-//  Shooting
+//  UIImage+ScreenShot.m
+//  DouYin
 //
-//  Created by Jobs on 2020/9/20.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2020/12/16.
 //
 
-#import "UIImage+screenshot.h"
+#import "UIImage+ScreenShot.h"
 
-@implementation UIImage (screenshot)
+@implementation UIImage (ScreenShot)
 
 //将图片存本地相册 UIImageWriteToSavedPhotosAlbum
 
@@ -83,5 +82,6 @@
     UIGraphicsEndImageContext();
     return theImage;
 }
+
 
 @end

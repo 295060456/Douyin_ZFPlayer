@@ -9,11 +9,10 @@
 #ifndef Manual_Add_ThirdParty_h
 #define Manual_Add_ThirdParty_h
 
-#import "AABlock.h"
-
-//NSString
+#pragma mark —— BaseCustomizeUIKit
+// NSString
 #import "NSString+Extras.h"
-//NSObject
+// NSObject
 #import "NSObject+Measure.h"
 #import "NSObject+Extras.h"
 #import "NSObject+Random.h"
@@ -23,14 +22,14 @@
 #import "NSObject+SYSAlertController.h"
 #import "NSObject+SPAlertController.h"
 #import "NSObject+OpenURL.h"
-//UIView
+// UIView
 #import "UIView+Chain.h"
 #import "UIView+Extras.h"
 #import "UIView+Measure.h"
 #import "UIView+SuspendView.h"
 #import "UIView+Animation.h"
 #import "UIView+Gradient.h"
-//UIViewController
+// UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"
 #import "UIViewController+BRPickerView.h"
@@ -45,42 +44,38 @@
 #import "UIViewController+TZImagePickerControllerDelegate.h"
 #import "UIViewController+TZLocationManager.h"
 #import "UIViewController+NavigationBar.h"
-//UITableViewHeaderFooterView
+// UITableViewHeaderFooterView
 #import "ViewForTableViewFooter.h"
 #import "ViewForTableViewHeader.h"
-//UINavigationController
+// UINavigationController
 #import "BaseNavigationVC.h"
-//UINavigationBar
+// UINavigationBar
 #import "NavigationBar.h"
-//UICollectionViewCell
+// UICollectionViewCell
 #import "CollectionViewCell.h"
-//UITextField
+// UITextField
 #import "HQTextField.h"
 #import "CJTextField.h"
 #import "ZYTextField.h"
 #import "UITextField+Extend.h"
-//UITableView
+// UITableView
 #import "BaseTableViewer.h"
-//UITableViewCell
+// UITableViewCell
 #import "UITableViewCell+Margin.h"
 #import "UITableViewCell+WhiteArrows.h"
-//UIColor
+// UIColor
 #import "UIColor+Hex.h"
-
-#import "LoadingImage.h"
-
-#import "MacroDef_Sys.h"
-#import "MacroDef_Cor.h"
-#import "MacroDef_Size.h"
-#import "MacroDef_Func.h"
-
+// UIButton
 #import "UIButton+ImageTitleSpacing.h"
-#import "NSTimerManager.h"
+// UIImage
+#import "LoadingImage.h"
+// UIControl
 #import "UIControl+XY.h"
-#import "YBNotificationManager.h"
+
+#pragma mark —— Manual_Add_ThirdParty 
+#import "NSTimerManager.h"
 #import "TXFileOperation.h"
 #import "FileFolderHandleTool.h"
-
 #import "EmptyView.h"
 
 #endif /* Manual_Add_ThirdParty_h */

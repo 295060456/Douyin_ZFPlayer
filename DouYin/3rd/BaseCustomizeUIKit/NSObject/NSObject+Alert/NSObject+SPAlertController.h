@@ -7,6 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AABlock.h"
+#if __has_include(<SPAlertController/SPAlertController.h>)
+#import <SPAlertController/SPAlertController.h>
+#else
+#import "SPAlertController.h"
+#endif
 
 //  pod 'SPAlertController'# https://github.com/SPStore/SPAlertController 深度定制AlertController
 

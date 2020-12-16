@@ -40,7 +40,7 @@
 		C54BB0C42518D00F001591C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0C32518D00F001591C2 /* main.m */; };
 		C54BB0CE2518D010001591C2 /* DouYinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0CD2518D010001591C2 /* DouYinTests.m */; };
 		C54BB0D92518D010001591C2 /* DouYinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0D82518D010001591C2 /* DouYinUITests.m */; };
-		C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0EE2518D055001591C2 /* YBNotificationManager.m */; };
+		C54BB0EF2518D055001591C2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0EE2518D055001591C2 /* NotificationManager.m */; };
 		C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1DF2518D363001591C2 /* ImageCodeView.m */; };
 		C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2032518D363001591C2 /* FileFolderHandleTool.m */; };
 		C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */; };
@@ -313,8 +313,8 @@
 		C54BB0D42518D010001591C2 /* DouYinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouYinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54BB0D82518D010001591C2 /* DouYinUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouYinUITests.m; sourceTree = "<group>"; };
 		C54BB0DA2518D010001591C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C54BB0ED2518D055001591C2 /* YBNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBNotificationManager.h; sourceTree = "<group>"; };
-		C54BB0EE2518D055001591C2 /* YBNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBNotificationManager.m; sourceTree = "<group>"; };
+		C54BB0ED2518D055001591C2 /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
+		C54BB0EE2518D055001591C2 /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		C54BB0F32518D064001591C2 /* DefineStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineStructure.h; sourceTree = "<group>"; };
 		C54BB0F42518D064001591C2 /* Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Other.h; sourceTree = "<group>"; };
 		C54BB0F52518D064001591C2 /* Pods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
@@ -451,6 +451,8 @@
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
 		C55697D3255BFDE3005C1361 /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
+		C558032F258A446D0078DB8F /* PodsManual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
+		C558F7C4258A38050078DB8F /* DouYin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouYin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 		C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
 		C57672AA2546BC1C00C382C8 /* UIViewController+JXPagerViewListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JXPagerViewListViewDelegate.h"; sourceTree = "<group>"; };
 		C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JXPagerViewListViewDelegate.m"; sourceTree = "<group>"; };
+		C577918D258A01FB00FE51E3 /* XHLaunchAd不用pod导入的情况说明.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "XHLaunchAd不用pod导入的情况说明.md"; sourceTree = "<group>"; };
 		C57F0CFA253336590080EEF0 /* NSObject+OpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+OpenURL.m"; sourceTree = "<group>"; };
 		C57F0CFB253336590080EEF0 /* NSObject+OpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+OpenURL.h"; sourceTree = "<group>"; };
 		C582A68A251C78BB00DD83A1 /* NetworkingAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingAPI.h; sourceTree = "<group>"; };
@@ -1005,8 +1008,9 @@
 				C54BB0AD2518D00E001591C2 /* DouYin */,
 				C54BB0CC2518D010001591C2 /* DouYinTests */,
 				C54BB0D72518D010001591C2 /* DouYinUITests */,
-				FA1C06BB505DC305521A56E1 /* Pods */,
 				D1AD156D1AC3B11A7FEFCD84 /* Frameworks */,
+				FA1C06BB505DC305521A56E1 /* Pods */,
+				C54BB0EB2518D048001591C2 /* PodsManual */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1026,14 +1030,11 @@
 			children = (
 				C54BB0C22518D00F001591C2 /* Info.plist */,
 				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
-				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
 				C54BB0E92518D025001591C2 /* 🌹Macro */,
-				C54BB0EB2518D048001591C2 /* Pods不进去的 */,
 				C54BB0EA2518D037001591C2 /* Others */,
 				C54BB3DC2518D39E001591C2 /* AppDelegate & SceneDelegate */,
-				C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */,
-				C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */,
 				C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */,
+				C558EF09258A2D330078DB8F /* 3rd */,
 			);
 			path = DouYin;
 			sourceTree = "<group>";
@@ -1059,15 +1060,11 @@
 		C54BB0E92518D025001591C2 /* 🌹Macro */ = {
 			isa = PBXGroup;
 			children = (
-				C5470FB025309D2200651ACE /* 各项宏定义 */,
-				C54BB0EC2518D055001591C2 /* Notification */,
-				C54BB0F62518D064001591C2 /* AABlock.h */,
-				C54BB0F72518D064001591C2 /* APIKey.h */,
-				C54BB0F32518D064001591C2 /* DefineStructure.h */,
-				C54BB0F92518D064001591C2 /* Manual_Add_ThirdParty.h */,
-				C54BB0F42518D064001591C2 /* Other.h */,
-				C54BB0F52518D064001591C2 /* Pods.h */,
 				C54BB0F82518D064001591C2 /* PrefixHeader.pch */,
+				C5779194258A021E00FE51E3 /* 第三方头文件管理 */,
+				C5779196258A024600FE51E3 /* 各项全局定义 */,
+				C5779195258A022C00FE51E3 /* 其他杂项 */,
+				C558F7C3258A37F60078DB8F /* Swift-OC桥接头文件 */,
 			);
 			path = "🌹Macro";
 			sourceTree = "<group>";
@@ -1075,8 +1072,8 @@
 		C54BB0EA2518D037001591C2 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				C558EF0A258A2D690078DB8F /* 资源文件 */,
 				C54BB0B72518D00E001591C2 /* Main.storyboard */,
-				C54BB0BD2518D00F001591C2 /* Assets.xcassets */,
 				C54BB0BF2518D00F001591C2 /* LaunchScreen.storyboard */,
 				C54BB0C32518D00F001591C2 /* main.m */,
 				C54BB0BA2518D00E001591C2 /* DouYin.xcdatamodeld */,
@@ -1085,22 +1082,22 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
-		C54BB0EB2518D048001591C2 /* Pods不进去的 */ = {
+		C54BB0EB2518D048001591C2 /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
 				C56188A7255D6D74004E7B47 /* XHLaunchAd */,
 				C54BB3FE2518D3F6001591C2 /* ZZCircleProgress */,
 			);
-			path = "Pods不进去的";
+			path = PodsManual;
 			sourceTree = "<group>";
 		};
-		C54BB0EC2518D055001591C2 /* Notification */ = {
+		C54BB0EC2518D055001591C2 /* NotificationManager */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0ED2518D055001591C2 /* YBNotificationManager.h */,
-				C54BB0EE2518D055001591C2 /* YBNotificationManager.m */,
+				C54BB0ED2518D055001591C2 /* NotificationManager.h */,
+				C54BB0EE2518D055001591C2 /* NotificationManager.m */,
 			);
-			path = Notification;
+			path = NotificationManager;
 			sourceTree = "<group>";
 		};
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
@@ -1818,6 +1815,32 @@
 			path = "NSObject+Others";
 			sourceTree = "<group>";
 		};
+		C558EF09258A2D330078DB8F /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */,
+				C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */,
+			);
+			path = 3rd;
+			sourceTree = "<group>";
+		};
+		C558EF0A258A2D690078DB8F /* 资源文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
+				C54BB0BD2518D00F001591C2 /* Assets.xcassets */,
+			);
+			path = "资源文件";
+			sourceTree = "<group>";
+		};
+		C558F7C3258A37F60078DB8F /* Swift-OC桥接头文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C558F7C4258A38050078DB8F /* DouYin-Bridging-Header.h */,
+			);
+			path = "Swift-OC桥接头文件";
+			sourceTree = "<group>";
+		};
 		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1834,6 +1857,7 @@
 			children = (
 				C56188A9255D6D74004E7B47 /* XHLaunchAd.h */,
 				C56188B3255D6D74004E7B47 /* XHLaunchAd.m */,
+				C577918D258A01FB00FE51E3 /* XHLaunchAd不用pod导入的情况说明.md */,
 				C56188B9255D6D74004E7B47 /* XHLaunchAdButton.h */,
 				C56188AE255D6D74004E7B47 /* XHLaunchAdButton.m */,
 				C56188AC255D6D74004E7B47 /* XHLaunchAdCache.h */,
@@ -2030,6 +2054,60 @@
 				C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */,
 			);
 			path = "UIViewController+JXCategory";
+			sourceTree = "<group>";
+		};
+		C5779194258A021E00FE51E3 /* 第三方头文件管理 */ = {
+			isa = PBXGroup;
+			children = (
+				C5779199258A028200FE51E3 /* Pods */,
+				C5779198258A027800FE51E3 /* 手动导入的第三方 */,
+			);
+			path = "第三方头文件管理";
+			sourceTree = "<group>";
+		};
+		C5779195258A022C00FE51E3 /* 其他杂项 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0F42518D064001591C2 /* Other.h */,
+			);
+			path = "其他杂项";
+			sourceTree = "<group>";
+		};
+		C5779196258A024600FE51E3 /* 各项全局定义 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0EC2518D055001591C2 /* NotificationManager */,
+				C5779197258A025A00FE51E3 /* 其他的一些全局定义文件 */,
+				C5470FB025309D2200651ACE /* 各项宏定义 */,
+			);
+			path = "各项全局定义";
+			sourceTree = "<group>";
+		};
+		C5779197258A025A00FE51E3 /* 其他的一些全局定义文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0F62518D064001591C2 /* AABlock.h */,
+				C54BB0F72518D064001591C2 /* APIKey.h */,
+				C54BB0F32518D064001591C2 /* DefineStructure.h */,
+			);
+			path = "其他的一些全局定义文件";
+			sourceTree = "<group>";
+		};
+		C5779198258A027800FE51E3 /* 手动导入的第三方 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0F92518D064001591C2 /* Manual_Add_ThirdParty.h */,
+			);
+			path = "手动导入的第三方";
+			sourceTree = "<group>";
+		};
+		C5779199258A028200FE51E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB0F52518D064001591C2 /* Pods.h */,
+				C558032F258A446D0078DB8F /* PodsManual.h */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		C582A672251C714F00DD83A1 /* 网络请求 */ = {
@@ -2730,6 +2808,7 @@
 				TargetAttributes = {
 					C54BB0AA2518D00E001591C2 = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1230;
 					};
 					C54BB0C82518D010001591C2 = {
 						CreatedOnToolsVersion = 12.0;
@@ -2983,7 +3062,7 @@
 				C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */,
 				C54AB2B4255E61B3000A314D /* UITableViewCell+WhiteArrows.m in Sources */,
 				C57109B9253C1358005B3A0C /* TransitionController.m in Sources */,
-				C54BB0EF2518D055001591C2 /* YBNotificationManager.m in Sources */,
+				C54BB0EF2518D055001591C2 /* NotificationManager.m in Sources */,
 				C5D4F11325824ADA00C165EA /* NetworkingAPI+StatisticsApi.m in Sources */,
 				C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */,
 				C54BB2F92518D363001591C2 /* WGradientProgress.m in Sources */,
@@ -3270,6 +3349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
@@ -3281,6 +3361,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "My-BaseProj";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DouYin/🌹Macro/Swift-OC桥接头文件/DouYin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};
@@ -3292,6 +3375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K92UCMVH8G;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/🌹Macro/PrefixHeader.pch";
@@ -3303,6 +3387,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.DouYin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DouYin/🌹Macro/Swift-OC桥接头文件/DouYin-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};

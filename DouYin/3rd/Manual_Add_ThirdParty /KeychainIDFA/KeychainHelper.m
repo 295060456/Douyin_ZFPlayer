@@ -11,8 +11,7 @@
 
 @implementation KeychainHelper
 
-+ (NSMutableDictionary *)getKeychainQuery:(NSString *)service
-{
++(NSMutableDictionary *)getKeychainQuery:(NSString *)service{
     return [NSMutableDictionary dictionaryWithObjectsAndKeys:
             (__bridge id)(kSecClassGenericPassword),kSecClass,
             service, kSecAttrService,
@@ -20,8 +19,8 @@
             kSecAttrAccessibleAfterFirstUnlock,kSecAttrAccessible,nil];
 }
 
-+ (void)save:(NSString *)service data:(id)data
-{
++(void)save:(NSString *)service
+        data:(id)data{
     NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
     SecItemDelete((__bridge CFDictionaryRef)(keychainQuery));
     [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data]
@@ -29,23 +28,21 @@
     SecItemAdd((__bridge CFDictionaryRef)(keychainQuery), NULL);
 }
 
-+ (id)load:(NSString *)service
-{
++(id)load:(NSString *)service{
     id ret = nil;
     NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
-    [keychainQuery setObject:(id)kCFBooleanTrue forKey:(__bridge id<NSCopying>)(kSecReturnData)];
-    [keychainQuery setObject:(__bridge id)(kSecMatchLimitOne) forKey:(__bridge id<NSCopying>)(kSecMatchLimit)];
+    [keychainQuery setObject:(id)kCFBooleanTrue
+                      forKey:(__bridge id<NSCopying>)(kSecReturnData)];
+    [keychainQuery setObject:(__bridge id)(kSecMatchLimitOne)
+                      forKey:(__bridge id<NSCopying>)(kSecMatchLimit)];
     
     CFTypeRef result = NULL;
-    if (SecItemCopyMatching((__bridge_retained CFDictionaryRef)keychainQuery, &result) == noErr)
-    {
+    if (SecItemCopyMatching((__bridge_retained CFDictionaryRef)keychainQuery, &result) == noErr){
         ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData*)result];
-    }
-    return ret;
+    }return ret;
 }
 
-+ (void)delete:(NSString *)service
-{
++ (void)delete:(NSString *)service{
     NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
     SecItemDelete((__bridge CFDictionaryRef)(keychainQuery));
 }

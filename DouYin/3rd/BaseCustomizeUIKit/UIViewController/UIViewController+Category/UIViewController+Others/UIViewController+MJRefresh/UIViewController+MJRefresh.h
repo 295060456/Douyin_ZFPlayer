@@ -18,8 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)MJRefreshConfigModel *refreshConfigFooter;//尾部的配置信息
 
 #pragma mark —— MJRefreshHeader
--(MJRefreshGifHeader *)mjRefreshGifHeader;
 -(LOTAnimationMJRefreshHeader *)lotAnimationMJRefreshHeader;
+-(MJRefreshNormalHeader *)mjRefreshNormalHeader;
+-(MJRefreshStateHeader *)mjRefreshStateHeader;
+-(MJRefreshHeader *)mjRefreshHeader;
+-(MJRefreshGifHeader *)mjRefreshGifHeader;
 
 #pragma mark —— MJRefreshFooter
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter;

@@ -1032,12 +1032,11 @@
 			isa = PBXGroup;
 			children = (
 				C54BB0C22518D00F001591C2 /* Info.plist */,
-				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
 				C54BB0E92518D025001591C2 /* 🌹Macro */,
+				C558EF09258A2D330078DB8F /* 3rd */,
 				C54BB0EA2518D037001591C2 /* Others */,
 				C54BB3DC2518D39E001591C2 /* AppDelegate & SceneDelegate */,
 				C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */,
-				C558EF09258A2D330078DB8F /* 3rd */,
 			);
 			path = DouYin;
 			sourceTree = "<group>";
@@ -1106,6 +1105,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C5D4F4BD25825AD800C165EA /* KeychainIDFA */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C54BB2092518D363001591C2 /* 电影倒计时特效 */,
 				C54BB1F92518D363001591C2 /* 分享控件 */,
@@ -1615,7 +1615,6 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
-				C5D4F4BD25825AD800C165EA /* KeychainIDFA */,
 				C55D45B1251CB62800E543D6 /* 数据模型层 */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
 				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
@@ -1830,6 +1829,7 @@
 		C558EF0A258A2D690078DB8F /* 资源文件 */ = {
 			isa = PBXGroup;
 			children = (
+				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
 				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
 				C54BB0BD2518D00F001591C2 /* Assets.xcassets */,
 			);

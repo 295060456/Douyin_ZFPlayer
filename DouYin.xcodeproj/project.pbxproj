@@ -179,6 +179,7 @@
 		C5D0B6D325878C0C002CA224 /* 带有按键音的按钮.md in Resources */ = {isa = PBXBuildFile; fileRef = C5D0B6D025878C0C002CA224 /* 带有按键音的按钮.md */; };
 		C5D0B6D425878C0C002CA224 /* SoundBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D0B6D125878C0C002CA224 /* SoundBtn.m */; };
 		C5D0C3372587964F002CA224 /* NSObject+Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D0C3352587964E002CA224 /* NSObject+Sound.m */; };
+		C5D1B8AB258B0B9700784D2F /* UIViewController+EmptyData.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D1B8AA258B0B9700784D2F /* UIViewController+EmptyData.m */; };
 		C5D4F11325824ADA00C165EA /* NetworkingAPI+StatisticsApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F0E525824AD900C165EA /* NetworkingAPI+StatisticsApi.m */; };
 		C5D4F11425824ADA00C165EA /* NetworkingAPI+ConfigApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F0E825824AD900C165EA /* NetworkingAPI+ConfigApi.m */; };
 		C5D4F11525824ADA00C165EA /* NetworkingAPI+BlankList.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F0EA25824AD900C165EA /* NetworkingAPI+BlankList.m */; };
@@ -607,6 +608,8 @@
 		C5D0B6D125878C0C002CA224 /* SoundBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundBtn.m; sourceTree = "<group>"; };
 		C5D0C3352587964E002CA224 /* NSObject+Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Sound.m"; sourceTree = "<group>"; };
 		C5D0C3362587964F002CA224 /* NSObject+Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Sound.h"; sourceTree = "<group>"; };
+		C5D1B8A9258B0B9700784D2F /* UIViewController+EmptyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+EmptyData.h"; sourceTree = "<group>"; };
+		C5D1B8AA258B0B9700784D2F /* UIViewController+EmptyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EmptyData.m"; sourceTree = "<group>"; };
 		C5D4F0E425824AD900C165EA /* NetworkingAPI+StatisticsApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkingAPI+StatisticsApi.h"; sourceTree = "<group>"; };
 		C5D4F0E525824AD900C165EA /* NetworkingAPI+StatisticsApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkingAPI+StatisticsApi.m"; sourceTree = "<group>"; };
 		C5D4F0E725824AD900C165EA /* NetworkingAPI+ConfigApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkingAPI+ConfigApi.h"; sourceTree = "<group>"; };
@@ -2362,6 +2365,15 @@
 			path = "进入编译期的资源";
 			sourceTree = "<group>";
 		};
+		C5D1B8A8258B0B9700784D2F /* UIViewController+EmptyData */ = {
+			isa = PBXGroup;
+			children = (
+				C5D1B8A9258B0B9700784D2F /* UIViewController+EmptyData.h */,
+				C5D1B8AA258B0B9700784D2F /* UIViewController+EmptyData.m */,
+			);
+			path = "UIViewController+EmptyData";
+			sourceTree = "<group>";
+		};
 		C5D4F0E325824AD900C165EA /* 数据统计相关接口 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2676,6 +2688,7 @@
 		C5D78797257F79720087FC92 /* UIViewController+Others */ = {
 			isa = PBXGroup;
 			children = (
+				C5D1B8A8258B0B9700784D2F /* UIViewController+EmptyData */,
 				C544B8BD258359DD00C6CF2A /* UIViewController+BackBtn */,
 				C544B8BE258359E500C6CF2A /* UIViewController+BaseVC */,
 				C544B8BF258359F300C6CF2A /* UIViewController+BRPickerView */,
@@ -3130,6 +3143,7 @@
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
 				C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
+				C5D1B8AB258B0B9700784D2F /* UIViewController+EmptyData.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,

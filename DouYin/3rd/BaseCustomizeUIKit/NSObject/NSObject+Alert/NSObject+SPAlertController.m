@@ -105,7 +105,8 @@
                                                          style:alertActionStyleArr[i].integerValue
                                                        handler:^(SPAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            SuppressPerformSelectorLeakWarning([targetVC performSelector:NSSelectorFromString((NSString *)alertBtnActionArr[i]) withObject:Nil]);
+            SuppressWarcPerformSelectorLeaksWarning([targetVC performSelector:NSSelectorFromString((NSString *)alertBtnActionArr[i])
+                                                                   withObject:Nil]);
         }];
         [vc addAction:action];
         [mutArr addObject:action];

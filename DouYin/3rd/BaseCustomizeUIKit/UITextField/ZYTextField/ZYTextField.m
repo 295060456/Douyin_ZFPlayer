@@ -26,6 +26,12 @@
     }
 }
 
+-(BOOL)canPerformAction:(SEL)action
+             withSender:(id)sender{
+    UIMenuController.sharedMenuController.menuVisible = self.isShowMenu;
+    return self.isShowMenu;
+}
+
 - (void)setUpUI{
     //字体大小
     self.font = self.ZYtextFont;

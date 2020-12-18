@@ -13,11 +13,8 @@
 @implementation UITableView (WWFoldableTableView)
 #pragma mark - init
 +(void)load{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-//    [self ww_swizzInstanceMethod:@selector(_numberOfSections) withMethod:@selector(ww__numberOfSections)];
-    [self ww_swizzInstanceMethod:@selector(_numberOfRowsInSection:) withMethod:@selector(ww__numberOfRowsInSection:)];
-#pragma clang diagnostic pop
+    SuppressWundeclaredSelectorWarning(SuppressWdeprecatedDeclarationsWarning([self ww_swizzInstanceMethod:@selector(_numberOfRowsInSection:)
+                                                                                                withMethod:@selector(ww__numberOfRowsInSection:)]));
 }
 
 - (NSInteger)ww__numberOfRowsInSection:(NSInteger)section{

@@ -18,7 +18,7 @@
     if (self = [super init]) {
         self.backgroundColor = self.backgroundColor ? :kBlackColor;
         [UIView cornerCutToCircleWithView:self
-                          AndCornerRadius:8];
+                          andCornerRadius:8];
     }return self;
 }
 

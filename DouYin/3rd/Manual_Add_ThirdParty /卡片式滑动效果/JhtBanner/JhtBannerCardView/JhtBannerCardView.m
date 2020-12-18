@@ -28,7 +28,7 @@
         self.coverView.alpha = 1;
         
         [UIView cornerCutToCircleWithView:self
-                          AndCornerRadius:8.f];
+                          andCornerRadius:8.f];
         
     }return self;
 }

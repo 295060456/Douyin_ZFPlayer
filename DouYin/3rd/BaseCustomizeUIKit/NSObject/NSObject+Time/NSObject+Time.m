@@ -270,25 +270,22 @@
         NSCalendarUnitCalendar |
         NSCalendarUnitTimeZone;
     }else{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-        unitFlags = NSEraCalendarUnit |
-        NSYearCalendarUnit |
-        NSMonthCalendarUnit |
-        NSDayCalendarUnit |
-        NSHourCalendarUnit |
-        NSMinuteCalendarUnit |
-        NSSecondCalendarUnit |
-        NSWeekCalendarUnit |
-        NSWeekdayCalendarUnit |
-        NSWeekdayOrdinalCalendarUnit |
-        NSQuarterCalendarUnit |
-        NSWeekOfMonthCalendarUnit |
-        NSWeekOfYearCalendarUnit |
-        NSYearForWeekOfYearCalendarUnit |
-        NSCalendarCalendarUnit |
-        NSTimeZoneCalendarUnit;
-#pragma clang diagnostic pop
+        SuppressWdeprecatedDeclarationsWarning(unitFlags = NSEraCalendarUnit |
+                                               NSYearCalendarUnit |
+                                               NSMonthCalendarUnit |
+                                               NSDayCalendarUnit |
+                                               NSHourCalendarUnit |
+                                               NSMinuteCalendarUnit |
+                                               NSSecondCalendarUnit |
+                                               NSWeekCalendarUnit |
+                                               NSWeekdayCalendarUnit |
+                                               NSWeekdayOrdinalCalendarUnit |
+                                               NSQuarterCalendarUnit |
+                                               NSWeekOfMonthCalendarUnit |
+                                               NSWeekOfYearCalendarUnit |
+                                               NSYearForWeekOfYearCalendarUnit |
+                                               NSCalendarCalendarUnit |
+                                               NSTimeZoneCalendarUnit);
     }
     
     TimeModel *timeModel = TimeModel.new;

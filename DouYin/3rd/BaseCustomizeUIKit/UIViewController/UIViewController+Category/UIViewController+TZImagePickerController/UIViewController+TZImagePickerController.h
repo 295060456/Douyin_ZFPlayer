@@ -6,11 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TZImagePickerController.h"
-#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "NSObject+SYSAlertController.h"
 #import "NSObject+SPAlertController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
+#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
+#if __has_include(<TZImagePickerController/TZImagePickerController.h>)
+#import <TZImagePickerController/TZImagePickerController.h>
+#else
+#import "TZImagePickerController.h"
+#endif
 
 ///分别对应 TZImagePickerController 的五种初始化方法
 typedef enum : NSInteger {

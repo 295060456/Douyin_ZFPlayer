@@ -22,7 +22,7 @@
                  action:@selector(addEvent:)
        forControlEvents:UIControlEventTouchUpInside];
         [UIView cornerCutToCircleWithView:self
-                          AndCornerRadius:8];
+                          andCornerRadius:8];
     }return self;
 }
 

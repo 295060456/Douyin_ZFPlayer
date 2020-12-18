@@ -247,10 +247,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         if(@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }else{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            self.automaticallyAdjustsScrollViewInsets = NO;
-#pragma clang diagnostic pop
+            SuppressWdeprecatedDeclarationsWarning(self.automaticallyAdjustsScrollViewInsets = NO);
         }
 
         [self.view addSubview:_tableView];

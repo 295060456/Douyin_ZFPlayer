@@ -32,9 +32,9 @@
      successBlock:(MKDataBlock)successBlock{
     NSString *funcName = [requestApi stringByAppendingString:@":withsuccessBlock:"];
     //字符串不正确，遍历后没有会崩溃
-    SuppressPerformSelectorLeakWarning([self performSelector:NSSelectorFromString(funcName)
-                                                  withObject:parameters
-                                                  withObject:successBlock]);
+    SuppressWarcPerformSelectorLeaksWarning([self performSelector:NSSelectorFromString(funcName)
+                                                       withObject:parameters
+                                                       withObject:successBlock]);
 }
 
 @end

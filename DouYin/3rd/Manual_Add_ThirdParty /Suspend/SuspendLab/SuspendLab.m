@@ -20,7 +20,7 @@
         self.text = [NSString ensureNonnullString:self.text
                                        ReplaceStr:@"暂无数据"];
         [UIView cornerCutToCircleWithView:self
-                          AndCornerRadius:8];
+                          andCornerRadius:8];
     }return self;
 }
 

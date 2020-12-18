@@ -53,14 +53,11 @@
 *  有时候我们加载的URL中可能会出现中文,需要我们手动进行转码,但是同时又要保证URL中的特殊字符保持不变,那么我们就可以使用下面的方法
 */
 +(NSURL *)Url_Chinese:(NSString *)urlStr{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-    
-    return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                                      (CFStringRef)urlStr,
-                                                                                                      (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
-                                                                                                      NULL,kCFStringEncodingUTF8))];
-#pragma clang diagnostic pop
+    SuppressWdeprecatedDeclarationsWarning(return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                                                                             (CFStringRef)urlStr,
+                                                                                                                                             (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]",
+                                                                                                                                             NULL,
+                                                                                                                                             kCFStringEncodingUTF8))]);
 }
 //替换相关的字符为暂位符 example
 +(NSString *)numberSuitScanf:(NSString*)number{

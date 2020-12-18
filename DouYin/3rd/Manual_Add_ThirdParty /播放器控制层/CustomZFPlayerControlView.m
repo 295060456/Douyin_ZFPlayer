@@ -84,10 +84,11 @@
             make.top.equalTo(self).offset(10);
             make.height.mas_equalTo(150);
         }];
-        [UIView cornerCutToCircleWithView:_tipsLab AndCornerRadius:3];
+        [UIView cornerCutToCircleWithView:_tipsLab
+                          andCornerRadius:3];
         [UIView colourToLayerOfView:_tipsLab
-                         WithColour:kWhiteColor
-                     AndBorderWidth:1];
+                         withColour:kWhiteColor
+                     andBorderWidth:1];
     }return _tipsLab;
 }
 

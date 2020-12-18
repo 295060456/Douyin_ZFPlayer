@@ -32,6 +32,8 @@ typedef NS_ENUM(NSUInteger, PlaceHolderAlignment){
 @property(nonatomic,assign)UIColor *ZYTextFieldBorderColor;
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
 
+@property(nonatomic,assign)BOOL isShowMenu;//是否显示菜单 默认不显示
+
 @property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*richLabelDataStringsForPlaceHolderMutArr;
 
 ///输入的和某个预设定值不一致的时候，抖动动画

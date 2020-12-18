@@ -34,7 +34,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// @param color 作用颜色
 /// @param width 线宽
 /// @param borderType 作用方向
-- (void)setBorderWithView:(UIView *__nonnull)view
++ (void)setBorderWithView:(UIView *__nonnull)view
               borderColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width
                borderType:(UIBorderSideType)borderType;
@@ -45,7 +45,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
  @param cornerRadiusValue 切角参数
  */
 +(void)cornerCutToCircleWithView:(UIView *__nonnull)view
-                 AndCornerRadius:(CGFloat)cornerRadiusValue;
+                 andCornerRadius:(CGFloat)cornerRadiusValue;
 
 /**
  描边
@@ -55,8 +55,8 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
  @param WidthOfBorder 边线宽度
  */
 +(void)colourToLayerOfView:(UIView *__nonnull)view
-                WithColour:(UIColor *__nonnull)colour
-            AndBorderWidth:(CGFloat)WidthOfBorder;
+                withColour:(UIColor *__nonnull)colour
+            andBorderWidth:(CGFloat)WidthOfBorder;
 
 /**
  *  指定圆切角

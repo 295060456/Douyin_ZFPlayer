@@ -73,7 +73,8 @@
 // UIControl
 #import "UIControl+XY.h"
 
-#pragma mark —— Manual_Add_ThirdParty 
+#pragma mark —— Manual_Add_ThirdParty
+#import "UserDefaultManager.h"
 #import "NSTimerManager.h"
 #import "TXFileOperation.h"
 #import "FileFolderHandleTool.h"

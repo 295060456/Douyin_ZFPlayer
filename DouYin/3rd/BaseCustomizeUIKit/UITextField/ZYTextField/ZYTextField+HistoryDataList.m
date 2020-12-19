@@ -154,8 +154,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         @strongify(self)
         //点击按钮删除数据：1、刷新内存的数据并且刷新界面；2、删除本地化的数据
         [self.dataMutArr removeObjectAtIndex:data.intValue];
-        SetUserDefaultKeyWithObject(@"dataMutArr", self.dataMutArr);
-        UserDefaultSynchronize;
+        
+        UserDefaultModel *userDefaultModel = UserDefaultModel.new;
+        userDefaultModel.key = @"dataMutArr";
+        userDefaultModel.obj = self.dataMutArr;
+        
+        [UserDefaultManager storedData:userDefaultModel];
         
         [self.tableview removeFromSuperview];
         self.tableview = nil;

@@ -485,13 +485,7 @@
 
 + (BOOL)isFirstLaunchApp{
     BOOL flag;
-    
-//    NSDate *oldDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"APPFirstStartKey"];
-
-    NSDate *oldDate = GetUserDefaultObjForKey(@"APPFirstStartKey");
-
-    UserDefaultSynchronize;
-    
+    NSDate *oldDate =  [UserDefaultManager fetchDataWithKey:@"APPFirstStartKey"];
     if (oldDate == nil) {
         NSLog(@"未启动过，第一次启动");
         flag = YES;
@@ -505,10 +499,11 @@
         }
     }
     // 保存启动时间
-//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"APPFirstStartKey"];
+    UserDefaultModel *userDefaultModel = UserDefaultModel.new;
+    userDefaultModel.key = @"APPFirstStartKey";
+    userDefaultModel.obj = NSDate.date;
     
-    SetUserDefaultKeyWithObject(@"APPFirstStartKey",[NSDate date]);
-    UserDefaultSynchronize;
+    [UserDefaultManager storedData:userDefaultModel];
     return flag;
 }
 ///判断某个时间是否为  今天（系统时区）

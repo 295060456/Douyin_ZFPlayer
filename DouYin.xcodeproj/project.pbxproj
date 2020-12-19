@@ -174,6 +174,8 @@
 		C595D162258713F1002A4531 /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15A258713F1002A4531 /* SuspendView.m */; };
 		C595D163258713F1002A4531 /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15E258713F1002A4531 /* SuspendLab.m */; };
 		C595D164258713F1002A4531 /* SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D160258713F1002A4531 /* SuspendBtn.m */; };
+		C59A3A93258DD158005F6260 /* UserDefaultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C59A3A91258DD158005F6260 /* UserDefaultModel.m */; };
+		C59A3A94258DD158005F6260 /* UserDefaultManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C59A3A92258DD158005F6260 /* UserDefaultManager.m */; };
 		C5AEEB2E2538425B000E1C5F /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB242538425B000E1C5F /* UIView+Animation.m */; };
 		C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AEEB262538425B000E1C5F /* UIView+Extras.m */; };
 		C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */; };
@@ -604,6 +606,10 @@
 		C595D15E258713F1002A4531 /* SuspendLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendLab.m; sourceTree = "<group>"; };
 		C595D160258713F1002A4531 /* SuspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendBtn.m; sourceTree = "<group>"; };
 		C595D161258713F1002A4531 /* SuspendBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendBtn.h; sourceTree = "<group>"; };
+		C59A3A8F258DD158005F6260 /* UserDefaultManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultManager.h; sourceTree = "<group>"; };
+		C59A3A90258DD158005F6260 /* UserDefaultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultModel.h; sourceTree = "<group>"; };
+		C59A3A91258DD158005F6260 /* UserDefaultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultModel.m; sourceTree = "<group>"; };
+		C59A3A92258DD158005F6260 /* UserDefaultManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultManager.m; sourceTree = "<group>"; };
 		C5AEEB242538425B000E1C5F /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		C5AEEB252538425B000E1C5F /* UIView+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extras.h"; sourceTree = "<group>"; };
 		C5AEEB262538425B000E1C5F /* UIView+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extras.m"; sourceTree = "<group>"; };
@@ -1129,7 +1135,6 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
-				C5D4F4BD25825AD800C165EA /* KeychainIDFA */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C54BB2092518D363001591C2 /* 电影倒计时特效 */,
 				C54BB1F92518D363001591C2 /* 分享控件 */,
@@ -1142,10 +1147,12 @@
 				C54BB2012518D363001591C2 /* 文件夹操作 */,
 				C54BB2852518D363001591C2 /* ECAuthorizationTools */,
 				C54AEBB525871C08001A4630 /* JobsBitsMonitor */,
+				C5D4F4BD25825AD800C165EA /* KeychainIDFA */,
 				C54BB2042518D363001591C2 /* LBLaunchImageAd. */,
 				C591E40A25639BB7005B78CC /* LYEmptyView */,
 				C54BB20C2518D363001591C2 /* Suspend */,
 				C54BB2762518D363001591C2 /* TimerManager */,
+				C59A3A8E258DD158005F6260 /* UserDefaultManager */,
 			);
 			path = "Manual_Add_ThirdParty ";
 			sourceTree = "<group>";
@@ -2349,6 +2356,17 @@
 			path = SuspendBtn;
 			sourceTree = "<group>";
 		};
+		C59A3A8E258DD158005F6260 /* UserDefaultManager */ = {
+			isa = PBXGroup;
+			children = (
+				C59A3A8F258DD158005F6260 /* UserDefaultManager.h */,
+				C59A3A90258DD158005F6260 /* UserDefaultModel.h */,
+				C59A3A91258DD158005F6260 /* UserDefaultModel.m */,
+				C59A3A92258DD158005F6260 /* UserDefaultManager.m */,
+			);
+			path = UserDefaultManager;
+			sourceTree = "<group>";
+		};
 		C5C3397C2522238E00F8CC53 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3155,9 +3173,11 @@
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C5460D2D258C8E1D0008928C /* ZYTextField.m in Sources */,
 				C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */,
+				C59A3A93258DD158005F6260 /* UserDefaultModel.m in Sources */,
 				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
+				C59A3A94258DD158005F6260 /* UserDefaultManager.m in Sources */,
 				C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */,
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,
 				C54BB0B32518D00E001591C2 /* DouYinSceneDelegate.m in Sources */,

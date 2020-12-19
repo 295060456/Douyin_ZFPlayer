@@ -13,7 +13,7 @@ static char *UIView_EmptyData_tipsLab = "UIView_EmptyData_tipsLab";
 @dynamic tipsLab;
 
 -(void)ifEmptyData{
-
+#ifdef DEBUG
     BOOL (^checkSubviews)(void) = ^(){
         if (self.subviews.count == 1) {
             UIView *view = self.subviews[0];
@@ -26,6 +26,7 @@ static char *UIView_EmptyData_tipsLab = "UIView_EmptyData_tipsLab";
     if (!self.subviews.count || checkSubviews()) {
         self.tipsLab.alpha = 1;
     }
+#endif
 }
 #pragma mark SET | GET
 #pragma mark —— @property(nonatomic,strong)UILabel *tipsLab;

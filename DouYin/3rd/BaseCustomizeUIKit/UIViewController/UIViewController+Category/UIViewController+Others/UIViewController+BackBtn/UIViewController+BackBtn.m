@@ -29,12 +29,25 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
         BackBtnCategory = UIButton.new;
         [BackBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                          imageTitleSpace:8];
-        [BackBtnCategory setTitleColor:kWhiteColor
-                              forState:UIControlStateNormal];
+
         [BackBtnCategory setTitle:@"返回"
                          forState:UIControlStateNormal];
-        [BackBtnCategory setImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"back_white")
+        NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+        UIImage *backImage = KBuddleIMG(nil,
+                                        @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
+                                        nil,
+                                        imageName);
+        [BackBtnCategory setImage:backImage
                          forState:UIControlStateNormal];
+        
+        if (self.gk_backStyle == GKNavigationBarBackStyleBlack) {
+            [BackBtnCategory setTitleColor:kBlackColor
+                                  forState:UIControlStateNormal];
+        }else{
+            [BackBtnCategory setTitleColor:kWhiteColor
+                                  forState:UIControlStateNormal];
+        }
+        
         @weakify(self)
         [[BackBtnCategory rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             @strongify(self)

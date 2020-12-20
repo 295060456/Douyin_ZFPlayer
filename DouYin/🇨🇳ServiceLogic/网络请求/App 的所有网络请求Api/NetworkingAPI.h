@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NetworkingAPI : NSObject
 
 +(void)requestApi:(NSString *_Nonnull)requestApi
-       parameters:(id)parameters
+       parameters:(id _Nullable)parameters
      successBlock:(MKDataBlock)successBlock;
 
 @end

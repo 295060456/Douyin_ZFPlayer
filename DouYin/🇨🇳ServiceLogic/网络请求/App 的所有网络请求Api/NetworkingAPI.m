@@ -28,7 +28,7 @@
 @implementation NetworkingAPI
 
 +(void)requestApi:(NSString *_Nonnull)requestApi
-       parameters:(id)parameters
+       parameters:(id _Nullable)parameters
      successBlock:(MKDataBlock)successBlock{
     NSString *funcName = [requestApi stringByAppendingString:@":withsuccessBlock:"];
     //字符串不正确，遍历后没有会崩溃

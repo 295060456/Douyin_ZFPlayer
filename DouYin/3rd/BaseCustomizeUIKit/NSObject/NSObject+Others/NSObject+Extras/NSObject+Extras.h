@@ -19,5 +19,7 @@
 +(BOOL)didUserPressLockButton;
 ///iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
 +(void)autoLockedScreen:(BOOL)lockSwitch;
+/// 打印请求体
++(void)printRequestMessage:(NSURLSessionDataTask *)task;
 
 @end

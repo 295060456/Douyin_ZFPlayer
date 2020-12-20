@@ -22,12 +22,17 @@
 
     NSMutableDictionary *headers = NSMutableDictionary.dictionary;
     headers[@"qToken"] = @"Token";
-    
+#pragma mark —— userAgent
     NSString *userAgent = [AFHTTPSessionManager.manager.requestSerializer valueForHTTPHeaderField:@"User-Agent"];
     if(![userAgent containsString:@",dv:"]) {
-        NSString *newuserAgent = [NSString stringWithFormat:@"%@,dv:%@",userAgent,[KeychainIDFA deviceID]];
+        NSString *newUserAgent = [NSString stringWithFormat:@"%@,dv:%@",userAgent,[KeychainIDFA deviceID]];
 //        [AFHTTPSessionManager.manager.requestSerializer setValue:newuserAgent forHTTPHeaderField:@"User-Agent"];
-        headers[@"User-Agent"] = newuserAgent;
+        headers[@"User-Agent"] = newUserAgent;
+    }
+#pragma mark —— Token
+    if (![NSString isNullString:@""]) {
+        [AFHTTPSessionManager.manager.requestSerializer setValue:@""
+                                              forHTTPHeaderField:@"Authorization"];
     }
     
     [ZBRequestManager setupBaseConfig:^(ZBConfig * _Nullable config) {

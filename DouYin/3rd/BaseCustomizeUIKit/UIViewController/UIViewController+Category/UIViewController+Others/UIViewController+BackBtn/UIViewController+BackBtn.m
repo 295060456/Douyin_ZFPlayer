@@ -12,6 +12,12 @@
 static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
 @dynamic backBtnCategory;
 
+static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategoryItem";
+@dynamic backBtnCategoryItem;
+
+static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
+@dynamic backBtnTitle;
+
 #pragma mark —— 子类需要覆写
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender{
     if (self.navigationController) {
@@ -29,9 +35,10 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
         BackBtnCategory = UIButton.new;
         [BackBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                          imageTitleSpace:8];
-
-        [BackBtnCategory setTitle:@"返回"
-                         forState:UIControlStateNormal];
+        if (!self.backBtnTitle) {
+            [BackBtnCategory setTitle:@"返回"
+                             forState:UIControlStateNormal];
+        }
         NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
         UIImage *backImage = KBuddleIMG(nil,
                                         @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
@@ -65,6 +72,36 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
                              BaseVC_BackBtn_backBtnCategory,
                              backBtnCategory,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)UIBarButtonItem *backBtnCategoryItem;
+-(void)setBackBtnCategoryItem:(UIBarButtonItem *)backBtnCategoryItem{
+    objc_setAssociatedObject(self,
+                             BaseVC_BackBtn_backBtnCategoryItem,
+                             backBtnCategoryItem,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(UIBarButtonItem *)backBtnCategoryItem{
+    UIBarButtonItem *BackBtnCategoryItem = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnCategoryItem);
+    if (!BackBtnCategoryItem) {
+        BackBtnCategoryItem = [[UIBarButtonItem alloc] initWithCustomView:self.backBtnCategory];
+        objc_setAssociatedObject(self,
+                                 BaseVC_BackBtn_backBtnCategoryItem,
+                                 BackBtnCategoryItem,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return BackBtnCategoryItem;
+}
+#pragma mark —— @property(nonatomic,strong)NSString *backBtnTitle;
+-(void)setBackBtnTitle:(NSString *)backBtnTitle{
+    objc_setAssociatedObject(self,
+                             BaseVC_BackBtn_backBtnTitle,
+                             backBtnTitle,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(NSString *)backBtnTitle{
+    NSString *BackBtnTitle = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnTitle);
+    return BackBtnTitle;
 }
 
 

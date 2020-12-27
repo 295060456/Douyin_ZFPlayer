@@ -20,6 +20,8 @@
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
 		C530B1B2254D9B1600EDEDC8 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */; };
 		C530B1B3254D9B1600EDEDC8 /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */; };
+		C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367A2598C70200B48431 /* XLBubbleTransition.m */; };
+		C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C544B96A25835CF400C6CF2A /* MJRefreshConfigModel.m */; };
@@ -278,6 +280,11 @@
 		C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C530B1AA254D9B1600EDEDC8 /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
 		C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
+		C53D36782598C70200B48431 /* XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBubbleTransition.h; sourceTree = "<group>"; };
+		C53D36792598C70200B48431 /* UIViewController+XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLBubbleTransition.h"; sourceTree = "<group>"; };
+		C53D367A2598C70200B48431 /* XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBubbleTransition.m; sourceTree = "<group>"; };
+		C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLBubbleTransition.m"; sourceTree = "<group>"; };
+		C53D367C2598C70200B48431 /* 使用方法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "使用方法.md"; sourceTree = "<group>"; };
 		C542A39D251B6EF6007B5F88 /* iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iph_X.mp4; sourceTree = "<group>"; };
 		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
 		C544B96925835CF400C6CF2A /* MJRefreshConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshConfigModel.h; sourceTree = "<group>"; };
@@ -805,6 +812,18 @@
 				C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */,
 			);
 			path = "UICollectionReusableView 用作基类";
+			sourceTree = "<group>";
+		};
+		C53D36772598C70200B48431 /* UIViewController+XLBubbleTransition */ = {
+			isa = PBXGroup;
+			children = (
+				C53D367C2598C70200B48431 /* 使用方法.md */,
+				C53D36792598C70200B48431 /* UIViewController+XLBubbleTransition.h */,
+				C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */,
+				C53D36782598C70200B48431 /* XLBubbleTransition.h */,
+				C53D367A2598C70200B48431 /* XLBubbleTransition.m */,
+			);
+			path = "UIViewController+XLBubbleTransition";
 			sourceTree = "<group>";
 		};
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
@@ -1729,6 +1748,7 @@
 		C54FE3CC257672FB00937C11 /* UIViewController+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C53D36772598C70200B48431 /* UIViewController+XLBubbleTransition */,
 				C5D78797257F79720087FC92 /* UIViewController+Others */,
 				C576725C2546BBA800C382C8 /* UIViewController+TZImagePickerController */,
 				C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */,
@@ -3173,6 +3193,7 @@
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C5460D2D258C8E1D0008928C /* ZYTextField.m in Sources */,
 				C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */,
+				C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */,
 				C59A3A93258DD158005F6260 /* UserDefaultModel.m in Sources */,
 				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
@@ -3231,6 +3252,7 @@
 				C56188C5255D6D74004E7B47 /* XHLaunchAdImageView+XHLaunchAdCache.m in Sources */,
 				C5D4F11D25824ADA00C165EA /* NetworkingAPI+UserInfoApi.m in Sources */,
 				C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */,
+				C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */,
 				C5D4F11925824ADA00C165EA /* NetworkingAPI+MsgStateApi.m in Sources */,
 				C5529DC72589CD4700A89501 /* UIImage+ScreenShot.m in Sources */,
 				C54BB3AE2518D391001591C2 /* UIImageView+GIF.m in Sources */,

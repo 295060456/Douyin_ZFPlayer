@@ -69,8 +69,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
             forView:(UIView *__nonnull)view;
 //view 转 image
 + (UIImage *__nonnull)getImageFromView:(UIView *__nonnull)view;
-
-/// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题
+/// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题 。特别提示：不能存在 -(void)drawRect:(CGRect)rect 或者在-(void)drawRect:(CGRect)rect里面写，否则无效
 /// @param targetShadowview 需要作用阴影效果的View
 /// @param superview 该阴影效果的View的父View
 /// @param ShadowDirection 阴影朝向

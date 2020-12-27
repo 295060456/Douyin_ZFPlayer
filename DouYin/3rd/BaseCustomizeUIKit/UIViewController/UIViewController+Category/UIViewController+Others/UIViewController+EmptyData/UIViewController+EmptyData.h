@@ -6,12 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+EmptyData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 // 当ViewController的view上啥也没有的时候，出现提示，方便调试
 @interface UIViewController (EmptyData)
 
-@property(nonatomic,strong)UILabel *tipsLab;
 -(void)ifEmptyData;
 
 @end

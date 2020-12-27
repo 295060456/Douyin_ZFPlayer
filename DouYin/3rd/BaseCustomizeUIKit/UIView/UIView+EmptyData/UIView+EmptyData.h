@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (EmptyData)
 
 @property(nonatomic,strong)UILabel *tipsLab;
+@property(nonatomic,strong)NSString *tipsTitle;
 -(void)ifEmptyData;
 
 @end

@@ -22,6 +22,16 @@ typedef enum : NSUInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface FileFolderHandleModel : NSObject
+
+@property(nonatomic,strong,nullable)AVAsset *asset;
+@property(nonatomic,strong,nullable)AVAudioMix *audioMix;
+@property(nonatomic,strong,nullable)NSDictionary *info;
+@property(nonatomic,strong,nullable)NSData *data;
+@property(nonatomic,strong,nullable)UIImage *image;
+
+@end
+
 @interface FileFolderHandleTool : NSObject
 
 /*
@@ -194,7 +204,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 + (NSString *)sizeFormattedOfItemAtPath:(NSString *)path
                                   error:(NSError *__autoreleasing *)error;
 ///将文件大小格式化为字节
-+(NSString *)sizeFormatted:(NSNumber *)size;
++ (NSString *)sizeFormatted:(NSNumber *)size;
 ///获取文件夹大小（单位为字节）:
 + (NSString *)sizeFormattedOfDirectoryAtPath:(NSString *)path
                                        error:(NSError *__autoreleasing *)error;
@@ -240,6 +250,8 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 ///获取PHAsset里面的声音
 +(void)getAudioFromPHAsset:(PHAsset *)phAsset
                   complete:(MKDataBlock)completeBlock;
+///AVAsset 转 NSData
++(NSData *)AVAssetToData:(AVAsset *)asset;
 
 @end
 

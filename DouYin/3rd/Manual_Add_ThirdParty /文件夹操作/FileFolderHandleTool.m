@@ -375,8 +375,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     for (NSString *file in subFiles) {
         NSString *absolutePath = [[FileFolderHandleTool cachesDir] stringByAppendingPathComponent:file];
         isSuccess &= [TXFileOperation removeItemAtPath:absolutePath];
-    }
-    return isSuccess;
+    }return isSuccess;
 }
 ///清空temp文件夹
 +(BOOL)clearTmpDirectory{
@@ -386,8 +385,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     for (NSString *file in subFiles) {
         NSString *absolutePath = [[FileFolderHandleTool tmpDir] stringByAppendingPathComponent:file];
         isSuccess &= [TXFileOperation removeItemAtPath:absolutePath];
-    }
-    return isSuccess;
+    }return isSuccess;
 }
 #pragma mark —— 复制文件（夹）
 ///复制文件 依据源文件的路径复制一份到目标路径：
@@ -814,12 +812,16 @@ didFinishSavingWithError:(NSError *)error
                           resultHandler:^(AVAsset * _Nullable asset,
                                           AVAudioMix * _Nullable audioMix,
                                           NSDictionary * _Nullable info) {
+            
             AVURLAsset *urlAsset = (AVURLAsset *)asset;
-            NSURL *url = urlAsset.URL;
-            NSData *data = [NSData dataWithContentsOfURL:url];
-//            NSLog(@"%@",data);
+            FileFolderHandleModel *fileFolderHandleModel = FileFolderHandleModel.new;
+            fileFolderHandleModel.asset = asset;
+            fileFolderHandleModel.audioMix = audioMix;
+            fileFolderHandleModel.info = info;
+            fileFolderHandleModel.data = [FileFolderHandleTool AVAssetToData:asset];
+            fileFolderHandleModel.image = [UIImage getVideoPreViewImage:urlAsset];
             if (completeBlock) {
-                completeBlock(data);
+                completeBlock(fileFolderHandleModel);
             }
         }];
     }
@@ -838,6 +840,16 @@ didFinishSavingWithError:(NSError *)error
         
     }
 }
+///AVAsset 转 NSData
++(NSData *)AVAssetToData:(AVAsset *)asset{
+    AVURLAsset *urlAsset = (AVURLAsset *)asset;
+    NSURL *url = urlAsset.URL;
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    return data;
+}
 
+@end
+
+@implementation FileFolderHandleModel
 
 @end

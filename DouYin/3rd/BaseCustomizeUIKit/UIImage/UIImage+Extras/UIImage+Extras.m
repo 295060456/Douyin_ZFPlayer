@@ -5,8 +5,6 @@
 //  Copyright © 2018 Aalto. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreImage/CoreImage.h>
 #import "UIImage+Extras.h"
 
 @implementation UIImage (Extras)
@@ -163,6 +161,35 @@
     UIImage *qrImage = [UIImage imageWithCIImage:outputImage];
     //6.返回二维码图像
     return qrImage;
+}
+
++(UIImage *)imageResize:(UIImage*)img
+            andResizeTo:(CGSize)newSize{
+    CGFloat scale = UIScreen.mainScreen.scale;
+    
+    //UIGraphicsBeginImageContext(newSize);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, scale);
+    [img drawInRect:CGRectMake(0,
+                               0,
+                               newSize.width,
+                               newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+// 获取视频第一帧
++(UIImage *)getVideoPreViewImage:(AVURLAsset *)asset{
+    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetGen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [assetGen copyCGImageAtTime:time
+                                        actualTime:&actualTime
+                                             error:&error];
+    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return videoImage;
 }
 
 @end

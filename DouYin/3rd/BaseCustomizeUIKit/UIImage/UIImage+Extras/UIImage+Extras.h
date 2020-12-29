@@ -6,7 +6,12 @@
 //  Copyright © 2018 Aalto. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreImage/CoreImage.h>
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVAssetImageGenerator.h>
+#import <AVFoundation/AVTime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 ///根据字符串生成二维码
 +(UIImage *)createRRcode:(NSString *)sourceString;
 
++(UIImage *)imageResize:(UIImage*)img
+            andResizeTo:(CGSize)newSize;
+// 获取视频第一帧
++(UIImage *)getVideoPreViewImage:(AVURLAsset *)asset;
 
 @end
 

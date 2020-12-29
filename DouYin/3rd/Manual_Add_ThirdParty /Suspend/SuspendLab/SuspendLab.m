@@ -19,6 +19,7 @@
         self.backgroundColor = self.backgroundColor ? :kBlackColor;
         self.text = [NSString ensureNonnullString:self.text
                                        ReplaceStr:@"暂无数据"];
+        self.textAlignment = NSTextAlignmentCenter;
         [UIView cornerCutToCircleWithView:self
                           andCornerRadius:8];
     }return self;

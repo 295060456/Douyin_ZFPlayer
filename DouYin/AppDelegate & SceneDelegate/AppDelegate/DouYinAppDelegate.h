@@ -9,6 +9,9 @@
 #import <CoreData/CoreData.h>
 #import "TabbarVC.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability-new"
+
 @interface DouYinAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(readonly,strong)NSPersistentCloudKitContainer *persistentContainer;
@@ -22,3 +25,4 @@
 
 @end
 
+#pragma clang diagnostic pop

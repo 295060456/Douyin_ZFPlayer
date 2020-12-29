@@ -55,26 +55,32 @@ imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock{
         //状态类型参考：ECAuthorizationStatus
         NSLog(@"%lu",(unsigned long)status);
         if (status == ECAuthorizationStatus_Authorized) {
-            self.imagePickerVC.allowPickingOriginalPhoto = YES;
-            self.imagePickerVC.allowPickingGif = YES;
-            self.imagePickerVC.sortAscendingByModificationDate = YES;
-            self.imagePickerVC.showSelectBtn = NO;
-            self.imagePickerVC.allowCrop = YES;
-            self.imagePickerVC.needCircleCrop = YES;
-            //图片裁剪 方式方法_1
-//            NSInteger left = 30;
-//            NSInteger widthHeight = self.view.mj_w - 2 * left;
-//            NSInteger top = (self.view.mj_h - widthHeight) / 2;
-//            self.imagePickerVC.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
-//            self.imagePickerVC.scaleAspectFillCrop = YES;
 
+            {//配置：可以跟随imagePickerVCBlock在外层去实现，不必统一配置，当然这个主要看需求
+                // 复制粘贴如下代码Block回调到最外层实现
+                /**
+                 self.imagePickerVC.allowPickingOriginalPhoto = YES;
+                 self.imagePickerVC.allowPickingGif = YES;
+                 self.imagePickerVC.sortAscendingByModificationDate = YES;
+                 self.imagePickerVC.showSelectBtn = NO;
+                 self.imagePickerVC.allowCrop = NO;
+                 self.imagePickerVC.needCircleCrop = YES;
+                 
+                 //图片裁剪 方式方法_1
+                 // NSInteger left = 30;
+                 //NSInteger widthHeight = self.view.mj_w - 2 * left;
+                 //NSInteger top = (self.view.mj_h - widthHeight) / 2;
+                 //self.imagePickerVC.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
+                 //self.imagePickerVC.scaleAspectFillCrop = YES;
+                 */
+            }
             if (imagePickerVCBlock) {
                 imagePickerVCBlock(self.imagePickerVC);
             }
             
             [self presentViewController:self.imagePickerVC
-                                     animated:YES
-                                   completion:nil];
+                               animated:YES
+                             completion:nil];
             return self.imagePickerVC;
         }else{
             NSLog(@"相册不可用:%lu",(unsigned long)status);
@@ -756,6 +762,5 @@ didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey, id> 
                              picBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-
 
 @end

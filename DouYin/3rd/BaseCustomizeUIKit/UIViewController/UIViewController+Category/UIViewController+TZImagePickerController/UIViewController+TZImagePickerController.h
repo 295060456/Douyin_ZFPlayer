@@ -9,7 +9,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "NSObject+SYSAlertController.h"
 #import "NSObject+SPAlertController.h"
-#import "ECAuthorizationTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
+#import "ECPrivacyCheckTools.h"//https://github.com/EchoZuo/ECAuthorizationTools/blob/master/README.md
 #if __has_include(<TZImagePickerController/TZImagePickerController.h>)
 #import <TZImagePickerController/TZImagePickerController.h>
 #else
@@ -51,7 +51,7 @@ TZImagePickerControllerDelegate
 
 ///点选的图片
 -(void)GettingPicBlock:(MMDataBlock)block;
-///访问相册 —— 选择图片
+///访问相册 —— 选择图片【配置区域】
 -(void)choosePic:(TZImagePickerControllerType)tzImagePickerControllerType
 imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock;
 ///访问摄像头
@@ -59,7 +59,57 @@ imagePickerVCBlock:(MKDataBlock _Nullable)imagePickerVCBlock;
 
 -(void)pushImagePickerController;
 
-
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+ 
+ /// Video
+         [self.imagePickerVC setDidFinishPickingVideoHandle:^(UIImage *coverImage,
+                                                              PHAsset *asset) {
+             @strongify(self)
+             if (self.picBlock) {
+                 self.picBlock(@2,
+                               coverImage,
+                               asset);
+             }
+         }];
+ /// Pic
+ //        [self.imagePickerVC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos,
+ //                                                              NSArray *assets,
+ //                                                              BOOL isSelectOriginalPhoto) {
+ //            @strongify(self)
+ //            if (self.picBlock) {
+ //                self.picBlock(@3,
+ //                              photos,
+ //                              assets,
+ //                              @(isSelectOriginalPhoto));
+ //            }
+ //        }];
+         // 仅仅多了一个infos回调
+         [self.imagePickerVC setDidFinishPickingPhotosWithInfosHandle:^(NSArray<UIImage *> *photos,
+                                                                        NSArray *assets,
+                                                                        BOOL isSelectOriginalPhoto,
+                                                                        NSArray<NSDictionary *> *infos) {
+             @strongify(self)
+             if (self.picBlock) {
+                 self.picBlock(@4,
+                               photos,
+                               assets,
+                               @(isSelectOriginalPhoto),
+                               infos);
+             }
+         }];
+ /// Gif_Pic
+         [self.imagePickerVC setDidFinishPickingGifImageHandle:^(UIImage *animatedImage,
+                                                                 id sourceAssets) {
+             @strongify(self)
+             if (self.picBlock) {
+                 self.picBlock(@2,
+                               animatedImage,
+                               sourceAssets);
+             }
+         }];
+ 
+ */

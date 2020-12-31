@@ -30,6 +30,12 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
                  sourceAssets:(NSArray *)assets
         isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto{
     NSLog(@"");
+    if (self.picBlock) {
+        self.picBlock(@3,
+                      photos,
+                      assets,
+                      @(isSelectOriginalPhoto));
+    }
 }
 
 - (void)imagePickerController:(TZImagePickerController *)picker
@@ -38,12 +44,18 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
         isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
                         infos:(NSArray<NSDictionary *> *)infos{
     NSLog(@"");
+    if (self.picBlock) {
+        self.picBlock(@4,
+                      photos,
+                      assets,
+                      isSelectOriginalPhoto,
+                      infos);
+    }
 }
 
 - (void)tz_imagePickerControllerDidCancel:(TZImagePickerController *)picker{
     NSLog(@"");
 }
-
 // If user picking a video and allowPickingMultipleVideo is NO, this callback will be called.
 // If allowPickingMultipleVideo is YES, will call imagePickerController:didFinishPickingPhotos:sourceAssets:isSelectOriginalPhoto:
 // 如果用户选择了一个视频且allowPickingMultipleVideo是NO，下面的代理方法会被执行
@@ -66,11 +78,11 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
                           asset,
                           outputPath);
         }
-    } failure:^(NSString *errorMessage, NSError *error) {
+    } failure:^(NSString *errorMessage,
+                NSError *error) {
         NSLog(@"视频导出失败:%@,error:%@",errorMessage, error);
     }];
 }
-
 // If user picking a gif image and allowPickingMultipleVideo is NO, this callback will be called.
 // If allowPickingMultipleVideo is YES, will call imagePickerController:didFinishPickingPhotos:sourceAssets:isSelectOriginalPhoto:
 // 如果用户选择了一个gif图片且allowPickingMultipleVideo是NO，下面的代理方法会被执行
@@ -79,21 +91,23 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
      didFinishPickingGifImage:(UIImage *)animatedImage
                  sourceAssets:(PHAsset *)asset{
     NSLog(@"");
+    if (self.picBlock) {
+        self.picBlock(@2,
+                      animatedImage,
+                      asset);
+    }
 }
-
 // Decide album show or not't
 // 决定相册显示与否 albumName:相册名字 result:相册原始数据
 - (BOOL)isAlbumCanSelect:(NSString *)albumName
                   result:(PHFetchResult *)result{
     return YES;
 }
-
 // Decide asset show or not't
 // 决定照片显示与否
 - (BOOL)isAssetCanSelect:(PHAsset *)asset{
     return YES;
 }
-
 #pragma mark —— @property(nonatomic,strong)NSMutableArray *selectedPhotos;
 -(NSMutableArray *)selectedPhotos{
     NSMutableArray *SelectedPhotos = objc_getAssociatedObject(self, BaseVC_TZImagePickerControllerDelegate_selectedPhotos);
@@ -123,8 +137,7 @@ static char *BaseVC_TZImagePickerControllerDelegate_selectedAssets = "BaseVC_TZI
                                  BaseVC_TZImagePickerControllerDelegate_selectedAssets,
                                  SelectedAssets,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return SelectedAssets;
+    }return SelectedAssets;
 }
 
 -(void)setSelectedAssets:(NSMutableArray *)selectedAssets{

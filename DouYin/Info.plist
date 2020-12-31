@@ -2,36 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSBluetoothAlwaysUsageDescription</key>
-    <string>抖动需要您的同意，才能使用您的蓝牙</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Add tracks to your music library.</string>
     <key>NSBluetoothPeripheralUsageDescription</key>
-    <string>抖动需要您的同意，才能使用您的蓝牙</string>
+    <string>若不允许，你将无法使用联机服务</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>若不允许，你将无法使用联机服务</string>
     <key>NSCalendarsUsageDescription</key>
-    <string>抖动需要您的同意，才能使用您的日历</string>
+    <string>若不允许，你将无法使用添加日历功能</string>
     <key>NSCameraUsageDescription</key>
-    <string>抖动需要拍照用于上传图片资料,是否允许打开您的相机</string>
+    <string>若不允许，你将无法使用图片上传和识别功能</string>
     <key>NSContactsUsageDescription</key>
-    <string>抖动需要您的同意，才能使用您的通讯录</string>
+    <string>通讯录信息仅用于查找联系人，并会得到严格保密</string>
     <key>NSHealthShareUsageDescription</key>
-    <string>抖动需要您的同意，才能访问健康分享</string>
+    <string>若不允许，你将无法参与运动排行榜活动</string>
     <key>NSHealthUpdateUsageDescription</key>
-    <string>抖动需要您的同意，才能访问健康更新</string>
+    <string>若不允许，你将无法参与运动排行榜活动</string>
     <key>NSHomeKitUsageDescription</key>
-    <string>抖动需要您的同意，才能使用您的HomeKit</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>抖动需要您的同意,您的位置信息将用于查看当前位置信息</string>
+    <string>若不允许，你将无法使用智能家居服务</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>我们需要获取你的定位权限以供完成查找附近商户功能</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>抖动需要您的同意,您的位置信息将用于查看当前位置信息</string>
+    <string>我们需要获取你的定位权限以供完成查找附近商户功能</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>抖动需要您的同意,才能访问麦克风</string>
+    <string>我们需要获取你的麦克风权限以供完成语音搜索功能</string>
     <key>NSMotionUsageDescription</key>
-    <string>抖动需要您的同意，才能访问运动与健身</string>
+    <string>我们需要获取你的运动权限以完成运动挑战赛功能</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>抖动需要您的同意,才能保存图片到您的相册</string>
+    <string>我们需要获取你的相册权限以完成图片上传和识别功能</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>抖动需要访问相册用于上传图片资料,是否允许打开您的相机</string>
+    <string>我们需要获取你的相册权限以完成图片上传和识别功能</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>我们需要获取你的提醒事项权限以供添加提醒事项</string>
+    <key>NSSiriUsageDescription</key>
+    <string>我们需要获取你的Siri权限以方便完成Siri建议功能</string>
     <key>NSSpeechRecognitionUsageDescription</key>
-    <string>抖动需要您的同意，才能使用麦克风进行语音识别</string>
+    <string>我们需要获取你的语音识别功能已完成键盘语音识别输入功能</string>
+    <key>NSVideoSubscriberAccountUsageDescription</key>
+    <string>我们需要获取你的TV权限</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>我们需要您的同意,您的位置信息将用于查看当前位置信息</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

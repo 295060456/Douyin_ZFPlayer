@@ -21,7 +21,7 @@ def func
   pod 'FBRetainCycleDetector' # https://github.com/facebook/FBRetainCycleDetector
   pod 'Masonry'
   pod 'AFNetworking'
-  pod 'TZImagePickerController'
+  pod 'HXPhotoPicker' # 相册选择 https://github.com/SilenceLove/HXPhotoPicker
   pod 'ReactiveObjC'
   pod 'MJRefresh'
   pod 'MJExtension'

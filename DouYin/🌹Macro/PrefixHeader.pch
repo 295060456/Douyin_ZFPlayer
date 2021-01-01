@@ -10,13 +10,15 @@
 #define PrefixHeader_pch
 
 #pragma mark —— 系统SDK
-#import <QuartzCore/QuartzCore.h>
-#import <objc/runtime.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
+#import <QuartzCore/QuartzCore.h>
 #import <VideoToolbox/VideoToolbox.h>//FFmpeg 需要
+#import <CoreData/CoreData.h>
+#import <Photos/Photos.h>
 
 #pragma mark —— Swift-OC桥接头文件
 #import "DouYin-Bridging-Header.h"

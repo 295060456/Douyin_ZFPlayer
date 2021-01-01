@@ -13,8 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSIndexPath *idxPath;
 
--(void)richElementsInCellWithModel:(id _Nullable)model;//由具体的子类进行覆写
-+(CGSize)cellSizeWithModel:(id _Nullable)model;//由具体的子类进行覆写
++(CGSize)cellSizeWithModel:(id _Nullable)model;// 由具体的子类进行覆写
+-(void)richElementsInCellWithModel:(id _Nullable)model;// 由具体的子类进行覆写
+-(void)beginShake;// 实现cell抖动方法
+-(void)stopShake;// 实现cell停止抖动方法
 
 @end
 

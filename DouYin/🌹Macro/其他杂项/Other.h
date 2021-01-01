@@ -9,8 +9,6 @@
 #ifndef Other_h
 #define Other_h
 
-#import <objc/runtime.h>
-
 #import "TabbarControllerSysEx.h"
 #import "CustomZFPlayerControlView.h"
 

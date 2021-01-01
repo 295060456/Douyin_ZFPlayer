@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(CGSize)cellSizeWithModel:(id _Nullable)model;// 由具体的子类进行覆写
 -(void)richElementsInCellWithModel:(id _Nullable)model;// 由具体的子类进行覆写
--(void)beginShake;// 实现cell抖动方法
--(void)stopShake;// 实现cell停止抖动方法
+
 
 @end
 

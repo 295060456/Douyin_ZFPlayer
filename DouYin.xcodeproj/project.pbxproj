@@ -17,7 +17,6 @@
 		C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B19E254D9B1500EDEDC8 /* HQCollectionViewFlowLayout.m */; };
 		C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A4254D9B1600EDEDC8 /* CollectionView.m */; };
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
-		C530B1B2254D9B1600EDEDC8 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */; };
 		C530B1B3254D9B1600EDEDC8 /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */; };
 		C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367A2598C70200B48431 /* XLBubbleTransition.m */; };
 		C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */; };
@@ -120,6 +119,8 @@
 		C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */; };
 		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
+		C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */; };
+		C5676163259F1272006905A9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* CollectionViewCell.m */; };
 		C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F42578936C00D054D0 /* ZBRequestManager.m */; };
 		C56BA9022578936D00D054D0 /* NSString+ZBUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */; };
 		C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F92578936C00D054D0 /* ZBCacheManager.m */; };
@@ -316,8 +317,6 @@
 		C530B1A3254D9B1600EDEDC8 /* UICollectionView+RegisterClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+RegisterClass.h"; sourceTree = "<group>"; };
 		C530B1A4254D9B1600EDEDC8 /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
 		C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+RegisterClass.m"; sourceTree = "<group>"; };
-		C530B1A7254D9B1600EDEDC8 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
-		C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		C530B1AA254D9B1600EDEDC8 /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
 		C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
 		C53D36782598C70200B48431 /* XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBubbleTransition.h; sourceTree = "<group>"; };
@@ -542,6 +541,10 @@
 		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
 		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
 		C562093C2554006100FE435F /* 验证码按钮单例封装.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "验证码按钮单例封装.md"; sourceTree = "<group>"; };
+		C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+ShakeAnimation.h"; sourceTree = "<group>"; };
+		C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+ShakeAnimation.m"; sourceTree = "<group>"; };
+		C5676160259F1272006905A9 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		C5676161259F1272006905A9 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C56BA8F42578936C00D054D0 /* ZBRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestManager.m; sourceTree = "<group>"; };
 		C56BA8F52578936C00D054D0 /* ZBURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBURLRequest.h; sourceTree = "<group>"; };
 		C56BA8F62578936C00D054D0 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
@@ -897,8 +900,10 @@
 		C530B1A6254D9B1600EDEDC8 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C530B1A7254D9B1600EDEDC8 /* CollectionViewCell.h */,
-				C530B1A8254D9B1600EDEDC8 /* CollectionViewCell.m */,
+				C5676161259F1272006905A9 /* CollectionViewCell.h */,
+				C5676160259F1272006905A9 /* CollectionViewCell.m */,
+				C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */,
+				C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -3318,6 +3323,7 @@
 				C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
 				C5D4F11525824ADA00C165EA /* NetworkingAPI+BlankList.m in Sources */,
+				C5676163259F1272006905A9 /* CollectionViewCell.m in Sources */,
 				C546FA0A258B5CDA0008928C /* UIView+EmptyData.m in Sources */,
 				C5C64B6E259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m in Sources */,
 				C57F0CFC253336590080EEF0 /* NSObject+OpenURL.m in Sources */,
@@ -3457,7 +3463,6 @@
 				C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */,
 				C5D4F12E25824B8600C165EA /* URLManagerModel.m in Sources */,
 				C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */,
-				C530B1B2254D9B1600EDEDC8 /* CollectionViewCell.m in Sources */,
 				C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
@@ -3466,6 +3471,7 @@
 				C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */,
 				C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,
 				C595D163258713F1002A4531 /* SuspendLab.m in Sources */,
+				C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */,
 				C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */,
 				C54BB5002518E398001591C2 /* ViewController@4.m in Sources */,
 				C56188C5255D6D74004E7B47 /* XHLaunchAdImageView+XHLaunchAdCache.m in Sources */,

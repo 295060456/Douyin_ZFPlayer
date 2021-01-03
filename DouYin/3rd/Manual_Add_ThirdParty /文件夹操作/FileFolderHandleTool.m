@@ -40,7 +40,7 @@
 +(NSString *)homeDir {
     return NSHomeDirectory();
 }
-///获取沙盒中Documents的目录路径：
+///获取真机沙盒中Documents的目录路径：
 +(NSString *)documentsDir{
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                 NSUserDomainMask,
@@ -109,27 +109,26 @@
                                               error:error];
     if (error) {
         NSLog(@"createDirectoryAtPath_err = %@",(*error).description);
-    }
-    return isSuccess;
+    }return isSuccess;
 }
-/*创建带文件夹的文件
- *参数1：文件创建的路径
- *参数2：写入文件的内容
- *参数3 overwrite ：假如已经存在此文件是(YES)否(NO)覆盖
- *参数4：错误信息
- 
- 返回是否创建带文件夹的文件成功
- */
-+(BOOL)createFileAtPath:(NSString *)path
-              overwrite:(BOOL)overwrite
-                  error:(NSError *__autoreleasing *)error {
+/// 创建带文件夹的文件 返回是否创建带文件夹的文件成功状态
+/// @param path 文件创建的路径
+/// @param contentsData 写入文件的内容
+/// @param overwrite 假如已经存在此文件是(YES)否(NO)覆盖
+/// @param error 错误信息
++(BOOL)createFileWithFolderAtPath:(NSString *)path
+                     contentsData:(NSData *_Nullable)contentsData
+                        overwrite:(BOOL)overwrite
+                            error:(NSError *__autoreleasing *)error{
 ///先讨论是否存在此路径的文件夹？
 //file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
-    if ([FileFolderHandleTool createFileByUrl:path
-                                        error:error]) {
+    
+    if ([FileFolderHandleTool createFolderByFileUrl:path
+                                              error:error]) {
         ///下面是对文件夹存在的情况进行说明
         // 如果文件存在，并不想覆盖，那么直接返回YES。
         if (!overwrite) {
+#warning 这里可能有点疑问
             return YES;
         }else{
             /*创建文件
@@ -139,32 +138,33 @@
              
              返回 创建文件是(YES)否(NO)成功？
              */
-             return [[NSFileManager defaultManager] createFileAtPath:path
-                                                            contents:nil
-                                                          attributes:nil];
+             return [[NSFileManager defaultManager] createFileAtPath:path//文件的路径
+                                                            contents:contentsData//文件的二进制内容（NSData）
+                                                          attributes:nil];//文件的属性
         }
     }return NO;
 }
-/* 硬性创建
+/* 硬性创建文件夹
  * 给定一个具体的精确到文件📃的路径地址
  * 不管他是否存在与否，强制性的创建出来
  * file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
  */
-+(BOOL)createFileByUrl:(NSString *)file_url
-                 error:(NSError *__autoreleasing *)error{
++(BOOL)createFolderByFileUrl:(NSString *)file_url
+                       error:(NSError *__autoreleasing *)error{
     //删除最后一个路径节点，提取父文件夹的路径
     NSString *directoryPath = [FileFolderHandleTool directoryAtPath:file_url];
     //创建目录
     //如果文件夹路径不存在，那么先创建文件夹
-    return [FileFolderHandleTool createFolderByUrl:directoryPath error:nil];
+    return [FileFolderHandleTool createFoldByFolderUrl:directoryPath
+                                                 error:error];
 }
-/* 硬性创建
+/* 硬性创建文件夹
 * 给定一个具体的精确到文件夹📂的路径地址
 * 不管他是否存在与否，强制性的创建出来
 * file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
 */
-+(BOOL)createFolderByUrl:(NSString *)folder_url
-                   error:(NSError *__autoreleasing *)error{
++(BOOL)createFoldByFolderUrl:(NSString *)folder_url
+                       error:(NSError *__autoreleasing *)error{
     //创建目录
     //如果文件夹路径不存在，那么先创建文件夹
     if (![FileFolderHandleTool isExistsAtPath:folder_url]) {
@@ -189,7 +189,7 @@
                                           forKey:NSFileModificationDate
                                            error:error];
 }
-#pragma mark —— 写入文件内容
+#pragma mark —— 读取文件内容
 /// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件 默认是以本App mainBundle 为路径
 /// @param bundleFileName 本App的mainBundle之下的Bundle实体名字
 /// @param bundleFileSuffix 中间层路径：
@@ -207,46 +207,61 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     if (![NSString isNullString:bundleFileSuffix]) {
         bundlePath = [bundlePath stringByAppendingString:bundleFileSuffix];
     }
-    
-    switch (fileType) {
-        case TXT:{
-            NSString *string = [[NSString alloc] initWithContentsOfFile:bundlePath
-                                                               encoding:NSUTF8StringEncoding
-                                                                  error:nil];
-            return string;
-        }break;
-        case IMAGE:{
-            UIImage *img = [UIImage imageWithContentsOfFile:bundlePath];
-            return img;
-        }break;
-        case VEDIO:{
-            NSData *movieData = [NSData dataWithContentsOfFile:bundlePath];
-            return movieData;
-        }break;
-        case SOUND:{
-            AVURLAsset *mp3Asset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:bundlePath] options:nil];
-            NSData *mp3Data = [NSData dataWithContentsOfURL:mp3Asset.URL];
-            return mp3Data;
-        }break;
-        case PLIST:{
-            NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:bundlePath];
-            return dic;
-        }break;
-            
-        default:
-            return nil;
-            break;
+    return [FileFolderHandleTool filePath:bundlePath
+                                 fileType:fileType];
+}
+/// 给定一个地址读取内容
+/// @param filePath 文件全路径
+/// @param fileType 获取的文件类型 因为要以不同的方式解析出数据
++(id)filePath:(NSString *__nonnull)filePath
+     fileType:(FileType)fileType{
+    if ([NSString isNullString:filePath]) {
+        NSLog(@"文件路径不存在");
+        return nil;
+    }else{
+        switch (fileType) {
+            case TXT:{
+                NSString *string = [[NSString alloc] initWithContentsOfFile:filePath
+                                                                   encoding:NSUTF8StringEncoding
+                                                                      error:nil];
+                return string;
+            }break;
+            case IMAGE:{
+                UIImage *img = [UIImage imageWithContentsOfFile:filePath];
+                return img;
+            }break;
+            case VEDIO:{
+                NSData *movieData = [NSData dataWithContentsOfFile:filePath];
+                return movieData;
+            }break;
+            case SOUND:{
+                AVURLAsset *mp3Asset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:filePath] options:nil];
+                NSData *mp3Data = [NSData dataWithContentsOfURL:mp3Asset.URL];
+                return mp3Data;
+            }break;
+            case PLIST:{
+                NSDictionary *dic = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+                return dic;
+            }break;
+                
+            default:
+                return nil;
+                break;
+        }
     }
 }
-/// 将bundle里面的文件写进手机本地文件
-/// @param bundleFileName bundle文件名
+#pragma mark —— 写文件内容
+/// 将bundle里面的文件写进手机本地文件，返回路径
+/// @param bundleFileName  bundle文件名
 /// @param LocalFileName 被写入的本地文件名 前提要有空白文件，否则写入失败
 /// @param LocalFileSuffix 中间层路径：
-/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
-+(NSString *)BundleFile:(NSString *__nullable)bundleFileName
-            ToLocalFile:(NSString *)LocalFileName
+/// @param fileType 获取的文件类型 因为要以不同的方式解析出数据
+/// @param error 错误抛出
++(NSString *)bundleFile:(NSString *__nullable)bundleFileName
+            toLocalFile:(NSString *)LocalFileName
         localFileSuffix:(NSString *__nonnull)LocalFileSuffix
-               fileType:(FileType)fileType{
+               fileType:(FileType)fileType
+                  error:(NSError *__autoreleasing *)error{
     //获取bundle路径
     id content = [FileFolderHandleTool bundleFile:bundleFileName
                                  bundleFileSuffix:LocalFileSuffix
@@ -258,28 +273,27 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     //写文件之前一定要 有空白文件可写。
     //文件全名 带后缀
     NSString *localFileFullNameStr = [NSString stringWithFormat:@"/%@.%@",LocalFileName,LocalFileSuffix];
-    bool b = [FileFolderHandleTool createFileAtPath:[fileFolderPathStr stringByAppendingString:localFileFullNameStr]
-                                          overwrite:YES
-                                              error:nil];
-    
+    //先创建空白文件
+    bool b = [FileFolderHandleTool createFileWithFolderAtPath:[fileFolderPathStr stringByAppendingString:localFileFullNameStr]
+                                                 contentsData:nil
+                                                    overwrite:YES
+                                                        error:error];
     bool d = NO;
     if (b) {
-        //写文件
+        //写文件。
         NSString *ff = [NSString stringWithFormat:@"%@%@",fileFolderPathStr,localFileFullNameStr];
         d = [FileFolderHandleTool writeFileAtPath:ff
                                           content:content
-                                            error:nil];
-    }
-    return fileFolderPathStr = d? fileFolderPathStr : nil;
+                                            error:error];
+    }return fileFolderPathStr = d? fileFolderPathStr : nil;
 }
-///写入文件内容：按照文件路径向文件写入内容，内容可为数组、字典、NSData等等
-/*参数1：要写入的文件路径
- *参数2：要写入的文件内容
- *参数3：错误信息
- */
+/// 写入文件内容：按照文件路径向文件写入内容，内容可为数组、字典、NSData等等，返回写入成功与否的状态
+/// @param path 要写入的文件路径
+/// @param content 要写入的文件内容
+/// @param error 错误信息抛出
 +(BOOL)writeFileAtPath:(NSString *)path
                content:(NSObject *)content
-                 error:(NSError *__autoreleasing *)error {
+                 error:(NSError *__autoreleasing *)error{
     //判断文件内容是否为空
     if (!content) {
         [NSException raise:@"非法的文件内容" format:@"文件内容不能为nil"];
@@ -287,31 +301,31 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     }
     //判断文件(夹)是否存在
     if ([FileFolderHandleTool isExistsAtPath:path]) {
-        if ([content isKindOfClass:[NSMutableArray class]]) {//文件内容为可变数组
+        if ([content isKindOfClass:NSMutableArray.class]) {//文件内容为可变数组
             return [(NSMutableArray *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSArray class]]) {//文件内容为不可变数组
+        }else if ([content isKindOfClass:NSArray.class]) {//文件内容为不可变数组
             return [(NSArray *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSMutableData class]]) {//文件内容为可变NSMutableData
+        }else if ([content isKindOfClass:NSMutableData.class]) {//文件内容为可变NSMutableData
             return [(NSMutableData *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSData class]]) {//文件内容为NSData
+        }else if ([content isKindOfClass:NSData.class]) {//文件内容为NSData
             return [(NSData *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSMutableDictionary class]]) {//文件内容为可变字典
+        }else if ([content isKindOfClass:NSMutableDictionary.class]) {//文件内容为可变字典
             return [(NSMutableDictionary *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSDictionary class]]) {//文件内容为不可变字典
+        }else if ([content isKindOfClass:NSDictionary.class]) {//文件内容为不可变字典
             return [(NSDictionary *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSJSONSerialization class]]) {//文件内容为JSON类型
+        }else if ([content isKindOfClass:NSJSONSerialization.class]) {//文件内容为JSON类型
             return [(NSDictionary *)content writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSMutableString class]]) {//文件内容为可变字符串
+        }else if ([content isKindOfClass:NSMutableString.class]) {//文件内容为可变字符串
             return [[((NSString *)content) dataUsingEncoding:NSUTF8StringEncoding] writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[NSString class]]) {//文件内容为不可变字符串
+        }else if ([content isKindOfClass:NSString.class]) {//文件内容为不可变字符串
             return [[((NSString *)content) dataUsingEncoding:NSUTF8StringEncoding] writeToFile:path atomically:YES];
-        }else if ([content isKindOfClass:[UIImage class]]) {//文件内容为图片 保存为PNG
+        }else if ([content isKindOfClass:UIImage.class]) {//文件内容为图片 保存为PNG
             return [UIImagePNGRepresentation((UIImage *)content) writeToFile:path atomically:YES];
         }else if ([content conformsToProtocol:@protocol(NSCoding)]) {//文件归档
 //            [NSKeyedArchiver archiveRootObject:content toFile:path];//API_DEPRECATED
             [NSKeyedArchiver archivedDataWithRootObject:content
                                   requiringSecureCoding:NO
-                                                  error:nil];
+                                                  error:error];
         }else {
             [NSException raise:@"非法的文件内容"
                         format:@"文件类型%@异常，无法被处理。", NSStringFromClass([content class])];
@@ -327,29 +341,31 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 /// @param pathArr 这个文件夹下面的内容进行删除 非递归删除
 /// @param fileSuffix 传需要删除的文件的后缀名，如果需要全部删除就传nil
 +(void)delFile:(NSArray *)pathArr
-    fileSuffix:(NSString *_Nullable)fileSuffix{
+    fileSuffix:(NSString *_Nullable)fileSuffix
+         error:(NSError *__autoreleasing *)error{
     NSString *extension = fileSuffix;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSArray *paths = pathArr;
     NSString *documentsDirectory = [paths objectAtIndex:0];
      
-    NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentsDirectory error:NULL];
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:documentsDirectory error:error];
     NSEnumerator*e = [contents objectEnumerator];
     NSString *filename;
     while ((filename = [e nextObject])) {
         if (extension) {
             if ([[filename pathExtension] hasPrefix:extension]) {
-                [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:NULL];
+                [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:error];
             }
         }else{
-            [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:NULL];
+            [fileManager removeItemAtPath:[documentsDirectory stringByAppendingPathComponent:filename] error:error];
         }
     }
 }
 ///删除文件（夹）
 +(BOOL)removeItemAtPath:(NSString *)path
-                  error:(NSError *__autoreleasing *)error {
-    return [[NSFileManager defaultManager] removeItemAtPath:path error:error];
+                  error:(NSError *__autoreleasing *)error{
+    return [[NSFileManager defaultManager] removeItemAtPath:path
+                                                      error:error];
 }
 ///给定一个路径，删除旗下所有东西
 +(void)cleanFilesWithPath:(NSString *)PathStr{
@@ -427,12 +443,11 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     return isSuccess;
 }
 #pragma mark —— 移动文件（夹）
-///移动文件(夹) 依据源文件的路径移动到目标路径：
-/*参数1、被移动文件路径
- *参数2、要移动到的目标文件路径
- *参数3、当要移动到的文件路径文件存在，会移动失败，这里传入是否覆盖
- *参数4、错误信息
- */
+/// 移动文件(夹) 依据源文件的路径移动到目标路径：
+/// @param path 被移动文件路径
+/// @param toPath 要移动到的目标文件路径
+/// @param overwrite 当要移动到的文件路径文件存在，会移动失败，这里传入是否覆盖
+/// @param error 错误信息抛出
 +(BOOL)moveItemAtPath:(NSString *)path
                 toPath:(NSString *)toPath
              overwrite:(BOOL)overwrite
@@ -452,7 +467,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
         }
     }
     // 判断目标路径文件是否存在
-    if ([FileFolderHandleTool isExistsAtPath:toPath]) {
+    if ([FileFolderHandleTool isExistsAtPath:toPath]){
         //如果覆盖，删除目标路径文件
         if (overwrite) {
             //删掉目标路径文件
@@ -527,7 +542,9 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 ///获取文件大小（NSNumber）:
 +(NSNumber *)sizeOfItemAtPath:(NSString *)path
                         error:(NSError *__autoreleasing *)error {
-    return (NSNumber *)[FileFolderHandleTool attributeOfItemAtPath:path forKey:NSFileSize error:error];
+    return (NSNumber *)[FileFolderHandleTool attributeOfItemAtPath:path
+                                                            forKey:NSFileSize
+                                                             error:error];
 }
 ///获取文件夹大小（NSNumber）:
 +(NSNumber *)sizeOfDirectoryAtPath:(NSString *)path
@@ -577,8 +594,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
     NSNumber *size = [FileFolderHandleTool sizeOfDirectoryAtPath:path error:error];
     if (size) {
         return [FileFolderHandleTool sizeFormatted:size];
-    }
-    return nil;
+    }return nil;
 }
 #pragma mark —— 遍历文件夹(分为深遍历和浅遍历：)
 /**

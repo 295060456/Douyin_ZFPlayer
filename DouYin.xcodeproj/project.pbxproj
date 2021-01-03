@@ -18,6 +18,7 @@
 		C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A4254D9B1600EDEDC8 /* CollectionView.m */; };
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
 		C530B1B3254D9B1600EDEDC8 /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */; };
+		C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */; };
 		C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367A2598C70200B48431 /* XLBubbleTransition.m */; };
 		C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
@@ -319,6 +320,8 @@
 		C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+RegisterClass.m"; sourceTree = "<group>"; };
 		C530B1AA254D9B1600EDEDC8 /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
 		C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
+		C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataSave.m"; sourceTree = "<group>"; };
+		C53C9C5025A1CEE40007F58F /* NSObject+DataSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataSave.h"; sourceTree = "<group>"; };
 		C53D36782598C70200B48431 /* XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBubbleTransition.h; sourceTree = "<group>"; };
 		C53D36792598C70200B48431 /* UIViewController+XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLBubbleTransition.h"; sourceTree = "<group>"; };
 		C53D367A2598C70200B48431 /* XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBubbleTransition.m; sourceTree = "<group>"; };
@@ -915,6 +918,15 @@
 				C530B1AB254D9B1600EDEDC8 /* CollectionReusableView.m */,
 			);
 			path = "UICollectionReusableView 用作基类";
+			sourceTree = "<group>";
+		};
+		C53C9C4E25A1CEE40007F58F /* NSObject+DataSave */ = {
+			isa = PBXGroup;
+			children = (
+				C53C9C5025A1CEE40007F58F /* NSObject+DataSave.h */,
+				C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */,
+			);
+			path = "NSObject+DataSave";
 			sourceTree = "<group>";
 		};
 		C53D36772598C70200B48431 /* UIViewController+XLBubbleTransition */ = {
@@ -1718,6 +1730,7 @@
 		C54BB3762518D391001591C2 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				C53C9C4E25A1CEE40007F58F /* NSObject+DataSave */,
 				C5D6D7FD25860D5D00029AFF /* NSObject (Time) */,
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
 				C55563A42580A495004DB33A /* NSObject+Others */,
@@ -3413,6 +3426,7 @@
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
 				C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */,
+				C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */,
 				C57109B5253C1358005B3A0C /* JobsPullListTBVCell.m in Sources */,
 				C5AEEB2F2538425B000E1C5F /* UIView+Extras.m in Sources */,
 				C5D0C3372587964F002CA224 /* NSObject+Sound.m in Sources */,

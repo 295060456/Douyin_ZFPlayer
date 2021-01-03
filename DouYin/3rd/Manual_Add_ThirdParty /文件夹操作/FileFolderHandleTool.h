@@ -10,7 +10,10 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import <TXFileOperation.h>
+#import "NSString+Extras.h"
+#import "UIImage+Extras.h"
 #import "TimeModel.h"
+#import "AABlock.h"
 
 typedef enum : NSUInteger {
     TXT = 0,
@@ -53,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— 目录获取
 ///获取沙盒的主目录路径：
 +(NSString *)homeDir;
-///获取沙盒中Documents的目录路径：
+///获取真机沙盒中Documents的目录路径：
 +(NSString *)documentsDir;
 ///获取沙盒中Library的目录路径：
 +(NSString *)libraryDir;
@@ -61,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)preferencesDir;
 ///获取沙盒中Library/Caches的目录路径：
 +(NSString *)cachesDir;
-/// 获取沙盒中tmp的目录路径：供系统使用，程序员不要使用，因为随时会被销毁
+///获取沙盒中tmp的目录路径：供系统使用，程序员不要使用，因为随时会被销毁
 +(NSString *)tmpDir;
 #pragma mark - 创建Library/Caches下的文件夹📂路径 还未真正创建
 /// 以当前时间戳生成缓存路径 Library/Caches：存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除。一般存放体积比较大，不是特别重要的资源。
@@ -73,36 +76,36 @@ NS_ASSUME_NONNULL_BEGIN
 ///软性 创建文件夹📂：
 + (BOOL)createDirectoryAtPath:(NSString *)path
                         error:(NSError *__autoreleasing *)error;
-/*创建文件
- *参数1：文件创建的路径
- *参数2：写入文件的内容
- *参数3 overwrite ：假如已经存在此文件是否覆盖,如果文件存在，并不想覆盖，那么直接返回YES。
- *参数4：错误信息
+/// 创建带文件夹的文件 返回是否创建带文件夹的文件成功状态
+/// @param path 文件创建的路径
+/// @param contentsData 写入文件的内容
+/// @param overwrite 假如已经存在此文件是(YES)否(NO)覆盖
+/// @param error 错误信息
++(BOOL)createFileWithFolderAtPath:(NSString *)path
+                     contentsData:(NSData *_Nullable)contentsData
+                        overwrite:(BOOL)overwrite
+                            error:(NSError *__autoreleasing *)error;
+/* 硬性创建文件夹
+ * 给定一个具体的精确到文件📃的路径地址
+ * 不管他是否存在与否，强制性的创建出来
+ * file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
  */
-+(BOOL)createFileAtPath:(NSString *)path
-              overwrite:(BOOL)overwrite
-                  error:(NSError *__autoreleasing *)error;
-/* 硬性创建
-* 给定一个具体的精确到文件📃的路径地址
-* 不管他是否存在与否，强制性的创建出来
-* file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
-*/
-+(BOOL)createFileByUrl:(NSString *)file_url
-                 error:(NSError *__autoreleasing *)error;
-/* 硬性创建
++(BOOL)createFolderByFileUrl:(NSString *)file_url
+                       error:(NSError *__autoreleasing *)error;
+/* 硬性创建文件夹
 * 给定一个具体的精确到文件夹📂的路径地址
 * 不管他是否存在与否，强制性的创建出来
 * file_url是文件的全路径。外层拼接好，如果返回YES则file_url可用
 */
-+(BOOL)createFolderByUrl:(NSString *)folder_url
-                   error:(NSError *__autoreleasing *)error;
++(BOOL)createFoldByFolderUrl:(NSString *)folder_url
+                       error:(NSError *__autoreleasing *)error;
 ///获取文件创建的时间
 +(NSDate *)creationDateOfItemAtPath:(NSString *)path
                               error:(NSError *__autoreleasing *)error;
 ///获取文件修改的时间
 +(NSDate *)modificationDateOfItemAtPath:(NSString *)path
                                   error:(NSError *__autoreleasing *)error;
-#pragma mark —— 写入文件内容
+#pragma mark —— 读取文件内容
 /// 给定一个NSBundle地址和文件类型，获取返回里面的一个实体文件 默认是以本App mainBundle 为路径
 /// @param bundleFileName 本App的mainBundle之下的Bundle实体名字
 /// @param bundleFileSuffix 中间层路径：
@@ -110,20 +113,27 @@ NS_ASSUME_NONNULL_BEGIN
 +(id)bundleFile:(NSString *__nullable)bundleFileName
 bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
        fileType:(FileType)fileType;
-/// 将bundle里面的文件写进手机本地文件
-/// @param bundleFileName bundle文件名
+/// 给定一个地址读取内容
+/// @param filePath 文件全路径
+/// @param fileType 获取的文件类型 因为要以不同的方式解析出数据
++(id)filePath:(NSString *__nonnull)filePath
+     fileType:(FileType)fileType;
+#pragma mark —— 写文件内容
+/// 将bundle里面的文件写进手机本地文件，返回路径
+/// @param bundleFileName  bundle文件名
 /// @param LocalFileName 被写入的本地文件名 前提要有空白文件，否则写入失败
 /// @param LocalFileSuffix 中间层路径：
-/// @param fileType  获取的文件类型 因为要以不同的方式解析出数据
-+(NSString *)BundleFile:(NSString *__nullable)bundleFileName
-            ToLocalFile:(NSString *)LocalFileName
+/// @param fileType 获取的文件类型 因为要以不同的方式解析出数据
+/// @param error 错误抛出
++(NSString *)bundleFile:(NSString *__nullable)bundleFileName
+            toLocalFile:(NSString *)LocalFileName
         localFileSuffix:(NSString *__nonnull)LocalFileSuffix
-               fileType:(FileType)fileType;
-///写入文件内容：按照文件路径向文件写入内容，内容可为数组、字典、NSData等等
-/*参数1：要写入的文件路径
- *参数2：要写入的文件内容
- *参数3：错误信息
- */
+               fileType:(FileType)fileType
+                  error:(NSError *__autoreleasing *)error;
+/// 写入文件内容：按照文件路径向文件写入内容，内容可为数组、字典、NSData等等，返回写入成功与否的状态
+/// @param path 要写入的文件路径
+/// @param content 要写入的文件内容
+/// @param error 错误信息抛出
 +(BOOL)writeFileAtPath:(NSString *)path
                content:(NSObject *)content
                  error:(NSError *__autoreleasing *)error;
@@ -132,7 +142,8 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 /// @param pathArr 这个文件夹下面的内容进行删除 非递归删除
 /// @param fileSuffix 传需要删除的文件的后缀名，如果需要全部删除就传nil
 +(void)delFile:(NSArray *)pathArr
-    fileSuffix:(NSString *_Nullable)fileSuffix;
+    fileSuffix:(NSString *_Nullable)fileSuffix
+         error:(NSError *__autoreleasing *)error;
 ///删除文件（夹） error 传nil；path传文件夹则删除文件夹下面的所有文件，path传一个具体的文件，则删除标的文件
 +(BOOL)removeItemAtPath:(NSString *)path
                   error:(NSError *__autoreleasing *)error;
@@ -142,7 +153,6 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 +(BOOL)clearCachesDirectory;
 ///清空temp文件夹
 +(BOOL)clearTmpDirectory;
-
 #pragma mark —— 复制文件（夹）
 ///复制文件 依据源文件的路径复制一份到目标路径：
 /*参数1、被复制文件路径
@@ -155,12 +165,11 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
              overwrite:(BOOL)overwrite
                  error:(NSError *__autoreleasing *)error;
 #pragma mark —— 移动文件（夹）
-///移动文件(夹) 依据源文件的路径移动到目标路径：
-/*参数1、被移动文件路径
- *参数2、要移动到的目标文件路径
- *参数3、当要移动到的文件路径文件存在，会移动失败，这里传入是否覆盖
- *参数4、错误信息
- */
+/// 移动文件(夹) 依据源文件的路径移动到目标路径：
+/// @param path 被移动文件路径
+/// @param toPath 要移动到的目标文件路径
+/// @param overwrite 当要移动到的文件路径文件存在，会移动失败，这里传入是否覆盖
+/// @param error 错误信息抛出
 + (BOOL)moveItemAtPath:(NSString *)path
                 toPath:(NSString *)toPath
              overwrite:(BOOL)overwrite
@@ -169,45 +178,45 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 /*参数1：文件路径
  *参数2、是否需要后缀
  */
-+ (NSString *)fileNameAtPath:(NSString *)path
-                      suffix:(BOOL)suffix;
++(NSString *)fileNameAtPath:(NSString *)path
+                     suffix:(BOOL)suffix;
 /// 获取文件所在的文件夹路径：删除最后一个路径节点
-+ (NSString *)directoryAtPath:(NSString *)path;
++(NSString *)directoryAtPath:(NSString *)path;
 /// 根据文件路径获取文件扩展类型:
-+ (NSString *)suffixAtPath:(NSString *)path;
++(NSString *)suffixAtPath:(NSString *)path;
 #pragma mark —— 判断文件（夹）是否存在
 ///判断文件路径是否存在:
-+ (BOOL)isExistsAtPath:(NSString *)path;
++(BOOL)isExistsAtPath:(NSString *)path;
 ///判断路径是否为空（判空条件是文件大小为0，或者是文件夹下没有子文件）:
-+ (BOOL)isEmptyItemAtPath:(NSString *)path
-                    error:(NSError *__autoreleasing *)error;
++(BOOL)isEmptyItemAtPath:(NSString *)path
+                   error:(NSError *__autoreleasing *)error;
 ///判断目录是否是文件夹：
-+ (BOOL)isDirectoryAtPath:(NSString *)path
-                    error:(NSError *__autoreleasing *)error;
++(BOOL)isDirectoryAtPath:(NSString *)path
+                   error:(NSError *__autoreleasing *)error;
 ///判断目录是否是文件:
-+ (BOOL)isFileAtPath:(NSString *)path
-               error:(NSError *__autoreleasing *)error;
++(BOOL)isFileAtPath:(NSString *)path
+              error:(NSError *__autoreleasing *)error;
 ///判断目录是否可以执行:
-+ (BOOL)isExecutableItemAtPath:(NSString *)path;
++(BOOL)isExecutableItemAtPath:(NSString *)path;
 ///判断目录是否可读:
-+ (BOOL)isReadableItemAtPath:(NSString *)path;
++(BOOL)isReadableItemAtPath:(NSString *)path;
 ///判断目录是否可写:
-+ (BOOL)isWritableItemAtPath:(NSString *)path;
++(BOOL)isWritableItemAtPath:(NSString *)path;
 #pragma mark —— 获取文件（夹）大小
 ///获取文件大小（NSNumber）:
-+ (NSNumber *)sizeOfItemAtPath:(NSString *)path
-                         error:(NSError *__autoreleasing *)error;
++(NSNumber *)sizeOfItemAtPath:(NSString *)path
+                        error:(NSError *__autoreleasing *)error;
 ///获取文件夹大小（NSNumber）:
-+ (NSNumber *)sizeOfDirectoryAtPath:(NSString *)path
-                              error:(NSError *__autoreleasing *)error;
++(NSNumber *)sizeOfDirectoryAtPath:(NSString *)path
+                             error:(NSError *__autoreleasing *)error;
 ///获取文件大小（单位为字节）:
-+ (NSString *)sizeFormattedOfItemAtPath:(NSString *)path
-                                  error:(NSError *__autoreleasing *)error;
++(NSString *)sizeFormattedOfItemAtPath:(NSString *)path
+                                 error:(NSError *__autoreleasing *)error;
 ///将文件大小格式化为字节
-+ (NSString *)sizeFormatted:(NSNumber *)size;
++(NSString *)sizeFormatted:(NSNumber *)size;
 ///获取文件夹大小（单位为字节）:
-+ (NSString *)sizeFormattedOfDirectoryAtPath:(NSString *)path
-                                       error:(NSError *__autoreleasing *)error;
++(NSString *)sizeFormattedOfDirectoryAtPath:(NSString *)path
+                                      error:(NSError *__autoreleasing *)error;
 #pragma mark —— 遍历文件夹(分为深遍历和浅遍历：)
 /**
  文件遍历
@@ -215,15 +224,15 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
  参数2：是否深遍历 (1. 浅遍历：返回当前目录下的所有文件和文件夹；
  2. 深遍历：返回当前目录下及子目录下的所有文件和文件夹)
  */
-+ (NSArray *)listFilesInDirectoryAtPath:(NSString *)path
-                                   deep:(BOOL)deep;
++(NSArray *)listFilesInDirectoryAtPath:(NSString *)path
+                                  deep:(BOOL)deep;
 #pragma mark —— 获取文件属性
-+ (id)attributeOfItemAtPath:(NSString *)path
-                      forKey:(NSString *)key
-                      error:(NSError *__autoreleasing *)error;
++(id)attributeOfItemAtPath:(NSString *)path
+                    forKey:(NSString *)key
+                     error:(NSError *__autoreleasing *)error;
 ///获取文件属性集合:
-+ (NSDictionary *)attributesOfItemAtPath:(NSString *)path
-                                   error:(NSError *__autoreleasing *)error;
++(NSDictionary *)attributesOfItemAtPath:(NSString *)path
+                                  error:(NSError *__autoreleasing *)error;
 #pragma mark —— 系统相册相关
 ///获取相册最新加载（录制、拍摄）的资源
 +(PHAsset *)gettingLastResource:(NSString *)Key;

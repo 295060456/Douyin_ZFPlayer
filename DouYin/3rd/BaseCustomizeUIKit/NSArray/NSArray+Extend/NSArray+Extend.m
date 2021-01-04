@@ -27,7 +27,7 @@
 /**
 *  数组比较
 */
--(BOOL)compareIgnoreObjectOrderWithArray:(NSArray *)array{
+-(BOOL)compareEqualArrElement:(NSArray *)array{
     NSSet *set1 = [NSSet setWithArray:self];
     NSSet *set2 = [NSSet setWithArray:array];
     return [set1 isEqualToSet:set2];

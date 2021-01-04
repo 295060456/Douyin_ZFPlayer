@@ -16,7 +16,7 @@
 /**
  *  数组比较
  */
--(BOOL)compareIgnoreObjectOrderWithArray:(NSArray *)array;
+-(BOOL)compareEqualArrElement:(NSArray *)array;
 /**
  *  数组计算交集
  */

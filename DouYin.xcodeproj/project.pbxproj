@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33F13A3ED47F4749BF94320C /* Pods_DouYinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6EF8CA40601BF68130CD469 /* Pods_DouYinUITests.framework */; };
+		C51573F325A34FFF0074D945 /* UIView+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C51573F225A34FFF0074D945 /* UIView+Gesture.m */; };
 		C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51D8DA5251B0849006958FF /* PlayerCell.m */; };
 		C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C522694F258757F7004447FB /* BWItemCollectionViewCell.m */; };
 		C5226957258757F7004447FB /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5226951258757F7004447FB /* BWShareView.m */; };
@@ -299,6 +300,8 @@
 		66877E9FDBEC63628B6E3A05 /* Pods_DouYinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BB084B776B69846FDD3484 /* Pods-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BD7A9AC3B6747D4F461F0D8 /* Pods-DouYinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.release.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.release.xcconfig"; sourceTree = "<group>"; };
+		C51573F125A34FFF0074D945 /* UIView+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gesture.h"; sourceTree = "<group>"; };
+		C51573F225A34FFF0074D945 /* UIView+Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Gesture.m"; sourceTree = "<group>"; };
 		C51D8DA4251B0849006958FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		C51D8DA5251B0849006958FF /* PlayerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		C522694E258757F7004447FB /* 分享控件的用法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "分享控件的用法.md"; sourceTree = "<group>"; };
@@ -842,6 +845,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C51573F025A34FFF0074D945 /* UIView+Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				C51573F125A34FFF0074D945 /* UIView+Gesture.h */,
+				C51573F225A34FFF0074D945 /* UIView+Gesture.m */,
+			);
+			path = "UIView+Gesture";
+			sourceTree = "<group>";
+		};
 		C51D8DA3251B0816006958FF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1650,6 +1662,7 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				C51573F025A34FFF0074D945 /* UIView+Gesture */,
 				C5460D21258C8DFD0008928C /* UIView+AOP */,
 				C595BAE125864073002A4531 /* UIView+Animation */,
 				C595BAE325864083002A4531 /* UIView+Chain */,
@@ -3388,6 +3401,7 @@
 				C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */,
 				C54BB2EF2518D363001591C2 /* JhtBannerScrollView.m in Sources */,
 				C57109B6253C1358005B3A0C /* JobsPullListAutoSizeView.m in Sources */,
+				C51573F325A34FFF0074D945 /* UIView+Gesture.m in Sources */,
 				C5D4F11625824ADA00C165EA /* NetworkingAPI+BankCardApi.m in Sources */,
 				C5C64B75259DF5EB00FD2F99 /* ECPrivacyCheckSpeechRecognition.m in Sources */,
 				C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */,

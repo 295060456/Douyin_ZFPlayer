@@ -30,6 +30,7 @@
 #import "UIView+SuspendView.h"
 #import "UIView+Animation.h"
 #import "UIView+Gradient.h"
+#import "UIView+Gesture.h"
 // UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"

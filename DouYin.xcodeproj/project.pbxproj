@@ -121,6 +121,7 @@
 		C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */; };
 		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
+		C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */; };
 		C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */; };
 		C5676163259F1272006905A9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* CollectionViewCell.m */; };
 		C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F42578936C00D054D0 /* ZBRequestManager.m */; };
@@ -547,6 +548,9 @@
 		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
 		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
 		C562093C2554006100FE435F /* 验证码按钮单例封装.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "验证码按钮单例封装.md"; sourceTree = "<group>"; };
+		C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoVerticalArrangementLabsView.m; sourceTree = "<group>"; };
+		C565C9A425A4377A00848134 /* TwoVerticalArrangementLabsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoVerticalArrangementLabsView.h; sourceTree = "<group>"; };
+		C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoVerticalArrangementLabsView.png; sourceTree = "<group>"; };
 		C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+ShakeAnimation.h"; sourceTree = "<group>"; };
 		C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+ShakeAnimation.m"; sourceTree = "<group>"; };
 		C5676160259F1272006905A9 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
@@ -1282,6 +1286,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C565C9A225A4377A00848134 /* TwoVerticalArrangementLabsView */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
 				C54BB2092518D363001591C2 /* 电影倒计时特效 */,
 				C54BB1F92518D363001591C2 /* 分享控件 */,
@@ -2055,6 +2060,16 @@
 				C56188B0255D6D74004E7B47 /* XHLaunchImageView.m */,
 			);
 			path = XHLaunchAd;
+			sourceTree = "<group>";
+		};
+		C565C9A225A4377A00848134 /* TwoVerticalArrangementLabsView */ = {
+			isa = PBXGroup;
+			children = (
+				C565C9A425A4377A00848134 /* TwoVerticalArrangementLabsView.h */,
+				C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */,
+				C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */,
+			);
+			path = TwoVerticalArrangementLabsView;
 			sourceTree = "<group>";
 		};
 		C571095B253C1358005B3A0C /* 深度拓展系统UITabBar全家桶 */ = {
@@ -3469,6 +3484,7 @@
 				C5D1B8AB258B0B9700784D2F /* UIViewController+EmptyData.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
+				C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
 				C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */,
 				C5D4F11725824ADA00C165EA /* NetworkingAPI+LoginApi.m in Sources */,

@@ -10,7 +10,14 @@
 
 @implementation NSObject (SYSAlertController)
 
-///屏幕正中央 isSeparateStyle如果为YES 那么有实质性进展的键位在右侧，否则在左侧
+/// 屏幕正中央的Alert
+/// @param title 标题，没有可传nil 或者 空字符@“”
+/// @param message 副标题，没有可传nil 或者 空字符@“”
+/// @param isSeparateStyle 如果为YES 那么有实质性进展的键位在右侧，否则在左侧
+/// @param btnTitleArr 按钮名称的数组
+/// @param alertBtnActionArr 与btnTitleArr相对的按钮的触发事件
+/// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+/// @param alertVCBlock 返回这个UIAlertController *
 +(void)showSYSAlertViewTitle:(nullable NSString *)title
                      message:(nullable NSString *)message
              isSeparateStyle:(BOOL)isSeparateStyle
@@ -30,6 +37,7 @@
             SuppressWarcPerformSelectorLeaksWarning([targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
                                                                                                                       ReplaceStr:@"defaultFunc"])
                                                                    withObject:Nil]);
+            
         }];
         [alertController addAction:okAction];
     }

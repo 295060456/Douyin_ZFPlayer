@@ -11,21 +11,28 @@
 @implementation NSObject (SYSAlertController)
 
 /// 屏幕正中央的Alert
-/// @param title 标题，没有可传nil 或者 空字符@“”
-/// @param message 副标题，没有可传nil 或者 空字符@“”
-/// @param isSeparateStyle 如果为YES 那么有实质性进展的键位在右侧，否则在左侧
+/// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
+/// @param message  副标题，没有可传nil，如果传空字符@“”会多处一行空白
+/// @param isSeparateStyle  如果为YES 那么有实质性进展的键位在右侧，否则在左侧
 /// @param btnTitleArr 按钮名称的数组
-/// @param alertBtnActionArr 与btnTitleArr相对的按钮的触发事件
+/// @param alertBtnActionArr  与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
 /// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+/// @param funcVC 对应方法的VC。一般情况下targetVC ==  funcVC，所以可以不用填写，但是某些特殊情况targetVC 不等于 funcVC，就要单独提出来做
+/// @param animated 动画效果
 /// @param alertVCBlock 返回这个UIAlertController *
+/// @param completionBlock 结束完成以后的block
 +(void)showSYSAlertViewTitle:(nullable NSString *)title
                      message:(nullable NSString *)message
              isSeparateStyle:(BOOL)isSeparateStyle
                  btnTitleArr:(NSArray <NSString*>*)btnTitleArr
               alertBtnAction:(NSArray <NSString*>*)alertBtnActionArr
                     targetVC:(UIViewController *)targetVC
-                alertVCBlock:(MKDataBlock)alertVCBlock{
+                      funcVC:(nullable UIViewController *)funcVC
+                    animated:(BOOL)animated
+                alertVCBlock:(nullable MKDataBlock)alertVCBlock
+             completionBlock:(nullable NoResultBlock)completionBlock{
     @weakify(targetVC)
+    @weakify(funcVC)
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -34,9 +41,13 @@
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            SuppressWarcPerformSelectorLeaksWarning([targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
-                                                                                                                      ReplaceStr:@"defaultFunc"])
-                                                                   withObject:Nil]);
+            @strongify(funcVC)
+            if (!funcVC) {
+                funcVC = targetVC;
+            }
+            SuppressWarcPerformSelectorLeaksWarning([funcVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
+                                                                                                                    ReplaceStr:@"defaultFunc"])
+                                                                 withObject:nil]);
             
         }];
         [alertController addAction:okAction];
@@ -45,29 +56,47 @@
         alertVCBlock(alertController);
     }
     [targetVC presentViewController:alertController
-                           animated:YES
-                         completion:nil];
+                           animated:animated
+                         completion:completionBlock];
 }
-
+/// 屏幕下部出现的Alert
+/// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
+/// @param message 副标题，没有可传nil，如果传空字符@“”会多处一行空白
+/// @param isSeparateStyle 是否分隔显示
+/// @param btnTitleArr 按钮名称的数组
+/// @param alertBtnActionArr 与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
+/// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+/// @param funcVC 对应方法的VC。一般情况下targetVC ==  funcVC，所以可以不用填写，但是某些特殊情况targetVC 不等于 funcVC，就要单独提出来做
+/// @param sender sender
+/// @param animated 动画效果
+/// @param alertVCBlock 返回这个UIAlertController *
+/// @param completionBlock 结束完成以后的block
 +(void)showSYSActionSheetTitle:(nullable NSString *)title
                        message:(nullable NSString *)message
                isSeparateStyle:(BOOL)isSeparateStyle
-                   btnTitleArr:(NSArray <NSString*>*)btnTitleArr
-                alertBtnAction:(NSArray <NSString*>*)alertBtnActionArr
-                      targetVC:(UIViewController *)targetVC
+                   btnTitleArr:(nonnull NSArray <NSString*>*)btnTitleArr
+                alertBtnAction:(nonnull NSArray <NSString*>*)alertBtnActionArr
+                      targetVC:(nonnull UIViewController *)targetVC
+                        funcVC:(nullable UIViewController *)funcVC
                         sender:(nullable UIControl *)sender
-                  alertVCBlock:(MKDataBlock)alertVCBlock{
+                      animated:(BOOL)animated
+                  alertVCBlock:(nullable MKDataBlock)alertVCBlock
+               completionBlock:(nullable NoResultBlock)completionBlock{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
-    UIViewController *vc = alertController;
     @weakify(targetVC)
+    @weakify(funcVC)
     for (int i = 0; i < alertBtnActionArr.count; i++) {
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:btnTitleArr[i]
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            SuppressWarcPerformSelectorLeaksWarning([targetVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
+            @strongify(funcVC)
+            if (!funcVC) {
+                funcVC = targetVC;
+            }
+            SuppressWarcPerformSelectorLeaksWarning([funcVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
                                                                                                                       ReplaceStr:@"defaultFunc"])
                                                                    withObject:Nil]);
         }];
@@ -76,15 +105,15 @@
     if (alertVCBlock) {
         alertVCBlock(alertController);
     }
-    UIPopoverPresentationController *popover = vc.popoverPresentationController;
+    UIPopoverPresentationController *popover = alertController.popoverPresentationController;
     if (popover){
         popover.sourceView = sender;
         popover.sourceRect = sender.bounds;
         popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
     }
-    [targetVC presentViewController:vc
-                           animated:YES
-                         completion:nil];
+    [targetVC presentViewController:alertController
+                           animated:animated
+                         completion:completionBlock];
 }
 
 +(void)showLoginAlertViewWithTargetVC:(UIViewController *)targetVC{
@@ -149,6 +178,5 @@
 -(void)defaultFunc{
     NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
-
 
 @end

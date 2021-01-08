@@ -70,6 +70,11 @@ UITableViewDataSource
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.currentIndex = 0;//此时cell的第一次生命周期走完，置零
+    
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        NSLog(@"");
+        NSLog(@"%@",_tableView.mj_footer);
+    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -143,10 +148,11 @@ UITableViewDataSource
 ///上拉加载更多
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
+    [self.tableView.mj_footer endRefreshing];
 //    [self.tableView reloadData];
     //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
-    self.tableView.pagingEnabled = NO;
-    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
+//    self.tableView.pagingEnabled = NO;
+//    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
 }
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
@@ -232,8 +238,13 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.mj_header = self.lotAnimationMJRefreshHeader;//self.mjRefreshNormalHeader;
         _tableView.mj_header.automaticallyChangeAlpha = YES;
 //        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-        _tableView.mj_footer.hidden = NO;
-
+//        _tableView.mj_footer.hidden = NO;
+        
+//        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//            NSLog(@"");
+//            NSLog(@"%@",_tableView.mj_footer);
+//        }];
+        
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
                                                           titleStr:@"暂无数据"
                                                          detailStr:@"骚等片刻"];

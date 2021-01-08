@@ -8,6 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
+#if __has_include(<WHToast/WHToast.h>)
+#import <WHToast/WHToast.h>
+#else
+#import "WHToast.h"
+#endif
+
+#if __has_include(<GKPhotoBrowser/GKPhotoBrowser.h>)
+#import <GKPhotoBrowser/GKPhotoBrowser.h>
+#else
+#import "GKPhotoBrowser.h"
+#endif
+
+#if __has_include(<YYImage/YYImage.h>)
+#import <YYImage/YYImage.h>
+#else
+#import "YYImage.h"
+#endif
+
+#if __has_include(<SDWebImage/SDWebImage.h>)
+#import <SDWebImage/SDWebImage.h>
+#else
+#import "SDWebImage.h"
+#endif
+
 @interface NSObject (Extras)
 ///震动特效反馈
 +(void)feedbackGenerator;
@@ -21,5 +45,7 @@
 +(void)autoLockedScreen:(BOOL)lockSwitch;
 /// 打印请求体
 +(void)printRequestMessage:(NSURLSessionDataTask *)task;
+/// 保存图片
++(void)savePic:(GKPhotoBrowser *)browser;
 
 @end

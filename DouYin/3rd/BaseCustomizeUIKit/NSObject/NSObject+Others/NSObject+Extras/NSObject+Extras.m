@@ -38,8 +38,6 @@
 }
 /// 打印请求体
 +(void)printRequestMessage:(NSURLSessionDataTask *)task{
-    
-    /*
     // 请求URL
     NSLog(@"请求URL:%@\n",task.originalRequest.URL);
     
@@ -51,13 +49,53 @@
     
     // 请求正文信息
     NSLog(@"请求正文信息:%@\n",[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
-    */
-
-    // 请求响应时间
-    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:NSDate.date];
-    NSLog(@"请求响应时间:%@\n",@(time));
-    NSLog(@"\n请求URL:%@\n请求方式:%@\n请求头信息:%@\n请求正文信息:%@\n请求响应时间:%@\n",task.originalRequest.URL,task.originalRequest.HTTPMethod,task.originalRequest.allHTTPHeaderFields,[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding],@(time));
     
+//    // 请求响应时间
+//    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:NSDate.date];
+//    NSLog(@"请求响应时间:%@\n",@(time));
+//    NSLog(@"\n请求URL:%@\n请求方式:%@\n请求头信息:%@\n请求正文信息:%@\n请求响应时间:%@\n",task.originalRequest.URL,task.originalRequest.HTTPMethod,task.originalRequest.allHTTPHeaderFields,[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding],@(time));
+}
+
++(void)savePic:(GKPhotoBrowser *)browser{
+    if (browser) {
+        GKPhoto *photo = browser.photos[browser.currentIndex];
+        
+        NSData *imageData = nil;
+        
+        if ([photo.image isKindOfClass:[SDAnimatedImage class]]) {
+            imageData = [(SDAnimatedImage *)photo.image animatedImageData];
+        }else if ([photo.image isKindOfClass:[YYImage class]]) {
+            imageData = [(YYImage *)photo.image animatedImageData];
+        }else {
+            imageData = [photo.image sd_imageData];
+        }
+        
+        if (!imageData) return;
+        
+        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+            if (@available(iOS 9, *)) {
+                PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+                [request addResourceWithType:PHAssetResourceTypePhoto data:imageData options:nil];
+                request.creationDate = [NSDate date];
+            }
+        } completionHandler:^(BOOL success, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (success) {
+                    NSLog(@"保存照片成功");
+                    [WHToast showSuccessWithMessage:@"图片保存成功"
+                                           duration:2
+                                      finishHandler:^{}];
+                } else if (error) {
+                    [WHToast showErrorWithMessage:@"保存保存失败"
+                                         duration:2
+                                    finishHandler:^{}];
+                    NSLog(@"保存照片出错:%@",error.localizedDescription);
+                }
+            });
+        }];
+    }else{
+        NSLog(@"GKPhotoBrowser * 为空");
+    }
 }
 
 @end

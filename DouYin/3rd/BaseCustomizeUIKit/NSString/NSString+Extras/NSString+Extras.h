@@ -70,6 +70,15 @@ NS_ASSUME_NONNULL_BEGIN
                                                           font:(UIFont *_Nullable)font
                                   boundingRectWithHeight_Width:(CGFloat)Height_Width;
 
+// 如果字符串为null 那么不走isEqualToString，无法比较都是空的情况
++(BOOL)isEqualStrA:(NSString *)stringA
+              strB:(NSString *)stringB;
+
+// 根据字体大小 和宽度计算文字的高
++(float)textHitWithStirng:(NSString*)stingS
+                     font:(float)font
+                     widt:(float)wid;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,8 +13,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 @interface LOTAnimationMJRefreshHeader ()
 /// 加载 Json 动画
 @property(nonatomic,strong)LOTAnimationView *animationView;
-/// 加载过程中中间显示的随机文案
-@property(nonatomic,strong)NSString *randomTitle;
+@property(nonatomic,copy)MKDataBlock refreshBlock;
 
 @end
 
@@ -23,6 +22,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 - (void)prepare{
     [super prepare];
     self.animationView.alpha = 1;
+    self.gifView.alpha = 0;//屏蔽掉父类的gifView控件，否则将会有Gif图和Lottie动画一起出现
     @weakify(self)
     self.endRefreshingCompletionBlock = ^{
         @strongify(self)
@@ -42,20 +42,18 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
     self.animationView.mj_x = self.stateLabel.mj_x - OffsetBetweenStateLabelAndAnimationView - self.animationView.mj_w;
     self.animationView.centerY = self.stateLabel.centerY;
 }
-
-- (void)beginRefreshing{
-    [super beginRefreshing];
-}
-
-- (void)endRefreshing{
-    [super endRefreshing];
-}
 // 更新状态文案
 - (void)updateStateLabelText{
-    [self getRandomTitle];
-    [self setTitle:self.randomTitle forState:MJRefreshStateIdle];
-    [self setTitle:self.randomTitle forState:MJRefreshStatePulling];
-    [self setTitle:self.randomTitle forState:MJRefreshStateRefreshing];
+    [self setTitle:self.refreshConfigModel.stateIdleTitle
+          forState:MJRefreshStateIdle];//普通闲置状态
+    [self setTitle:self.refreshConfigModel.pullingTitle
+          forState:MJRefreshStatePulling];//松开就可以进行刷新的状态
+    [self setTitle:self.refreshConfigModel.refreshingTitle
+          forState:MJRefreshStateRefreshing];//正在刷新中的状态
+    [self setTitle:self.refreshConfigModel.willRefreshTitle
+          forState:MJRefreshStateWillRefresh];//即将刷新的状态
+    [self setTitle:self.refreshConfigModel.noMoreDataTitle
+          forState:MJRefreshStateNoMoreData];//所有数据加载完毕，没有更多的数据了
 }
 /**
  MJRefreshStateIdle,   //   普通闲置状态
@@ -82,26 +80,48 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
             break;
     }
 }
-// 获取随机加载文案
-- (void)getRandomTitle{
-    
-    NSMutableArray *textMutArr = NSMutableArray.array;
-    [textMutArr addObject:@"快速加载中，不要急"];
-    [textMutArr addObject:@"正在快速加载中，不要慌"];
-    [textMutArr addObject:@"快马加鞭加载中"];
-    
-    NSInteger index = arc4random() % textMutArr.count;
-    self.randomTitle = textMutArr[index];
+
+- (void)beginRefreshing{
+    [super beginRefreshing];
+    if (self.refreshBlock) {
+        self.refreshBlock(@(RefreshingType_beginRefreshing));
+    }
+}
+
+- (void)endRefreshing{
+    [super endRefreshing];
+    if (self.refreshBlock) {
+        self.refreshBlock(@(RefreshingType_endRefreshing));
+    }
+}
+
+-(void)actionBlockRefresh:(MKDataBlock)refreshBlock{
+    self.refreshBlock = refreshBlock;
 }
 #pragma mark —— lazyLoad
 - (LOTAnimationView *)animationView{
     if (!_animationView) {
-        NSString *filePaths = pathForBuddleIMG(nil, @"JsonRes", nil, @"下拉刷新.json");
+        NSString *filePaths = pathForBuddleIMG(nil,
+                                               @"JsonRes",
+                                               nil,
+                                               @"下拉刷新.json");
         _animationView = [LOTAnimationView animationWithFilePath:filePaths];
         _animationView.loopAnimation = YES;
-        _animationView.size = CGSizeMake(30, 30);
+        _animationView.size = self.lOTAnimationViewSize;
         [self addSubview:_animationView];
     }return _animationView;
+}
+
+-(CGSize)lOTAnimationViewSize{
+    if (CGSizeEqualToSize(_lOTAnimationViewSize, CGSizeZero)) {
+        _lOTAnimationViewSize = CGSizeMake(30, 30);
+    }return _lOTAnimationViewSize;
+}
+
+-(MJRefreshConfigModel *)refreshConfigModel{
+    if (!_refreshConfigModel) {
+        _refreshConfigModel = MJRefreshConfigModel.new;
+    }return _refreshConfigModel;
 }
 
 @end

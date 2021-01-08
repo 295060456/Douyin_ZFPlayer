@@ -229,9 +229,9 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         
-        _tableView.mj_header = self.mjRefreshNormalHeader;
+        _tableView.mj_header = self.lotAnimationMJRefreshHeader;//self.mjRefreshNormalHeader;
         _tableView.mj_header.automaticallyChangeAlpha = YES;
-        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+//        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
         _tableView.mj_footer.hidden = NO;
 
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"

@@ -262,6 +262,7 @@
 		C5D77499257F59790087FC92 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77491257F59790087FC92 /* HQTextField.m */; };
 		C5D7749A257F59790087FC92 /* CJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77493257F59790087FC92 /* CJTextField.m */; };
 		C5D77C09257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77C08257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m */; };
+		C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */; };
 		C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */; };
 		C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334F2521C137001A04FE /* ZFCustomControlView.m */; };
 		C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED33842521C842001A04FE /* ZFDouYinCell.m */; };
@@ -804,6 +805,8 @@
 		C5D77C08257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZYTextField+HistoryDataList.m"; sourceTree = "<group>"; };
 		C5D7844E257F653C0087FC92 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C5D78452257F65650087FC92 /* ZBNetworking.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ZBNetworking.md; sourceTree = "<group>"; };
+		C5DF3E0A25A864DB00E91985 /* LOTAnimationMJRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOTAnimationMJRefreshFooter.h; sourceTree = "<group>"; };
+		C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationMJRefreshFooter.m; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
 		C5ED334F2521C137001A04FE /* ZFCustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCustomControlView.m; sourceTree = "<group>"; };
@@ -1064,10 +1067,12 @@
 		C544B8C425835A2900C6CF2A /* UIViewController+MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				C5914D9125385356007777A6 /* UIViewController+MJRefresh.h */,
-				C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */,
+				C591E50B2563A7B6005B78CC /* JsonRes.bundle */,
 				C544B97225835EEA00C6CF2A /* ConfigModel */,
 				C591E4A62563A477005B78CC /* LOTAnimationMJRefreshHeader */,
+				C5DF3DBC25A8645D00E91985 /* LOTAnimationMJRefreshFooter */,
+				C5914D9125385356007777A6 /* UIViewController+MJRefresh.h */,
+				C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */,
 			);
 			path = "UIViewController+MJRefresh";
 			sourceTree = "<group>";
@@ -2400,7 +2405,6 @@
 		C591E4A62563A477005B78CC /* LOTAnimationMJRefreshHeader */ = {
 			isa = PBXGroup;
 			children = (
-				C591E50B2563A7B6005B78CC /* JsonRes.bundle */,
 				C591E4A72563A477005B78CC /* LOTAnimationMJRefreshHeader.h */,
 				C591E4AD2563A477005B78CC /* LOTAnimationMJRefreshHeader.m */,
 			);
@@ -2991,6 +2995,15 @@
 			path = "UIViewController+Others";
 			sourceTree = "<group>";
 		};
+		C5DF3DBC25A8645D00E91985 /* LOTAnimationMJRefreshFooter */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF3E0A25A864DB00E91985 /* LOTAnimationMJRefreshFooter.h */,
+				C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */,
+			);
+			path = LOTAnimationMJRefreshFooter;
+			sourceTree = "<group>";
+		};
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3420,6 +3433,7 @@
 				C51573F325A34FFF0074D945 /* UIView+Gesture.m in Sources */,
 				C5D4F11625824ADA00C165EA /* NetworkingAPI+BankCardApi.m in Sources */,
 				C5C64B75259DF5EB00FD2F99 /* ECPrivacyCheckSpeechRecognition.m in Sources */,
+				C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */,
 				C52F97D425A6D96700924990 /* NSObject+SYSAlertController.m in Sources */,
 				C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */,
 				C5D4F11C25824ADA00C165EA /* NetworkingAPI+UserAttentionApi.m in Sources */,
@@ -3713,7 +3727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "My-BaseProj";
+				PRODUCT_BUNDLE_IDENTIFIER = MonkeyKingVideo.JobsSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DouYin/🌹Macro/Swift-OC桥接头文件/DouYin-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

@@ -15,6 +15,11 @@
  */
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSInteger {
+    RefreshingType_beginRefreshing = 0,//开始刷新
+    RefreshingType_endRefreshing//结束刷新
+} RefreshingType;
+
 @interface MJRefreshConfigModel : NSObject
 
 @property(nonatomic,assign)BOOL isShake;//是否需要震动反馈？默认不需要

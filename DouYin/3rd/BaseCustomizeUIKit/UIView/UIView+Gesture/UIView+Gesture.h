@@ -10,13 +10,13 @@
 /*
  *  UIGestureRecognizer 是父类
  
-    UITapGestureRecognizer    轻拍手势
-    UISwipeGestureRecognizer    轻扫手势
-    UILongPressGestureRecognizer    长按手势
-    UIPanGestureRecognizer    平移手势
-    UIPinchGestureRecognizer    捏合（缩放）手势
-    UIRotationGestureRecognizer    旋转手势
-    UIScreenEdgePanGestureRecognizer    屏幕边缘平移
+    UITapGestureRecognizer    轻拍手势【OK】
+    UISwipeGestureRecognizer    轻扫手势【OK】
+    UILongPressGestureRecognizer    长按手势【OK】
+    UIPanGestureRecognizer    平移手势【OK】
+    UIPinchGestureRecognizer    捏合（缩放）手势【OK】
+    UIRotationGestureRecognizer    旋转手势【OK】
+    UIScreenEdgePanGestureRecognizer    屏幕边缘平移【OK】
  *
  */
 
@@ -25,16 +25,29 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Gesture)<UIGestureRecognizerDelegate>
 // config
 @property(nonatomic,weak,nullable)id target;
-@property(nonatomic,strong)NSString *longPressGRSEL;
-@property(nonatomic,strong)NSString *tapGRSEL;
+@property(nonatomic,strong)NSString *longPressGRSEL;//长按手势触发方法
+@property(nonatomic,strong)NSString *tapGRSEL;//轻拍手势触发方法
+@property(nonatomic,strong)NSString *swipeGRSEL;//轻扫手势触发方法
+@property(nonatomic,strong)NSString *panGRSEL;//平移手势触发方法
+@property(nonatomic,strong)NSString *pinchGRSEL;//捏合（缩放）手势触发方法
+@property(nonatomic,strong)NSString *rotationGRSEL;//旋转手势触发方法
+@property(nonatomic,strong)NSString *screenEdgePanGRSEL;//屏幕边缘平移触发方法
 @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】
 @property(nonatomic,assign)CGFloat allowableMovement;//【UILongPressGestureRecognizer】
 @property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;//swipe手势清扫方向
+@property(nonatomic,assign)UIScrollTypeMask allowedScrollTypesMask API_AVAILABLE(ios(13.4));
+@property(nonatomic,assign)CGFloat scale;//捏合范围
+@property(nonatomic,assign)CGFloat rotate;//旋转角度
 // UIGestureRecognizer
 @property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;//长按手势
 @property(nonatomic,strong)UITapGestureRecognizer *tapGR;//点击手势
+@property(nonatomic,strong)UISwipeGestureRecognizer *swipeGR;//轻扫手势
+@property(nonatomic,strong)UIPanGestureRecognizer *panGR;//平移手势
+@property(nonatomic,strong)UIPinchGestureRecognizer *pinchGR;//捏合（缩放）手势
+@property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;//旋转手势
+@property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移
 
 @end
 

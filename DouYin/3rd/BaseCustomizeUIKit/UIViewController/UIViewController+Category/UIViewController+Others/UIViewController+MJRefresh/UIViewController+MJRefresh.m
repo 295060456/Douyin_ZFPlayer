@@ -402,7 +402,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshAutoGifFooter.hidden = YES;
     }return mjRefreshAutoGifFooter;
 }
 
@@ -446,7 +445,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshBackNormalFooter.hidden = YES;
     }return mjRefreshBackNormalFooter;
 }
 
@@ -491,7 +489,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshAutoNormalFooter.hidden = YES;
     }return mjRefreshAutoNormalFooter;
 }
 
@@ -535,7 +532,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshAutoStateFooter.hidden = YES;
     }return mjRefreshAutoStateFooter;
 }
 
@@ -547,7 +543,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
             @strongify(self)
             [self loadMoreRefresh];
         }];
-        mjRefreshAutoFooter.hidden = YES;
     }return mjRefreshAutoFooter;
 }
 
@@ -610,7 +605,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshBackGifFooter.hidden = YES;
     }return mjRefreshBackGifFooter;
 }
 
@@ -654,7 +648,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshBackStateFooter.hidden = YES;
     }return mjRefreshBackStateFooter;
 }
 
@@ -676,7 +669,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshBackFooter.hidden = YES;
     }return mjRefreshBackFooter;
 }
 
@@ -698,7 +690,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-        mjRefreshFooter.hidden = YES;
     }return mjRefreshFooter;
 }
 

@@ -21,7 +21,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 上拉加载Lottie动画
 @interface LOTAnimationMJRefreshFooter : MJRefreshAutoGifFooter
+
+@property(nonatomic,strong)MJRefreshConfigModel *refreshConfigModel;
+@property(nonatomic,assign)CGSize lOTAnimationViewSize;
+
+-(void)actionBlockRefreshFooter:(MKDataBlock)refreshFooterBlock;//开始刷新和结束刷新可以做的动作
 
 @end
 

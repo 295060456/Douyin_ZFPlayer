@@ -21,13 +21,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// 下拉刷新动画
+/// 下拉刷新Lottie动画
 @interface LOTAnimationMJRefreshHeader : MJRefreshGifHeader
 
 @property(nonatomic,strong)MJRefreshConfigModel *refreshConfigModel;
 @property(nonatomic,assign)CGSize lOTAnimationViewSize;
 
--(void)actionBlockRefresh:(MKDataBlock)refreshBlock;//开始刷新和结束刷新可以做的动作
+-(void)actionBlockRefreshHeader:(MKDataBlock)refreshHeaderBlock;//开始刷新和结束刷新可以做的动作
 
 @end
 

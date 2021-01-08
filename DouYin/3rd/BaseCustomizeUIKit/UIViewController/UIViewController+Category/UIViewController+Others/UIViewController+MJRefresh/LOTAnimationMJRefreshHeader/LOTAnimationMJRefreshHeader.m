@@ -9,11 +9,10 @@
 
 static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel 和 AnimationView 之间的间距
 
-/// 下拉刷新动画
 @interface LOTAnimationMJRefreshHeader ()
-/// 加载 Json 动画
+
 @property(nonatomic,strong)LOTAnimationView *animationView;
-@property(nonatomic,copy)MKDataBlock refreshBlock;
+@property(nonatomic,copy)MKDataBlock refreshHeaderBlock;
 
 @end
 
@@ -76,6 +75,8 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
             break;
         case MJRefreshStateWillRefresh:
             break;
+        case MJRefreshStateNoMoreData:
+            break;
         default:
             break;
     }
@@ -83,20 +84,20 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 
 - (void)beginRefreshing{
     [super beginRefreshing];
-    if (self.refreshBlock) {
-        self.refreshBlock(@(RefreshingType_beginRefreshing));
+    if (self.refreshHeaderBlock) {
+        self.refreshHeaderBlock(@(RefreshingType_beginRefreshing));
     }
 }
 
 - (void)endRefreshing{
     [super endRefreshing];
-    if (self.refreshBlock) {
-        self.refreshBlock(@(RefreshingType_endRefreshing));
+    if (self.refreshHeaderBlock) {
+        self.refreshHeaderBlock(@(RefreshingType_endRefreshing));
     }
 }
 
--(void)actionBlockRefresh:(MKDataBlock)refreshBlock{
-    self.refreshBlock = refreshBlock;
+-(void)actionBlockRefreshHeader:(MKDataBlock)refreshHeaderBlock{
+    self.refreshHeaderBlock = refreshHeaderBlock;
 }
 #pragma mark —— lazyLoad
 - (LOTAnimationView *)animationView{

@@ -15,7 +15,7 @@
 //存数据
 +(void)storedData:(UserDefaultModel *)userDefaultModel{
     if (![NSString isNullString:userDefaultModel.key]) {
-        if (userDefaultModel.obj) {
+        if (userDefaultModel.obj && ![userDefaultModel.obj isKindOfClass:NSNull.class]) {
             [[NSUserDefaults standardUserDefaults] setObject:userDefaultModel.obj
                                                       forKey:userDefaultModel.key];
             [[NSUserDefaults standardUserDefaults] synchronize];

@@ -9,22 +9,43 @@
 #import "UITextField+Extend.h"
 
 @implementation UITextField (Extend)
+
+static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSysClearBtn";
+@dynamic customSysClearBtn;
+
 /// 自定义系统的清除按钮
 - (void)modifyClearButtonWithImage:(UIImage *)image{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:image
-            forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(0.0f,
-                                0.0f,
-                                15.0f,
-                                15.0f)];
-    @weakify(self)
-    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        @strongify(self)
-        self.text = @"";
-    }];
-    self.rightView = button;
+    [self.customSysClearBtn setImage:image
+                            forState:UIControlStateNormal];
+    self.rightView = self.customSysClearBtn;
     self.rightViewMode = UITextFieldViewModeWhileEditing;
+}
+#pragma mark SET | GET
+-(UIButton *)customSysClearBtn{
+    UIButton *CustomSysClearBtn = objc_getAssociatedObject(self, UITextField_Extend_customSysClearBtn);
+    if (!CustomSysClearBtn) {
+        CustomSysClearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [CustomSysClearBtn setFrame:CGRectMake(0.0f,
+                                               0.0f,
+                                               15.0f,
+                                               15.0f)];
+        @weakify(self)
+        [[CustomSysClearBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @strongify(self)
+            self.text = @"";
+        }];
+        objc_setAssociatedObject(self,
+                                 UITextField_Extend_customSysClearBtn,
+                                 CustomSysClearBtn,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return CustomSysClearBtn;
+}
+
+-(void)setCustomSysClearBtn:(UIButton *)customSysClearBtn{
+    objc_setAssociatedObject(self,
+                             UITextField_Extend_customSysClearBtn,
+                             customSysClearBtn,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

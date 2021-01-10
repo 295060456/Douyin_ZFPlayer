@@ -93,11 +93,12 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
     UIBarButtonItem *LeftBarButtonItem_back = objc_getAssociatedObject(self, UIViewController_NavigationBar_leftBarButtonItem_back);
     if (!LeftBarButtonItem_back) {
         if(self.navigationController.viewControllers.count > 1){
-            UIImage *image = KBuddleIMG(@"⚽️PicResource",
-                                        @"Others",
-                                        nil,
-                                        @"back_white");
-            LeftBarButtonItem_back = [[UIBarButtonItem alloc]initWithImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+            NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+            UIImage *backImage = KBuddleIMG(nil,
+                                            @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
+                                            nil,
+                                            imageName);
+            LeftBarButtonItem_back = [[UIBarButtonItem alloc]initWithImage:[backImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                                                      style:UIBarButtonItemStyleDone
                                                                     target:self
                                                                     action:@selector(gotoback)];

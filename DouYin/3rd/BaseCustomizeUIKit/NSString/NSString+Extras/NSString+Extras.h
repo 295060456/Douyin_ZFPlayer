@@ -13,6 +13,11 @@ typedef NS_OPTIONS(NSUInteger, CalcLabelHeight_Width) {
     CalcLabelWidth
 };
 
+typedef NS_ENUM(NSInteger,StatisticsAlphabetNumberType) {
+    StatisticsAlphabetNumberType_Chinese = 0,//统计汉字字数
+    StatisticsAlphabetNumberType_English//统计英文字母数字
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Extras)
@@ -78,6 +83,11 @@ NS_ASSUME_NONNULL_BEGIN
 +(float)textHitWithStirng:(NSString*)stingS
                      font:(float)font
                      widt:(float)wid;
+/// 统计字符串中中英文的字数
+/// @param statisticsAlphabetNumberType 统计模式
+-(NSInteger)statisticsAlphabetNumberwithType:(StatisticsAlphabetNumberType)statisticsAlphabetNumberType;
+/// 该字符串是否含有空格
+-(BOOL)isContainSpacing;
 
 @end
 

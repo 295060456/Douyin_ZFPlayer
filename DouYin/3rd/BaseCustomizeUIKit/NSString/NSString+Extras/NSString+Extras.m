@@ -25,28 +25,21 @@
 *  不为空返回 NO
 */
 +(BOOL)isNullString:(NSString *)string{
-    
     if (string == nil ||
         string == NULL ||
-        (NSNull *)string == [NSNull null]) {
+        (NSNull *)string == NSNull.null ||
+        [string isKindOfClass:NSNull.class] ||
+        [string isEqualToString:@"(null)"]||
+        [string isEqualToString:@"null"]||
+        [string isEqualToString:@"<null>"]) {
         return YES;
     }
-    
-    if ([string isEqualToString:@"(null)"]||
-    [string isEqualToString:@"null"]||
-    [string isEqualToString:@"<null>"]) {
-        return YES;
-    }
-    
+
     string = StringFormat(@"%@",string);
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];//去掉两端的空格
     if (string.length == 0) {
         return YES;
-    }else{
-        return NO;
-    }
-    
-    return NO;
+    }return NO;
 }
 #pragma mark —— 字符串替换
 /**
@@ -478,6 +471,39 @@
                                      context:nil];
     return rect.size.height;
 }
-
+/// 统计字符串中中英文的字数
+/// @param statisticsAlphabetNumberType 统计模式
+-(NSInteger)statisticsAlphabetNumberwithType:(StatisticsAlphabetNumberType)statisticsAlphabetNumberType{
+    NSInteger chineseCount = 0;
+    NSInteger EnglishCount = 0;
+    for (NSInteger i = 0; i < self.length; i++){
+        unichar c = [self characterAtIndex:i];
+        if (c >=0x4E00 && c <=0x9FA5){
+            chineseCount ++;
+        }else{
+            EnglishCount ++;
+        }
+    }
+         
+    NSLog(@"字符串:%@包含——> 汉字字数：%ld;字母字数%ld",self,(long)chineseCount,(long)EnglishCount);
+    
+    switch (statisticsAlphabetNumberType) {
+        case StatisticsAlphabetNumberType_Chinese:{
+            return chineseCount;
+        }break;
+        case StatisticsAlphabetNumberType_English:{
+            return EnglishCount;
+        }break;
+        default:
+            break;
+    }
+}
+/// 该字符串是否含有空格
+-(BOOL)isContainSpacing{
+    NSRange range = [self rangeOfString:@" "];
+    if (range.location != NSNotFound) {
+        return YES;//有空格
+    }return NO;
+}
 
 @end

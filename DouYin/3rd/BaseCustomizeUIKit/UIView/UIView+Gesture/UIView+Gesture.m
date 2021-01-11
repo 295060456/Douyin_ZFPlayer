@@ -79,44 +79,8 @@ static char *UIView_Gesture_rotationGR = "UIView_Gesture_rotationGR";
 static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 @dynamic screenEdgePanGR;
 
-#pragma mark —— UIGestureRecognizerDelegate
-// 是否接收一个手势触摸事件，默认为YES，返回NO为不接收
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    return YES;
-}
-// 是否支持多手势触发，返回YES，则可以多个手势一起触发方法，返回NO则为互斥
-// 是否允许多个手势识别器共同识别，一个控件的手势识别后是否阻断手势识别继续向下传播，默认返回NO；如果为YES，响应者链上层对象触发手势识别后，如果下层对象也添加了手势并成功识别也会继续执行，否则上层对象识别后则不再继续传播
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
-// 这个方法返回YES，第一个手势和第二个互斥时，第一个会失效
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
-// 这个方法返回YES，第一个和第二个互斥时，第二个会失效
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
-}
-// 手指触摸屏幕后回调的方法，返回NO则不再进行手势识别，方法触发等
-// 此方法在window对象在有触摸事件发生时，调用gesture recognizer的touchesBegan:withEvent:方法之前调用，如果返回NO,则gesture recognizer不会看到此触摸事件。(默认情况下为YES)
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-      shouldReceiveTouch:(UITouch *)touch{
-    return YES;
-}
-// 手指按压屏幕后回调的方法，返回NO则不再进行手势识别，方法触发等
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-      shouldReceivePress:(UIPress *)press{
-    return YES;
-}
-// 在手势识别器:shouldReceiveTouch:或手势识别器:shouldReceivePress之前调用一次
-// 返回NO以防止手势识别器看到此事件
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-      shouldReceiveEvent:(UIEvent *)event{
-    return YES;
-}
+#warning —— 本类不实现UIGestureRecognizerDelegate的原因说明:覆盖了UISCrollView 里面对应的方法
+
 #pragma mark SET | GET
 #pragma mark —— @property(nonatomic,strong,nullable)id target;
 -(id)target{
@@ -319,12 +283,12 @@ shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRec
 }
 #pragma mark —— @property(nonatomic,assign)UIScrollTypeMask allowedScrollTypesMask;
 -(UIScrollTypeMask)allowedScrollTypesMask{
-    return [objc_getAssociatedObject(self, UIView_Gesture_swipeGRDirection) integerValue];
+    return [objc_getAssociatedObject(self, UIView_Gesture_allowedScrollTypesMask) integerValue];
 }
 
 -(void)setAllowedScrollTypesMask:(UIScrollTypeMask)allowedScrollTypesMask{
     objc_setAssociatedObject(self,
-                             UIView_Gesture_swipeGRDirection,
+                             UIView_Gesture_allowedScrollTypesMask,
                              [NSNumber numberWithInteger:allowedScrollTypesMask],
                              OBJC_ASSOCIATION_ASSIGN);
 }
@@ -507,16 +471,16 @@ shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRec
                              rotationGR,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移 UIView_Gesture_screenEdgePanGR
+#pragma mark —— @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移
 -(UIScreenEdgePanGestureRecognizer *)screenEdgePanGR{
-    UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
+    UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
     if (!ScreenEdgePanGR) {
         ScreenEdgePanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.target
                                                                        action:NSSelectorFromString(self.screenEdgePanGRSEL)];
         ScreenEdgePanGR.delegate = self;
         [self addGestureRecognizer:ScreenEdgePanGR];
         objc_setAssociatedObject(self,
-                                 UIView_Gesture_rotationGR,
+                                 UIView_Gesture_screenEdgePanGR,
                                  ScreenEdgePanGR,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return ScreenEdgePanGR;
@@ -524,7 +488,7 @@ shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRec
 
 -(void)setScreenEdgePanGR:(UIScreenEdgePanGestureRecognizer *)screenEdgePanGR{
     objc_setAssociatedObject(self,
-                             UIView_Gesture_rotationGR,
+                             UIView_Gesture_screenEdgePanGR,
                              screenEdgePanGR,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

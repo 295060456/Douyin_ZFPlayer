@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+Extras.h"
 
 /*
  *  UIGestureRecognizer 是父类
@@ -20,9 +21,22 @@
  *
  */
 
+/*
+ * 长按手势是连续的。
+ 当在指定的时间段（minimumPressDuration）
+ 按下允许的手指的数量（numberOfTouchesRequired）
+ 并且触摸不超过允许的移动范围（allowableMovement）时，
+ 手势开始（UIGestureRecognizerStateBegan）。
+ 手指移动时，手势识别器转换到“更改”状态，
+ 并且当任何手指抬起时手势识别器结束（UIGestureRecognizerStateEnded）。
+ *
+ */
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (Gesture)<UIGestureRecognizerDelegate>
+#warning —— 本类不实现UIGestureRecognizerDelegate的原因说明:覆盖了UISCrollView 里面对应的方法
+
+@interface UIView (Gesture)
 // config
 @property(nonatomic,weak,nullable)id target;
 @property(nonatomic,strong)NSString *longPressGRSEL;//长按手势触发方法

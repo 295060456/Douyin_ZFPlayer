@@ -377,7 +377,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         if (self.allowableMovement != 0) {
             LongPressGR.allowableMovement = self.allowableMovement;//??
         }
-        LongPressGR.delegate = self;
+        LongPressGR.delegate = self.target;
         [self addGestureRecognizer:LongPressGR];
         
         objc_setAssociatedObject(self,
@@ -407,7 +407,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         if (self.numberOfTouchesRequired != 0) {
             TapGR.numberOfTouchesRequired = self.numberOfTouchesRequired;//设置手指字数
         }
-        TapGR.delegate = self;
+        TapGR.delegate = self.target;
         [self addGestureRecognizer:TapGR];
         objc_setAssociatedObject(self,
                                  UIView_Gesture_tapGR,
@@ -428,7 +428,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     if (!SwipeGR) {
         SwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self.target
                                                             action:NSSelectorFromString(self.swipeGRSEL)];
-        SwipeGR.delegate = self;
+        SwipeGR.delegate = self.target;
         SwipeGR.direction = self.swipeGRDirection;//清扫方向。如果多组可以用|来进行
         SwipeGR.numberOfTouchesRequired = self.numberOfTouchesRequired;
         [self addGestureRecognizer:SwipeGR];
@@ -451,7 +451,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     if (!PanGR) {
         PanGR = [[UIPanGestureRecognizer alloc] initWithTarget:self.target
                                                         action:NSSelectorFromString(self.panGRSEL)];
-        PanGR.delegate = self;
+        PanGR.delegate = self.target;
         if (@available(iOS 13.4, *)) {
             PanGR.allowedScrollTypesMask = self.allowedScrollTypesMask;
         }
@@ -475,7 +475,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     if (!PinchGR) {
         PinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self.target
                                                         action:NSSelectorFromString(self.pinchGRSEL)];
-        PinchGR.delegate = self;
+        PinchGR.delegate = self.target;
         PinchGR.scale = self.scale;
         [self addGestureRecognizer:PinchGR];
         objc_setAssociatedObject(self,
@@ -497,7 +497,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     if (!RotationGR) {
         RotationGR = [[UIRotationGestureRecognizer alloc] initWithTarget:self.target
                                                                   action:NSSelectorFromString(self.rotationGRSEL)];
-        RotationGR.delegate = self;
+        RotationGR.delegate = self.target;
         RotationGR.rotation = self.rotate;
         [self addGestureRecognizer:RotationGR];
         objc_setAssociatedObject(self,
@@ -519,7 +519,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     if (!ScreenEdgePanGR) {
         ScreenEdgePanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.target
                                                                        action:NSSelectorFromString(self.screenEdgePanGRSEL)];
-        ScreenEdgePanGR.delegate = self;
+        ScreenEdgePanGR.delegate = self.target;
         [self addGestureRecognizer:ScreenEdgePanGR];
         objc_setAssociatedObject(self,
                                  UIView_Gesture_screenEdgePanGR,

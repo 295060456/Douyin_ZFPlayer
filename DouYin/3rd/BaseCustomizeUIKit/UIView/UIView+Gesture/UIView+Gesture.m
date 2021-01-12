@@ -79,6 +79,48 @@ static char *UIView_Gesture_rotationGR = "UIView_Gesture_rotationGR";
 static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 @dynamic screenEdgePanGR;
 
+-(void)defaultFunc{
+    NSLog(@"defaultFunc");
+}
+
+-(void)dealloc{
+    UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
+    if (LongPressGR) {
+        [LongPressGR removeTarget:self.target
+                           action:NSSelectorFromString(self.longPressGRSEL)];
+    }
+    UITapGestureRecognizer *TapGR = objc_getAssociatedObject(self, UIView_Gesture_tapGR);
+    if (TapGR) {
+        [TapGR removeTarget:self.target
+                     action:NSSelectorFromString(self.tapGRSEL)];
+    }
+    UISwipeGestureRecognizer *SwipeGR = objc_getAssociatedObject(self, UIView_Gesture_swipeGR);
+    if (SwipeGR) {
+        [SwipeGR removeTarget:self.target
+                       action:NSSelectorFromString(self.swipeGRSEL)];
+    }
+    UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
+    if (PanGR) {
+        [PanGR removeTarget:self.target
+                     action:NSSelectorFromString(self.panGRSEL)];
+    }
+    UIPinchGestureRecognizer *PinchGR = objc_getAssociatedObject(self, UIView_Gesture_pinchGR);
+    if (PinchGR) {
+        [PinchGR removeTarget:self.target
+                       action:NSSelectorFromString(self.pinchGRSEL)];
+    }
+    UIRotationGestureRecognizer *RotationGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
+    if (RotationGR) {
+        [RotationGR removeTarget:self.target
+                          action:NSSelectorFromString(self.rotationGRSEL)];
+    }
+    UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
+    if (ScreenEdgePanGR) {
+        [ScreenEdgePanGR removeTarget:self.target
+                               action:NSSelectorFromString(self.screenEdgePanGRSEL)];
+    }
+}
+
 #warning —— 本类不实现UIGestureRecognizerDelegate的原因说明:覆盖了UISCrollView 里面对应的方法
 
 #pragma mark SET | GET
@@ -493,9 +535,6 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(void)defaultFunc{
-    NSLog(@"defaultFunc");
-}
 
 @end
 

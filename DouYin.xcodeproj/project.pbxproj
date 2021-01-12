@@ -135,7 +135,6 @@
 		C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C571095F253C1358005B3A0C /* UITabBarItem+TLAnimation.m */; };
 		C571099B253C1358005B3A0C /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710961253C1358005B3A0C /* TabBarItem.m */; };
 		C571099C253C1358005B3A0C /* TabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710964253C1358005B3A0C /* TabBarControllerConfig.m */; };
-		C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C571097F253C1358005B3A0C /* TabbarVC.m */; };
 		C57109B4253C1358005B3A0C /* JobsPullListAutoSizeView in Resources */ = {isa = PBXBuildFile; fileRef = C5710982253C1358005B3A0C /* JobsPullListAutoSizeView */; };
 		C57109B5253C1358005B3A0C /* JobsPullListTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710985253C1358005B3A0C /* JobsPullListTBVCell.m */; };
 		C57109B6253C1358005B3A0C /* JobsPullListAutoSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710987253C1358005B3A0C /* JobsPullListAutoSizeView.m */; };
@@ -237,6 +236,7 @@
 		C5C64B99259DF5EB00FD2F99 /* 定位服务@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C64B61259DF5EB00FD2F99 /* 定位服务@3x.png */; };
 		C5C64B9A259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C64B64259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m */; };
 		C5CF125925AC7CB300381935 /* LYLUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CF125625AC7CB300381935 /* LYLUnicode.m */; };
+		C5CF1E7825AC8C6400381935 /* TabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CF1E7725AC8C6400381935 /* TabbarVC.m */; };
 		C5D0B6D225878C0C002CA224 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5D0B6CF25878C0C002CA224 /* Sound.wav */; };
 		C5D0B6D325878C0C002CA224 /* 带有按键音的按钮.md in Resources */ = {isa = PBXBuildFile; fileRef = C5D0B6D025878C0C002CA224 /* 带有按键音的按钮.md */; };
 		C5D0B6D425878C0C002CA224 /* SoundBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D0B6D125878C0C002CA224 /* SoundBtn.m */; };
@@ -591,8 +591,6 @@
 		C5710961253C1358005B3A0C /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
 		C5710963253C1358005B3A0C /* TabBarControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerConfig.h; sourceTree = "<group>"; };
 		C5710964253C1358005B3A0C /* TabBarControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarControllerConfig.m; sourceTree = "<group>"; };
-		C571097E253C1358005B3A0C /* TabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarVC.h; sourceTree = "<group>"; };
-		C571097F253C1358005B3A0C /* TabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarVC.m; sourceTree = "<group>"; };
 		C5710982253C1358005B3A0C /* JobsPullListAutoSizeView */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JobsPullListAutoSizeView; sourceTree = "<group>"; };
 		C5710983253C1358005B3A0C /* JobsPullListAutoSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPullListAutoSizeView.h; sourceTree = "<group>"; };
 		C5710985253C1358005B3A0C /* JobsPullListTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPullListTBVCell.m; sourceTree = "<group>"; };
@@ -769,6 +767,9 @@
 		C5CF125625AC7CB300381935 /* LYLUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYLUnicode.m; sourceTree = "<group>"; };
 		C5CF125725AC7CB300381935 /* 解决打印日志对于Unicode编码不能正常显示中文的问题 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "解决打印日志对于Unicode编码不能正常显示中文的问题"; sourceTree = "<group>"; };
 		C5CF125825AC7CB300381935 /* LYLUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYLUnicode.h; sourceTree = "<group>"; };
+		C5CF1E7225AC8C2600381935 /* TabBarControllerConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerConstruction.h; sourceTree = "<group>"; };
+		C5CF1E7625AC8C6400381935 /* TabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarVC.h; sourceTree = "<group>"; };
+		C5CF1E7725AC8C6400381935 /* TabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarVC.m; sourceTree = "<group>"; };
 		C5D0B6CE25878C0C002CA224 /* SoundBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundBtn.h; sourceTree = "<group>"; };
 		C5D0B6CF25878C0C002CA224 /* Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sound.wav; sourceTree = "<group>"; };
 		C5D0B6D025878C0C002CA224 /* 带有按键音的按钮.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "带有按键音的按钮.md"; sourceTree = "<group>"; };
@@ -2145,6 +2146,7 @@
 		C5710962253C1358005B3A0C /* 全局配置文件 */ = {
 			isa = PBXGroup;
 			children = (
+				C5CF1E7225AC8C2600381935 /* TabBarControllerConstruction.h */,
 				C5710963253C1358005B3A0C /* TabBarControllerConfig.h */,
 				C5710964253C1358005B3A0C /* TabBarControllerConfig.m */,
 			);
@@ -2154,8 +2156,8 @@
 		C571097D253C1358005B3A0C /* UITabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				C571097E253C1358005B3A0C /* TabbarVC.h */,
-				C571097F253C1358005B3A0C /* TabbarVC.m */,
+				C5CF1E7625AC8C6400381935 /* TabbarVC.h */,
+				C5CF1E7725AC8C6400381935 /* TabbarVC.m */,
 			);
 			path = UITabBarController;
 			sourceTree = "<group>";
@@ -2217,11 +2219,11 @@
 			isa = PBXGroup;
 			children = (
 				C5710994253C1358005B3A0C /* CustomTabBar.h */,
-				C5710995253C1358005B3A0C /* UITabBar+TLAnimation.m */,
-				C5710996253C1358005B3A0C /* UITabBar+Ex.m */,
 				C5710997253C1358005B3A0C /* CustomTabBar.m */,
-				C5710998253C1358005B3A0C /* UITabBar+TLAnimation.h */,
 				C5710999253C1358005B3A0C /* UITabBar+Ex.h */,
+				C5710996253C1358005B3A0C /* UITabBar+Ex.m */,
+				C5710998253C1358005B3A0C /* UITabBar+TLAnimation.h */,
+				C5710995253C1358005B3A0C /* UITabBar+TLAnimation.m */,
 			);
 			path = UITabBar;
 			sourceTree = "<group>";
@@ -3587,6 +3589,7 @@
 				C54BB3992518D391001591C2 /* UIImage+YBGIF.m in Sources */,
 				C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */,
 				C5460D24258C8DFD0008928C /* UIView+AOP.m in Sources */,
+				C5CF1E7825AC8C6400381935 /* TabbarVC.m in Sources */,
 				C595D162258713F1002A4531 /* SuspendView.m in Sources */,
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
@@ -3598,7 +3601,6 @@
 				C57279C425409C33002373D7 /* BaseNavigationVC.m in Sources */,
 				C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */,
 				C5460D2D258C8E1D0008928C /* ZYTextField.m in Sources */,
-				C57109B3253C1358005B3A0C /* TabbarVC.m in Sources */,
 				C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */,
 				C59A3A93258DD158005F6260 /* UserDefaultModel.m in Sources */,
 				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,

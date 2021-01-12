@@ -12,7 +12,6 @@
 #import "UITabBarItem+TLAnimation.h"
 #import "TransitionController.h"
 #import "TransitionAnimation.h"
-#import "DouYinAppDelegate.h"
 
 TabbarVC *tabBarVC;
 
@@ -50,6 +49,7 @@ UIGestureRecognizerDelegate
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.isHiddenNavigationBar = YES;
     [self UISetting];//最高只能在viewWillAppear，在viewDidLoad不出效果 self.tabBar.subviews为空
     [self 添加长按手势];
 }
@@ -62,7 +62,7 @@ UIGestureRecognizerDelegate
     
     for (UITabBarItem *item in self.tabBar.items) {
         if ([item.title isEqualToString:@"首页"]) {
-            [item pp_addBadgeWithText:@"99+"];
+            [item pp_addBadgeWithText:@"919+"];
 #pragma mark —— 动画
             [UIView animationAlert:item.badgeView];//图片从小放大
             shakerAnimation(item.badgeView, 2, 20);//重力弹跳动画效果
@@ -73,61 +73,6 @@ UIGestureRecognizerDelegate
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-}
-/// 包装 viewController / 自定义样式UITabBarItem
-/// @param viewController 被加工的VC
-/// @param title 显示标题
-/// @param imageSelected 选中状态的静态图
-/// @param imageUnselected 未选中状态的静态图
-/// @param humpOffsetY 凸起偏移量，传0就是不凸起
-/// @param lottieName 只要不为空值则启用Lottie动画
-/// @param tag tag值定位
-UIViewController *childViewController_customStyle(UIViewController *viewController,
-                                                  NSString *title,
-                                                  UIImage *imageSelected,
-                                                  UIImage *imageUnselected,
-                                                  CGFloat humpOffsetY,//Y轴凸起的偏移量 传0就是不凸起
-                                                  NSString *lottieName,//有值则用Lottie动画
-                                                  NSUInteger tag){
-
-    TabBarControllerConfig *config = TabBarControllerConfig.new;
-    config.vc = viewController;
-    config.title = title;
-    config.imageSelected = imageSelected;
-    config.imageUnselected = imageUnselected;
-    config.humpOffsetY = humpOffsetY;
-    config.lottieName = lottieName;
-    config.tag = tag;
-    
-    [[DouYinAppDelegate sharedInstance].tabBarVC.tabBarControllerConfigMutArr addObject:config];
-    
-//    setAnimation(viewController.tabBarItem, tag);//可选实现
-    return viewController;
-}
-
-/*  系统样式UITabBarItem
- *  UITabBarSystemItemMore,
- *  UITabBarSystemItemFavorites,
- *  UITabBarSystemItemFeatured,
- *  UITabBarSystemItemTopRated,
- *  UITabBarSystemItemRecents,
- *  UITabBarSystemItemContacts,
- *  UITabBarSystemItemHistory,
- *  UITabBarSystemItemBookmarks,
- *  UITabBarSystemItemSearch,
- *  UITabBarSystemItemDownloads,
- *  UITabBarSystemItemMostRecent,
- *  UITabBarSystemItemMostViewed,
- */
-
-UIViewController *childViewController_SystemStyle(UIViewController *viewController,
-                                                  UITabBarSystemItem systemItem,
-                                                  NSUInteger tag){
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    viewController.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:systemItem
-                                                                           tag:tag];
-    setAnimation(viewController.tabBarItem, tag);//可选实现
-    return viewController;
 }
 #pragma mark —— 一些私有方法
 -(void)UISetting{
@@ -143,7 +88,7 @@ UIViewController *childViewController_SystemStyle(UIViewController *viewControll
         viewController.title = config.title;
         viewController.tabBarItem = [[TabBarItem alloc] initWithConfig:config];
         
-        viewController.view.backgroundColor = RandomColor;
+//        viewController.view.backgroundColor = RandomColor;
         
         if (config.humpOffsetY != 0) {
             //一般的图片
@@ -154,7 +99,7 @@ UIViewController *childViewController_SystemStyle(UIViewController *viewControll
             [viewController.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, 0)];//修改文字偏移量
         }
 
-        if (![viewController isKindOfClass:UINavigationController.class]) {//防止UIImagePickerController崩，见个人中心 -(void)takePhoto
+        if (![viewController isKindOfClass:UINavigationController.class]) {//防止UIImagePickerController崩
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewController];
             nav.title = config.title;
             [self.childMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
@@ -185,57 +130,6 @@ UIViewController *childViewController_SystemStyle(UIViewController *viewControll
         [self lottieImagePlay:self.childMutArr[self.firstUI_selectedIndex]];
         [self.tabBar animationLottieImage:self.firstUI_selectedIndex];
     }
-}
-// MARK: - 给UITabBarItem绑定动画
-/// 给UITabBarItem绑定动画
-void setAnimation(UITabBarItem *item,
-                  NSInteger index) {
-     item.animation = @[
-                       bounceAnimation(),
-                       rotationAnimation(),
-                       transitionAniamtion(),
-                       fumeAnimation(),
-                       frameAnimation()
-                       ][index];
-}
-// MARK: - 创建动画函数
-TLBounceAnimation *bounceAnimation(){
-    TLBounceAnimation *anm = TLBounceAnimation.new;
-    anm.isPlayFireworksAnimation = YES;
-    return anm;
-}
-
-TLRotationAnimation *rotationAnimation(){
-    TLRotationAnimation *anm = TLRotationAnimation.new;
-    return anm;
-}
-
-TLTransitionAniamtion *transitionAniamtion(){
-    TLTransitionAniamtion *anm = TLTransitionAniamtion.new;
-    anm.direction = 1; // 1~6
-    anm.disableDeselectAnimation = NO;
-    return anm;
-}
-
-TLFumeAnimation *fumeAnimation(){
-    TLFumeAnimation *anm = TLFumeAnimation.new;
-    return anm;
-}
-
-TLFrameAnimation *frameAnimation(){
-    TLFrameAnimation *anm = TLFrameAnimation.new;
-    anm.images = imgs();
-    anm.isPlayFireworksAnimation = YES;
-    return anm;
-}
-
-NSArray *imgs (){//静态轮播图
-    NSMutableArray *temp = NSMutableArray.array;
-    for (NSInteger i = 28 ; i <= 65; i++) {
-        NSString *imgName = [NSString stringWithFormat:@"Tools_000%zi", i];
-        CGImageRef img = KIMG(imgName).CGImage;
-        [temp addObject:(__bridge id _Nonnull)(img)];
-    }return temp;
 }
 #pragma mark —— 手势事件
 -(void)LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)longPressGR {
@@ -410,7 +304,8 @@ shouldSelectViewController:(UIViewController *)viewController {
         self.view.vc = weak_self;
         [self.view addSubview:_suspendBtn];
         _suspendBtn.frame = CGRectMake(80, 100, 50, 50);
-        [UIView cornerCutToCircleWithView:_suspendBtn andCornerRadius:25];
+        [UIView cornerCutToCircleWithView:_suspendBtn
+                          andCornerRadius:25];
         [[_suspendBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             @strongify(self)
             [self->_suspendBtn startRotateAnimation];

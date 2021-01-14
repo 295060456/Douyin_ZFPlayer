@@ -63,6 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;//旋转手势
 @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移
 
+-(void)Dealloc;
+
 @end
 
 NS_ASSUME_NONNULL_END

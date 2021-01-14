@@ -83,7 +83,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     NSLog(@"defaultFunc");
 }
 
--(void)dealloc{
+-(void)Dealloc{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
     if (LongPressGR) {
         [LongPressGR removeTarget:self.target

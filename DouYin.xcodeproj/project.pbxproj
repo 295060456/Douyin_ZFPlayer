@@ -108,6 +108,7 @@
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
+		C55FE6C925B4229600D8C30D /* UIView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */; };
 		C56188BE255D6D74004E7B47 /* XHLaunchAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188AB255D6D74004E7B47 /* XHLaunchAdView.m */; };
 		C56188BF255D6D74004E7B47 /* XHLaunchAdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188AE255D6D74004E7B47 /* XHLaunchAdButton.m */; };
 		C56188C0255D6D74004E7B47 /* XHLaunchImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188B0255D6D74004E7B47 /* XHLaunchImageView.m */; };
@@ -534,6 +535,8 @@
 		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJRefresh.m"; sourceTree = "<group>"; };
+		C55FE6C825B4229500D8C30D /* UIView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJRefresh.h"; sourceTree = "<group>"; };
 		C56188A8255D6D74004E7B47 /* XHLaunchAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdController.h; sourceTree = "<group>"; };
 		C56188A9255D6D74004E7B47 /* XHLaunchAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAd.h; sourceTree = "<group>"; };
 		C56188AA255D6D74004E7B47 /* XHLaunchAdDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdDownloader.h; sourceTree = "<group>"; };
@@ -1713,15 +1716,16 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				C51573F025A34FFF0074D945 /* UIView+Gesture */,
-				C5460D21258C8DFD0008928C /* UIView+AOP */,
 				C595BAE125864073002A4531 /* UIView+Animation */,
+				C5460D21258C8DFD0008928C /* UIView+AOP */,
 				C595BAE325864083002A4531 /* UIView+Chain */,
 				C546FA07258B5CDA0008928C /* UIView+EmptyData */,
 				C595BAE22586407C002A4531 /* UIView+Extras */,
+				C51573F025A34FFF0074D945 /* UIView+Gesture */,
 				C595BAE42586408E002A4531 /* UIView+Gradient */,
 				C5529DD42589CDBD00A89501 /* UIView+JHGestureBlock */,
 				C595BAE62586409F002A4531 /* UIView+Measure */,
+				C55FE6C625B4229500D8C30D /* UIView+MJRefresh */,
 				C595BAE7258640A7002A4531 /* UIView+SuspendView */,
 				C595BAE525864095002A4531 /* UIView+ZFPlayer */,
 			);
@@ -2076,6 +2080,15 @@
 				C55D45E2251CB6A900E543D6 /* VideoModel.m */,
 			);
 			path = "数据模型层";
+			sourceTree = "<group>";
+		};
+		C55FE6C625B4229500D8C30D /* UIView+MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				C55FE6C825B4229500D8C30D /* UIView+MJRefresh.h */,
+				C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */,
+			);
+			path = "UIView+MJRefresh";
 			sourceTree = "<group>";
 		};
 		C56188A7255D6D74004E7B47 /* XHLaunchAd */ = {
@@ -3459,6 +3472,7 @@
 				C54BB2DE2518D363001591C2 /* UIButton+ImageTitleSpacing.m in Sources */,
 				C571099B253C1358005B3A0C /* TabBarItem.m in Sources */,
 				C54BB3C52518D391001591C2 /* CALayer+Transition.m in Sources */,
+				C55FE6C925B4229600D8C30D /* UIView+MJRefresh.m in Sources */,
 				C5C64B70259DF5EB00FD2F99 /* ECPrivacyCheckBluetooth.m in Sources */,
 				C56BA9062578936D00D054D0 /* ZBRequestEngine.m in Sources */,
 				C54BB42F2518D3F6001591C2 /* ZZCountingLabel.m in Sources */,

@@ -31,6 +31,7 @@
 #import "UIView+Animation.h"
 #import "UIView+Gradient.h"
 #import "UIView+Gesture.h"
+#import "UIView+MJRefresh.h"
 // UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"

@@ -36,6 +36,11 @@
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
 }
 
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.view.targetView.mj_footer.y = self.view.targetView.contentSize.height;
+}
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;

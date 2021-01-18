@@ -46,4 +46,36 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     return YES;
 }
 
+-(void)keyboard{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillChangeFrameNotification:)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidChangeFrameNotification:)
+                                                 name:UIKeyboardDidChangeFrameNotification
+                                               object:nil];
+}
+//键盘 弹出 和 收回 走这个方法
+-(void)keyboardWillChangeFrameNotification:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat KeyboardOffsetY = beginFrame.origin.y - endFrame.origin.y;// 正则抬起 ，负值下降
+    NSLog(@"KeyboardOffsetY = %f",KeyboardOffsetY);
+ 
+    if (KeyboardOffsetY > 0) {
+        NSLog(@"键盘抬起");
+    }else if(KeyboardOffsetY < 0){
+        NSLog(@"键盘收回");
+    }else{
+        NSLog(@"键盘");
+    }
+}
+
+-(void)keyboardDidChangeFrameNotification:(NSNotification *)notification{
+
+}
+
 @end

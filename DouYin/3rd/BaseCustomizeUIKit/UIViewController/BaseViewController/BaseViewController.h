@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseViewController : UIViewController
 
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
+-(void)keyboard;
 
 @end
 

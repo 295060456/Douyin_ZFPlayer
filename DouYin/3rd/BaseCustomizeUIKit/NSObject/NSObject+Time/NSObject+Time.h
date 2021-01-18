@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(TimeFormatterModel *)currentTime;
 /// 获得今天的时间:年/月/日
 /// @param dateFormat 时间格式：缺省值@"yyyy-MM-dd"
-+(TimeFormatterModel *)getToday:(NSString *_Nonnull)dateFormat;
++(TimeFormatterModel *)getToday:(NSString *_Nullable)dateFormat;
 /// 可以获得两个日期之间的时间间隔
 /// @param startTime （给定） 开始时间【字符串格式】
 /// @param endTime （可以不用给定）结束时间【字符串格式】

@@ -191,5 +191,19 @@
     CGImageRelease(image);
     return videoImage;
 }
+// 截图
++(UIImage *)rendImageWithView:(UIView *)view{
+//  1、开始位图上下文
+    UIGraphicsBeginImageContext(CGSizeMake(view.width,view.height - 80));
+//  2、获取上下文
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//  3、截图
+    [view.layer renderInContext:ctx];
+//  4、获取图片
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//  5、关闭上下文
+    UIGraphicsEndImageContext() ;
+    return newImage;
+}
 
 @end

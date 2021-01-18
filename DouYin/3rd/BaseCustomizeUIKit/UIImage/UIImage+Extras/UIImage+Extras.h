@@ -51,6 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
             andResizeTo:(CGSize)newSize;
 // 获取视频第一帧
 +(UIImage *)getVideoPreViewImage:(AVURLAsset *)asset;
+// 截图
++(UIImage *)rendImageWithView:(UIView *)view;
 
 @end
 

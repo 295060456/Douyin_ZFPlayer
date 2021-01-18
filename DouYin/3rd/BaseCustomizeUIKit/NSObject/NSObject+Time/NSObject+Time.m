@@ -328,7 +328,7 @@
 }
 /// 获得今天的时间:年/月/日
 /// @param dateFormat 时间格式：缺省值@"yyyy-MM-dd"
-+(TimeFormatterModel *)getToday:(NSString *_Nonnull)dateFormat{
++(TimeFormatterModel *)getToday:(NSString *_Nullable)dateFormat{
     
     NSDateFormatter *formatter = NSDateFormatter.new;
     

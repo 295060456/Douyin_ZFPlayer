@@ -62,9 +62,9 @@ static inline id getSceneDelegate(){
 #define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 #pragma mark ======================================== 默认值 ========================================
-#define defaultValue 0
-#define defaultObj Nil
-#define defaultSize CGSizeZero
+#define DefaultValue 0
+#define DefaultObj Nil
+#define DefaultSize CGSizeZero
 
 //判断是否登录,没有登录进行跳转
 #define kGuardLogin if ([IsLogin isLogin]) { \

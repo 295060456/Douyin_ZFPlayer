@@ -21,6 +21,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
 }
@@ -32,6 +33,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
 }
@@ -76,6 +78,14 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 
 -(void)keyboardDidChangeFrameNotification:(NSNotification *)notification{
 
+}
+#pragma mark —— lazyLoad
+-(UIImageView *)bgImageView{
+    if (!_bgImageView) {
+        _bgImageView = UIImageView.new;
+        _bgImageView.frame = self.view.bounds;
+        self.view = _bgImageView;
+    }return _bgImageView;
 }
 
 @end

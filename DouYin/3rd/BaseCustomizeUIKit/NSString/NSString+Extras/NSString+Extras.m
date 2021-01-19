@@ -505,5 +505,9 @@
         return YES;//有空格
     }return NO;
 }
+/// 字符串是否包含URL
+-(BOOL)isContainsUrl{
+    return [self rangeOfString:@"https://"].location != NSNotFound || [self rangeOfString:@"http://"].location != NSNotFound;
+}
 
 @end

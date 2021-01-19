@@ -32,10 +32,10 @@
                shadowWithOffsetX:5
                          offsetY:5
                     cornerRadius:8
-                    shadowOffset:defaultSize
+                    shadowOffset:DefaultSize
                    shadowOpacity:1
-                layerShadowColor:defaultObj
-               layerShadowRadius:defaultValue];
+                layerShadowColor:DefaultObj
+               layerShadowRadius:DefaultValue];
 }
 
 @end

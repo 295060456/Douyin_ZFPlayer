@@ -88,6 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSInteger)statisticsAlphabetNumberwithType:(StatisticsAlphabetNumberType)statisticsAlphabetNumberType;
 /// 该字符串是否含有空格
 -(BOOL)isContainSpacing;
+/// 字符串是否包含URL
+-(BOOL)isContainsUrl;
 
 @end
 

@@ -6,6 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
+#import <ReactiveObjC/ReactiveObjC.h>
+#else
+#import "ReactiveObjC.h"
+#endif
 #import "UIView+EmptyData.h"
 #import "UIView+MJRefresh.h"
 #import "UIViewController+NavigationBar.h"
@@ -14,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
 
+#pragma mark ——RACSignal
+@property(nonatomic,strong)RACSignal *reqSignal;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
+@property(nonatomic,strong)UIImageView *bgImageView;
 -(void)keyboard;
 
 @end

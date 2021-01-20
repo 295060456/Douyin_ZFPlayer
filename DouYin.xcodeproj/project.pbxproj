@@ -124,7 +124,7 @@
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
 		C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */; };
 		C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */; };
-		C5676163259F1272006905A9 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* CollectionViewCell.m */; };
+		C5676163259F1272006905A9 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* BaseCollectionViewCell.m */; };
 		C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F42578936C00D054D0 /* ZBRequestManager.m */; };
 		C56BA9022578936D00D054D0 /* NSString+ZBUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F82578936C00D054D0 /* NSString+ZBUTF8Encoding.m */; };
 		C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F92578936C00D054D0 /* ZBCacheManager.m */; };
@@ -160,6 +160,7 @@
 		C5850B4625483E5F001E6676 /* ViewForTableViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */; };
 		C588F565253DA61800973CFE /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C588F564253DA61800973CFE /* 1.jpeg */; };
 		C588F56A253DA63700973CFE /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C588F569253DA63700973CFE /* 0.png */; };
+		C58D924D25B80BD100414ACB /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C58D924B25B80BD100414ACB /* BaseTableViewCell.m */; };
 		C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */; };
 		C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8C25385356007777A6 /* UIViewController+BWShareView.m */; };
 		C5914DA925385356007777A6 /* UIViewController+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D8D25385356007777A6 /* UIViewController+Shake.m */; };
@@ -568,8 +569,8 @@
 		C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoVerticalArrangementLabsView.png; sourceTree = "<group>"; };
 		C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+ShakeAnimation.h"; sourceTree = "<group>"; };
 		C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+ShakeAnimation.m"; sourceTree = "<group>"; };
-		C5676160259F1272006905A9 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		C5676161259F1272006905A9 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C5676160259F1272006905A9 /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewCell.m; sourceTree = "<group>"; };
+		C5676161259F1272006905A9 /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewCell.h; sourceTree = "<group>"; };
 		C56BA8F42578936C00D054D0 /* ZBRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestManager.m; sourceTree = "<group>"; };
 		C56BA8F52578936C00D054D0 /* ZBURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBURLRequest.h; sourceTree = "<group>"; };
 		C56BA8F62578936C00D054D0 /* ZBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNetworking.h; sourceTree = "<group>"; };
@@ -641,6 +642,8 @@
 		C5850B4425483E5F001E6676 /* ViewForTableViewFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewFooter.h; sourceTree = "<group>"; };
 		C588F564253DA61800973CFE /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C588F569253DA63700973CFE /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		C58D924B25B80BD100414ACB /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		C58D924C25B80BD100414ACB /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		C58FDFBF252340DE00E020D3 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
 		C5914D8925385356007777A6 /* UIViewController+JPImageresizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JPImageresizerView.m"; sourceTree = "<group>"; };
 		C5914D8A25385356007777A6 /* UIViewController+BackBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackBtn.h"; sourceTree = "<group>"; };
@@ -961,8 +964,8 @@
 		C530B1A6254D9B1600EDEDC8 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C5676161259F1272006905A9 /* CollectionViewCell.h */,
-				C5676160259F1272006905A9 /* CollectionViewCell.m */,
+				C5676161259F1272006905A9 /* BaseCollectionViewCell.h */,
+				C5676160259F1272006905A9 /* BaseCollectionViewCell.m */,
 				C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */,
 				C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */,
 			);
@@ -1686,6 +1689,7 @@
 		C54BB3182518D390001591C2 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C58D924A25B80BD100414ACB /* BaseTableViewCell */,
 				C54AB2A9255E61B2000A314D /* 重设边距 */,
 				C54AB2AC255E61B3000A314D /* 自定义右侧小箭头图标 */,
 			);
@@ -2437,6 +2441,15 @@
 				C5850B4325483E5F001E6676 /* ViewForTableViewFooter.m */,
 			);
 			path = ViewForTableViewFooter;
+			sourceTree = "<group>";
+		};
+		C58D924A25B80BD100414ACB /* BaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C58D924B25B80BD100414ACB /* BaseTableViewCell.m */,
+				C58D924C25B80BD100414ACB /* BaseTableViewCell.h */,
+			);
+			path = BaseTableViewCell;
 			sourceTree = "<group>";
 		};
 		C5914D8825385356007777A6 /* UIViewController */ = {
@@ -3478,6 +3491,7 @@
 				C54BB42F2518D3F6001591C2 /* ZZCountingLabel.m in Sources */,
 				C56188C1255D6D74004E7B47 /* XHLaunchAdConst.m in Sources */,
 				C5D77C09257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m in Sources */,
+				C58D924D25B80BD100414ACB /* BaseTableViewCell.m in Sources */,
 				C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */,
 				C52F97D325A6D96700924990 /* NSObject+SPAlertController.m in Sources */,
 				C54BB3C22518D391001591C2 /* NSArray+Extend.m in Sources */,
@@ -3509,7 +3523,7 @@
 				C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */,
 				C582A69B251C796400DD83A1 /* RequestTool.m in Sources */,
 				C5D4F11525824ADA00C165EA /* NetworkingAPI+BlankList.m in Sources */,
-				C5676163259F1272006905A9 /* CollectionViewCell.m in Sources */,
+				C5676163259F1272006905A9 /* BaseCollectionViewCell.m in Sources */,
 				C546FA0A258B5CDA0008928C /* UIView+EmptyData.m in Sources */,
 				C5C64B6E259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m in Sources */,
 				C57F0CFC253336590080EEF0 /* NSObject+OpenURL.m in Sources */,

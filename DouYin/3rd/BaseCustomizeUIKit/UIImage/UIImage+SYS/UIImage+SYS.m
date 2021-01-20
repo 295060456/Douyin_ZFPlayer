@@ -11,26 +11,20 @@
 
 @implementation UIImage (SYS)
 
-// 把类加载进内存的时候调用,只会调用一次
-+ (void)load{
-    Method imageNamedMethod = class_getClassMethod(self, @selector(imageNamed:));
-    Method MKImageNamedMethod = class_getClassMethod(self, @selector(MKImageNamed:));
-    method_exchangeImplementations(imageNamedMethod, MKImageNamedMethod);
-}
-
 + (UIImage *)MKImageNamed:(NSString *)name{
     __block UIImage *image = nil;
     
     noResultBlock UIImageBlock_2 = ^UIImage *{
-        image = [UIImage MKImageNamed:@"nodata"];//替换图片 保证一定要有
+        image = [UIImage imageNamed:@"nodata"];//替换图片 保证一定要有
         if (!image) {
             image = nil;
         }return image;
     };
     
     mkDataBlock UIImageBlock_1 = ^UIImage *(NSString *name){//name 在这里一定不为空 过滤条件在上一层
-        image = [UIImage MKImageNamed:name];
+        image = [UIImage imageNamed:name];
         if (!image) {
+            NSLog(@"缺失的图片资源名:%@",name);
             if (UIImageBlock_2) {
                 UIImageBlock_2();
             }

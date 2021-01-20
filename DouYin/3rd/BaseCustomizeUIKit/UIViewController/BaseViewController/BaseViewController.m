@@ -83,6 +83,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 -(UIImageView *)bgImageView{
     if (!_bgImageView) {
         _bgImageView = UIImageView.new;
+        _bgImageView.userInteractionEnabled = YES;
         _bgImageView.frame = self.view.bounds;
         self.view = _bgImageView;
     }return _bgImageView;

@@ -5,14 +5,14 @@
 //  Created by Jobs on 2020/10/18.
 //
 
-#import "CollectionViewCell.h"
+#import "BaseCollectionViewCell.h"
 #import "UICollectionViewCell+ShakeAnimation.h"
 
-@interface CollectionViewCell ()
+@interface BaseCollectionViewCell ()
 
 @end
 
-@implementation CollectionViewCell
+@implementation BaseCollectionViewCell
 //由具体的子类进行覆写
 +(CGSize)cellSizeWithModel:(id _Nullable)model{
     return CGSizeZero;

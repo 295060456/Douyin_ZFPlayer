@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CollectionViewCell : UICollectionViewCell
+@interface BaseCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic,strong)NSIndexPath *idxPath;
 

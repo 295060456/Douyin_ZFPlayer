@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (SYS)
 
++ (UIImage *)MKImageNamed:(NSString *)name;
 
 @end
 

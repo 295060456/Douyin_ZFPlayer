@@ -54,7 +54,7 @@
 // UINavigationBar
 #import "NavigationBar.h"
 // UICollectionViewCell
-#import "CollectionViewCell.h"
+#import "BaseCollectionViewCell.h"
 // UITextField
 #import "HQTextField.h"
 #import "CJTextField.h"

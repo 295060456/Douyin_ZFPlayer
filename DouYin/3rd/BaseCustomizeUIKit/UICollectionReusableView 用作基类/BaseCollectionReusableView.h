@@ -14,7 +14,7 @@ typedef enum : NSUInteger {
     SectionFooter,
 } UICollectionElementKind;
 
-@interface CollectionReusableView : UICollectionReusableView
+@interface BaseCollectionReusableView : UICollectionReusableView
 
 @property(nonatomic,strong)NSIndexPath *indexPath;
 @property(nonatomic,copy)MKDataBlock collectionReusableViewBlock;

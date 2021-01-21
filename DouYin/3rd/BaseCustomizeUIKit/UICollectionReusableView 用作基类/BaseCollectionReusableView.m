@@ -5,13 +5,13 @@
 //  Created by Jobs on 2020/10/12.
 //
 
-#import "CollectionReusableView.h"
+#import "BaseCollectionReusableView.h"
 
-@interface CollectionReusableView ()
+@interface BaseCollectionReusableView ()
 
 @end
 
-@implementation CollectionReusableView
+@implementation BaseCollectionReusableView
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     @weakify(self)

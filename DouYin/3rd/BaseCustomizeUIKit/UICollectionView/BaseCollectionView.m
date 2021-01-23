@@ -6,12 +6,12 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import "CollectionView.h"
+#import "BaseCollectionView.h"
 
-@interface CollectionView ()
+@interface BaseCollectionView ()
 
 @end
 
-@implementation CollectionView
+@implementation BaseCollectionView
 
 @end

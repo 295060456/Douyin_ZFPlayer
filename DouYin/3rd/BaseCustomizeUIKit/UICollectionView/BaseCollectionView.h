@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CollectionView : UICollectionView
+@interface BaseCollectionView : UICollectionView
 
 @end
 

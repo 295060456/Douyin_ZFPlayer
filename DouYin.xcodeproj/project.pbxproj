@@ -18,7 +18,7 @@
 		C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B199254D9B1500EDEDC8 /* LMHWaterFallLayout.m */; };
 		C530B1AD254D9B1600EDEDC8 /* KFZShopCatoryFlowLayput.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B19C254D9B1500EDEDC8 /* KFZShopCatoryFlowLayput.m */; };
 		C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B19E254D9B1500EDEDC8 /* HQCollectionViewFlowLayout.m */; };
-		C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A4254D9B1600EDEDC8 /* CollectionView.m */; };
+		C530B1B0254D9B1600EDEDC8 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A4254D9B1600EDEDC8 /* BaseCollectionView.m */; };
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
 		C530B1B3254D9B1600EDEDC8 /* BaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */; };
 		C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */; };
@@ -337,9 +337,9 @@
 		C530B19C254D9B1500EDEDC8 /* KFZShopCatoryFlowLayput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KFZShopCatoryFlowLayput.m; sourceTree = "<group>"; };
 		C530B19E254D9B1500EDEDC8 /* HQCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C530B19F254D9B1500EDEDC8 /* HQCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		C530B1A2254D9B1600EDEDC8 /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		C530B1A2254D9B1600EDEDC8 /* BaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionView.h; sourceTree = "<group>"; };
 		C530B1A3254D9B1600EDEDC8 /* UICollectionView+RegisterClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+RegisterClass.h"; sourceTree = "<group>"; };
-		C530B1A4254D9B1600EDEDC8 /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
+		C530B1A4254D9B1600EDEDC8 /* BaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionView.m; sourceTree = "<group>"; };
 		C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+RegisterClass.m"; sourceTree = "<group>"; };
 		C530B1AA254D9B1600EDEDC8 /* BaseCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionReusableView.h; sourceTree = "<group>"; };
 		C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionReusableView.m; sourceTree = "<group>"; };
@@ -955,8 +955,8 @@
 		C530B1A0254D9B1600EDEDC8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				C530B1A2254D9B1600EDEDC8 /* CollectionView.h */,
-				C530B1A4254D9B1600EDEDC8 /* CollectionView.m */,
+				C530B1A2254D9B1600EDEDC8 /* BaseCollectionView.h */,
+				C530B1A4254D9B1600EDEDC8 /* BaseCollectionView.m */,
 				C530B1A3254D9B1600EDEDC8 /* UICollectionView+RegisterClass.h */,
 				C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */,
 				C552A2B72589CEFA00A89501 /* 我为什么要这么做.md */,
@@ -3669,7 +3669,7 @@
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,
 				C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */,
 				C54BB2F22518D363001591C2 /* UIDevice+XMUtils.m in Sources */,
-				C530B1B0254D9B1600EDEDC8 /* CollectionView.m in Sources */,
+				C530B1B0254D9B1600EDEDC8 /* BaseCollectionView.m in Sources */,
 				C5D4F11725824ADA00C165EA /* NetworkingAPI+LoginApi.m in Sources */,
 				C5226957258757F7004447FB /* BWShareView.m in Sources */,
 				C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */,

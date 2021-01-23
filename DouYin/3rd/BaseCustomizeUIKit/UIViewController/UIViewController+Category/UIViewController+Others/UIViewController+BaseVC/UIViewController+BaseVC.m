@@ -15,11 +15,6 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
 @dynamic requestParams;
 @dynamic pushOrPresent;
 
-- (void)dealloc{
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 +(instancetype)comingFromVC:(UIViewController *)rootVC
                        toVC:(UIViewController *)toVC
                 comingStyle:(ComingStyle)comingStyle

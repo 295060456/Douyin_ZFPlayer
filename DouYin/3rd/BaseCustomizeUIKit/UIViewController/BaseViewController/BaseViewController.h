@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)RACSignal *reqSignal;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,strong)UIImageView *bgImageView;
+@property(nonatomic,assign)NSInteger currentPage;
+
 -(void)keyboard;
 
 @end

@@ -149,6 +149,7 @@
 		C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710997253C1358005B3A0C /* CustomTabBar.m */; };
 		C57279C425409C33002373D7 /* BaseNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279BF25409C33002373D7 /* BaseNavigationVC.m */; };
 		C57279C525409C33002373D7 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279C225409C33002373D7 /* NavigationBar.m */; };
+		C572940F25BB09E000726419 /* UIView+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C572940D25BB09E000726419 /* UIView+BackgroundImage.m */; };
 		C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BD25248DD800CC6A3A /* TableViewAnimationKit.m */; };
 		C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */; };
 		C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C57672AB2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m */; };
@@ -619,6 +620,8 @@
 		C57279C025409C33002373D7 /* BaseNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationVC.h; sourceTree = "<group>"; };
 		C57279C225409C33002373D7 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 		C57279C325409C33002373D7 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		C572940D25BB09E000726419 /* UIView+BackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BackgroundImage.m"; sourceTree = "<group>"; };
+		C572940E25BB09E000726419 /* UIView+BackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BackgroundImage.h"; sourceTree = "<group>"; };
 		C57342B925248DD800CC6A3A /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
 		C57342BA25248DD800CC6A3A /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
 		C57342BB25248DD800CC6A3A /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
@@ -1720,6 +1723,7 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				C572940C25BB09E000726419 /* UIView+BackgroundImage */,
 				C595BAE125864073002A4531 /* UIView+Animation */,
 				C5460D21258C8DFD0008928C /* UIView+AOP */,
 				C595BAE325864083002A4531 /* UIView+Chain */,
@@ -2261,6 +2265,15 @@
 				C57279C225409C33002373D7 /* NavigationBar.m */,
 			);
 			path = UINavigationBar;
+			sourceTree = "<group>";
+		};
+		C572940C25BB09E000726419 /* UIView+BackgroundImage */ = {
+			isa = PBXGroup;
+			children = (
+				C572940D25BB09E000726419 /* UIView+BackgroundImage.m */,
+				C572940E25BB09E000726419 /* UIView+BackgroundImage.h */,
+			);
+			path = "UIView+BackgroundImage";
 			sourceTree = "<group>";
 		};
 		C57342B825248DD200CC6A3A /* TableViewAnimationKit */ = {
@@ -3504,6 +3517,7 @@
 				C54BB3052518D363001591C2 /* CADisplayLink_TimerManager.m in Sources */,
 				C5C64B78259DF5EB00FD2F99 /* ECPrivacyCheckPhotos.m in Sources */,
 				C5D77499257F59790087FC92 /* HQTextField.m in Sources */,
+				C572940F25BB09E000726419 /* UIView+BackgroundImage.m in Sources */,
 				C54BB2F02518D363001591C2 /* JhtBannerCardView.m in Sources */,
 				C5D0B6D425878C0C002CA224 /* SoundBtn.m in Sources */,
 				C54BB3C12518D391001591C2 /* NSArray+Extension.m in Sources */,

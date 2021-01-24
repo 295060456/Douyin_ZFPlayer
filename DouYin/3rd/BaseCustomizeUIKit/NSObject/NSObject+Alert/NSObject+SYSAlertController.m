@@ -9,7 +9,6 @@
 #import "NSObject+SYSAlertController.h"
 
 @implementation NSObject (SYSAlertController)
-
 /// 屏幕正中央的Alert
 /// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
 /// @param message  副标题，没有可传nil，如果传空字符@“”会多处一行空白
@@ -17,7 +16,7 @@
 /// @param btnTitleArr 按钮名称的数组
 /// @param alertBtnActionArr  与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
 /// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-/// @param funcVC 对应方法的VC。一般情况下targetVC ==  funcVC，所以可以不用填写，但是某些特殊情况targetVC 不等于 funcVC，就要单独提出来做
+/// @param funcInWhere  执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
 /// @param animated 动画效果
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
@@ -27,12 +26,12 @@
                  btnTitleArr:(NSArray <NSString*>*)btnTitleArr
               alertBtnAction:(NSArray <NSString*>*)alertBtnActionArr
                     targetVC:(UIViewController *)targetVC
-                      funcVC:(nullable UIViewController *)funcVC
+                 funcInWhere:(nullable id)funcInWhere
                     animated:(BOOL)animated
                 alertVCBlock:(nullable MKDataBlock)alertVCBlock
              completionBlock:(nullable NoResultBlock)completionBlock{
     @weakify(targetVC)
-    @weakify(funcVC)
+    @weakify(funcInWhere)
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
@@ -41,13 +40,13 @@
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            @strongify(funcVC)
-            if (!funcVC) {
-                funcVC = targetVC;
+            @strongify(funcInWhere)
+            if (!funcInWhere) {
+                funcInWhere = targetVC;
             }
-            SuppressWarcPerformSelectorLeaksWarning([funcVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
-                                                                                                                    ReplaceStr:@"defaultFunc"])
-                                                                 withObject:nil]);
+            SuppressWarcPerformSelectorLeaksWarning([funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
+                                                                                                                         ReplaceStr:@"defaultFunc"])
+                                                                      withObject:nil]);
             
         }];
         [alertController addAction:okAction];
@@ -66,7 +65,7 @@
 /// @param btnTitleArr 按钮名称的数组
 /// @param alertBtnActionArr 与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
 /// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-/// @param funcVC 对应方法的VC。一般情况下targetVC ==  funcVC，所以可以不用填写，但是某些特殊情况targetVC 不等于 funcVC，就要单独提出来做
+/// @param funcInWhere  执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
 /// @param sender sender
 /// @param animated 动画效果
 /// @param alertVCBlock 返回这个UIAlertController *
@@ -77,7 +76,7 @@
                    btnTitleArr:(nonnull NSArray <NSString*>*)btnTitleArr
                 alertBtnAction:(nonnull NSArray <NSString*>*)alertBtnActionArr
                       targetVC:(nonnull UIViewController *)targetVC
-                        funcVC:(nullable UIViewController *)funcVC
+                   funcInWhere:(nullable id)funcInWhere
                         sender:(nullable UIControl *)sender
                       animated:(BOOL)animated
                   alertVCBlock:(nullable MKDataBlock)alertVCBlock
@@ -86,19 +85,19 @@
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
     @weakify(targetVC)
-    @weakify(funcVC)
+    @weakify(funcInWhere)
     for (int i = 0; i < alertBtnActionArr.count; i++) {
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:btnTitleArr[i]
                                                            style:isSeparateStyle ? (i == alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
             @strongify(targetVC)
-            @strongify(funcVC)
-            if (!funcVC) {
-                funcVC = targetVC;
+            @strongify(funcInWhere)
+            if (!funcInWhere) {
+                funcInWhere = targetVC;
             }
-            SuppressWarcPerformSelectorLeaksWarning([funcVC performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
-                                                                                                                      ReplaceStr:@"defaultFunc"])
-                                                                   withObject:Nil]);
+            SuppressWarcPerformSelectorLeaksWarning([funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
+                                                                                                                         ReplaceStr:@"defaultFunc"])
+                                                                      withObject:Nil]);
         }];
         [alertController addAction:okAction];
     }

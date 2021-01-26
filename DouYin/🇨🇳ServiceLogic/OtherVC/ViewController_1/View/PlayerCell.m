@@ -54,7 +54,7 @@
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    return MAINSCREEN_HEIGHT;
+    return SCREEN_HEIGHT;
 }
 
 -(void)richElementsInCellWithModel:(id _Nullable)model{

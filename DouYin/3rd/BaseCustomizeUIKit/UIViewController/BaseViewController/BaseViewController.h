@@ -46,3 +46,83 @@ NS_ASSUME_NONNULL_END
      _collectionView.mj_footer.hidden = YES;
 
 */
+
+/* TABAnimated 使用示范
+-(UICollectionView *)collectionView{
+ if (!_collectionView) {
+     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
+                                          collectionViewLayout:self.layout];
+     _collectionView.backgroundColor = self.bgCor;
+     _collectionView.dataSource = self;
+     _collectionView.delegate = self;
+     _collectionView.showsVerticalScrollIndicator = NO;
+     
+     [_collectionView RegisterClass];
+
+     [self.scrollView addSubview:_collectionView];
+     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.left.right.bottom.equalTo(self.view);
+         make.top.equalTo(self.view).offset(153.5);
+     }];
+     
+     {
+         
+         NSArray *classArray = @[
+                                 DDCollectionViewCell_Style2.class,
+                                 DDCollectionViewCell_Style3.class,
+                                 DDCollectionViewCell_Style4.class,
+                                 ];
+         NSArray *sizeArray = @[
+                                [NSValue valueWithCGSize:[DDCollectionViewCell_Style2 cellSizeWithModel:nil]],
+                                [NSValue valueWithCGSize:[DDCollectionViewCell_Style3 cellSizeWithModel:nil]],
+                                [NSValue valueWithCGSize:[DDCollectionViewCell_Style4 cellSizeWithModel:nil]]
+                                ];
+         
+         _collectionView.tabAnimated = [TABCollectionAnimated animatedWithCellClassArray:classArray
+                                                                           cellSizeArray:sizeArray
+                                                                      animatedCountArray:@[@(1),@(1),@(1)]];
+         
+         [_collectionView.tabAnimated addHeaderViewClass:BaseCollectionReusableView_Style1.class
+                                                viewSize:[BaseCollectionReusableView_Style1 collectionReusableViewSizeWithModel:nil]
+                                               toSection:0];
+         [_collectionView.tabAnimated addHeaderViewClass:BaseCollectionReusableView_Style1.class
+                                                viewSize:[BaseCollectionReusableView_Style2 collectionReusableViewSizeWithModel:nil]
+                                               toSection:2];
+         
+         _collectionView.tabAnimated.containNestAnimation = YES;
+         _collectionView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
+         _collectionView.tabAnimated.canLoadAgain = YES;
+         [_collectionView tab_startAnimation];   // 开启动画
+     }
+ }return _collectionView;
+}
+ 
+ -(UITableView *)tableView{
+ if (!_tableView) {
+     _tableView = UITableView.new;
+     _tableView.backgroundColor = HEXCOLOR(0xFAFAFA);
+     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+     _tableView.showsVerticalScrollIndicator = NO;
+     _tableView.delegate = self;
+     _tableView.dataSource = self;
+     _tableView.mj_header = self.mjRefreshGifHeader;
+     _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
+     _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+     self.view.targetView = _tableView;
+     [self.view addSubview:_tableView];
+     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.top.equalTo(self.gk_navigationBar.mas_bottom);
+         make.left.right.bottom.equalTo(self.view);
+     }];
+     {/// 设置tabAnimated相关属性
+         // 可以不进行手动初始化，将使用默认属性
+         _tableView.tabAnimated = [TABTableAnimated animatedWithCellClass:[MKRankTBVCell class]
+                                                               cellHeight:[MKRankTBVCell cellHeightWithModel:nil]];
+         _tableView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
+//            [_tableView.tabAnimated addHeaderViewClass:LineTableViewHeaderFooterView.class viewHeight:60 toSection:0];
+         [_tableView tab_startAnimation];   // 开启动画
+     }
+ }return _tableView;
+}
+ 
+ */

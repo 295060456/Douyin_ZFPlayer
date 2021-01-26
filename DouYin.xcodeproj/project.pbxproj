@@ -102,6 +102,7 @@
 		C5529DC72589CD4700A89501 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = C5529DC62589CD4700A89501 /* UIImage+ScreenShot.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D1255BFDE2005C1361 /* NSString+Extras.m */; };
+		C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
 		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
@@ -525,6 +526,8 @@
 		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
 		C55697D3255BFDE3005C1361 /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
 		C558032F258A446D0078DB8F /* PodsManual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
+		C558F4B425BEFFA400FC6CA5 /* DouYinAppDelegate+Func.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouYinAppDelegate+Func.h"; sourceTree = "<group>"; };
+		C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DouYinAppDelegate+Func.m"; sourceTree = "<group>"; };
 		C558F7C4258A38050078DB8F /* DouYin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouYin-Bridging-Header.h"; sourceTree = "<group>"; };
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
@@ -2678,6 +2681,8 @@
 			children = (
 				C54BB0AE2518D00E001591C2 /* DouYinAppDelegate.h */,
 				C54BB0AF2518D00E001591C2 /* DouYinAppDelegate.m */,
+				C558F4B425BEFFA400FC6CA5 /* DouYinAppDelegate+Func.h */,
+				C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -3609,6 +3614,7 @@
 				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
+				C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */,
 				C5C64B7B259DF5EB00FD2F99 /* ECPrivacyCheckReminders.m in Sources */,
 				C5226958258757F7004447FB /* BWItemModel.m in Sources */,
 				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
@@ -3903,6 +3909,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};
 			name = Debug;
@@ -3928,6 +3935,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DouYin/🌹Macro/Swift-OC桥接头文件/DouYin-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 				WARNING_CFLAGS = "-Wno-ambiguous-macro";
 			};
 			name = Release;

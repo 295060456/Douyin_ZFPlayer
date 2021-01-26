@@ -13,6 +13,12 @@
 @end
 
 @implementation BaseCollectionViewCell
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self richElementsInCellWithModel:nil];
+    }return self;
+}
 //由具体的子类进行覆写
 +(CGSize)cellSizeWithModel:(id _Nullable)model{
     return CGSizeZero;

@@ -422,7 +422,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _bitsMonitorSuspendLab.isAllowDrag = YES;//悬浮效果必须要的参数
         [self.view addSubview:_bitsMonitorSuspendLab];
         _bitsMonitorSuspendLab.frame = CGRectMake(20,
-                                                  MAINSCREEN_HEIGHT - 200,
+                                                  SCREEN_HEIGHT - 200,
                                                   80,
                                                   30);
     }return _bitsMonitorSuspendLab;

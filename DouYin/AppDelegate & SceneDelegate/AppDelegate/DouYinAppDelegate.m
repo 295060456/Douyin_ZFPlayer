@@ -6,6 +6,7 @@
 //
 
 #import "DouYinAppDelegate.h"
+#import "DouYinAppDelegate+Func.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunguarded-availability-new"
@@ -41,6 +42,10 @@ static DouYinAppDelegate *static_appDelegate = nil;
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+#ifdef DEBUG
+    [self testFunc];
+#endif
+    [self makeTABAnimatedConfigure];
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];//保持屏幕常亮
     /*
      * 禁止App系统文件夹document同步
@@ -48,8 +53,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      */
     [FileFolderHandleTool banSysDocSynchronization];
 #ifdef DEBUG
-       [[DoraemonManager shareInstance] install];
+    [self makeDoraemonManagerConfigure];//滴滴打车团队出的一款小工具
+    [self makeNetworkingBitsMonitor];
+    [UIFont getAvailableFont];//打印全员字体
 #endif
+    [self makeGKNavigationBarConfigure];//自定义导航栏
+    [self makeReachabilityConfigure];//网络环境监测
     if (HDDeviceSystemVersion.floatValue < 13.0) {
         self.window.alpha = 1;
     }return YES;

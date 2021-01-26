@@ -67,6 +67,8 @@
 #import "UITableViewCell+WhiteArrows.h"
 // UIColor
 #import "UIColor+Hex.h"
+// UIFont
+#import "UIFont+Extras.h"
 // UIButton
 #import "UIButton+ImageTitleSpacing.h"
 // UIImage

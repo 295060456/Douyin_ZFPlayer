@@ -23,6 +23,14 @@
     }return cell;
 }
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style
+              reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self richElementsInCellWithModel:nil];
+    }return self;
+}
+
 -(void)richElementsInCellWithModel:(id _Nullable)model{
     
 }

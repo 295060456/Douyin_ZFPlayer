@@ -14,6 +14,18 @@
 
 @implementation BaseCollectionViewCell
 
++(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
+                         forIndexPath:(nonnull NSIndexPath *)indexPath{
+    id cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(self.class)
+                                                        forIndexPath:indexPath];
+    if (!cell) {
+        [collectionView registerClass:self.class
+           forCellWithReuseIdentifier:ReuseIdentifier];
+        [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(self.class)
+                                                  forIndexPath:indexPath];
+    }return cell;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self richElementsInCellWithModel:nil];

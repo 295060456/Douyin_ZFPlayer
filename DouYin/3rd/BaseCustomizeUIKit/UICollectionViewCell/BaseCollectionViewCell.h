@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSIndexPath *idxPath;
 
++(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
+                         forIndexPath:(nonnull NSIndexPath *)indexPath;
 +(CGSize)cellSizeWithModel:(id _Nullable)model;// 由具体的子类进行覆写
 -(void)richElementsInCellWithModel:(id _Nullable)model;// 由具体的子类进行覆写
 

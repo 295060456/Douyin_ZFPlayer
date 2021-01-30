@@ -33,7 +33,9 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+#ifdef DEBUG
     [self ifEmptyData];
+#endif
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

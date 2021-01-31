@@ -43,6 +43,6 @@ static NSString *const HTTPServiceErrorHTTPStatusCodeKey = @"HTTPServiceErrorHTT
 static NSString *const HTTPServiceErrorDescriptionKey = @"HTTPServiceErrorDescriptionKey";//请求错误，详细描述key
 static NSString *const HTTPServiceErrorMessagesKey = @"HTTPServiceErrorMessagesKey";//服务端错误提示，信息key
 
-#define server_URL [URL_Manager sharedInstance].BaseUrl_1
+#define server_URL NSObject.BaseUrl
 
 #endif /* NetworkingConstant_h */

@@ -1,5 +1,5 @@
 //
-//  BASEMODEL.h
+//  BaseModel.h
 //  DouYin
 //
 //  Created by Jobs on 2020/9/24.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BASEMODEL : NSObject
+@interface BaseModel : NSObject
 
 @property(nonatomic,strong)NSString *endRow;
 @property(nonatomic,strong)NSString *hasNextPage;

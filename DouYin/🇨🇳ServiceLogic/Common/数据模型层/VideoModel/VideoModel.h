@@ -5,7 +5,7 @@
 //  Created by Jobs on 2020/9/24.
 //
 
-#import "BASEMODEL.h"
+#import "BaseModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface VideoModel : BASEMODEL
+@interface VideoModel : BaseModel
 
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*listMutArr;
 

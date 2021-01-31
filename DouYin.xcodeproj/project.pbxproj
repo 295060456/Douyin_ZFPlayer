@@ -99,13 +99,17 @@
 		C54CC562255146F800C69C1F /* UIView+ZFPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */; };
 		C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */; };
 		C54F8588252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */; };
+		C5512D7E25C67F91007BCA82 /* ZWPullMenuConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7725C67F91007BCA82 /* ZWPullMenuConfig.m */; };
+		C5512D7F25C67F91007BCA82 /* ZWPullMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7825C67F91007BCA82 /* ZWPullMenuModel.m */; };
+		C5512D8025C67F91007BCA82 /* ZWPullMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7C25C67F91007BCA82 /* ZWPullMenuView.m */; };
+		C5512D8125C67F91007BCA82 /* ZWPullMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7D25C67F91007BCA82 /* ZWPullMenuCell.m */; };
 		C5529DC72589CD4700A89501 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = C5529DC62589CD4700A89501 /* UIImage+ScreenShot.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D1255BFDE2005C1361 /* NSString+Extras.m */; };
 		C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */; };
 		C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AABFB2532B32400335ACC /* RBCLikeButton.m */; };
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
-		C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BASEMODEL.m */; };
+		C55D45B4251CB65400E543D6 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BaseModel.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
 		C55FE6C925B4229600D8C30D /* UIView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */; };
 		C56188BE255D6D74004E7B47 /* XHLaunchAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188AB255D6D74004E7B47 /* XHLaunchAdView.m */; };
@@ -517,6 +521,14 @@
 		C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
 		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
+		C5512D7525C67F91007BCA82 /* ZWPullMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuModel.h; sourceTree = "<group>"; };
+		C5512D7625C67F91007BCA82 /* ZWPullMenuConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuConfig.h; sourceTree = "<group>"; };
+		C5512D7725C67F91007BCA82 /* ZWPullMenuConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuConfig.m; sourceTree = "<group>"; };
+		C5512D7825C67F91007BCA82 /* ZWPullMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuModel.m; sourceTree = "<group>"; };
+		C5512D7A25C67F91007BCA82 /* ZWPullMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuView.h; sourceTree = "<group>"; };
+		C5512D7B25C67F91007BCA82 /* ZWPullMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuCell.h; sourceTree = "<group>"; };
+		C5512D7C25C67F91007BCA82 /* ZWPullMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuView.m; sourceTree = "<group>"; };
+		C5512D7D25C67F91007BCA82 /* ZWPullMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuCell.m; sourceTree = "<group>"; };
 		C5529DC52589CD4700A89501 /* UIImage+ScreenShot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScreenShot.h"; sourceTree = "<group>"; };
 		C5529DC62589CD4700A89501 /* UIImage+ScreenShot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShot.m"; sourceTree = "<group>"; };
 		C552A2B72589CEFA00A89501 /* 我为什么要这么做.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "我为什么要这么做.md"; sourceTree = "<group>"; };
@@ -532,8 +544,8 @@
 		C55AABFA2532B32400335ACC /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C55AABFB2532B32400335ACC /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
-		C55D45B2251CB65400E543D6 /* BASEMODEL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BASEMODEL.h; sourceTree = "<group>"; };
-		C55D45B3251CB65400E543D6 /* BASEMODEL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BASEMODEL.m; sourceTree = "<group>"; };
+		C55D45B2251CB65400E543D6 /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		C55D45B3251CB65400E543D6 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
 		C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJRefresh.m"; sourceTree = "<group>"; };
@@ -1320,11 +1332,12 @@
 		C54BB0EB2518D048001591C2 /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
+				C5C64B25259DF5EB00FD2F99 /* ECPrivacyCheckTools */,
 				C5A4411325ABFB51000F0CD2 /* GKPhotoBrowser+SaveBtn */,
 				C5A4410325ABFB51000F0CD2 /* JXCategoryView */,
 				C5A4411625ABFB51000F0CD2 /* WHToast */,
-				C5C64B25259DF5EB00FD2F99 /* ECPrivacyCheckTools */,
 				C56188A7255D6D74004E7B47 /* XHLaunchAd */,
+				C5512D7325C67F91007BCA82 /* ZWPullMenuView */,
 				C54BB3FE2518D3F6001591C2 /* ZZCircleProgress */,
 			);
 			path = PodsManual;
@@ -1853,9 +1866,7 @@
 		C54BB3DD2518D3B1001591C2 /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
-				C55D45B1251CB62800E543D6 /* 数据模型层 */,
-				C582A672251C714F00DD83A1 /* 网络请求 */,
-				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
+				C551336025C68898007BCA82 /* Common */,
 				C54BB4F42518E38D001591C2 /* OtherVC */,
 			);
 			path = "🇨🇳ServiceLogic";
@@ -1939,6 +1950,65 @@
 				C576725D2546BBEC00C382C8 /* UIViewController+JXCategory */,
 			);
 			path = "UIViewController+Category";
+			sourceTree = "<group>";
+		};
+		C5512D7325C67F91007BCA82 /* ZWPullMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				C5512D7425C67F91007BCA82 /* Config */,
+				C5512D7925C67F91007BCA82 /* View */,
+			);
+			path = ZWPullMenuView;
+			sourceTree = "<group>";
+		};
+		C5512D7425C67F91007BCA82 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C5512D7525C67F91007BCA82 /* ZWPullMenuModel.h */,
+				C5512D7625C67F91007BCA82 /* ZWPullMenuConfig.h */,
+				C5512D7725C67F91007BCA82 /* ZWPullMenuConfig.m */,
+				C5512D7825C67F91007BCA82 /* ZWPullMenuModel.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		C5512D7925C67F91007BCA82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5512D7A25C67F91007BCA82 /* ZWPullMenuView.h */,
+				C5512D7B25C67F91007BCA82 /* ZWPullMenuCell.h */,
+				C5512D7C25C67F91007BCA82 /* ZWPullMenuView.m */,
+				C5512D7D25C67F91007BCA82 /* ZWPullMenuCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C551336025C68898007BCA82 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C55D45B1251CB62800E543D6 /* 数据模型层 */,
+				C582A672251C714F00DD83A1 /* 网络请求 */,
+				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C55133C325C688C4007BCA82 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				C55D45B2251CB65400E543D6 /* BaseModel.h */,
+				C55D45B3251CB65400E543D6 /* BaseModel.m */,
+			);
+			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		C55133C425C688CC007BCA82 /* VideoModel */ = {
+			isa = PBXGroup;
+			children = (
+				C55D45E1251CB6A900E543D6 /* VideoModel.h */,
+				C55D45E2251CB6A900E543D6 /* VideoModel.m */,
+			);
+			path = VideoModel;
 			sourceTree = "<group>";
 		};
 		C5529DA82589CC6A00A89501 /* CALayer+Anim */ = {
@@ -2085,10 +2155,8 @@
 		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
 			isa = PBXGroup;
 			children = (
-				C55D45B2251CB65400E543D6 /* BASEMODEL.h */,
-				C55D45B3251CB65400E543D6 /* BASEMODEL.m */,
-				C55D45E1251CB6A900E543D6 /* VideoModel.h */,
-				C55D45E2251CB6A900E543D6 /* VideoModel.m */,
+				C55133C425C688CC007BCA82 /* VideoModel */,
+				C55133C325C688C4007BCA82 /* BaseModel */,
 			);
 			path = "数据模型层";
 			sourceTree = "<group>";
@@ -3560,6 +3628,7 @@
 				C5D4F11825824ADA00C165EA /* NetworkingAPI+FriendsRelationshipApi.m in Sources */,
 				C5A4361A25AAF710000F0CD2 /* UIScrollView+FDFullscreenPopGesture.m in Sources */,
 				C5914DAD25385356007777A6 /* UIViewController+BRPickerView.m in Sources */,
+				C5512D8125C67F91007BCA82 /* ZWPullMenuCell.m in Sources */,
 				C54BB3012518D363001591C2 /* LGiOSBtn.m in Sources */,
 				C5914DA625385356007777A6 /* UIViewController+JPImageresizerView.m in Sources */,
 				C5A4411F25ABFB51000F0CD2 /* GKPhotoBrowser+SaveBtn.m in Sources */,
@@ -3617,7 +3686,7 @@
 				C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */,
 				C5C64B7B259DF5EB00FD2F99 /* ECPrivacyCheckReminders.m in Sources */,
 				C5226958258757F7004447FB /* BWItemModel.m in Sources */,
-				C55D45B4251CB65400E543D6 /* BASEMODEL.m in Sources */,
+				C55D45B4251CB65400E543D6 /* BaseModel.m in Sources */,
 				C5914DAF25385356007777A6 /* UIViewController+BackBtn.m in Sources */,
 				C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */,
 				C5C64B77259DF5EB00FD2F99 /* ECPrivacyCheckMediaAndAppleMusic.m in Sources */,
@@ -3682,6 +3751,7 @@
 				C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */,
 				C5C64B9A259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m in Sources */,
 				C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */,
+				C5512D7E25C67F91007BCA82 /* ZWPullMenuConfig.m in Sources */,
 				C5A96C3625BD340C000077BC /* NSObject+SPAlertController.m in Sources */,
 				C5D4F11F25824ADA00C165EA /* NetworkingAPI+CommentApi.m in Sources */,
 				C56188BE255D6D74004E7B47 /* XHLaunchAdView.m in Sources */,
@@ -3698,7 +3768,9 @@
 				C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
+				C5512D7F25C67F91007BCA82 /* ZWPullMenuModel.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
+				C5512D8025C67F91007BCA82 /* ZWPullMenuView.m in Sources */,
 				C5D6008925862FDB00029AFF /* UIViewController+NavigationBar.m in Sources */,
 				C530B1AC254D9B1600EDEDC8 /* LMHWaterFallLayout.m in Sources */,
 				C57672AC2546BC1D00C382C8 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,

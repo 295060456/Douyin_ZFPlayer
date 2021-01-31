@@ -8,6 +8,19 @@
 
 #import "NSObject+URLManager.h"
 
+/// 柬埔寨（主要）开发环境
+BOOL DevEnviron_Cambodia_Main = YES;
+///// 柬埔寨（次要）开发环境
+BOOL DevEnviron_Cambodia_Minor = NO;
+/// 柬埔寨Rally（次要）开发环境
+BOOL DevEnviron_Cambodia_Rally = NO;
+/// 中国大陆开发环境
+BOOL DevEnviron_China_Mainland = NO;
+/// 测试环境
+BOOL TestEnviron = NO;
+/// 生产环境
+BOOL ProductEnviron = NO;
+
 @implementation NSObject (URLManager)
 /*
  各种环境的地址 和 接口文档地址 在这里写，方便调用
@@ -22,21 +35,51 @@
 }
 #pragma mark —— BaseURL
 +(NSString *)BaseUrl_1{
-#if DEBUG
-    return @"http://172.24.135.55/api/";//开发环境
-#elif
-    return @"";//测试环境
-//    return @""//生产环境
-#endif
+    if (DevEnviron_Cambodia_Main) {
+        /// 柬埔寨（主要）开发环境
+        return @"http://172.24.135.53:8011/";
+    }else if(DevEnviron_Cambodia_Minor){
+        /// 柬埔寨的开发环境(次要)，因为某些代码未合并，柬埔寨的开发环境临时用测试环境替代
+        return @"";
+    }else if (DevEnviron_Cambodia_Rally){
+        /// 柬埔寨Rally（次要）开发环境
+        return @"";
+    }else if (DevEnviron_China_Mainland){
+        /// 中国大陆开发环境
+        return @"";
+    }else if (TestEnviron){
+        /// 测试环境
+        return @"";
+    }else if (ProductEnviron){
+        /// 生产环境
+        return @"";
+    }else{
+        return @"";
+    }
 }
 
 +(NSString *)BaseUrl_H5{
-#if DEBUG
-    return @"";//开发环境
-#elif
-    return @"";//测试环境
-//    return @""//生产环境
-#endif
+    if (DevEnviron_Cambodia_Main) {
+        /// 柬埔寨（主要）开发环境
+        return @"";
+    }else if (DevEnviron_Cambodia_Minor){
+        /// 柬埔寨的开发环境(次要)，因为某些代码未合并，柬埔寨的开发环境临时用测试环境替代
+        return @"";
+    }else if (DevEnviron_Cambodia_Rally){
+        /// 柬埔寨Rally（次要）开发环境
+        return @"";
+    }else if (DevEnviron_China_Mainland){
+        /// 中国大陆开发环境
+        return @"";
+    }else if (TestEnviron){
+        /// 测试环境
+        return @"";
+    }else if (ProductEnviron){
+        /// 生产环境
+        return @"";
+    }else{
+        return @"";
+    }
 }
 #pragma mark —— 数据统计相关接口
 ///活跃用户 POST

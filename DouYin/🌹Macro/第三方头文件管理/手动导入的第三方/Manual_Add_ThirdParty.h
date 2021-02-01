@@ -32,6 +32,7 @@
 #import "UIView+Gradient.h"
 #import "UIView+Gesture.h"
 #import "UIView+MJRefresh.h"
+#import "UIView+ViewController.h"
 // UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"
@@ -83,6 +84,11 @@
 #import "UIControl+XY.h"
 
 #pragma mark —— Manual_Add_ThirdParty
+// Suspend
+#import "SuspendBtn.h"
+#import "SuspendLab.h"
+#import "SuspendView.h"
+
 #import "UserDefaultManager.h"
 #import "NSTimerManager.h"
 #import "TXFileOperation.h"

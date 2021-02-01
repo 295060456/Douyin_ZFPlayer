@@ -125,6 +125,7 @@
 		C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */; };
 		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
+		C562D9EE25C7C2D1004D1AEA /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562D9EC25C7C2D1004D1AEA /* UIView+ViewController.m */; };
 		C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */; };
 		C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */; };
 		C5676163259F1272006905A9 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* BaseCollectionViewCell.m */; };
@@ -576,6 +577,8 @@
 		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
 		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
 		C562093C2554006100FE435F /* 验证码按钮单例封装.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "验证码按钮单例封装.md"; sourceTree = "<group>"; };
+		C562D9EC25C7C2D1004D1AEA /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		C562D9ED25C7C2D1004D1AEA /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
 		C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoVerticalArrangementLabsView.m; sourceTree = "<group>"; };
 		C565C9A425A4377A00848134 /* TwoVerticalArrangementLabsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoVerticalArrangementLabsView.h; sourceTree = "<group>"; };
 		C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoVerticalArrangementLabsView.png; sourceTree = "<group>"; };
@@ -1050,15 +1053,6 @@
 				C54BB4FC2518E398001591C2 /* ViewController@5.m */,
 			);
 			path = "其他VC";
-			sourceTree = "<group>";
-		};
-		C542A39C251B6EE1007B5F88 /* 本地播放器资源 */ = {
-			isa = PBXGroup;
-			children = (
-				C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */,
-				C542A39D251B6EF6007B5F88 /* iph_X.mp4 */,
-			);
-			path = "本地播放器资源";
 			sourceTree = "<group>";
 		};
 		C544B8BD258359DD00C6CF2A /* UIViewController+BackBtn */ = {
@@ -1739,6 +1733,7 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				C562D9EB25C7C2BC004D1AEA /* UIView+ViewController */,
 				C572940C25BB09E000726419 /* UIView+BackgroundImage */,
 				C595BAE125864073002A4531 /* UIView+Animation */,
 				C5460D21258C8DFD0008928C /* UIView+AOP */,
@@ -1988,7 +1983,6 @@
 			children = (
 				C55D45B1251CB62800E543D6 /* 数据模型层 */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
-				C542A39C251B6EE1007B5F88 /* 本地播放器资源 */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2137,9 +2131,8 @@
 		C558EF0A258A2D690078DB8F /* 资源文件 */ = {
 			isa = PBXGroup;
 			children = (
-				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
-				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
-				C54BB0BD2518D00F001591C2 /* Assets.xcassets */,
+				C562E44F25C7C77D004D1AEA /* 视频文件 */,
+				C562E44E25C7C776004D1AEA /* 图片资源 */,
 			);
 			path = "资源文件";
 			sourceTree = "<group>";
@@ -2198,6 +2191,34 @@
 				C56188B0255D6D74004E7B47 /* XHLaunchImageView.m */,
 			);
 			path = XHLaunchAd;
+			sourceTree = "<group>";
+		};
+		C562D9EB25C7C2BC004D1AEA /* UIView+ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C562D9ED25C7C2D1004D1AEA /* UIView+ViewController.h */,
+				C562D9EC25C7C2D1004D1AEA /* UIView+ViewController.m */,
+			);
+			path = "UIView+ViewController";
+			sourceTree = "<group>";
+		};
+		C562E44E25C7C776004D1AEA /* 图片资源 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C4FEBB255A616B002F407A /* 进入编译期的资源 */,
+				C56E41E62547173A00B9F555 /* ⚽️PicResource */,
+				C54BB0BD2518D00F001591C2 /* Assets.xcassets */,
+			);
+			path = "图片资源";
+			sourceTree = "<group>";
+		};
+		C562E44F25C7C77D004D1AEA /* 视频文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */,
+				C542A39D251B6EF6007B5F88 /* iph_X.mp4 */,
+			);
+			path = "视频文件";
 			sourceTree = "<group>";
 		};
 		C565C9A225A4377A00848134 /* TwoVerticalArrangementLabsView */ = {
@@ -3753,6 +3774,7 @@
 				C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */,
 				C5512D7E25C67F91007BCA82 /* ZWPullMenuConfig.m in Sources */,
 				C5A96C3625BD340C000077BC /* NSObject+SPAlertController.m in Sources */,
+				C562D9EE25C7C2D1004D1AEA /* UIView+ViewController.m in Sources */,
 				C5D4F11F25824ADA00C165EA /* NetworkingAPI+CommentApi.m in Sources */,
 				C56188BE255D6D74004E7B47 /* XHLaunchAdView.m in Sources */,
 				C54BB5032518E398001591C2 /* ViewController@1.m in Sources */,

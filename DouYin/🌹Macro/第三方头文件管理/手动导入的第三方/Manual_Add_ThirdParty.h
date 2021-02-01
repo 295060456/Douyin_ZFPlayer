@@ -68,6 +68,7 @@
 #import "UITableViewCell+WhiteArrows.h"
 // UIColor
 #import "UIColor+Hex.h"
+#import "UIColor+Gradient.h"
 // UIFont
 #import "UIFont+Extras.h"
 // UIButton

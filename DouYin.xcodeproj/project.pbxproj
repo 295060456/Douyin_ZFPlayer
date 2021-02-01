@@ -70,7 +70,6 @@
 		C54BB39C2518D391001591C2 /* UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3112518D390001591C2 /* UIImage+Extras.m */; };
 		C54BB39D2518D391001591C2 /* UIImage+SYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3122518D390001591C2 /* UIImage+SYS.m */; };
 		C54BB39E2518D391001591C2 /* UIImage+Overlay.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3162518D390001591C2 /* UIImage+Overlay.m */; };
-		C54BB3A32518D391001591C2 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3232518D391001591C2 /* UIColor+Hex.m */; };
 		C54BB3A42518D391001591C2 /* UIView+Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3272518D391001591C2 /* UIView+Chain.m */; };
 		C54BB3A52518D391001591C2 /* UIView+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB3292518D391001591C2 /* UIView+Measure.m */; };
 		C54BB3A72518D391001591C2 /* UIView+SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB32B2518D391001591C2 /* UIView+SuspendView.m */; };
@@ -135,6 +134,8 @@
 		C56BA9052578936D00D054D0 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */; };
 		C56BA9062578936D00D054D0 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */; };
 		C56BB8022587983A0043C977 /* UIControl+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BB8002587983A0043C977 /* UIControl+XY.m */; };
+		C56D866925C821C7001960CD /* UIColor+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D866425C821C7001960CD /* UIColor+Gradient.m */; };
+		C56D866A25C821C7001960CD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D866725C821C7001960CD /* UIColor+Hex.m */; };
 		C56E3E83254715AB00B9F555 /* 资源文件 in Resources */ = {isa = PBXBuildFile; fileRef = C56E3E82254715AB00B9F555 /* 资源文件 */; };
 		C56E41E72547173A00B9F555 /* ⚽️PicResource in Resources */ = {isa = PBXBuildFile; fileRef = C56E41E62547173A00B9F555 /* ⚽️PicResource */; };
 		C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C571095F253C1358005B3A0C /* UITabBarItem+TLAnimation.m */; };
@@ -466,8 +467,6 @@
 		C54BB3142518D390001591C2 /* UIImage+YBGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YBGIF.h"; sourceTree = "<group>"; };
 		C54BB3152518D390001591C2 /* UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extras.h"; sourceTree = "<group>"; };
 		C54BB3162518D390001591C2 /* UIImage+Overlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Overlay.m"; sourceTree = "<group>"; };
-		C54BB3232518D391001591C2 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		C54BB3242518D391001591C2 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		C54BB3272518D391001591C2 /* UIView+Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Chain.m"; sourceTree = "<group>"; };
 		C54BB3282518D391001591C2 /* UIView+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gradient.h"; sourceTree = "<group>"; };
 		C54BB3292518D391001591C2 /* UIView+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Measure.m"; sourceTree = "<group>"; };
@@ -601,6 +600,10 @@
 		C56BB7FE2587983A0043C977 /* UIControl+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+XY.h"; sourceTree = "<group>"; };
 		C56BB7FF2587983A0043C977 /* iOS小技巧：用runtime 解决UIButton 重复点击问题.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "iOS小技巧：用runtime 解决UIButton 重复点击问题.md"; sourceTree = "<group>"; };
 		C56BB8002587983A0043C977 /* UIControl+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+XY.m"; sourceTree = "<group>"; };
+		C56D866425C821C7001960CD /* UIColor+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Gradient.m"; sourceTree = "<group>"; };
+		C56D866525C821C7001960CD /* UIColor+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Gradient.h"; sourceTree = "<group>"; };
+		C56D866725C821C7001960CD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		C56D866825C821C7001960CD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		C56E3E82254715AB00B9F555 /* 资源文件 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "资源文件"; sourceTree = "<group>"; };
 		C56E41E62547173A00B9F555 /* ⚽️PicResource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "⚽️PicResource"; sourceTree = "<group>"; };
 		C571095C253C1358005B3A0C /* TabbarControllerSysEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarControllerSysEx.h; sourceTree = "<group>"; };
@@ -1724,8 +1727,8 @@
 		C54BB3222518D391001591C2 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB3242518D391001591C2 /* UIColor+Hex.h */,
-				C54BB3232518D391001591C2 /* UIColor+Hex.m */,
+				C56D866325C821C7001960CD /* UIColor+Gradient */,
+				C56D866625C821C7001960CD /* UIColor+Hex */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -2229,6 +2232,24 @@
 				C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */,
 			);
 			path = TwoVerticalArrangementLabsView;
+			sourceTree = "<group>";
+		};
+		C56D866325C821C7001960CD /* UIColor+Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				C56D866425C821C7001960CD /* UIColor+Gradient.m */,
+				C56D866525C821C7001960CD /* UIColor+Gradient.h */,
+			);
+			path = "UIColor+Gradient";
+			sourceTree = "<group>";
+		};
+		C56D866625C821C7001960CD /* UIColor+Hex */ = {
+			isa = PBXGroup;
+			children = (
+				C56D866725C821C7001960CD /* UIColor+Hex.m */,
+				C56D866825C821C7001960CD /* UIColor+Hex.h */,
+			);
+			path = "UIColor+Hex";
 			sourceTree = "<group>";
 		};
 		C571095B253C1358005B3A0C /* 深度拓展系统UITabBar全家桶 */ = {
@@ -3691,11 +3712,11 @@
 				C5D4F11625824ADA00C165EA /* NetworkingAPI+BankCardApi.m in Sources */,
 				C5C64B75259DF5EB00FD2F99 /* ECPrivacyCheckSpeechRecognition.m in Sources */,
 				C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */,
+				C56D866A25C821C7001960CD /* UIColor+Hex.m in Sources */,
 				C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */,
 				C5D4F11C25824ADA00C165EA /* NetworkingAPI+UserAttentionApi.m in Sources */,
 				C5D4F4C325825AD800C165EA /* KeychainHelper.m in Sources */,
 				C5D6D80B25860D7400029AFF /* NSTimerManager.m in Sources */,
-				C54BB3A32518D391001591C2 /* UIColor+Hex.m in Sources */,
 				C54BB4302518D3F6001591C2 /* ZZCircleProgress.m in Sources */,
 				C5D6D80025860D5D00029AFF /* NSObject+Time.m in Sources */,
 				C54BB39A2518D391001591C2 /* UIImage+Tailor.m in Sources */,
@@ -3727,6 +3748,7 @@
 				C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */,
 				C5460D24258C8DFD0008928C /* UIView+AOP.m in Sources */,
 				C5CF1E7825AC8C6400381935 /* TabbarVC.m in Sources */,
+				C56D866925C821C7001960CD /* UIColor+Gradient.m in Sources */,
 				C595D162258713F1002A4531 /* SuspendView.m in Sources */,
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,

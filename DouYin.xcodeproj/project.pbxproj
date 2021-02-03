@@ -323,6 +323,7 @@
 		66877E9FDBEC63628B6E3A05 /* Pods_DouYinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BB084B776B69846FDD3484 /* Pods-DouYinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinUITests.release.xcconfig"; path = "Target Support Files/Pods-DouYinUITests/Pods-DouYinUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7BD7A9AC3B6747D4F461F0D8 /* Pods-DouYinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYinTests.release.xcconfig"; path = "Target Support Files/Pods-DouYinTests/Pods-DouYinTests.release.xcconfig"; sourceTree = "<group>"; };
+		C512470225C90E2A00D8BA61 /* MacroDef_App.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDef_App.h; sourceTree = "<group>"; };
 		C51573F125A34FFF0074D945 /* UIView+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Gesture.h"; sourceTree = "<group>"; };
 		C51573F225A34FFF0074D945 /* UIView+Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Gesture.m"; sourceTree = "<group>"; };
 		C51D8DA4251B0849006958FF /* PlayerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
@@ -1173,6 +1174,7 @@
 		C5470FB025309D2200651ACE /* 各项宏定义 */ = {
 			isa = PBXGroup;
 			children = (
+				C512470225C90E2A00D8BA61 /* MacroDef_App.h */,
 				C5470FB425309D3400651ACE /* MacroDef_Cor.h */,
 				C5470FB225309D3400651ACE /* MacroDef_Func.h */,
 				C5470FB325309D3400651ACE /* MacroDef_Size.h */,

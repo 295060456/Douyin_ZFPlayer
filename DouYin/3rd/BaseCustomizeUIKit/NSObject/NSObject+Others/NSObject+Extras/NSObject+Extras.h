@@ -47,5 +47,7 @@
 +(void)printRequestMessage:(NSURLSessionDataTask *)task;
 /// 保存图片
 +(void)savePic:(GKPhotoBrowser *)browser;
+/// 获取当前 UIViewController
++(UIViewController *)getCurrentViewController;
 
 @end

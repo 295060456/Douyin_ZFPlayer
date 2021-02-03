@@ -35,6 +35,7 @@
 #import "MacroDef_Cor.h"
 #import "MacroDef_Size.h"
 #import "MacroDef_Func.h"
+#import "MacroDef_App.h"
 
 #pragma mark —— 第三方头文件管理
 /// Pods

@@ -26,11 +26,24 @@
  * 错误在内部处理不向外抛出
  */
 @implementation NetworkingAPI
-
+// 不需要错误回调的
 +(void)requestApi:(NSString *_Nonnull)requestApi
        parameters:(id _Nullable)parameters
      successBlock:(MKDataBlock)successBlock{
     NSString *funcName = [requestApi stringByAppendingString:@":withsuccessBlock:"];
+    //字符串不正确，遍历后没有会崩溃
+    SuppressWarcPerformSelectorLeaksWarning([self performSelector:NSSelectorFromString(funcName)
+                                                       withObject:parameters
+                                                       withObject:successBlock]);
+}
+// 需要错误回调的
++(void)requestApi:(NSString *_Nonnull)requestApi
+       parameters:(id _Nullable)parameters
+     successBlock:(MKDataBlock)successBlock
+     failureBlock:(MKDataBlock)failureBlock{
+    
+    NSLog(@"接口名：%@，请求参数打印 %@",requestApi,parameters);
+    NSString *funcName = [requestApi stringByAppendingString:@":success:failure:"];
     //字符串不正确，遍历后没有会崩溃
     SuppressWarcPerformSelectorLeaksWarning([self performSelector:NSSelectorFromString(funcName)
                                                        withObject:parameters

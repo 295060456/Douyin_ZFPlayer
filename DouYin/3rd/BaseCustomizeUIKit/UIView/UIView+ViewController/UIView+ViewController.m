@@ -16,7 +16,7 @@
             return (UIViewController *)next;
         }
         next = [next nextResponder];
-    } while (next != nil);
+    } while (next);
     return nil;
 }
 

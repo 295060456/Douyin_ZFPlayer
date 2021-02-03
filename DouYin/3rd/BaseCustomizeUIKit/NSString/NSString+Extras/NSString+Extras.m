@@ -70,34 +70,34 @@
     }
     if (nullableStr == nil ||
         nullableStr == NULL ||
-        [nullableStr isKindOfClass:[NSNull class]]) {//判断空 或者 空对象
+        [nullableStr isKindOfClass:NSNull.class]) {//判断空 或者 空对象
         return replaceStr;
-    }else if([nullableStr isKindOfClass:[NSString class]]){
+    }else if([nullableStr isKindOfClass:NSString.class]){
         NSString *str = (NSString *)nullableStr;
         str = [str stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
         return str.length == 0 ? replaceStr : str;
-    }else if ([nullableStr isKindOfClass:[NSNumber class]]){
+    }else if ([nullableStr isKindOfClass:NSNumber.class]){
         NSNumber *b = (NSNumber *)nullableStr;//longlong??
         if (strcmp([nullableStr objCType], @encode(BOOL)) == 0) {// Bool 类型
-            return [NSString stringWithFormat:@"%d",[b boolValue]];
+            return [NSString stringWithFormat:@"%d",b.boolValue];
         }else if (strcmp([nullableStr objCType], @encode(int)) == 0){// int 类型
-            return [NSString stringWithFormat:@"%d",[b intValue]];
+            return [NSString stringWithFormat:@"%d",b.intValue];
         }else if (strcmp([nullableStr objCType], @encode(float)) == 0){// float 类型
-            return [NSString stringWithFormat:@"%f",[b floatValue]];
+            return [NSString stringWithFormat:@"%f",b.floatValue];
         }else if (strcmp([nullableStr objCType], @encode(double)) == 0){//double 类型
-            return [NSString stringWithFormat:@"%f",[b doubleValue]];
+            return [NSString stringWithFormat:@"%f",b.doubleValue];
         }else if (strcmp([nullableStr objCType], @encode(char)) == 0){//char 类型
-            return [NSString stringWithFormat:@"%c",[b charValue]];
+            return [NSString stringWithFormat:@"%c",b.charValue];
         }else if (strcmp([nullableStr objCType], @encode(u_char)) == 0){//unsigned char 类型
-            return [NSString stringWithFormat:@"%c",[b charValue]];
+            return [NSString stringWithFormat:@"%c",b.charValue];
         }else if (strcmp([nullableStr objCType], @encode(short)) == 0){//short 类型
-            return [NSString stringWithFormat:@"%c",[b shortValue]];
+            return [NSString stringWithFormat:@"%c",b.shortValue];
         }else if (strcmp([nullableStr objCType], @encode(u_short)) == 0){//unsigned short 类型
-            return [NSString stringWithFormat:@"%c",[b shortValue]];
+            return [NSString stringWithFormat:@"%c",b.shortValue];
         }else if (strcmp([nullableStr objCType], @encode(long)) == 0){//long 类型
-            return [NSString stringWithFormat:@"%ld",[b longValue]];
+            return [NSString stringWithFormat:@"%ld",b.longValue];
         }else if (strcmp([nullableStr objCType], @encode(u_long)) == 0){//unsigned long 类型
-            return [NSString stringWithFormat:@"%lu",[b unsignedLongValue]];
+            return [NSString stringWithFormat:@"%lu",b.unsignedLongValue];
         }else return replaceStr;
     }else return replaceStr;
 }

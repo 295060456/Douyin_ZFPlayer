@@ -97,5 +97,23 @@
         NSLog(@"GKPhotoBrowser * 为空");
     }
 }
+/// 获取当前 UIViewController
++(UIViewController *)getCurrentViewController{
+    UIWindow *window = getMainWindow();
+    if (window.windowLevel != UIWindowLevelNormal){
+        NSArray *windows = UIApplication.sharedApplication.windows;
+        for(UIWindow *tempWindow in windows){
+            if (tempWindow.windowLevel == UIWindowLevelNormal){
+                window = tempWindow;
+                break;
+            }
+        }
+    }
+      
+    UIView *frontView = [window.subviews objectAtIndex:0];
+    UIResponder *nextResponder = [frontView nextResponder];
+      
+    return [nextResponder isKindOfClass:UIViewController.class] ? (UIViewController *)nextResponder : window.rootViewController;
+}
 
 @end

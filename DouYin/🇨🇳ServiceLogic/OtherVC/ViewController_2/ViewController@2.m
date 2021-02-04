@@ -27,15 +27,14 @@ ZFDouYinCellDelegate
 @property(nonatomic,strong)UITableView *tableView;
 
 @property(nonatomic,strong)ZFPlayerController *player;
+@property(nonatomic,strong)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong)ZFDouYinControlView *controlView;
 @property(nonatomic,strong)ZFCustomControlView *fullControlView;
-@property(nonatomic,strong)ZFAVPlayerManager *playerManager;
+@property(nonatomic,strong)JobsBitsMonitorSuspendLab *bitsMonitorSuspendLab;
 
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*dataSource;
 @property(nonatomic,strong)NSNumber *pageSize;//每页数据容量
-@property(nonatomic,strong)NSNumber *currentPageNum;//当前页码
-
-@property(nonatomic,strong)JobsBitsMonitorSuspendLab *bitsMonitorSuspendLab;
+@property(nonatomic,strong)NSIndexPath *indexPath;
 
 @end
 
@@ -76,6 +75,44 @@ ZFDouYinCellDelegate
     [JobsBitsMonitorCore.sharedInstance stop];
 }
 
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    /**
+     * 请求到数据以后，刷新界面reloadData
+     * 这个时候会先走UITableViewDelegate,UITableViewDataSource
+     * 再viewWillLayoutSubviews-viewDidLayoutSubviews
+     * 在这个时候拿到确定的当前self.indexPath进行播放
+     */
+    if (self.dataSource.count) {
+        [self playTheVideoAtIndexPath:self.indexPath];
+        [self.tableView ly_hideEmptyView];
+    }else{
+        [self.tableView ly_showEmptyView];
+    }
+}
+/// 停止刷新
+-(void)endRefreshing{
+    @weakify(self)
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @strongify(self)
+        if (self.dataSource.count) {
+            self.tableView.mj_footer.hidden = NO;
+            [self.tableView reloadData];
+            [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
+        }
+        if (self.tableView.mj_header.refreshing) {
+            [self.tableView.mj_header endRefreshing];// 结束刷新
+        }
+        if (self.tableView.mj_footer.refreshing) {
+            [self.tableView.mj_footer endRefreshing];// 结束刷新
+        }
+    });
+}
+
 //- (void)requestData {
 //    /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
 //    [self.player stopCurrentPlayingCell];
@@ -109,23 +146,18 @@ ZFDouYinCellDelegate
     @weakify(self)
     [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
                    parameters:@{@"pageSize":self.pageSize,
-                                @"pageNum":self.currentPageNum}
+                                @"pageNum":@(self.currentPage)}
                  successBlock:^(id data) {
         @strongify(self)
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {
             NSArray *dataArr = (NSMutableArray *)data;
             [self.dataSource addObjectsFromArray:dataArr];
-            [self.tableView.mj_header endRefreshing];// 结束刷新
-            if (!self.tableView.mj_footer.hidden) {
-                [self.tableView.mj_footer endRefreshing];// 结束刷新
-            }
-            [self.tableView reloadData];
-            self.tableView.mj_footer.hidden = NO;
+            [self endRefreshing];
             /// 找到可以播放的视频并播放
             @weakify(self)
             [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-                @zf_strongify(self)
+                @strongify(self)
                 [self playTheVideoAtIndexPath:indexPath];
             }];
         }
@@ -133,19 +165,18 @@ ZFDouYinCellDelegate
 }
 
 - (void)playTheIndex:(NSInteger)index {
-    @zf_weakify(self)
+    @weakify(self)
     /// 指定到某一行播放
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:NO];
     [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-        @zf_strongify(self)
+        @strongify(self)
         [self playTheVideoAtIndexPath:indexPath];
     }];
     /// 如果是最后一行，去请求新数据
     if (index == self.dataSource.count - 1) {
         /// 加载下一页数据
         [self requestData];
-        [self.tableView reloadData];
     }
 }
 
@@ -222,6 +253,7 @@ numberOfRowsInSection:(NSInteger)section {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.indexPath = indexPath;
     ZFDouYinCell *cell = [ZFDouYinCell cellWithTableView:tableView];
     cell.delegate = self;
     cell.index = indexPath.row;
@@ -243,15 +275,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
     // 初始化
-    [self.dataSource removeAllObjects];
-    self.currentPageNum = @(0);
+    if (self.dataSource.count) {
+        [self.dataSource removeAllObjects];
+    }
     [self requestData];
 }
 ///上拉加载更多
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
-    self.currentPageNum = @(self.currentPageNum.intValue + 1);
-    NSLog(@"currentPageNum = %@",self.currentPageNum);
+    self.currentPage += 1;
+//    NSLog(@"currentPageNum = %ld",self.currentPage);
     [self requestData];
 }
 #pragma mark —— lazyLoad
@@ -308,22 +341,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         /// 1.0是完全消失时候
         _player.playerDisapperaPercent = 1.0;
         
-        @zf_weakify(self)
+        @weakify(self)
         _player.playerDidToEnd = ^(id _Nonnull asset) {
-            @zf_strongify(self)
+            @strongify(self)
             [self->_player.currentPlayerManager replay];
         };
 
         _player.orientationWillChange = ^(ZFPlayerController * _Nonnull player,
                                           BOOL isFullScreen) {
             DouYinAppDelegate.sharedInstance.allowOrentitaionRotation = isFullScreen;
-            @zf_strongify(self)
+            @strongify(self)
             self->_player.controlView.hidden = YES;
         };
         
         _player.orientationDidChanged = ^(ZFPlayerController * _Nonnull player,
                                           BOOL isFullScreen) {
-            @zf_strongify(self)
+            @strongify(self)
             self->_player.controlView.hidden = NO;
             if (isFullScreen) {
                 self->_player.controlView = self.fullControlView;
@@ -336,7 +369,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _player.playerPlayTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                           NSTimeInterval currentTime,
                                           NSTimeInterval duration) {
-            @zf_strongify(self)
+            @strongify(self)
             if ([self->_player.controlView isEqual:self.fullControlView]) {
                 [self.controlView videoPlayer:self->_player
                                   currentTime:currentTime
@@ -351,7 +384,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         /// 更新另一个控制层的缓冲时间
         _player.playerBufferTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                             NSTimeInterval bufferTime) {
-            @zf_strongify(self)
+            @strongify(self)
             if ([self->_player.controlView isEqual:self.fullControlView]) {
                 [self.controlView videoPlayer:self->_player
                                    bufferTime:bufferTime];
@@ -363,7 +396,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         /// 停止的时候找出最合适的播放
         _player.zf_scrollViewDidEndScrollingCallback = ^(NSIndexPath * _Nonnull indexPath) {
-            @zf_strongify(self)
+            @strongify(self)
             if (self->_player.playingIndexPath) return;
             if (indexPath.row == self.dataSource.count - 1) {
                 /// 加载下一页数据
@@ -403,12 +436,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_pageSize) {
         _pageSize = @(6);
     }return _pageSize;
-}
-
--(NSNumber *)currentPageNum{
-    if (!_currentPageNum) {
-        _currentPageNum = @(0);
-    }return _currentPageNum;
 }
 
 -(JobsBitsMonitorSuspendLab *)bitsMonitorSuspendLab{

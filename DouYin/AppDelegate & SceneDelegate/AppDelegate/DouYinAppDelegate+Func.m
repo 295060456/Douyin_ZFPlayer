@@ -13,7 +13,9 @@ static char *AppDelegate_Func_bitsMonitorSuspendLab = "AppDelegate_Func_bitsMoni
 @dynamic bitsMonitorSuspendLab;
 //测试代码
 -(void)testFunc{
-    
+    static BOOL isCreate = YES;
+    isCreate = NO;
+    NSLog(@"");
 }
 
 #endif

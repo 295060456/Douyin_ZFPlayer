@@ -101,9 +101,9 @@ ZFDouYinCellDelegate
         @strongify(self)
         if (self.dataSource.count) {
             self.tableView.mj_footer.hidden = NO;
-            [self.tableView reloadData];
-            [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
         }
+        [self.tableView reloadData];
+        [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
         if (self.tableView.mj_header.refreshing) {
             [self.tableView.mj_header endRefreshing];// 结束刷新
         }

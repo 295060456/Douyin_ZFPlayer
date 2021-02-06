@@ -18,6 +18,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)loadView{
+    [super loadView];
+    self.currentPage = 1;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kWhiteColor;

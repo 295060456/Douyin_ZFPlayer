@@ -96,21 +96,18 @@ ZFDouYinCellDelegate
 }
 /// 停止刷新
 -(void)endRefreshing{
-    @weakify(self)
-    dispatch_async(dispatch_get_main_queue(), ^{
-        @strongify(self)
-        if (self.dataSource.count) {
-            self.tableView.mj_footer.hidden = NO;
-        }
-        [self.tableView reloadData];
-        [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
-        if (self.tableView.mj_header.refreshing) {
-            [self.tableView.mj_header endRefreshing];// 结束刷新
-        }
-        if (self.tableView.mj_footer.refreshing) {
-            [self.tableView.mj_footer endRefreshing];// 结束刷新
-        }
-    });
+    @strongify(self)
+    if (self.dataSource.count) {
+        self.tableView.mj_footer.hidden = NO;
+    }
+    [self.tableView reloadData];
+    [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
+    if (self.tableView.mj_header.refreshing) {
+        [self.tableView.mj_header endRefreshing];// 结束刷新
+    }
+    if (self.tableView.mj_footer.refreshing) {
+        [self.tableView.mj_footer endRefreshing];// 结束刷新
+    }
 }
 
 //- (void)requestData {

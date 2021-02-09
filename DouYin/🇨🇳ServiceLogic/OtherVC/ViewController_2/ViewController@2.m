@@ -96,7 +96,6 @@ ZFDouYinCellDelegate
 }
 /// 停止刷新
 -(void)endRefreshing{
-    @strongify(self)
     if (self.dataSource.count) {
         self.tableView.mj_footer.hidden = NO;
     }

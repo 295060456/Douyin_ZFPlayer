@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Extras.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (Extras)
 ///震动特效反馈
@@ -114,6 +115,35 @@
     UIResponder *nextResponder = [frontView nextResponder];
       
     return [nextResponder isKindOfClass:UIViewController.class] ? (UIViewController *)nextResponder : window.rootViewController;
+}
+/// 用block来代替selector
+SEL selectorBlocks(void (^block)(id _Nullable weakSelf, id _Nullable arg),
+                   id target){
+    if (!block) {
+        [NSException raise:@"block can not be nil"
+                    format:@"%@ selectorBlock error", target];
+    }
+    NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
+    SEL sel = NSSelectorFromString(selName);
+    class_addMethod([target class],
+                    sel,
+                    (IMP)selectorImp,
+                    "v@:@");
+    objc_setAssociatedObject(target,
+                             sel,
+                             block,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+    return sel;
+}
+
+static void selectorImp(id self,
+                        SEL _cmd,
+                        id arg) {
+    callback block = objc_getAssociatedObject(self, _cmd);
+    __weak typeof(self) weakSelf = self;
+    if (block) {
+        block(weakSelf, arg);
+    }
 }
 
 @end

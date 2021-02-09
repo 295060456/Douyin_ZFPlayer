@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
 @interface UIButton (ImageTitleSpacing)
 
 /**
+ *  每次设置完新值都需要再重新走一遍，进行刷新
  *  设置button的titleLabel和imageView的布局样式，及间距
  *  这一句一定要放在有frame以后执行，否则界面错乱
  *  在设置完title以后写

@@ -31,6 +31,11 @@
 #else
 #import "SDWebImage.h"
 #endif
+/**
+ @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.
+ @param arg 事件默认传递的对象，比如`NSNotification`，`UIButton`。
+ */
+typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 
 @interface NSObject (Extras)
 ///震动特效反馈
@@ -44,10 +49,12 @@
 ///iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
 +(void)autoLockedScreen:(BOOL)lockSwitch;
 /// 打印请求体
-+(void)printRequestMessage:(NSURLSessionDataTask *)task;
++(void)printRequestMessage:(NSURLSessionDataTask *_Nullable)task;
 /// 保存图片
-+(void)savePic:(GKPhotoBrowser *)browser;
++(void)savePic:(GKPhotoBrowser *_Nullable)browser;
 /// 获取当前 UIViewController
-+(UIViewController *)getCurrentViewController;
++(UIViewController *_Nonnull)getCurrentViewController;
+/// 用block来代替selector
+SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 
 @end

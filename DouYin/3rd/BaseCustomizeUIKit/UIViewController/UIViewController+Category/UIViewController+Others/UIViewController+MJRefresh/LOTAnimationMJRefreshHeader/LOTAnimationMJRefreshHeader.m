@@ -106,10 +106,6 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
                                                @"JsonRes",
                                                nil,
                                                @"下拉刷新.json");
-//        NSString *filePaths = pathForBuddleIMG(nil,
-//                                               @"JsonRes",
-//                                               nil,
-//                                               @"加载动画.json");
         _animationView = [LOTAnimationView animationWithFilePath:filePaths];
         _animationView.loopAnimation = YES;
         _animationView.size = self.lOTAnimationViewSize;

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGPoint origin;
 @property(nonatomic,assign)CGFloat left;
 @property(nonatomic,assign)CGFloat right;
-@property(nonatomic)CGFloat top;
+@property(nonatomic,assign)CGFloat top;
 @property(nonatomic,assign)CGFloat bottom;
 
 @end

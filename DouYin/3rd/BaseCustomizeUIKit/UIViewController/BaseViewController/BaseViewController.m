@@ -21,11 +21,11 @@
 -(void)loadView{
     [super loadView];
     self.currentPage = 1;
+    self.view.backgroundColor = kWhiteColor;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = kWhiteColor;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 

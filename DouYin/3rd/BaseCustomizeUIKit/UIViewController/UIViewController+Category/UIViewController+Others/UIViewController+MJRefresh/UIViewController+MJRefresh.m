@@ -14,6 +14,49 @@ static char *UIViewController_MJRefresh_refreshConfigHeader = "UIViewController_
 
 static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_MJRefresh_refreshConfigFooter";
 @dynamic refreshConfigFooter;
+
+#pragma mark —— MJRefreshHeader
+static char *UIViewController_MJRefresh_lotAnimMJRefreshHeader = "UIViewController_MJRefresh_lotAnimMJRefreshHeader";
+@dynamic lotAnimMJRefreshHeader;
+
+static char *UIViewController_MJRefresh_mjRefreshNormalHeader = "UIViewController_MJRefresh_mjRefreshNormalHeader";
+@dynamic mjRefreshNormalHeader;
+
+static char *UIViewController_MJRefresh_mjRefreshStateHeader = "UIViewController_MJRefresh_mjRefreshStateHeader";
+@dynamic mjRefreshStateHeader;
+
+static char *UIViewController_MJRefresh_mjRefreshHeader = "UIViewController_MJRefresh_mjRefreshHeader";
+@dynamic mjRefreshHeader;
+
+static char *UIViewController_MJRefresh_mjRefreshGifHeader = "UIViewController_MJRefresh_mjRefreshGifHeader";
+@dynamic mjRefreshGifHeader;
+#pragma mark —— MJRefreshFooter
+static char *UIViewController_MJRefresh_mjRefreshAutoGifFooter = "UIViewController_MJRefresh_mjRefreshAutoGifFooter";
+@dynamic mjRefreshAutoGifFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshBackNormalFooter = "UIViewController_MJRefresh_mjRefreshBackNormalFooter";
+@dynamic mjRefreshBackNormalFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshAutoNormalFooter = "UIViewController_MJRefresh_mjRefreshAutoNormalFooter";
+@dynamic mjRefreshAutoNormalFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshAutoStateFooter = "UIViewController_MJRefresh_mjRefreshAutoStateFooter";
+@dynamic mjRefreshAutoStateFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshAutoFooter = "UIViewController_MJRefresh_mjRefreshAutoFooter";
+@dynamic mjRefreshAutoFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshBackGifFooter = "UIViewController_MJRefresh_mjRefreshBackGifFooter";
+@dynamic mjRefreshBackGifFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshBackStateFooter = "UIViewController_MJRefresh_mjRefreshBackStateFooter";
+@dynamic mjRefreshBackStateFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshBackFooter = "UIViewController_MJRefresh_mjRefreshBackFooter";
+@dynamic mjRefreshBackFooter;
+
+static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRefresh_mjRefreshFooter";
+@dynamic mjRefreshFooter;
 /*
  * 相关继承关系图谱 4个header + 9个Footer ;已经实现的👌
     MJRefreshGifHeader  👌 ->MJRefreshStateHeader->MJRefreshHeader->MJRefreshComponent->UIView
@@ -44,11 +87,6 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
 ///上拉加载更多 （子类要进行覆写）
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
-    // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        // 结束刷新
-//        [self.tableView.mj_footer endRefreshing];
-//    });
 }
 ///KVO 监听 MJRefresh + 震动特效反馈
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -112,8 +150,10 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
  MJRefreshStateNoMoreData   //   所有数据加载完毕，没有更多的数据了
  */
 #pragma mark —— MJRefreshHeader
--(LOTAnimationMJRefreshHeader *)lotAnimationMJRefreshHeader{
-    LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader;
+#pragma mark —— @property(nonatomic,strong)LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader;
+-(LOTAnimationMJRefreshHeader *)lotAnimMJRefreshHeader{
+    LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_lotAnimMJRefreshHeader);
+    NSLog(@"DDD = %@",lotAnimMJRefreshHeader);
     if (!lotAnimMJRefreshHeader) {
         @weakify(self)
         lotAnimMJRefreshHeader = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
@@ -141,6 +181,8 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
         }
         //文字
         {
+//            NSLog(@"%@",self.refreshConfigHeader.stateIdleTitle);
+            NSLog(@"%@",self.refreshConfigHeader);
             // 普通闲置状态
             [lotAnimMJRefreshHeader setTitle:self.refreshConfigHeader.stateIdleTitle
                                     forState:MJRefreshStateIdle];
@@ -171,41 +213,52 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_lotAnimMJRefreshHeader,
+                                 lotAnimMJRefreshHeader,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return lotAnimMJRefreshHeader;
 }
 
+-(void)setLotAnimMJRefreshHeader:(LOTAnimationMJRefreshHeader *)lotAnimMJRefreshHeader{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_lotAnimMJRefreshHeader,
+                             lotAnimMJRefreshHeader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshNormalHeader *mjRefreshNormalHeader;
 -(MJRefreshNormalHeader *)mjRefreshNormalHeader{
-    MJRefreshNormalHeader *mjRefreshNormalHeader;
-    if (!mjRefreshNormalHeader) {
+    MJRefreshNormalHeader *MjRefreshNormalHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshNormalHeader);
+    if (!MjRefreshNormalHeader) {
         @weakify(self)
-        mjRefreshNormalHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        MjRefreshNormalHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             @strongify(self)
             [self pullToRefresh];
         }];
         //文字
         {
             // 普通闲置状态
-            [mjRefreshNormalHeader setTitle:self.refreshConfigHeader.stateIdleTitle
+            [MjRefreshNormalHeader setTitle:self.refreshConfigHeader.stateIdleTitle
                                    forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshNormalHeader setTitle:self.refreshConfigHeader.pullingTitle
+            [MjRefreshNormalHeader setTitle:self.refreshConfigHeader.pullingTitle
                                    forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshNormalHeader setTitle:self.refreshConfigHeader.refreshingTitle
+            [MjRefreshNormalHeader setTitle:self.refreshConfigHeader.refreshingTitle
                                    forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshNormalHeader setTitle:self.refreshConfigHeader.willRefreshTitle
+            [MjRefreshNormalHeader setTitle:self.refreshConfigHeader.willRefreshTitle
                                    forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshNormalHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
+            [MjRefreshNormalHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
                                    forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshNormalHeader.stateLabel.font = self.refreshConfigHeader.font;
+            MjRefreshNormalHeader.stateLabel.font = self.refreshConfigHeader.font;
             // 设置颜色
-            mjRefreshNormalHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
+            MjRefreshNormalHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
             //震动特效反馈
             if (self.refreshConfigHeader.isShake) {
                 [self addObserver:self
@@ -214,41 +267,52 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshNormalHeader;
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshNormalHeader,
+                                 MjRefreshNormalHeader,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshNormalHeader;
 }
 
+-(void)setMjRefreshNormalHeader:(MJRefreshNormalHeader *)mjRefreshNormalHeader{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshNormalHeader,
+                             mjRefreshNormalHeader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshStateHeader *mjRefreshStateHeader;
 -(MJRefreshStateHeader *)mjRefreshStateHeader{
-    MJRefreshStateHeader *mjRefreshStateHeader;
-    if (!mjRefreshStateHeader) {
+    MJRefreshStateHeader *MjRefreshStateHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshStateHeader);
+    if (!MjRefreshStateHeader) {
         @weakify(self)
-        mjRefreshStateHeader = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+        MjRefreshStateHeader = [MJRefreshStateHeader headerWithRefreshingBlock:^{
             @strongify(self)
             [self pullToRefresh];
         }];
         //文字
         {
             // 普通闲置状态
-            [mjRefreshStateHeader setTitle:self.refreshConfigHeader.stateIdleTitle
+            [MjRefreshStateHeader setTitle:self.refreshConfigHeader.stateIdleTitle
                                    forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshStateHeader setTitle:self.refreshConfigHeader.pullingTitle
+            [MjRefreshStateHeader setTitle:self.refreshConfigHeader.pullingTitle
                                    forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshStateHeader setTitle:self.refreshConfigHeader.refreshingTitle
+            [MjRefreshStateHeader setTitle:self.refreshConfigHeader.refreshingTitle
                                    forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshStateHeader setTitle:self.refreshConfigHeader.willRefreshTitle
+            [MjRefreshStateHeader setTitle:self.refreshConfigHeader.willRefreshTitle
                                    forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshStateHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
+            [MjRefreshStateHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
                                    forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshStateHeader.stateLabel.font = self.refreshConfigHeader.font;
+            MjRefreshStateHeader.stateLabel.font = self.refreshConfigHeader.font;
             // 设置颜色
-            mjRefreshStateHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
+            MjRefreshStateHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
             //震动特效反馈
             if (self.refreshConfigHeader.isShake) {
                 [self addObserver:self
@@ -257,14 +321,26 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshStateHeader;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshStateHeader,
+                                 MjRefreshStateHeader,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshStateHeader;
 }
 
+-(void)setMjRefreshStateHeader:(MJRefreshStateHeader *)mjRefreshStateHeader{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshStateHeader,
+                             mjRefreshStateHeader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshHeader *mjRefreshHeader;
 -(MJRefreshHeader *)mjRefreshHeader{
-    MJRefreshHeader *mjRefreshHeader;
-    if (!mjRefreshHeader) {
+    MJRefreshHeader *MjRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshHeader);
+    if (!MjRefreshHeader) {
         @weakify(self)
-        mjRefreshHeader = [MJRefreshHeader headerWithRefreshingBlock:^{
+        MjRefreshHeader = [MJRefreshHeader headerWithRefreshingBlock:^{
             @strongify(self)
             [self pullToRefresh];
         }];
@@ -278,60 +354,72 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshHeader;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshHeader,
+                                 MjRefreshHeader,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshHeader;
 }
 
+-(void)setMjRefreshHeader:(MJRefreshHeader *)mjRefreshHeader{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshHeader,
+                             mjRefreshHeader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshGifHeader *mjRefreshGifHeader;
 -(MJRefreshGifHeader *)mjRefreshGifHeader{
-    MJRefreshGifHeader *mjRefreshGifHeader;
-    if (!mjRefreshGifHeader) {
+    MJRefreshGifHeader *MjRefreshGifHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshGifHeader);
+    if (!MjRefreshGifHeader) {
         @weakify(self)
-        mjRefreshGifHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        MjRefreshGifHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
             @strongify(self)
             [self pullToRefresh];
         }];
         //图片
         {
             // 普通闲置状态
-            [mjRefreshGifHeader setImages:self.refreshConfigHeader.stateIdlePicsMutArr
+            [MjRefreshGifHeader setImages:self.refreshConfigHeader.stateIdlePicsMutArr
                                  forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshGifHeader setImages:self.refreshConfigHeader.pullingPicsMutArr
+            [MjRefreshGifHeader setImages:self.refreshConfigHeader.pullingPicsMutArr
                                  forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshGifHeader setImages:self.refreshConfigHeader.refreshingPicsMutArr
+            [MjRefreshGifHeader setImages:self.refreshConfigHeader.refreshingPicsMutArr
                                  duration:self.refreshConfigHeader.refreshingDuration
                                  forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshGifHeader setImages:self.refreshConfigHeader.willRefreshPicsMutArr
+            [MjRefreshGifHeader setImages:self.refreshConfigHeader.willRefreshPicsMutArr
                                  forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshGifHeader setImages:self.refreshConfigHeader.noMoreDataPicsMutArr
+            [MjRefreshGifHeader setImages:self.refreshConfigHeader.noMoreDataPicsMutArr
                                  forState:MJRefreshStateNoMoreData];
         }
         //文字
         {
             // 普通闲置状态
-            [mjRefreshGifHeader setTitle:self.refreshConfigHeader.stateIdleTitle
+            [MjRefreshGifHeader setTitle:self.refreshConfigHeader.stateIdleTitle
                                 forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshGifHeader setTitle:self.refreshConfigHeader.pullingTitle
+            [MjRefreshGifHeader setTitle:self.refreshConfigHeader.pullingTitle
                                 forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshGifHeader setTitle:self.refreshConfigHeader.refreshingTitle
+            [MjRefreshGifHeader setTitle:self.refreshConfigHeader.refreshingTitle
                                 forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshGifHeader setTitle:self.refreshConfigHeader.willRefreshTitle
+            [MjRefreshGifHeader setTitle:self.refreshConfigHeader.willRefreshTitle
                                 forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshGifHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
+            [MjRefreshGifHeader setTitle:self.refreshConfigHeader.noMoreDataTitle
                                 forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshGifHeader.stateLabel.font = self.refreshConfigHeader.font;
+            MjRefreshGifHeader.stateLabel.font = self.refreshConfigHeader.font;
             // 设置颜色
-            mjRefreshGifHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
+            MjRefreshGifHeader.stateLabel.textColor = self.refreshConfigHeader.textColor;
             //震动特效反馈
             if (self.refreshConfigHeader.isShake) {
                 [self addObserver:self
@@ -340,60 +428,73 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshGifHeader;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshGifHeader,
+                                 MjRefreshGifHeader,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshGifHeader;
+}
+
+-(void)setMjRefreshGifHeader:(MJRefreshGifHeader *)mjRefreshGifHeader{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshGifHeader,
+                             mjRefreshGifHeader,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— MJRefreshFooter
+#pragma mark —— @property(nonatomic,strong)MJRefreshAutoGifFooter *mjRefreshAutoGifFooter;
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter{
-    MJRefreshAutoGifFooter *mjRefreshAutoGifFooter;
-    if (!mjRefreshAutoGifFooter) {
+    MJRefreshAutoGifFooter *MjRefreshAutoGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoGifFooter);
+    if (!MjRefreshAutoGifFooter) {
         @weakify(self)
-        mjRefreshAutoGifFooter = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
+        MjRefreshAutoGifFooter = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
         // 图片
         {
             // 普通闲置状态
-            [mjRefreshAutoGifFooter setImages:self.refreshConfigFooter.stateIdlePicsMutArr
+            [MjRefreshAutoGifFooter setImages:self.refreshConfigFooter.stateIdlePicsMutArr
                                      forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshAutoGifFooter setImages:self.refreshConfigFooter.pullingPicsMutArr
+            [MjRefreshAutoGifFooter setImages:self.refreshConfigFooter.pullingPicsMutArr
                                      forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshAutoGifFooter setImages:self.refreshConfigFooter.refreshingPicsMutArr
+            [MjRefreshAutoGifFooter setImages:self.refreshConfigFooter.refreshingPicsMutArr
                                      duration:self.refreshConfigFooter.refreshingDuration
                                      forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshAutoGifFooter setImages:self.refreshConfigFooter.willRefreshPicsMutArr
+            [MjRefreshAutoGifFooter setImages:self.refreshConfigFooter.willRefreshPicsMutArr
                                      forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshAutoGifFooter setImages:self.refreshConfigFooter.noMoreDataPicsMutArr
+            [MjRefreshAutoGifFooter setImages:self.refreshConfigFooter.noMoreDataPicsMutArr
                                      forState:MJRefreshStateNoMoreData];
         }
         // 文字
         {
             // 普通闲置状态
-            [mjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                     forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.pullingTitle
                                     forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                     forState:MJRefreshStateRefreshing];
             /** 即将刷新的状态 */
-            [mjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                     forState:MJRefreshStateWillRefresh];
             /** 所有数据加载完毕，没有更多的数据了 */
-            [mjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshAutoGifFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                     forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshAutoGifFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshAutoGifFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshAutoGifFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshAutoGifFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -402,41 +503,52 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshAutoGifFooter;
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshAutoGifFooter,
+                                 MjRefreshAutoGifFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshAutoGifFooter;
 }
 
+-(void)setMjRefreshAutoGifFooter:(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshAutoGifFooter,
+                             mjRefreshAutoGifFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshBackNormalFooter *mjRefreshBackNormalFooter;
 -(MJRefreshBackNormalFooter *)mjRefreshBackNormalFooter{
-    MJRefreshBackNormalFooter *mjRefreshBackNormalFooter;
-    if (!mjRefreshBackNormalFooter) {
+    MJRefreshBackNormalFooter *MjRefreshBackNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackNormalFooter);
+    if (!MjRefreshBackNormalFooter) {
         @weakify(self)
-        mjRefreshBackNormalFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        MjRefreshBackNormalFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字 (此模式下只有文字而没有图片)
         {
             // 普通闲置状态
-            [mjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                        forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.pullingTitle
                                        forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                        forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                        forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshBackNormalFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                        forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshBackNormalFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshBackNormalFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshBackNormalFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshBackNormalFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -445,14 +557,26 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshBackNormalFooter;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshBackNormalFooter,
+                                 MjRefreshBackNormalFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshBackNormalFooter;
 }
 
+-(void)setMjRefreshBackNormalFooter:(MJRefreshBackNormalFooter *)mjRefreshBackNormalFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshBackNormalFooter,
+                             mjRefreshBackNormalFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshAutoNormalFooter *mjRefreshAutoNormalFooter;
 -(MJRefreshAutoNormalFooter *)mjRefreshAutoNormalFooter{
-    MJRefreshAutoNormalFooter *mjRefreshAutoNormalFooter;
-    if (!mjRefreshAutoNormalFooter) {
+    MJRefreshAutoNormalFooter *MjRefreshAutoNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoNormalFooter);
+    if (!MjRefreshAutoNormalFooter) {
         @weakify(self)
-        mjRefreshAutoNormalFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        MjRefreshAutoNormalFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
@@ -460,27 +584,27 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
         // 文字
         {
             // 普通闲置状态
-            [mjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                        forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.pullingTitle
                                        forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                        forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                        forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshAutoNormalFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                        forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshAutoNormalFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshAutoNormalFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshAutoNormalFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshAutoNormalFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -489,41 +613,52 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshAutoNormalFooter;
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshAutoNormalFooter,
+                                 MjRefreshAutoNormalFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshAutoNormalFooter;
 }
 
+-(void)setMjRefreshAutoNormalFooter:(MJRefreshAutoNormalFooter *)mjRefreshAutoNormalFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshAutoNormalFooter,
+                             mjRefreshAutoNormalFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshAutoStateFooter *mjRefreshAutoStateFooter;
 -(MJRefreshAutoStateFooter *)mjRefreshAutoStateFooter{
-    MJRefreshAutoStateFooter *mjRefreshAutoStateFooter;
-    if (!mjRefreshAutoStateFooter) {
+    MJRefreshAutoStateFooter *MjRefreshAutoStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoStateFooter);
+    if (!MjRefreshAutoStateFooter) {
         @weakify(self)
-        mjRefreshAutoStateFooter = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
+        MjRefreshAutoStateFooter = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字
         {
             // 普通闲置状态
-            [mjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                       forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.pullingTitle
                                       forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                       forState:MJRefreshStateRefreshing];
             /** 即将刷新的状态 */
-            [mjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                       forState:MJRefreshStateWillRefresh];
             /** 所有数据加载完毕，没有更多的数据了 */
-            [mjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshAutoStateFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                       forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshAutoStateFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshAutoStateFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshAutoStateFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshAutoStateFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -532,71 +667,94 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshAutoStateFooter;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshAutoStateFooter,
+                                 MjRefreshAutoStateFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshAutoStateFooter;
 }
 
+-(void)setMjRefreshAutoStateFooter:(MJRefreshAutoStateFooter *)mjRefreshAutoStateFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshAutoStateFooter,
+                             mjRefreshAutoStateFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshAutoFooter *mjRefreshAutoFooter;
 -(MJRefreshAutoFooter *)mjRefreshAutoFooter{
-    MJRefreshAutoFooter *mjRefreshAutoFooter;
-    if (!mjRefreshAutoFooter) {
+    MJRefreshAutoFooter *MjRefreshAutoFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoFooter);
+    if (!MjRefreshAutoFooter) {
         @weakify(self)
-        mjRefreshAutoFooter = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        MjRefreshAutoFooter = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
-    }return mjRefreshAutoFooter;
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshAutoFooter,
+                                 MjRefreshAutoFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshAutoFooter;
 }
 
+-(void)setMjRefreshAutoFooter:(MJRefreshAutoFooter *)mjRefreshAutoFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshAutoFooter,
+                             mjRefreshAutoFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshBackGifFooter *mjRefreshBackGifFooter;
 -(MJRefreshBackGifFooter *)mjRefreshBackGifFooter{
-    MJRefreshBackGifFooter *mjRefreshBackGifFooter;
-    if (!mjRefreshBackGifFooter) {
+    MJRefreshBackGifFooter *MjRefreshBackGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackGifFooter);
+    if (!MjRefreshBackGifFooter) {
         @weakify(self)
-        mjRefreshBackGifFooter = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
+        MjRefreshBackGifFooter = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
         // 图片
         {
             // 普通闲置状态
-            [mjRefreshBackGifFooter setImages:self.refreshConfigFooter.stateIdlePicsMutArr
+            [MjRefreshBackGifFooter setImages:self.refreshConfigFooter.stateIdlePicsMutArr
                                      forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshBackGifFooter setImages:self.refreshConfigFooter.pullingPicsMutArr
+            [MjRefreshBackGifFooter setImages:self.refreshConfigFooter.pullingPicsMutArr
                                      forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshBackGifFooter setImages:self.refreshConfigFooter.refreshingPicsMutArr
+            [MjRefreshBackGifFooter setImages:self.refreshConfigFooter.refreshingPicsMutArr
                                      duration:self.refreshConfigFooter.refreshingDuration
                                      forState:MJRefreshStateRefreshing];
             // 即将刷新的状态
-            [mjRefreshBackGifFooter setImages:self.refreshConfigFooter.willRefreshPicsMutArr
+            [MjRefreshBackGifFooter setImages:self.refreshConfigFooter.willRefreshPicsMutArr
                                      forState:MJRefreshStateWillRefresh];
             // 所有数据加载完毕，没有更多的数据了
-            [mjRefreshBackGifFooter setImages:self.refreshConfigFooter.noMoreDataPicsMutArr
+            [MjRefreshBackGifFooter setImages:self.refreshConfigFooter.noMoreDataPicsMutArr
                                      forState:MJRefreshStateNoMoreData];
         }
         // 文字
         {
             // 普通闲置状态
-            [mjRefreshBackGifFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshBackGifFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                     forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshBackGifFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshBackGifFooter setTitle:self.refreshConfigFooter.pullingTitle
                                     forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshBackGifFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshBackGifFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                     forState:MJRefreshStateRefreshing];
             /** 即将刷新的状态 */
-            [mjRefreshBackGifFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshBackGifFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                     forState:MJRefreshStateWillRefresh];
             /** 所有数据加载完毕，没有更多的数据了 */
-            [mjRefreshBackGifFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshBackGifFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                     forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshBackGifFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshBackGifFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshBackGifFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshBackGifFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -605,41 +763,53 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshBackGifFooter;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshBackGifFooter,
+                                 MjRefreshBackGifFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshBackGifFooter;
 }
 
+-(void)setMjRefreshBackGifFooter:(MJRefreshBackGifFooter *)mjRefreshBackGifFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshBackGifFooter,
+                             mjRefreshBackGifFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshBackStateFooter *mjRefreshBackStateFooter;
 -(MJRefreshBackStateFooter *)mjRefreshBackStateFooter{
-    MJRefreshBackStateFooter *mjRefreshBackStateFooter;
-    if (!mjRefreshBackStateFooter) {
+    MJRefreshBackStateFooter *MjRefreshBackStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackStateFooter);
+    if (!MjRefreshBackStateFooter) {
         @weakify(self)
-        mjRefreshBackStateFooter = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
+        MjRefreshBackStateFooter = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字
         {
             // 普通闲置状态
-            [mjRefreshBackStateFooter setTitle:self.refreshConfigFooter.stateIdleTitle
+            [MjRefreshBackStateFooter setTitle:self.refreshConfigFooter.stateIdleTitle
                                     forState:MJRefreshStateIdle];
             // 松开就可以进行刷新的状态
-            [mjRefreshBackStateFooter setTitle:self.refreshConfigFooter.pullingTitle
+            [MjRefreshBackStateFooter setTitle:self.refreshConfigFooter.pullingTitle
                                     forState:MJRefreshStatePulling];
             // 正在刷新中的状态
-            [mjRefreshBackStateFooter setTitle:self.refreshConfigFooter.refreshingTitle
+            [MjRefreshBackStateFooter setTitle:self.refreshConfigFooter.refreshingTitle
                                     forState:MJRefreshStateRefreshing];
             /** 即将刷新的状态 */
-            [mjRefreshBackStateFooter setTitle:self.refreshConfigFooter.willRefreshTitle
+            [MjRefreshBackStateFooter setTitle:self.refreshConfigFooter.willRefreshTitle
                                     forState:MJRefreshStateWillRefresh];
             /** 所有数据加载完毕，没有更多的数据了 */
-            [mjRefreshBackStateFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
+            [MjRefreshBackStateFooter setTitle:self.refreshConfigFooter.noMoreDataTitle
                                     forState:MJRefreshStateNoMoreData];
         }
         //其他
         {
             // 设置字体
-            mjRefreshBackStateFooter.stateLabel.font = self.refreshConfigFooter.font;
+            MjRefreshBackStateFooter.stateLabel.font = self.refreshConfigFooter.font;
             // 设置颜色
-            mjRefreshBackStateFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
+            MjRefreshBackStateFooter.stateLabel.textColor = self.refreshConfigFooter.textColor;
             if (self.refreshConfigFooter.isShake) {
                 //震动特效反馈
                 [self addObserver:self
@@ -648,14 +818,25 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshBackStateFooter;
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshBackStateFooter,
+                                 MjRefreshBackStateFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshBackStateFooter;
 }
 
+-(void)setMjRefreshBackStateFooter:(MJRefreshBackStateFooter *)mjRefreshBackStateFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshBackStateFooter,
+                             mjRefreshBackStateFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshBackFooter *mjRefreshBackFooter;
 -(MJRefreshBackFooter *)mjRefreshBackFooter{
-    MJRefreshBackFooter *mjRefreshBackFooter;
-    if (!mjRefreshBackFooter) {
+    MJRefreshBackFooter *MjRefreshBackFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackFooter);
+    if (!MjRefreshBackFooter) {
         @weakify(self)
-        mjRefreshBackFooter = [MJRefreshBackFooter footerWithRefreshingBlock:^{
+        MjRefreshBackFooter = [MJRefreshBackFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
@@ -669,14 +850,26 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshBackFooter;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshBackFooter,
+                                 MjRefreshBackFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshBackFooter;
 }
 
+-(void)setMjRefreshBackFooter:(MJRefreshBackFooter *)mjRefreshBackFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshBackFooter,
+                             mjRefreshBackFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)MJRefreshFooter *mjRefreshFooter;
 -(MJRefreshFooter *)mjRefreshFooter{
-    MJRefreshFooter *mjRefreshFooter;
-    if (!mjRefreshFooter) {
+    MJRefreshFooter *MjRefreshFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshFooter);
+    if (!MjRefreshFooter) {
         @weakify(self)
-        mjRefreshFooter = [MJRefreshFooter footerWithRefreshingBlock:^{
+        MjRefreshFooter = [MJRefreshFooter footerWithRefreshingBlock:^{
             @strongify(self)
             [self loadMoreRefresh];
         }];
@@ -690,7 +883,19 @@ static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_
                           context:nil];
             }
         }
-    }return mjRefreshFooter;
+        
+        objc_setAssociatedObject(self,
+                                 UIViewController_MJRefresh_mjRefreshFooter,
+                                 MjRefreshFooter,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return MjRefreshFooter;
+}
+
+-(void)setMjRefreshFooter:(MJRefreshFooter *)mjRefreshFooter{
+    objc_setAssociatedObject(self,
+                             UIViewController_MJRefresh_mjRefreshFooter,
+                             mjRefreshFooter,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

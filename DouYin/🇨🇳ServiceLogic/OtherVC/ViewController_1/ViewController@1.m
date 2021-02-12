@@ -166,7 +166,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{}
 
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
-    return self.dataMutArr.count;
+    if (self.dataMutArr.count) {
+        [self.tableView ly_hideEmptyView];
+    }else{
+        [self.tableView ly_showEmptyView];
+    }return self.dataMutArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -236,21 +240,39 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         
-        _tableView.mj_header = self.lotAnimationMJRefreshHeader;//self.mjRefreshNormalHeader;
-        _tableView.mj_header.automaticallyChangeAlpha = YES;
-        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-        _tableView.mj_footer.backgroundColor = kRedColor;
-        
-        _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
-                                                          titleStr:@"暂无数据"
-                                                         detailStr:@"骚等片刻"];
-        
-        if (self.dataMutArr.count) {
-            [_tableView ly_hideEmptyView];
-        }else{
-            [_tableView ly_showEmptyView];
+        {
+            // 创建自定义值，用model管理
+            MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
+            refreshConfigHeader.stateIdleTitle = @"下拉刷新数据";
+            refreshConfigHeader.pullingTitle = @"下拉刷新数据";
+            refreshConfigHeader.refreshingTitle = @"正在刷新数据";
+            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
+            refreshConfigHeader.noMoreDataTitle = @"下拉刷新数据";
+            
+            MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
+            refreshConfigFooter.stateIdleTitle = @"";
+            refreshConfigFooter.pullingTitle = @"";
+            refreshConfigFooter.refreshingTitle = @"";
+            refreshConfigFooter.willRefreshTitle = @"";
+            refreshConfigFooter.noMoreDataTitle = @"";
+            
+            // 赋值
+            self.lotAnimMJRefreshHeader.refreshConfigModel = refreshConfigHeader;
+            self.refreshConfigFooter = refreshConfigFooter;//数据赋值
+            // 用值
+            _tableView.mj_header = self.lotAnimMJRefreshHeader;
+            _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+            _tableView.mj_footer.backgroundColor = kRedColor;
+            self.view.mjRefreshTargetView = _tableView;
         }
-             
+        
+        {
+            _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
+                                                              titleStr:@"暂无数据"
+                                                             detailStr:@"骚等片刻"];
+            
+        }
+        
         if(@available(iOS 11.0, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }else{

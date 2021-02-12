@@ -14,10 +14,10 @@
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// https://github.com/CoderMJLee/MJRefresh/issues/1495
 @interface UIView (MJRefresh)
 /// MJRefresh 作用于targetView
-@property(nonatomic,weak)UIScrollView *targetView;
+@property(nonatomic,weak)UIScrollView *mjRefreshTargetView;
 
 @end
 

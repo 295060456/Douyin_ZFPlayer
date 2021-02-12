@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_END
  *
      _collectionView.mj_header = self.mjRefreshGifHeader;
      _collectionView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
-     self.view.targetView = _collectionView;
+     self.view.mjRefreshTargetView = _collectionView;
      _collectionView.mj_footer = self.mjRefreshAutoNormalFooter;
      _collectionView.mj_footer.hidden = YES;
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_END
      _tableView.mj_header = self.mjRefreshGifHeader;
      _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
      _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-     self.view.targetView = _tableView;
+     self.view.mjRefreshTargetView = _tableView;
      [self.view addSubview:_tableView];
      [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
          make.top.equalTo(self.gk_navigationBar.mas_bottom);

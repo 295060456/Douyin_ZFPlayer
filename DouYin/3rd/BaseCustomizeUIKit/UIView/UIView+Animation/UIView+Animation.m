@@ -167,6 +167,7 @@ void shakerAnimation (UIView *view,
     hover.autoreverses = YES; // Animate back to normal afterwards
     hover.duration = 0.2; // The duration for one part of the animation (0.2 up and 0.2 down)
     hover.repeatCount = INFINITY; // The number of times the animation should repeat
+    hover.removedOnCompletion = NO;//锁屏进入继续动画
     [view.layer addAnimation:hover forKey:@"myHoverAnimation"];
 }
 #pragma mark —— 点击放大再缩小

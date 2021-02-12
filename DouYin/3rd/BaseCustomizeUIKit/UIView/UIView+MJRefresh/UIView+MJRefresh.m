@@ -9,18 +9,18 @@
 
 @implementation UIView (MJRefresh)
 
-static char *UIView_MJRefresh_targetView = "UIView_MJRefresh_targetView";
-@dynamic targetView;
+static char *UIView_MJRefresh_mjRefreshTargetView = "UIView_MJRefresh_mjRefreshTargetView";
+@dynamic mjRefreshTargetView;
 
-#pragma mark —— @property(nonatomic,weak)UIScrollView *targetView; MJRefresh 作用于targetView
--(UIScrollView *)targetView{
-    return objc_getAssociatedObject(self, UIView_MJRefresh_targetView);
+#pragma mark —— @property(nonatomic,weak)UIScrollView *mjRefreshTargetView; MJRefresh 作用于targetView
+-(UIScrollView *)mjRefreshTargetView{
+    return objc_getAssociatedObject(self, UIView_MJRefresh_mjRefreshTargetView);
 }
 
--(void)setTargetView:(UIScrollView *)targetView{
+-(void)setMjRefreshTargetView:(UIScrollView *)mjRefreshTargetView{
     objc_setAssociatedObject(self,
-                             UIView_MJRefresh_targetView,
-                             targetView,
+                             UIView_MJRefresh_mjRefreshTargetView,
+                             mjRefreshTargetView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

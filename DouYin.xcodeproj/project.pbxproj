@@ -126,6 +126,7 @@
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
 		C562D9EE25C7C2D1004D1AEA /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562D9EC25C7C2D1004D1AEA /* UIView+ViewController.m */; };
 		C565C9A625A4377A00848134 /* TwoVerticalArrangementLabsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */; };
+		C5672E8B25D777FF008ABAF9 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5672E8925D777FF008ABAF9 /* BaseView.m */; };
 		C5676162259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */; };
 		C5676163259F1272006905A9 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5676160259F1272006905A9 /* BaseCollectionViewCell.m */; };
 		C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F42578936C00D054D0 /* ZBRequestManager.m */; };
@@ -582,6 +583,8 @@
 		C565C9A325A4377A00848134 /* TwoVerticalArrangementLabsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoVerticalArrangementLabsView.m; sourceTree = "<group>"; };
 		C565C9A425A4377A00848134 /* TwoVerticalArrangementLabsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoVerticalArrangementLabsView.h; sourceTree = "<group>"; };
 		C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TwoVerticalArrangementLabsView.png; sourceTree = "<group>"; };
+		C5672E8925D777FF008ABAF9 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		C5672E8A25D777FF008ABAF9 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+ShakeAnimation.h"; sourceTree = "<group>"; };
 		C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+ShakeAnimation.m"; sourceTree = "<group>"; };
 		C5676160259F1272006905A9 /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewCell.m; sourceTree = "<group>"; };
@@ -1738,20 +1741,8 @@
 		C54BB3252518D391001591C2 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				C562D9EB25C7C2BC004D1AEA /* UIView+ViewController */,
-				C572940C25BB09E000726419 /* UIView+BackgroundImage */,
-				C595BAE125864073002A4531 /* UIView+Animation */,
-				C5460D21258C8DFD0008928C /* UIView+AOP */,
-				C595BAE325864083002A4531 /* UIView+Chain */,
-				C546FA07258B5CDA0008928C /* UIView+EmptyData */,
-				C595BAE22586407C002A4531 /* UIView+Extras */,
-				C51573F025A34FFF0074D945 /* UIView+Gesture */,
-				C595BAE42586408E002A4531 /* UIView+Gradient */,
-				C5529DD42589CDBD00A89501 /* UIView+JHGestureBlock */,
-				C595BAE62586409F002A4531 /* UIView+Measure */,
-				C55FE6C625B4229500D8C30D /* UIView+MJRefresh */,
-				C595BAE7258640A7002A4531 /* UIView+SuspendView */,
-				C595BAE525864095002A4531 /* UIView+ZFPlayer */,
+				C5672E8825D777F5008ABAF9 /* BaseView */,
+				C5672E8125D777E4008ABAF9 /* UIView+Category */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -2234,6 +2225,36 @@
 				C565C9A525A4377A00848134 /* TwoVerticalArrangementLabsView.png */,
 			);
 			path = TwoVerticalArrangementLabsView;
+			sourceTree = "<group>";
+		};
+		C5672E8125D777E4008ABAF9 /* UIView+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C562D9EB25C7C2BC004D1AEA /* UIView+ViewController */,
+				C572940C25BB09E000726419 /* UIView+BackgroundImage */,
+				C595BAE125864073002A4531 /* UIView+Animation */,
+				C5460D21258C8DFD0008928C /* UIView+AOP */,
+				C595BAE325864083002A4531 /* UIView+Chain */,
+				C546FA07258B5CDA0008928C /* UIView+EmptyData */,
+				C595BAE22586407C002A4531 /* UIView+Extras */,
+				C51573F025A34FFF0074D945 /* UIView+Gesture */,
+				C595BAE42586408E002A4531 /* UIView+Gradient */,
+				C5529DD42589CDBD00A89501 /* UIView+JHGestureBlock */,
+				C595BAE62586409F002A4531 /* UIView+Measure */,
+				C55FE6C625B4229500D8C30D /* UIView+MJRefresh */,
+				C595BAE7258640A7002A4531 /* UIView+SuspendView */,
+				C595BAE525864095002A4531 /* UIView+ZFPlayer */,
+			);
+			path = "UIView+Category";
+			sourceTree = "<group>";
+		};
+		C5672E8825D777F5008ABAF9 /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				C5672E8A25D777FF008ABAF9 /* BaseView.h */,
+				C5672E8925D777FF008ABAF9 /* BaseView.m */,
+			);
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 		C56D866325C821C7001960CD /* UIColor+Gradient */ = {
@@ -3647,6 +3668,7 @@
 				C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */,
 				C595D164258713F1002A4531 /* SuspendBtn.m in Sources */,
 				C54AEBBD25871C08001A4630 /* JobsBitsMonitorCore.m in Sources */,
+				C5672E8B25D777FF008ABAF9 /* BaseView.m in Sources */,
 				C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
 				C5D4F12125824ADA00C165EA /* NetworkingAPI+VideoApi.m in Sources */,

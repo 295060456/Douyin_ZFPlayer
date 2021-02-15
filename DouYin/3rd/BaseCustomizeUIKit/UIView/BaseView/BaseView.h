@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)richElementsInViewWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据定高】
 +(CGFloat)viewHeightWithModel:(id _Nullable)model;
+//具体由子类进行复写【数据尺寸】
++(CGSize)viewSizeWithModel:(id _Nullable)model;
 
 @end
 

@@ -32,7 +32,12 @@
 //具体由子类进行复写【数据定UI】
 -(void)richElementsInViewWithModel:(id _Nullable)model{}
 //具体由子类进行复写【数据定高】
-+(CGFloat)viewHeightWithModel:(id _Nullable)model{}
-
++(CGFloat)viewHeightWithModel:(id _Nullable)model{
+    return 0;
+}
+//具体由子类进行复写【数据尺寸】
++(CGSize)viewSizeWithModel:(id _Nullable)model{
+    return CGSizeZero;
+}
 
 @end

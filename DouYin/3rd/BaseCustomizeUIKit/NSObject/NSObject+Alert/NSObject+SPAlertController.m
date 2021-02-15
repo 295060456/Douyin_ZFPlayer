@@ -37,7 +37,7 @@
                                   animationType:(SPAlertAnimationType)animationType
                             alertActionTitleArr:(NSArray <NSString *>*)alertActionTitleArr
                             alertActionStyleArr:(NSArray <NSNumber *>*)alertActionStyleArr//SPAlertActionStyle
-                                 alertBtnAction:(NSArray <NSString *>*)alertBtnActionArr
+                              alertBtnActionArr:(NSArray <NSString *>*)alertBtnActionArr
                                        targetVC:(UIViewController *)targetVC
                                     funcInWhere:(nullable id)funcInWhere
                                        animated:(BOOL)animated
@@ -101,17 +101,6 @@
                                                                  preferredStyle:preferredStyle
                                                                   animationType:animationType];
         }break;
-        case NSObject_SPAlertControllerInitType_6:{
-            // 示例29:当文字和按钮同时过多时，文字占据更多位置
-            // 示例30:含有文本输入框，且文字过多,默认会滑动到第一个文本输入框的位置
-            // 示例31:action上的文字过长（垂直）
-            // 示例32:action上的文字过长（水平）
-            // 示例33:背景外观样式
-            vc = [SPAlertController alertControllerWithTitle:title
-                                                     message:message
-                                              preferredStyle:preferredStyle
-                                               animationType:animationType];
-        }break;
         default:
             return nil;
             break;
@@ -130,8 +119,11 @@
             if (!funcInWhere) {
                 funcInWhere = targetVC;
             }
-            SuppressWarcPerformSelectorLeaksWarning([targetVC performSelector:NSSelectorFromString((NSString *)alertBtnActionArr[i])
-                                                                   withObject:Nil]);
+
+            SuppressWarcPerformSelectorLeaksWarning([funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
+                                                                                                                         ReplaceStr:@"defaultFunc"])
+                                                                      withObject:Nil]);
+            
         }];
         [vc addAction:action];
         [mutArr addObject:action];
@@ -147,6 +139,8 @@
     return vc;
 }
 
-
+-(void)defaultFunc{
+    NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+}
 
 @end

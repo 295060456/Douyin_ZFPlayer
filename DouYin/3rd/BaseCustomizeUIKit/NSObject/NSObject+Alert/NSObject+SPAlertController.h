@@ -22,7 +22,6 @@ typedef enum : NSUInteger {
     NSObject_SPAlertControllerInitType_3,//alertControllerWithCustomAlertView/preferredStyle/animationType
     NSObject_SPAlertControllerInitType_4,//alertControllerWithCustomHeaderView/preferredStyle/animationType
     NSObject_SPAlertControllerInitType_5,//alertControllerWithCustomActionSequenceView/title/message/preferredStyle/animationType
-    NSObject_SPAlertControllerInitType_6,//alertControllerWithTitle/message/preferredStyle/animationType
 } NSObject_SPAlertControllerInitType;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -56,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
                                   animationType:(SPAlertAnimationType)animationType
                             alertActionTitleArr:(NSArray <NSString *>*)alertActionTitleArr
                             alertActionStyleArr:(NSArray <NSNumber *>*)alertActionStyleArr//SPAlertActionStyle
-                                 alertBtnAction:(NSArray <NSString *>*)alertBtnActionArr
+                              alertBtnActionArr:(NSArray <NSString *>*)alertBtnActionArr
                                        targetVC:(UIViewController *)targetVC
                                     funcInWhere:(nullable id)funcInWhere
                                        animated:(BOOL)animated
@@ -67,4 +66,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
+/**
+ 
+ [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_2
+                               title:@"提示"
+                             message:@"审核通过后可查看，是否删除"
+                     customAlertView:nil
+                    customHeaderView:nil
+            customActionSequenceView:nil
+                      preferredStyle:SPAlertControllerStyleAlert
+                       animationType:SPAlertAnimationTypeDefault
+                 alertActionTitleArr:@[@"取消",@"删除"]
+                 alertActionStyleArr:@[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)]
+                   alertBtnActionArr:@[@"",@""]
+                            targetVC:self
+                         funcInWhere:self
+                            animated:YES
+                        alertVCBlock:^(SPAlertController *data,
+                                       NSMutableArray <SPAlertAction *>*data2) {
+     
+     SPAlertAction *action1 = (SPAlertAction *)data2[0];
+     SPAlertAction *action2 = (SPAlertAction *)data2[1];
+     
+     action1.titleColor = RGBSAMECOLOR(75);
+     action1.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
 
+     action2.titleColor = RGBSAMECOLOR(75);
+     action2.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+     
+ } completionBlock:nil];
+
+ 
+ */

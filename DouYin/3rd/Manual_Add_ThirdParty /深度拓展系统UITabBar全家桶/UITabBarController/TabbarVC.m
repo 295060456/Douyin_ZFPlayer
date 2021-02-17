@@ -34,12 +34,11 @@ UIGestureRecognizerDelegate
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(instancetype)init{
-    if (self = [super init]) {
-        self.delegate = self;
-        tabBarVC = self;
-        self.isOpenScrollTabbar = YES;
-    }return self;
+-(void)loadView{
+    [super loadView];
+    self.delegate = self;
+    tabBarVC = self;
+    self.isOpenScrollTabbar = YES;
 }
 
 - (void)viewDidLoad {

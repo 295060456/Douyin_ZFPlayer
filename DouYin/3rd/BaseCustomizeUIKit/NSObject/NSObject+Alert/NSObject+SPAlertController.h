@@ -98,3 +98,123 @@ NS_ASSUME_NONNULL_END
 
  
  */
+
+/**
+ 
+ {
+     
+     NSMutableArray *tempDataMutArr = NSMutableArray.array;
+     RichLabelDataStringsModel *title_1_Model = RichLabelDataStringsModel.new;
+     RichLabelDataStringsModel *title_2_Model = RichLabelDataStringsModel.new;
+     RichLabelDataStringsModel *title_3_Model = RichLabelDataStringsModel.new;
+     RichLabelDataStringsModel *title_4_Model = RichLabelDataStringsModel.new;
+     RichLabelDataStringsModel *title_5_Model = RichLabelDataStringsModel.new;
+     {
+         title_1_Model.dataString = @"您当前的金币数为:";
+         
+         RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+         richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+         richLabelFontModel.range = NSMakeRange(0, title_1_Model.dataString.length);
+         
+         RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.range = NSMakeRange(0, title_1_Model.dataString.length);
+         
+         title_1_Model.richLabelFontModel = richLabelFontModel;
+         title_1_Model.richLabelTextCorModel = richLabelTextCorModel;
+     }
+     
+     {
+         title_2_Model.dataString = myCoinTipsModel.value.stringValue;
+         
+         RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+         richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+         richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length, title_2_Model.dataString.length);
+         
+         RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+         richLabelTextCorModel.cor = RGBCOLOR(255, 163, 163);
+         richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length, title_2_Model.dataString.length);
+         
+         title_2_Model.richLabelFontModel = richLabelFontModel;
+         title_2_Model.richLabelTextCorModel = richLabelTextCorModel;
+     }
+     
+     {
+         title_3_Model.dataString = @"个，可兑换的余额为:";
+
+         RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+         richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+         richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
+
+         RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
+
+         title_3_Model.richLabelFontModel = richLabelFontModel;
+         title_3_Model.richLabelTextCorModel = richLabelTextCorModel;
+     }
+     
+     {
+         title_4_Model.dataString = myCoinTipsModel.key;
+
+         RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+         richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+         richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length, title_4_Model.dataString.length);
+
+         RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+         richLabelTextCorModel.cor = RGBCOLOR(255, 163, 163);
+         richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length, title_4_Model.dataString.length);
+
+         title_4_Model.richLabelFontModel = richLabelFontModel;
+         title_4_Model.richLabelTextCorModel = richLabelTextCorModel;
+     }
+     
+     {
+         title_5_Model.dataString = @"元，确认兑换吗？";
+
+         RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
+         richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
+         richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length + title_4_Model.dataString.length, title_5_Model.dataString.length);
+
+         RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
+         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length + title_4_Model.dataString.length, title_5_Model.dataString.length);
+
+         title_5_Model.richLabelFontModel = richLabelFontModel;
+         title_5_Model.richLabelTextCorModel = richLabelTextCorModel;
+     }
+     
+     [tempDataMutArr addObject:title_1_Model];
+     [tempDataMutArr addObject:title_2_Model];
+     [tempDataMutArr addObject:title_3_Model];
+     [tempDataMutArr addObject:title_4_Model];
+     [tempDataMutArr addObject:title_5_Model];
+     
+     [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_2
+                                   title:@"兑换余额"
+                                 message:@""
+                         customAlertView:nil
+                        customHeaderView:nil
+                customActionSequenceView:nil
+                          preferredStyle:SPAlertControllerStyleAlert
+                           animationType:SPAlertAnimationTypeDefault
+                     alertActionTitleArr:@[@"取消",@"确定"]
+                     alertActionStyleArr:@[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)]
+                       alertBtnActionArr:@[@"",@"sure"]
+                                targetVC:[NSObject getCurrentViewController]
+                             funcInWhere:self
+                                animated:YES
+                            alertVCBlock:^(SPAlertController *data,
+                                           NSMutableArray <SPAlertAction *>*data2) {
+         
+         data.attributedMessage = [NSObject makeRichTextWithDataConfigMutArr:tempDataMutArr];
+         
+         for (SPAlertAction *alertAction in data2) {
+             alertAction.titleColor = RGBSAMECOLOR(75);
+             alertAction.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+         }
+         
+     } completionBlock:nil];
+ }
+ 
+ */

@@ -45,8 +45,12 @@ UIGestureRecognizerDelegate
     [super viewDidLoad];
     if (self.isOpenScrollTabbar) {
         self.view.target = self;
-        self.view.panGRSEL = NSStringFromSelector(@selector(panGestureRecognizer:));
         self.view.panGR.enabled = self.isOpenScrollTabbar;
+//        @weakify(self)
+        self.view.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+//            @strongify(self)
+            [weakSelf panGestureRecognizer:(UIPanGestureRecognizer *)data3];
+        };
     }
 }
 
@@ -193,12 +197,15 @@ UIGestureRecognizerDelegate
 -(void)添加长按手势{
     for (UIView *subView in self.UITabBarButtonMutArr) {
         subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
-
-        subView.longPressGRSEL = NSStringFromSelector(@selector(LZBTabBarItemLongPress:));
         subView.numberOfTouchesRequired = 1;//手指数
         subView.minimumPressDuration = 1;
         subView.target = self;
         subView.longPressGR.enabled = YES;
+//        @weakify(self)
+        subView.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+//            @strongify(self)
+            [weakSelf LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)data3];
+        };
     }
 }
 

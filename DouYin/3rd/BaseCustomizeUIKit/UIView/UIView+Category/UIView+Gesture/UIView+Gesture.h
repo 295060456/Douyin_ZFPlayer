@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+Extras.h"
+#import "NSObject+Extras.h"
 
 /*
  *  UIGestureRecognizer 是父类
@@ -39,13 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Gesture)
 // config
 @property(nonatomic,weak,nullable)id target;
-@property(nonatomic,strong)NSString *longPressGRSEL;//长按手势触发方法
-@property(nonatomic,strong)NSString *tapGRSEL;//轻拍手势触发方法
-@property(nonatomic,strong)NSString *swipeGRSEL;//轻扫手势触发方法
-@property(nonatomic,strong)NSString *panGRSEL;//平移手势触发方法
-@property(nonatomic,strong)NSString *pinchGRSEL;//捏合（缩放）手势触发方法
-@property(nonatomic,strong)NSString *rotationGRSEL;//旋转手势触发方法
-@property(nonatomic,strong)NSString *screenEdgePanGRSEL;//屏幕边缘平移触发方法
+@property(nonatomic,assign)ThreeDataBlock callbackBlock;//手势触发方法
 @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】
@@ -71,33 +66,61 @@ NS_ASSUME_NONNULL_END
 
 /*
  
- 使用示例：某View A上加载控件userHeaderIMGV，这时候_userHeaderIMGV.target = self;这个self就是View A
+ 使用示例_1：某View_A上加载控件userHeaderIMGV，这时候_userHeaderIMGV.target = self;这个self就是View_A
  
--(void)skipToUserDetail{
-    NSLog(@"");
-}
-#pragma mark —— lazyLoad
--(UIImageView *)userHeaderIMGV{
-    if (!_userHeaderIMGV) {
-        _userHeaderIMGV = UIImageView.new;
-        
-        {// A
-            _userHeaderIMGV.userInteractionEnabled = YES;
-            _userHeaderIMGV.target = self;
-            _userHeaderIMGV.tapGRSEL = NSStringFromSelector(@selector(skipToUserDetail));
-            _userHeaderIMGV.numberOfTouchesRequired = 1;
-            _userHeaderIMGV.numberOfTapsRequired = 1;
-            _userHeaderIMGV.tapGR.enabled = YES;
-        }
-        
-        [self.contentView addSubview:_userHeaderIMGV];
-        [_userHeaderIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(29, 29));
-            make.top.equalTo(self.contentView).offset(7);
-            make.left.equalTo(self.contentView).offset(16);
-        }];
-        [UIView cornerCutToCircleWithView:_userHeaderIMGV
-                          andCornerRadius:29 / 2];
-    }return _userHeaderIMGV;
-}
+ -(UIImageView *)mainIMGV{
+     if (!_mainIMGV) {
+         _mainIMGV = UIImageView.new;
+         _mainIMGV.userInteractionEnabled = YES;
+         {// A
+             _mainIMGV.userInteractionEnabled = YES;
+             _mainIMGV.target = self;
+             @weakify(self)
+             _mainIMGV.callbackBlock = ^(id  _Nullable weakSelf, id  _Nullable arg) {
+                 @strongify(self)
+                 [self gameClick];
+             };
+             _mainIMGV.numberOfTouchesRequired = 1;
+             _mainIMGV.numberOfTapsRequired = 1;
+             _mainIMGV.tapGR.enabled = YES;
+         }
+         _mainIMGV.image = KIMG(@"社区图_2");
+         [self.view addSubview:_mainIMGV];
+         [_mainIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH));
+             make.centerX.equalTo(self.view);
+             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-KHeight(10));
+         }];
+     }return _mainIMGV;
+ }
+ 
 */
+
+/***
+ 使用示例_2:
+     {// A
+         self.userInteractionEnabled = YES;
+         self.target = self;
+         self.numberOfTouchesRequired = 1;
+         self.numberOfTapsRequired = 1;
+         self.tapGR.enabled = YES;
+     }
+     
+     {// B
+         self.userInteractionEnabled = YES;
+         self.target = self;
+         self.numberOfTouchesRequired = 1;
+         self.minimumPressDuration = 1;
+         self.longPressGR.enabled = YES;
+     }
+    //        @weakify(self)
+     self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+    //            @strongify(self)
+         if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
+             [weakSelf LZBTabBarItemTap:(UITapGestureRecognizer *)data3];
+         }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){
+    //                [weakSelf LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)data3];
+         }else{}
+     };
+ 
+ */

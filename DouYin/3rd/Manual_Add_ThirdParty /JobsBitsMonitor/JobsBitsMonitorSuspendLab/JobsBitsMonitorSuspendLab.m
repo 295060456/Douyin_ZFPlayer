@@ -47,10 +47,14 @@ extern BOOL ProductEnviron;
         {// A
             self.userInteractionEnabled = YES;
             self.target = self;
-            self.tapGRSEL = NSStringFromSelector(@selector(showMenu));
             self.numberOfTouchesRequired = 1;
             self.numberOfTapsRequired = 1;
             self.tapGR.enabled = YES;
+//            @weakify(self)
+            self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+    //            @strongify(self)
+                [weakSelf showMenu];
+            };
         }
     }return self;
 }

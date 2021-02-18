@@ -13,26 +13,8 @@
 static char *UIView_Gesture_target = "UIView_Gesture_target";
 @dynamic target;
 
-static char *UIView_Gesture_longPressGRSEL = "UIView_Gesture_longPressGRSEL";
-@dynamic longPressGRSEL;
-
-static char *UIView_Gesture_tapGRSEL = "UIView_Gesture_tapGRSEL";
-@dynamic tapGRSEL;
-
-static char *UIView_Gesture_swipeGRSEL = "UIView_Gesture_swipeGRSEL";
-@dynamic swipeGRSEL;
-
-static char *UIView_Gesture_panGRSEL = "UIView_Gesture_panGRSEL";
-@dynamic panGRSEL;
-
-static char *UIView_Gesture_pinchGRSEL = "UIView_Gesture_pinchGRSEL";
-@dynamic pinchGRSEL;
-
-static char *UIView_Gesture_rotationGRSEL = "UIView_Gesture_rotationGRSEL";
-@dynamic rotationGRSEL;
-
-static char *UIView_Gesture_screenEdgePanGRSEL = "UIView_Gesture_screenEdgePanGRSEL";
-@dynamic screenEdgePanGRSEL;
+static char *UIView_Gesture_callbackBlock = "UIView_Gesture_callbackBlock";
+@dynamic callbackBlock;
 
 static char *UIView_Gesture_numberOfTapsRequired = "UIView_Gesture_numberOfTapsRequired";
 @dynamic numberOfTapsRequired;
@@ -85,44 +67,99 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 
 -(void)Dealloc{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
+    @weakify(self)
     if (LongPressGR) {
         [LongPressGR removeTarget:self.target
-                           action:NSSelectorFromString(self.longPressGRSEL)];
+                           action:selectorBlocks(^(id _Nullable weakSelf,
+                                                   id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   LongPressGR);
+            }
+        }, self.target)];
     }
     UITapGestureRecognizer *TapGR = objc_getAssociatedObject(self, UIView_Gesture_tapGR);
     if (TapGR) {
         [TapGR removeTarget:self.target
-                     action:NSSelectorFromString(self.tapGRSEL)];
+                     action:selectorBlocks(^(id _Nullable weakSelf,
+                                             id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   TapGR);
+            }
+        }, self.target)];
     }
     UISwipeGestureRecognizer *SwipeGR = objc_getAssociatedObject(self, UIView_Gesture_swipeGR);
     if (SwipeGR) {
         [SwipeGR removeTarget:self.target
-                       action:NSSelectorFromString(self.swipeGRSEL)];
+                       action:selectorBlocks(^(id _Nullable weakSelf,
+                                               id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   SwipeGR);
+            }
+        }, self.target)];
     }
     UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
     if (PanGR) {
         [PanGR removeTarget:self.target
-                     action:NSSelectorFromString(self.panGRSEL)];
+                     action:selectorBlocks(^(id _Nullable weakSelf,
+                                             id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   PanGR);
+            }
+        }, self.target)];
     }
     UIPinchGestureRecognizer *PinchGR = objc_getAssociatedObject(self, UIView_Gesture_pinchGR);
     if (PinchGR) {
         [PinchGR removeTarget:self.target
-                       action:NSSelectorFromString(self.pinchGRSEL)];
+                       action:selectorBlocks(^(id _Nullable weakSelf,
+                                               id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   PinchGR);
+            }
+        }, self.target)];
     }
     UIRotationGestureRecognizer *RotationGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
     if (RotationGR) {
         [RotationGR removeTarget:self.target
-                          action:NSSelectorFromString(self.rotationGRSEL)];
+                          action:selectorBlocks(^(id _Nullable weakSelf,
+                                                  id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   PinchGR);
+            }
+        }, self.target)];
     }
     UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
     if (ScreenEdgePanGR) {
         [ScreenEdgePanGR removeTarget:self.target
-                               action:NSSelectorFromString(self.screenEdgePanGRSEL)];
+                               action:selectorBlocks(^(id _Nullable weakSelf,
+                                                       id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   PinchGR);
+            }
+        }, self.target)];
     }
 }
-
 #warning —— 本类不实现UIGestureRecognizerDelegate的原因说明:覆盖了UISCrollView 里面对应的方法
-
 #pragma mark SET | GET
 #pragma mark —— @property(nonatomic,strong,nullable)id target;
 -(id)target{
@@ -142,130 +179,15 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
                              target,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)NSString *longPressGRSEL;
--(NSString *)longPressGRSEL{
-    NSString *LongPressGRSEL = objc_getAssociatedObject(self, UIView_Gesture_longPressGRSEL);
-    if ([NSString isNullString:LongPressGRSEL]) {
-        LongPressGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_longPressGRSEL,
-                                 LongPressGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return LongPressGRSEL;
+#pragma mark —— @property(nonatomic,assign)callback callbackBlock;//手势触发方法
+-(ThreeDataBlock)callbackBlock{
+    return objc_getAssociatedObject(self, UIView_Gesture_callbackBlock);;
 }
 
--(void)setLongPressGRSEL:(NSString *)longPressGRSEL{
+-(void)setCallbackBlock:(ThreeDataBlock)callbackBlock{
     objc_setAssociatedObject(self,
-                             UIView_Gesture_longPressGRSEL,
-                             longPressGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *tapGRSEL;
--(NSString *)tapGRSEL{
-    NSString *TapGRSEL = objc_getAssociatedObject(self, UIView_Gesture_tapGRSEL);
-    if ([NSString isNullString:TapGRSEL]) {
-        TapGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_tapGRSEL,
-                                 TapGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return TapGRSEL;
-}
-
--(void)setTapGRSEL:(NSString *)tapGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_tapGRSEL,
-                             tapGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *swipeGRSEL;//轻扫手势触发方法
--(NSString *)swipeGRSEL{
-    NSString *SwipeGRSEL = objc_getAssociatedObject(self, UIView_Gesture_swipeGRSEL);
-    if ([NSString isNullString:SwipeGRSEL]) {
-        SwipeGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_swipeGRSEL,
-                                 SwipeGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return SwipeGRSEL;
-}
-
--(void)setSwipeGRSEL:(NSString *)swipeGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_swipeGRSEL,
-                             swipeGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *panGRSEL;//平移手势触发方法
--(NSString *)panGRSEL{
-    NSString *PanGRSEL = objc_getAssociatedObject(self, UIView_Gesture_panGRSEL);
-    if ([NSString isNullString:PanGRSEL]) {
-        PanGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_panGRSEL,
-                                 PanGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return PanGRSEL;
-}
-
--(void)setPanGRSEL:(NSString *)panGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_panGRSEL,
-                             panGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *pinchGRSEL;//捏合（缩放）手势触发方法
--(NSString *)pinchGRSEL{
-    NSString *PinchGRSEL = objc_getAssociatedObject(self, UIView_Gesture_pinchGRSEL);
-    if ([NSString isNullString:PinchGRSEL]) {
-        PinchGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_pinchGRSEL,
-                                 PinchGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return PinchGRSEL;
-}
-
--(void)setPinchGRSEL:(NSString *)pinchGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_pinchGRSEL,
-                             pinchGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *rotationGRSEL;//旋转手势触发方法
--(NSString *)rotationGRSEL{
-    NSString *RotationGRSEL = objc_getAssociatedObject(self, UIView_Gesture_rotationGRSEL);
-    if ([NSString isNullString:RotationGRSEL]) {
-        RotationGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_rotationGRSEL,
-                                 RotationGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return RotationGRSEL;
-}
-
--(void)setRotationGRSEL:(NSString *)rotationGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_rotationGRSEL,
-                             rotationGRSEL,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,strong)NSString *screenEdgePanGRSEL;//屏幕边缘平移触发方法
--(NSString *)screenEdgePanGRSEL{
-    NSString *ScreenEdgePanGRSEL = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGRSEL);
-    if ([NSString isNullString:ScreenEdgePanGRSEL]) {
-        ScreenEdgePanGRSEL = @"defaultFunc";
-        objc_setAssociatedObject(self,
-                                 UIView_Gesture_screenEdgePanGRSEL,
-                                 ScreenEdgePanGRSEL,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return ScreenEdgePanGRSEL;
-}
-
--(void)setScreenEdgePanGRSEL:(NSString *)screenEdgePanGRSEL{
-    objc_setAssociatedObject(self,
-                             UIView_Gesture_screenEdgePanGRSEL,
-                             screenEdgePanGRSEL,
+                             UIView_Gesture_callbackBlock,
+                             callbackBlock,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
@@ -360,8 +282,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UILongPressGestureRecognizer *)longPressGR{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
     if (!LongPressGR) {
+        @weakify(self)
         LongPressGR = [[UILongPressGestureRecognizer alloc] initWithTarget:self.target
-                                                                    action:NSSelectorFromString(self.longPressGRSEL)];
+                                                                    action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                            id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   LongPressGR);
+            }
+        }, self.target)];
         if (self.minimumPressDuration != 0) {
             LongPressGR.minimumPressDuration = self.minimumPressDuration;//longPressGR最小长按时间
         }
@@ -379,7 +310,6 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         }
         LongPressGR.delegate = self.target;
         [self addGestureRecognizer:LongPressGR];
-        
         objc_setAssociatedObject(self,
                                  UIView_Gesture_longPressGR,
                                  LongPressGR,
@@ -397,9 +327,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UITapGestureRecognizer *)tapGR{
     UITapGestureRecognizer *TapGR = objc_getAssociatedObject(self, UIView_Gesture_tapGR);
     if (!TapGR) {
+        @weakify(self)
         TapGR = [[UITapGestureRecognizer alloc] initWithTarget:self.target
-                                                        action:NSSelectorFromString(self.tapGRSEL)];
-        
+                                                        action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.tapGR);
+            }
+        }, self.target)];
         if (self.numberOfTapsRequired != 0) {
             TapGR.numberOfTapsRequired = self.numberOfTapsRequired;//设置轻拍次数
         }
@@ -426,8 +364,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UISwipeGestureRecognizer *)swipeGR{
     UISwipeGestureRecognizer *SwipeGR = objc_getAssociatedObject(self, UIView_Gesture_swipeGR);
     if (!SwipeGR) {
+        @weakify(self)
         SwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self.target
-                                                            action:NSSelectorFromString(self.swipeGRSEL)];
+                                                            action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                    id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.swipeGR);
+            }
+        }, self.target)];
         SwipeGR.delegate = self.target;
         SwipeGR.direction = self.swipeGRDirection;//清扫方向。如果多组可以用|来进行
         SwipeGR.numberOfTouchesRequired = self.numberOfTouchesRequired;
@@ -449,8 +396,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIPanGestureRecognizer *)panGR{
     UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
     if (!PanGR) {
+        @weakify(self)
         PanGR = [[UIPanGestureRecognizer alloc] initWithTarget:self.target
-                                                        action:NSSelectorFromString(self.panGRSEL)];
+                                                        action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.panGR);
+            }
+        }, self.target)];
         PanGR.delegate = self.target;
         if (@available(iOS 13.4, *)) {
             PanGR.allowedScrollTypesMask = self.allowedScrollTypesMask;
@@ -464,6 +420,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 }
 
 -(void)setPanGR:(UIPanGestureRecognizer *)panGR{
+    
     objc_setAssociatedObject(self,
                              UIView_Gesture_panGR,
                              panGR,
@@ -473,8 +430,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIPinchGestureRecognizer *)pinchGR{
     UIPinchGestureRecognizer *PinchGR = objc_getAssociatedObject(self, UIView_Gesture_pinchGR);
     if (!PinchGR) {
+        @weakify(self)
         PinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self.target
-                                                        action:NSSelectorFromString(self.pinchGRSEL)];
+                                                            action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                    id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.pinchGR);
+            }
+        }, self.target)];
         PinchGR.delegate = self.target;
         PinchGR.scale = self.scale;
         [self addGestureRecognizer:PinchGR];
@@ -495,8 +461,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIRotationGestureRecognizer *)rotationGR{
     UIRotationGestureRecognizer *RotationGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
     if (!RotationGR) {
+        @weakify(self)
         RotationGR = [[UIRotationGestureRecognizer alloc] initWithTarget:self.target
-                                                                  action:NSSelectorFromString(self.rotationGRSEL)];
+                                                                  action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                          id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.rotationGR);
+            }
+        }, self.target)];
         RotationGR.delegate = self.target;
         RotationGR.rotation = self.rotate;
         [self addGestureRecognizer:RotationGR];
@@ -517,8 +492,17 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIScreenEdgePanGestureRecognizer *)screenEdgePanGR{
     UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
     if (!ScreenEdgePanGR) {
+        @weakify(self)
         ScreenEdgePanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.target
-                                                                       action:NSSelectorFromString(self.screenEdgePanGRSEL)];
+                                                                            action:selectorBlocks(^(id _Nullable weakSelf,
+                                                                                                    id _Nullable arg) {
+            @strongify(self)
+            if (self.callbackBlock) {
+                self.callbackBlock(weakSelf,
+                                   arg,
+                                   self.screenEdgePanGR);
+            }
+        }, self.target)];
         ScreenEdgePanGR.delegate = self.target;
         [self addGestureRecognizer:ScreenEdgePanGR];
         objc_setAssociatedObject(self,

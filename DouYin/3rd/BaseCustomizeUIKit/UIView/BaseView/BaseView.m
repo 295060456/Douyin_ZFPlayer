@@ -39,5 +39,9 @@
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
     return CGSizeZero;
 }
+//具体由子类进行复写【数据Frame】
++(CGRect)viewFrameWithModel:(id _Nullable)model{
+    return CGRectZero;
+}
 
 @end

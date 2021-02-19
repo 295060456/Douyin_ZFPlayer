@@ -7,6 +7,12 @@
 
 #import "ViewForTableViewFooter.h"
 
+@interface ViewForTableViewFooter ()
+
+@property(nonatomic,copy)MKDataBlock _Nullable viewForTableViewFooterBlock;
+
+@end
+
 @implementation ViewForTableViewFooter
 
 -(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
@@ -17,6 +23,10 @@
 
 -(void)richElementsInCellWithModel:(id _Nullable)model{
     
+}
+
++(CGFloat)heightWithModel:(id _Nullable)model{
+    return 0.0f;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches

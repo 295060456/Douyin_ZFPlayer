@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(CGFloat)viewHeightWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据尺寸】
 +(CGSize)viewSizeWithModel:(id _Nullable)model;
+//具体由子类进行复写【数据Frame】
++(CGRect)viewFrameWithModel:(id _Nullable)model;
 
 @end
 

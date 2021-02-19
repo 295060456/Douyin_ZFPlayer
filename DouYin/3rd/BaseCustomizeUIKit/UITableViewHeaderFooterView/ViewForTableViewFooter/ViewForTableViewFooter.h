@@ -6,16 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AABlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewForTableViewFooter : UITableViewHeaderFooterView
 
-@property(nonatomic,copy)MKDataBlock _Nullable viewForTableViewFooterBlock;
-
 -(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier;
 -(void)richElementsInCellWithModel:(id _Nullable)model;
 -(void)actionBlockViewForTableViewFooter:(MKDataBlock _Nullable)viewForTableViewFooterBlock;
++(CGFloat)heightWithModel:(id _Nullable)model;
 
 @end
 

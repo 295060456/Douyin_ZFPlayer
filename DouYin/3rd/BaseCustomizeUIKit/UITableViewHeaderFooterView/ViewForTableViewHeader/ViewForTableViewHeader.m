@@ -9,6 +9,8 @@
 
 @interface ViewForTableViewHeader ()
 
+@property(nonatomic,copy)MKDataBlock _Nullable viewForTableViewHeaderBlock;
+
 @end
 
 @implementation ViewForTableViewHeader
@@ -21,6 +23,10 @@
 
 -(void)richElementsInCellWithModel:(id _Nullable)model{
     
+}
+
++(CGFloat)heightWithModel:(id _Nullable)model{
+    return 0;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches

@@ -75,14 +75,14 @@ NS_ASSUME_NONNULL_END
          {// A
              _mainIMGV.userInteractionEnabled = YES;
              _mainIMGV.target = self;
-             @weakify(self)
-             _mainIMGV.callbackBlock = ^(id  _Nullable weakSelf, id  _Nullable arg) {
-                 @strongify(self)
-                 [self gameClick];
-             };
              _mainIMGV.numberOfTouchesRequired = 1;
              _mainIMGV.numberOfTapsRequired = 1;
              _mainIMGV.tapGR.enabled = YES;
+ //            @weakify(self)
+             _mainIMGV.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+ //                @strongify(self)
+                 [weakSelf gameClick];
+             };
          }
          _mainIMGV.image = KIMG(@"社区图_2");
          [self.view addSubview:_mainIMGV];
@@ -106,13 +106,13 @@ NS_ASSUME_NONNULL_END
          self.tapGR.enabled = YES;
      }
      
-     {// B
-         self.userInteractionEnabled = YES;
-         self.target = self;
-         self.numberOfTouchesRequired = 1;
-         self.minimumPressDuration = 1;
-         self.longPressGR.enabled = YES;
-     }
+    //        {// B
+    //            self.userInteractionEnabled = YES;
+    //            self.target = self;
+    //            self.numberOfTouchesRequired = 1;
+    //            self.minimumPressDuration = 1;
+    //            self.longPressGR.enabled = YES;
+    //        }
     //        @weakify(self)
      self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
     //            @strongify(self)

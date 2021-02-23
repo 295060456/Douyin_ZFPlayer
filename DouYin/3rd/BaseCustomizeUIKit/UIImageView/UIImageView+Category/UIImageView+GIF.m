@@ -11,17 +11,16 @@
 
 @implementation UIImageView (GIF)
 
-+ (UIImageView *)imageViewWithGIFFile:(NSString *)file frame:(CGRect)frame
-{
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:frame];
++ (UIImageView *)imageViewWithGIFFile:(NSString *)file
+                                frame:(CGRect)frame{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
     
     // 加载gif文件数据
     NSData *gifData = [NSData dataWithContentsOfFile:file];
-    
     // GIF动画图片数组
     NSMutableArray *frames = nil;
     // 图像源引用
-    CGImageSourceRef src = CGImageSourceCreateWithData((__bridge CFDataRef)gifData, NULL);
+    CGImageSourceRef src = CGImageSourceCreateWithData((__bridge CFDataRef) gifData, NULL);
     // 动画时长
     CGFloat animationTime = 0.f;
     
@@ -57,4 +56,5 @@
     
     return imageView;
 }
+
 @end

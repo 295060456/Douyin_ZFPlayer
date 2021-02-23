@@ -9,10 +9,10 @@
 #ifndef Manual_Add_ThirdParty_h
 #define Manual_Add_ThirdParty_h
 
-#pragma mark —— BaseCustomizeUIKit
-// NSString
+/// BaseCustomizeUIKit
+#pragma mark —— NSString
 #import "NSString+Extras.h"
-// NSObject
+#pragma mark —— NSObject
 #import "NSObject+Measure.h"
 #import "NSObject+Extras.h"
 #import "NSObject+Random.h"
@@ -23,9 +23,10 @@
 #import "NSObject+SPAlertController.h"
 #import "NSObject+OpenURL.h"
 #import "NSObject+DataSave.h"
-// UIView
+#pragma mark —— UIView
+/// BaseView
 #import "BaseView.h"
-// UIView+Category
+/// UIView+Category
 #import "UIView+Chain.h"
 #import "UIView+Extras.h"
 #import "UIView+Measure.h"
@@ -35,7 +36,7 @@
 #import "UIView+Gesture.h"
 #import "UIView+MJRefresh.h"
 #import "UIView+ViewController.h"
-// UIViewController
+#pragma mark —— UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"
 #import "UIViewController+BRPickerView.h"
@@ -49,33 +50,33 @@
 #import "UIViewController+NavigationBar.h"
 #import "UIViewController+EmptyData.h"
 #import "UIViewController+XLBubbleTransition.h"
-// UITableViewHeaderFooterView
+#pragma mark —— UITableViewHeaderFooterView
 #import "ViewForTableViewFooter.h"
 #import "ViewForTableViewHeader.h"
-// UINavigationController
+#pragma mark —— UINavigationController
 #import "BaseNavigationVC.h"
-// UINavigationBar
+#pragma mark —— UINavigationBar
 #import "NavigationBar.h"
-// UICollectionViewCell
+#pragma mark —— UICollectionViewCell
 #import "BaseCollectionViewCell.h"
-// UITextField
+#pragma mark —— UITextField
 #import "HQTextField.h"
 #import "CJTextField.h"
 #import "ZYTextField.h"
 #import "UITextField+Extend.h"
-// UITableView
+#pragma mark —— UITableView
 #import "BaseTableViewer.h"
-// UITableViewCell
+#pragma mark —— UITableViewCell
 #import "UITableViewCell+Margin.h"
 #import "UITableViewCell+WhiteArrows.h"
-// UIColor
+#pragma mark —— UIColor
 #import "UIColor+Hex.h"
 #import "UIColor+Gradient.h"
-// UIFont
+#pragma mark —— UIFont
 #import "UIFont+Extras.h"
-// UIButton
+#pragma mark —— UIButton
 #import "UIButton+ImageTitleSpacing.h"
-// UIImage
+#pragma mark —— UIImage
 #import "LoadingImage.h"
 #import "UIImage+Extras.h"
 #import "UIImage+Overlay.h"
@@ -83,7 +84,12 @@
 #import "UIImage+SYS.h"
 #import "UIImage+Tailor.h"
 #import "UIImage+YBGIF.h"
-// UIControl
+#pragma mark —— UIImageView
+// BaseImageView
+#import "BaseImageView.h"
+// UIImageView+Category
+#import "UIImageView+GIF.h"//UIImageView支持GIF动画 https://github.com/pupboss/UIImageView-GIF
+#pragma mark —— UIControl
 #import "UIControl+XY.h"
 
 #pragma mark —— Manual_Add_ThirdParty

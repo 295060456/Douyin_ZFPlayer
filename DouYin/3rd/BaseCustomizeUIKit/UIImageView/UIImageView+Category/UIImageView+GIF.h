@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (GIF)
-
 /**
  *  输入路径，返回一个 UIImageView
  *
@@ -18,5 +17,7 @@
  *
  *  @return      UIImageView
  */
-+ (UIImageView *)imageViewWithGIFFile:(NSString *)file frame:(CGRect)frame;
++ (UIImageView *)imageViewWithGIFFile:(NSString *)file
+                                frame:(CGRect)frame;
+
 @end

@@ -46,7 +46,7 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
  * 调试是否进入后台，要断开于Xcode的连接，否则屏幕常亮
  */
 +(BOOL)didUserPressLockButton;
-///iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
+/// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
 +(void)autoLockedScreen:(BOOL)lockSwitch;
 /// 打印请求体
 +(void)printRequestMessage:(NSURLSessionDataTask *_Nullable)task;
@@ -56,5 +56,9 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 +(UIViewController *_Nonnull)getCurrentViewController;
 /// 用block来代替selector
 SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
+/// 获取当前设备可用内存
++(double)availableMemory;
+/// 获取当前任务所占用内存
++(double)usedMemory;
 
 @end

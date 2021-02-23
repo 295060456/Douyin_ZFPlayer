@@ -8,9 +8,11 @@
 
 #import "NSObject+Extras.h"
 #import <objc/runtime.h>
+#import <sys/sysctl.h>
+#import <mach/mach.h>
 
 @implementation NSObject (Extras)
-///震动特效反馈
+/// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
         UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
@@ -21,7 +23,7 @@
         AudioServicesPlaySystemSound(1520);
     }
 }
-///检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
+/// 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
 +(BOOL)didUserPressLockButton{
     //获取屏幕亮度
     CGFloat oldBrightness = [UIScreen mainScreen].brightness;
@@ -33,7 +35,7 @@
     //判断屏幕亮度是否能够被改变
     return oldBrightness != newBrightness;
 }
-///iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
+/// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
 +(void)autoLockedScreen:(BOOL)lockSwitch{
     [[UIApplication sharedApplication] setIdleTimerDisabled:lockSwitch];
 }
@@ -145,5 +147,31 @@ static void selectorImp(id self,
         block(weakSelf, arg);
     }
 }
+/// 获取当前设备可用内存
++(double)availableMemory{
+    vm_statistics_data_t vmStats;
+    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
+    kern_return_t kernReturn = host_statistics(mach_host_self(),
+                                               HOST_VM_INFO,
+                                               (host_info_t)&vmStats,
+                                               &infoCount);
+    if (kernReturn != KERN_SUCCESS) {
+        return NSNotFound;
+    }
+    return ((vm_page_size * vmStats.free_count)/1024.0)/1024.0;
+}
+/// 获取当前任务所占用内存
++(double)usedMemory{
+    task_basic_info_data_t taskInfo;
+    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
+    kern_return_t kernReturn = task_info(mach_task_self(),
+                                         TASK_BASIC_INFO,
+                                         (task_info_t)&taskInfo,
+                                         &infoCount);
+    if (kernReturn != KERN_SUCCESS) {
+        return NSNotFound;
+    }return taskInfo.resident_size/1024.0/1024.0;
+}
 
 @end
+

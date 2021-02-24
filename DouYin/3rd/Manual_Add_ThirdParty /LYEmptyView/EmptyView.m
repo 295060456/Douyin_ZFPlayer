@@ -40,7 +40,8 @@
                                        startPoint:CGPointZero
                                          endPoint:CGPointZero
                                            opaque:NO
-                                  withTargetLabel:label];
+                                   targetViewRect:label.frame];
+    
     self.titleLabTextColor = cor;
 }
 

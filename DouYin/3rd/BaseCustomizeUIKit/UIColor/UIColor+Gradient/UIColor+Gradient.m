@@ -14,12 +14,12 @@
                        startPoint:(CGPoint)startPoint
                          endPoint:(CGPoint)endPoint
                            opaque:(BOOL)opaque
-                  withTargetLabel:(UILabel *_Nonnull)targetLabel{
+                   targetViewRect:(CGRect)targetViewRect{
     
     if (!CorDataMutArr) {
         CorDataMutArr = NSMutableArray.array;
-        [CorDataMutArr addObject:(id)[UIColor redColor].CGColor];
-        [CorDataMutArr addObject:(id)[UIColor greenColor].CGColor];
+        [CorDataMutArr addObject:(id)UIColor.redColor.CGColor];
+        [CorDataMutArr addObject:(id)UIColor.greenColor.CGColor];
     }else{
         for (int t = 0; t < CorDataMutArr.count; t++) {
             [CorDataMutArr replaceObjectAtIndex:t
@@ -27,7 +27,7 @@
         }
     }
     
-    UIGraphicsBeginImageContextWithOptions(targetLabel.bounds.size,
+    UIGraphicsBeginImageContextWithOptions(targetViewRect.size,
                                            opaque,
                                            [UIScreen mainScreen].scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -39,8 +39,8 @@
     
     CGPoint EndPoint = endPoint;
     if (CGPointEqualToPoint(endPoint, CGPointZero)) {
-        EndPoint = CGPointMake(CGRectGetMaxX(targetLabel.bounds),
-                               CGRectGetMaxY(targetLabel.bounds));
+        EndPoint = CGPointMake(CGRectGetMaxX(targetViewRect),
+                               CGRectGetMaxY(targetViewRect));
     }
 
     CGContextDrawLinearGradient(context,

@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
               requestParams:(nullable id)requestParams
    hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
                    animated:(BOOL)animated
-                    success:(MKDataBlock)successBlock;
+                    success:(nullable MKDataBlock)successBlock;
 
 @end
 

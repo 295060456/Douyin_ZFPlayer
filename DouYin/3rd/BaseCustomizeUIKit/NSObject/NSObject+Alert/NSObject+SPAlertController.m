@@ -35,9 +35,9 @@
                        customActionSequenceView:(UIView *_Nullable)customActionSequenceView
                                  preferredStyle:(SPAlertControllerStyle)preferredStyle
                                   animationType:(SPAlertAnimationType)animationType
-                            alertActionTitleArr:(NSArray <NSString *>*)alertActionTitleArr
-                            alertActionStyleArr:(NSArray <NSNumber *>*)alertActionStyleArr//SPAlertActionStyle
-                              alertBtnActionArr:(NSArray <NSString *>*)alertBtnActionArr
+                            alertActionTitleArr:(NSArray <NSString *>* _Nullable)alertActionTitleArr
+                            alertActionStyleArr:(NSArray <NSNumber *>* _Nullable)alertActionStyleArr//SPAlertActionStyle
+                              alertBtnActionArr:(NSArray <NSString *>* _Nullable)alertBtnActionArr
                                        targetVC:(UIViewController *)targetVC
                                     funcInWhere:(nullable id)funcInWhere
                                        animated:(BOOL)animated

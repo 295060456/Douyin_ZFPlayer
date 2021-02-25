@@ -22,7 +22,7 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
               requestParams:(nullable id)requestParams
    hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
                    animated:(BOOL)animated
-                    success:(MKDataBlock)successBlock{
+                    success:(nullable MKDataBlock)successBlock{
     toVC.requestParams = requestParams;
     @weakify(rootVC)
     switch (comingStyle) {

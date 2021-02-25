@@ -53,9 +53,9 @@ NS_ASSUME_NONNULL_BEGIN
                        customActionSequenceView:(UIView *_Nullable)customActionSequenceView
                                  preferredStyle:(SPAlertControllerStyle)preferredStyle
                                   animationType:(SPAlertAnimationType)animationType
-                            alertActionTitleArr:(NSArray <NSString *>*)alertActionTitleArr
-                            alertActionStyleArr:(NSArray <NSNumber *>*)alertActionStyleArr//SPAlertActionStyle
-                              alertBtnActionArr:(NSArray <NSString *>*)alertBtnActionArr
+                            alertActionTitleArr:(NSArray <NSString *>* _Nullable)alertActionTitleArr
+                            alertActionStyleArr:(NSArray <NSNumber *>* _Nullable)alertActionStyleArr//SPAlertActionStyle
+                              alertBtnActionArr:(NSArray <NSString *>* _Nullable)alertBtnActionArr
                                        targetVC:(UIViewController *)targetVC
                                     funcInWhere:(nullable id)funcInWhere
                                        animated:(BOOL)animated
@@ -67,6 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 /**
+ 
+ 普通用法
  
  [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_2
                                title:@"提示"
@@ -100,7 +102,7 @@ NS_ASSUME_NONNULL_END
  */
 
 /**
- 
+    富文本的用法
  {
      
      NSMutableArray *tempDataMutArr = NSMutableArray.array;
@@ -216,5 +218,28 @@ NS_ASSUME_NONNULL_END
          
      } completionBlock:nil];
  }
+ 
+ */
+
+/**
+  自定义View，用属性进行承接，消失的时候调取：
+ [self.alertController dismissViewControllerAnimated:YES completion:nil];
+ 
+ self.alertController = [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_3
+                                                      title:nil
+                                                    message:nil
+                                            customAlertView:self.updateView
+                                           customHeaderView:nil
+                                   customActionSequenceView:nil
+                                             preferredStyle:SPAlertControllerStyleAlert
+                                              animationType:SPAlertAnimationTypeDefault
+                                        alertActionTitleArr:nil
+                                        alertActionStyleArr:nil
+                                          alertBtnActionArr:nil
+                                                   targetVC:self
+                                                funcInWhere:self
+                                                   animated:YES
+                                               alertVCBlock:nil
+                                            completionBlock:nil];
  
  */

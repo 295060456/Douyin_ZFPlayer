@@ -6,11 +6,25 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #if __has_include(<ReactiveObjC/ReactiveObjC.h>)
 #import <ReactiveObjC/ReactiveObjC.h>
 #else
 #import "ReactiveObjC.h"
 #endif
+
+#if __has_include(<MJRefresh/MJRefresh.h>)
+#import <MJRefresh/MJRefresh.h>
+#else
+#import "MJRefresh.h"
+#endif
+
+#if __has_include(<TABAnimated/TABAnimated.h>)
+#import <TABAnimated/TABAnimated.h>
+#else
+#import "TABAnimated.h"
+#endif
+
 #import "UIView+EmptyData.h"
 #import "UIView+MJRefresh.h"
 #import "UIViewController+NavigationBar.h"
@@ -24,8 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,strong)UIImageView *bgImageView;
 @property(nonatomic,assign)NSInteger currentPage;
-
+/// 加入键盘通知的监听者
 -(void)keyboard;
+/// 停止刷新
+-(void)endRefreshing:(UIScrollView *)targetScrollView;
 
 @end
 

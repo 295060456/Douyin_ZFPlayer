@@ -26,6 +26,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /*
+     *  #pragma mark —— 全局配置 GKNavigationBar -(void)makeGKNavigationBarConfigure
+     */
+//    {
+//        self.gk_navBackgroundColor = kWhiteColor;
+//        self.gk_navTitleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
+//        self.gk_navTitleColor = RGBCOLOR(46, 51, 77);
+//        self.gk_backStyle = GKNavigationBarBackStyleBlack;
+//        self.gk_navLineHidden = YES;
+//    }
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
@@ -50,16 +60,42 @@
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+}
+
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.view.mjRefreshTargetView.mj_footer.y = self.view.mjRefreshTargetView.contentSize.height;
 }
-
+/// 停止刷新
+-(void)endRefreshing:(UIScrollView *)targetScrollView{
+    if ([targetScrollView isKindOfClass:UITableView.class]) {
+        UITableView *tableView = (UITableView *)targetScrollView;
+        [tableView reloadData];
+    }else if ([targetScrollView isKindOfClass:UICollectionView.class]){
+        UICollectionView *collectionView = (UICollectionView *)targetScrollView;
+        [collectionView reloadData];
+    }else{}
+    
+    [targetScrollView tab_endAnimation];//里面实现了 [self.collectionView reloadData];
+    if (targetScrollView.mj_header.refreshing) {
+        [targetScrollView.mj_header endRefreshing];// 结束刷新
+    }
+    if (targetScrollView.mj_footer.refreshing) {
+        [targetScrollView.mj_footer endRefreshing];// 结束刷新
+    }
+}
+#pragma mark —— UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
-
+/// 加入键盘通知的监听者
 -(void)keyboard{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillChangeFrameNotification:)

@@ -181,6 +181,7 @@
 		C591E4B12563A478005B78CC /* LOTAnimationMJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C591E4AD2563A477005B78CC /* LOTAnimationMJRefreshHeader.m */; };
 		C591E50C2563A7B6005B78CC /* JsonRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C591E50B2563A7B6005B78CC /* JsonRes.bundle */; };
 		C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C5914D9D25385356007777A6 /* UIViewController+MJRefresh.m */; };
+		C594300825E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = C594300525E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m */; };
 		C595D162258713F1002A4531 /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15A258713F1002A4531 /* SuspendView.m */; };
 		C595D163258713F1002A4531 /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15E258713F1002A4531 /* SuspendLab.m */; };
 		C595D164258713F1002A4531 /* SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D160258713F1002A4531 /* SuspendBtn.m */; };
@@ -695,6 +696,9 @@
 		C591E4A72563A477005B78CC /* LOTAnimationMJRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationMJRefreshHeader.h; sourceTree = "<group>"; };
 		C591E4AD2563A477005B78CC /* LOTAnimationMJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationMJRefreshHeader.m; sourceTree = "<group>"; };
 		C591E50B2563A7B6005B78CC /* JsonRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JsonRes.bundle; sourceTree = "<group>"; };
+		C594300525E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+IndicateWordLimit.m"; sourceTree = "<group>"; };
+		C594300625E7A9C2003BCA91 /* UITextView+IndicateWordLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+IndicateWordLimit.h"; sourceTree = "<group>"; };
+		C594300725E7A9C2003BCA91 /* UITextView+IndicateWordLimit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITextView+IndicateWordLimit.png"; sourceTree = "<group>"; };
 		C595D15A258713F1002A4531 /* SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
 		C595D15B258713F1002A4531 /* SuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendView.h; sourceTree = "<group>"; };
 		C595D15D258713F1002A4531 /* SuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuspendLab.h; sourceTree = "<group>"; };
@@ -1690,6 +1694,7 @@
 				C54BB3182518D390001591C2 /* UITableViewCell */,
 				C5850B3E25483E5F001E6676 /* UITableViewHeaderFooterView */,
 				C54BB3882518D391001591C2 /* UITextField */,
+				C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */,
 				C54BB3252518D391001591C2 /* UIView */,
 				C5914D8825385356007777A6 /* UIViewController */,
 			);
@@ -2647,6 +2652,16 @@
 				C591E4AD2563A477005B78CC /* LOTAnimationMJRefreshHeader.m */,
 			);
 			path = LOTAnimationMJRefreshHeader;
+			sourceTree = "<group>";
+		};
+		C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */ = {
+			isa = PBXGroup;
+			children = (
+				C594300625E7A9C2003BCA91 /* UITextView+IndicateWordLimit.h */,
+				C594300525E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m */,
+				C594300725E7A9C2003BCA91 /* UITextView+IndicateWordLimit.png */,
+			);
+			path = "UITextView+IndicateWordLimit";
 			sourceTree = "<group>";
 		};
 		C595BAE125864073002A4531 /* UIView+Animation */ = {
@@ -3796,6 +3811,7 @@
 				C5CF1E7825AC8C6400381935 /* TabbarVC.m in Sources */,
 				C56D866925C821C7001960CD /* UIColor+Gradient.m in Sources */,
 				C595D162258713F1002A4531 /* SuspendView.m in Sources */,
+				C594300825E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m in Sources */,
 				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
 				C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */,

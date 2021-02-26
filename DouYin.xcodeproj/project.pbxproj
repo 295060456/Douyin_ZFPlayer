@@ -133,9 +133,8 @@
 		C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8F92578936C00D054D0 /* ZBCacheManager.m */; };
 		C56BA9052578936D00D054D0 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */; };
 		C56BA9062578936D00D054D0 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */; };
-		C56BB7E225E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BB7E125E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.m */; };
-		C56BB7EC25E905EF001E1E69 /* UIView+CallBackInfoByBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BB7E825E905EF001E1E69 /* UIView+CallBackInfoByBlock.m */; };
 		C56BB8022587983A0043C977 /* UIControl+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BB8002587983A0043C977 /* UIControl+XY.m */; };
+		C56BD45925E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C56BD45825E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m */; };
 		C56D866925C821C7001960CD /* UIColor+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D866425C821C7001960CD /* UIColor+Gradient.m */; };
 		C56D866A25C821C7001960CD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C56D866725C821C7001960CD /* UIColor+Hex.m */; };
 		C56E3E83254715AB00B9F555 /* 资源文件 in Resources */ = {isa = PBXBuildFile; fileRef = C56E3E82254715AB00B9F555 /* 资源文件 */; };
@@ -603,13 +602,11 @@
 		C56BA8FE2578936C00D054D0 /* NSString+ZBUTF8Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUTF8Encoding.h"; sourceTree = "<group>"; };
 		C56BA8FF2578936C00D054D0 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		C56BA9002578936D00D054D0 /* ZBRequestEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestEngine.h; sourceTree = "<group>"; };
-		C56BB7E025E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
-		C56BB7E125E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
-		C56BB7E725E905EF001E1E69 /* UIView+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
-		C56BB7E825E905EF001E1E69 /* UIView+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
 		C56BB7FE2587983A0043C977 /* UIControl+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+XY.h"; sourceTree = "<group>"; };
 		C56BB7FF2587983A0043C977 /* iOS小技巧：用runtime 解决UIButton 重复点击问题.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "iOS小技巧：用runtime 解决UIButton 重复点击问题.md"; sourceTree = "<group>"; };
 		C56BB8002587983A0043C977 /* UIControl+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+XY.m"; sourceTree = "<group>"; };
+		C56BD45725E9380C001E1E69 /* NSObject+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
+		C56BD45825E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
 		C56D866425C821C7001960CD /* UIColor+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Gradient.m"; sourceTree = "<group>"; };
 		C56D866525C821C7001960CD /* UIColor+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Gradient.h"; sourceTree = "<group>"; };
 		C56D866725C821C7001960CD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -1827,9 +1824,10 @@
 		C54BB3762518D391001591C2 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
-				C53C9C4E25A1CEE40007F58F /* NSObject+DataSave */,
 				C5D6D7FD25860D5D00029AFF /* NSObject (Time) */,
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
+				C56BD45625E9380C001E1E69 /* NSObject+CallBackInfoByBlock */,
+				C53C9C4E25A1CEE40007F58F /* NSObject+DataSave */,
 				C55563A42580A495004DB33A /* NSObject+Others */,
 				C5D6D7FA25860D5D00029AFF /* NSObject+Time */,
 			);
@@ -2247,7 +2245,6 @@
 				C595BAE125864073002A4531 /* UIView+Animation */,
 				C5460D21258C8DFD0008928C /* UIView+AOP */,
 				C572940C25BB09E000726419 /* UIView+BackgroundImage */,
-				C56BB7E625E905EF001E1E69 /* UIView+CallBackInfoByBlock */,
 				C595BAE325864083002A4531 /* UIView+Chain */,
 				C546FA07258B5CDA0008928C /* UIView+EmptyData */,
 				C595BAE22586407C002A4531 /* UIView+Extras */,
@@ -2272,22 +2269,13 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
-		C56BB7DF25E905E3001E1E69 /* UIViewController+CallBackInfoByBlock */ = {
+		C56BD45625E9380C001E1E69 /* NSObject+CallBackInfoByBlock */ = {
 			isa = PBXGroup;
 			children = (
-				C56BB7E025E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.h */,
-				C56BB7E125E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.m */,
+				C56BD45725E9380C001E1E69 /* NSObject+CallBackInfoByBlock.h */,
+				C56BD45825E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m */,
 			);
-			path = "UIViewController+CallBackInfoByBlock";
-			sourceTree = "<group>";
-		};
-		C56BB7E625E905EF001E1E69 /* UIView+CallBackInfoByBlock */ = {
-			isa = PBXGroup;
-			children = (
-				C56BB7E725E905EF001E1E69 /* UIView+CallBackInfoByBlock.h */,
-				C56BB7E825E905EF001E1E69 /* UIView+CallBackInfoByBlock.m */,
-			);
-			path = "UIView+CallBackInfoByBlock";
+			path = "NSObject+CallBackInfoByBlock";
 			sourceTree = "<group>";
 		};
 		C56D866325C821C7001960CD /* UIColor+Gradient */ = {
@@ -3340,7 +3328,6 @@
 				C544B8BE258359E500C6CF2A /* UIViewController+BaseVC */,
 				C544B8BF258359F300C6CF2A /* UIViewController+BRPickerView */,
 				C544B8C0258359FD00C6CF2A /* UIViewController+BWShareView */,
-				C56BB7DF25E905E3001E1E69 /* UIViewController+CallBackInfoByBlock */,
 				C5D1B8A8258B0B9700784D2F /* UIViewController+EmptyData */,
 				C544B8C125835A0600C6CF2A /* UIViewController+GifImageView */,
 				C544B8C225835A0F00C6CF2A /* UIViewController+JPImageresizerView */,
@@ -3728,6 +3715,7 @@
 				C54B40212552980E003BE195 /* UILabel+Extra.m in Sources */,
 				C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */,
 				C56BA9012578936D00D054D0 /* ZBRequestManager.m in Sources */,
+				C56BD45925E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m in Sources */,
 				C595D164258713F1002A4531 /* SuspendBtn.m in Sources */,
 				C54AEBBD25871C08001A4630 /* JobsBitsMonitorCore.m in Sources */,
 				C5672E8B25D777FF008ABAF9 /* BaseView.m in Sources */,
@@ -3812,7 +3800,6 @@
 				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
 				C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */,
-				C56BB7E225E905E3001E1E69 /* UIViewController+CallBackInfoByBlock.m in Sources */,
 				C5C64B7B259DF5EB00FD2F99 /* ECPrivacyCheckReminders.m in Sources */,
 				C5226958258757F7004447FB /* BWItemModel.m in Sources */,
 				C55D45B4251CB65400E543D6 /* BaseModel.m in Sources */,
@@ -3865,7 +3852,6 @@
 				C5A4411D25ABFB51000F0CD2 /* JXCategoryTimelineCellModel.m in Sources */,
 				C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */,
 				C5A4411A25ABFB51000F0CD2 /* JXCategoryTitleBackgroundCell.m in Sources */,
-				C56BB7EC25E905EF001E1E69 /* UIView+CallBackInfoByBlock.m in Sources */,
 				C5D7749A257F59790087FC92 /* CJTextField.m in Sources */,
 				C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */,
 				C5A4411E25ABFB51000F0CD2 /* JXCategoryTimelineCell.m in Sources */,

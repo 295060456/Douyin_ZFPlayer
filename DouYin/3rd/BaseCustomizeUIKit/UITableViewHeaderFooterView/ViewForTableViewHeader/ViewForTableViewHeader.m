@@ -21,12 +21,12 @@
     }return self;
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
+-(void)richElementsInViewWithModel:(id _Nullable)model{
     
 }
 
 +(CGFloat)heightWithModel:(id _Nullable)model{
-    return 0;
+    return 0.0f;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
@@ -39,6 +39,5 @@
 -(void)actionBlockViewForTableViewHeader:(MKDataBlock _Nullable)viewForTableViewHeaderBlock{
     self.viewForTableViewHeaderBlock = viewForTableViewHeaderBlock;
 }
-
 
 @end

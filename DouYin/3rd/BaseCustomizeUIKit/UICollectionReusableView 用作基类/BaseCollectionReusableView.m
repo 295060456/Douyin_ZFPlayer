@@ -15,7 +15,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self richElementsInCellWithModel:nil];
+        [self richElementsInViewWithModel:nil];
     }return self;
 }
 
@@ -35,7 +35,7 @@
     return CGSizeZero;
 }
 //由具体的子类进行覆写
--(void)richElementsInCellWithModel:(id _Nullable)model{
+-(void)richElementsInViewWithModel:(id _Nullable)model{
     
 }
 

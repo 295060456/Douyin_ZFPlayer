@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ViewForTableViewFooter : UITableViewHeaderFooterView
 
 -(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier;
--(void)richElementsInCellWithModel:(id _Nullable)model;
+-(void)richElementsInViewWithModel:(id _Nullable)model;
 -(void)actionBlockViewForTableViewFooter:(MKDataBlock _Nullable)viewForTableViewFooterBlock;
 +(CGFloat)heightWithModel:(id _Nullable)model;
 

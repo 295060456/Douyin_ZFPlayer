@@ -21,7 +21,7 @@
     }return self;
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
+-(void)richElementsInViewWithModel:(id _Nullable)model{
     
 }
 

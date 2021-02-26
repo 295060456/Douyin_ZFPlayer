@@ -32,7 +32,7 @@
 //    {
 //        self.gk_navBackgroundColor = kWhiteColor;
 //        self.gk_navTitleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
-//        self.gk_navTitleColor = RGBCOLOR(46, 51, 77);
+//        self.gk_navTitleColor = AppMainCor_01;
 //        self.gk_backStyle = GKNavigationBarBackStyleBlack;
 //        self.gk_navLineHidden = YES;
 //    }
@@ -71,6 +71,10 @@
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.view.mjRefreshTargetView.mj_footer.y = self.view.mjRefreshTargetView.contentSize.height;
+}
+
+-(void)actionBlockViewController:(MKDataBlock)viewControllerBlock{
+    self.viewControllerBlock = viewControllerBlock;
 }
 /// 停止刷新
 -(void)endRefreshing:(UIScrollView *)targetScrollView{

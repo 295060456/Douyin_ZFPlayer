@@ -25,6 +25,7 @@
 #import "TABAnimated.h"
 #endif
 
+#import "AABlock.h"
 #import "UIView+EmptyData.h"
 #import "UIView+MJRefresh.h"
 #import "UIViewController+NavigationBar.h"
@@ -33,15 +34,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
 
-#pragma mark ——RACSignal
+#pragma mark —— RACSignal
 @property(nonatomic,strong)RACSignal *reqSignal;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,strong)UIImageView *bgImageView;
 @property(nonatomic,assign)NSInteger currentPage;
+@property(nonatomic,copy)MKDataBlock viewControllerBlock;
 /// 加入键盘通知的监听者
 -(void)keyboard;
 /// 停止刷新
 -(void)endRefreshing:(UIScrollView *)targetScrollView;
+-(void)actionBlockViewController:(MKDataBlock)viewControllerBlock;
 
 @end
 

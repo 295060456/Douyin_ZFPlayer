@@ -36,6 +36,7 @@
 #import "UIView+Gesture.h"
 #import "UIView+MJRefresh.h"
 #import "UIView+ViewController.h"
+#import "UIView+CallBackInfoByBlock.h"
 #pragma mark —— UIViewController
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+BackBtn.h"
@@ -50,6 +51,7 @@
 #import "UIViewController+NavigationBar.h"
 #import "UIViewController+EmptyData.h"
 #import "UIViewController+XLBubbleTransition.h"
+#import "UIViewController+CallBackInfoByBlock.h"
 #pragma mark —— UITableViewHeaderFooterView
 #import "ViewForTableViewFooter.h"
 #import "ViewForTableViewHeader.h"

@@ -72,7 +72,9 @@
     [super viewDidLayoutSubviews];
     self.view.mjRefreshTargetView.mj_footer.y = self.view.mjRefreshTargetView.contentSize.height;
 }
-
+/*
+    用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
 -(void)actionBlockViewController:(MKDataBlock)viewControllerBlock{
     self.viewControllerBlock = viewControllerBlock;
 }

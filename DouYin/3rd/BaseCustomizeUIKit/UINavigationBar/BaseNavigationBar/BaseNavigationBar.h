@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NavigationBar : UINavigationBar
+@interface BaseNavigationBar : UINavigationBar
 
 @end
 

@@ -50,17 +50,17 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
     }
 }
 #pragma mark —— @property(nonatomic,strong)NavigationBar *navigationBar;
--(void)setNavigationBar:(NavigationBar *)navigationBar{
+-(void)setNavigationBar:(BaseNavigationBar *)navigationBar{
     objc_setAssociatedObject(self,
                              UIViewController_NavigationBar_navigationBar,
                              navigationBar,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(NavigationBar *)navigationBar{
-    NavigationBar *NavBar = objc_getAssociatedObject(self, UIViewController_NavigationBar_navigationBar);
+-(BaseNavigationBar *)navigationBar{
+    BaseNavigationBar *NavBar = objc_getAssociatedObject(self, UIViewController_NavigationBar_navigationBar);
     if (!NavBar) {
-        NavBar = NavigationBar.new;
+        NavBar = BaseNavigationBar.new;
         //优先级:背景图 > 背景色
         NavBar.backgroundColor = self.bgCor;
         [NavBar setBackgroundImage:self.backgroundImage

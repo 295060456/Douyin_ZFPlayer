@@ -1,17 +1,16 @@
 //
-//  BaseView.h
-//  MonkeyKingVideo
+//  CollectionView.h
+//  My_BaseProj
 //
-//  Created by Jobs on 2021/2/5.
-//  Copyright © 2021 MonkeyKingVideo. All rights reserved.
+//  Created by Jobs on 2020/10/31.
+//  Copyright © 2020 Jobs. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "AABlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseView : UIView
+@interface BaseCollectionView : UICollectionView
 
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(id _Nullable)model;
@@ -24,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 //具体由子类进行复写【数据Frame】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGRect)viewFrameWithModel:(id _Nullable)model;
 /*
-    用于以此为基类的View层上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+    用于以此为基类的UICollectionView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
--(void)actionBlockBaseView:(MKDataBlock)baseViewBlock;
+-(void)actionBlockBaseCollectionView:(MKDataBlock)baseCollectionViewBlock;
 
 @end
 

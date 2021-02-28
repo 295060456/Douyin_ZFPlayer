@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NavigationBar.h"
+#import "BaseNavigationBar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 // 自定义 NavigationBar
 @interface UIViewController (NavigationBar)
 
-@property(nonatomic,strong)NavigationBar *navigationBar;
+@property(nonatomic,strong)BaseNavigationBar *navigationBar;
 @property(nonatomic,strong)UIBarButtonItem *leftBarButtonItem_back;
 @property(nonatomic,strong)UINavigationItem *navItem;
 @property(nonatomic,strong)UIColor *bgCor;

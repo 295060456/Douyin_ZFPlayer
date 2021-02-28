@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)keyboard;
 /// 停止刷新
 -(void)endRefreshing:(UIScrollView *)targetScrollView;
+/*
+    用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
 -(void)actionBlockViewController:(MKDataBlock)viewControllerBlock;
 
 @end

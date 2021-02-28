@@ -5,13 +5,13 @@
 //  Created by Jobs on 2020/10/21.
 //
 
-#import "NavigationBar.h"
+#import "BaseNavigationBar.h"
 
-@interface NavigationBar ()
+@interface BaseNavigationBar ()
 
 @end
 
-@implementation NavigationBar
+@implementation BaseNavigationBar
 
 - (instancetype)init{
     if (self = [super init]) {

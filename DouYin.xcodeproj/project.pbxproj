@@ -154,7 +154,7 @@
 		C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710996253C1358005B3A0C /* UITabBar+Ex.m */; };
 		C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710997253C1358005B3A0C /* CustomTabBar.m */; };
 		C57279C425409C33002373D7 /* BaseNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279BF25409C33002373D7 /* BaseNavigationVC.m */; };
-		C57279C525409C33002373D7 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279C225409C33002373D7 /* NavigationBar.m */; };
+		C57279C525409C33002373D7 /* BaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C57279C225409C33002373D7 /* BaseNavigationBar.m */; };
 		C572940F25BB09E000726419 /* UIView+BackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C572940D25BB09E000726419 /* UIView+BackgroundImage.m */; };
 		C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BD25248DD800CC6A3A /* TableViewAnimationKit.m */; };
 		C57342C025248DD900CC6A3A /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C57342BE25248DD900CC6A3A /* UITableView+XSAnimationKit.m */; };
@@ -642,8 +642,8 @@
 		C5710999253C1358005B3A0C /* UITabBar+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Ex.h"; sourceTree = "<group>"; };
 		C57279BF25409C33002373D7 /* BaseNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationVC.m; sourceTree = "<group>"; };
 		C57279C025409C33002373D7 /* BaseNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationVC.h; sourceTree = "<group>"; };
-		C57279C225409C33002373D7 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
-		C57279C325409C33002373D7 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		C57279C225409C33002373D7 /* BaseNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationBar.m; sourceTree = "<group>"; };
+		C57279C325409C33002373D7 /* BaseNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationBar.h; sourceTree = "<group>"; };
 		C572940D25BB09E000726419 /* UIView+BackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BackgroundImage.m"; sourceTree = "<group>"; };
 		C572940E25BB09E000726419 /* UIView+BackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BackgroundImage.h"; sourceTree = "<group>"; };
 		C57342B925248DD800CC6A3A /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
@@ -990,11 +990,9 @@
 		C530B1A0254D9B1600EDEDC8 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				C530B1A2254D9B1600EDEDC8 /* BaseCollectionView.h */,
-				C530B1A4254D9B1600EDEDC8 /* BaseCollectionView.m */,
-				C530B1A3254D9B1600EDEDC8 /* UICollectionView+RegisterClass.h */,
-				C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */,
 				C552A2B72589CEFA00A89501 /* 我为什么要这么做.md */,
+				C542C15C25EB6B9C00D776D8 /* BaseCollectionView */,
+				C542C15D25EB6BA300D776D8 /* UICollectionView+RegisterClass */,
 			);
 			path = UICollectionView;
 			sourceTree = "<group>";
@@ -1002,10 +1000,7 @@
 		C530B1A6254D9B1600EDEDC8 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C5676161259F1272006905A9 /* BaseCollectionViewCell.h */,
-				C5676160259F1272006905A9 /* BaseCollectionViewCell.m */,
-				C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */,
-				C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */,
+				C542CE9425EB72E500D776D8 /* BaseCollectionViewCell */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -1013,8 +1008,7 @@
 		C530B1A9254D9B1600EDEDC8 /* UICollectionReusableView 用作基类 */ = {
 			isa = PBXGroup;
 			children = (
-				C530B1AA254D9B1600EDEDC8 /* BaseCollectionReusableView.h */,
-				C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */,
+				C542CEA925EB73D000D776D8 /* BaseCollectionReusableView */,
 			);
 			path = "UICollectionReusableView 用作基类";
 			sourceTree = "<group>";
@@ -1070,6 +1064,116 @@
 				C54BB4FC2518E398001591C2 /* ViewController@5.m */,
 			);
 			path = "其他VC";
+			sourceTree = "<group>";
+		};
+		C542C15C25EB6B9C00D776D8 /* BaseCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C530B1A2254D9B1600EDEDC8 /* BaseCollectionView.h */,
+				C530B1A4254D9B1600EDEDC8 /* BaseCollectionView.m */,
+			);
+			path = BaseCollectionView;
+			sourceTree = "<group>";
+		};
+		C542C15D25EB6BA300D776D8 /* UICollectionView+RegisterClass */ = {
+			isa = PBXGroup;
+			children = (
+				C530B1A3254D9B1600EDEDC8 /* UICollectionView+RegisterClass.h */,
+				C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */,
+			);
+			path = "UICollectionView+RegisterClass";
+			sourceTree = "<group>";
+		};
+		C542CE9425EB72E500D776D8 /* BaseCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C542CE9525EB72EB00D776D8 /* UICollectionViewCell+ShakeAnimation */,
+				C5676161259F1272006905A9 /* BaseCollectionViewCell.h */,
+				C5676160259F1272006905A9 /* BaseCollectionViewCell.m */,
+			);
+			path = BaseCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C542CE9525EB72EB00D776D8 /* UICollectionViewCell+ShakeAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				C567615E259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.h */,
+				C567615F259F1272006905A9 /* UICollectionViewCell+ShakeAnimation.m */,
+			);
+			path = "UICollectionViewCell+ShakeAnimation";
+			sourceTree = "<group>";
+		};
+		C542CE9925EB733E00D776D8 /* BaseNavigationVC */ = {
+			isa = PBXGroup;
+			children = (
+				C57279C025409C33002373D7 /* BaseNavigationVC.h */,
+				C57279BF25409C33002373D7 /* BaseNavigationVC.m */,
+			);
+			path = BaseNavigationVC;
+			sourceTree = "<group>";
+		};
+		C542CEA425EB738700D776D8 /* BaseNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				C57279C325409C33002373D7 /* BaseNavigationBar.h */,
+				C57279C225409C33002373D7 /* BaseNavigationBar.m */,
+			);
+			path = BaseNavigationBar;
+			sourceTree = "<group>";
+		};
+		C542CEA525EB739600D776D8 /* UILabel+Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C54B401D2552980E003BE195 /* UILabel+Extra.h */,
+				C54B401F2552980E003BE195 /* UILabel+Extra.m */,
+			);
+			path = "UILabel+Extra";
+			sourceTree = "<group>";
+		};
+		C542CEA625EB73A100D776D8 /* UIFont+Extras */ = {
+			isa = PBXGroup;
+			children = (
+				C54B3D2F2552605B003BE195 /* UIFont+Extras.h */,
+				C54B3D302552605B003BE195 /* UIFont+Extras.m */,
+			);
+			path = "UIFont+Extras";
+			sourceTree = "<group>";
+		};
+		C542CEA725EB73A800D776D8 /* UIControl+XY */ = {
+			isa = PBXGroup;
+			children = (
+				C56BB7FF2587983A0043C977 /* iOS小技巧：用runtime 解决UIButton 重复点击问题.md */,
+				C56BB7FE2587983A0043C977 /* UIControl+XY.h */,
+				C56BB8002587983A0043C977 /* UIControl+XY.m */,
+			);
+			path = "UIControl+XY";
+			sourceTree = "<group>";
+		};
+		C542CEA825EB73BF00D776D8 /* UIDevice+XMUtils */ = {
+			isa = PBXGroup;
+			children = (
+				C54BB2522518D363001591C2 /* iOS 获取手机型号、系统版本.png */,
+				C54BB2532518D363001591C2 /* UIDevice+XMUtils.h */,
+				C54BB2542518D363001591C2 /* UIDevice+XMUtils.m */,
+			);
+			path = "UIDevice+XMUtils";
+			sourceTree = "<group>";
+		};
+		C542CEA925EB73D000D776D8 /* BaseCollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				C530B1AA254D9B1600EDEDC8 /* BaseCollectionReusableView.h */,
+				C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */,
+			);
+			path = BaseCollectionReusableView;
+			sourceTree = "<group>";
+		};
+		C542D07425EB756F00D776D8 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */,
+			);
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		C544B8BD258359DD00C6CF2A /* UIViewController+BackBtn */ = {
@@ -1247,8 +1351,7 @@
 		C54B3D2E2552605B003BE195 /* UIFont */ = {
 			isa = PBXGroup;
 			children = (
-				C54B3D2F2552605B003BE195 /* UIFont+Extras.h */,
-				C54B3D302552605B003BE195 /* UIFont+Extras.m */,
+				C542CEA625EB73A100D776D8 /* UIFont+Extras */,
 			);
 			path = UIFont;
 			sourceTree = "<group>";
@@ -1256,8 +1359,7 @@
 		C54B401B2552980E003BE195 /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
-				C54B401D2552980E003BE195 /* UILabel+Extra.h */,
-				C54B401F2552980E003BE195 /* UILabel+Extra.m */,
+				C542CEA525EB739600D776D8 /* UILabel+Extra */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -1505,10 +1607,7 @@
 		C54BB2282518D363001591C2 /* UIControl */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB2512518D363001591C2 /* UIDevice */,
-				C56BB7FF2587983A0043C977 /* iOS小技巧：用runtime 解决UIButton 重复点击问题.md */,
-				C56BB7FE2587983A0043C977 /* UIControl+XY.h */,
-				C56BB8002587983A0043C977 /* UIControl+XY.m */,
+				C542CEA725EB73A800D776D8 /* UIControl+XY */,
 			);
 			path = UIControl;
 			sourceTree = "<group>";
@@ -1572,9 +1671,7 @@
 		C54BB2512518D363001591C2 /* UIDevice */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB2522518D363001591C2 /* iOS 获取手机型号、系统版本.png */,
-				C54BB2532518D363001591C2 /* UIDevice+XMUtils.h */,
-				C54BB2542518D363001591C2 /* UIDevice+XMUtils.m */,
+				C542CEA825EB73BF00D776D8 /* UIDevice+XMUtils */,
 			);
 			path = UIDevice;
 			sourceTree = "<group>";
@@ -1675,6 +1772,7 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C542D07425EB756F00D776D8 /* UITextView */,
 				C54BB3712518D391001591C2 /* CALayer */,
 				C54BB3672518D391001591C2 /* NSArray */,
 				C54BB3762518D391001591C2 /* NSObject */,
@@ -1687,6 +1785,7 @@
 				C530B196254D9B1500EDEDC8 /* UICollectionViewFlowLayout */,
 				C54BB3222518D391001591C2 /* UIColor */,
 				C54BB2282518D363001591C2 /* UIControl */,
+				C54BB2512518D363001591C2 /* UIDevice */,
 				C54B3D2E2552605B003BE195 /* UIFont */,
 				C54BB30B2518D390001591C2 /* UIImage */,
 				C54BB33C2518D391001591C2 /* UIImageView */,
@@ -1697,7 +1796,6 @@
 				C54BB3182518D390001591C2 /* UITableViewCell */,
 				C5850B3E25483E5F001E6676 /* UITableViewHeaderFooterView */,
 				C54BB3882518D391001591C2 /* UITextField */,
-				C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */,
 				C54BB3252518D391001591C2 /* UIView */,
 				C5914D8825385356007777A6 /* UIViewController */,
 			);
@@ -2409,8 +2507,7 @@
 		C57279BE25409C33002373D7 /* UINavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				C57279C025409C33002373D7 /* BaseNavigationVC.h */,
-				C57279BF25409C33002373D7 /* BaseNavigationVC.m */,
+				C542CE9925EB733E00D776D8 /* BaseNavigationVC */,
 			);
 			path = UINavigationController;
 			sourceTree = "<group>";
@@ -2418,8 +2515,7 @@
 		C57279C125409C33002373D7 /* UINavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				C57279C325409C33002373D7 /* NavigationBar.h */,
-				C57279C225409C33002373D7 /* NavigationBar.m */,
+				C542CEA425EB738700D776D8 /* BaseNavigationBar */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -3826,7 +3922,7 @@
 				C56D866925C821C7001960CD /* UIColor+Gradient.m in Sources */,
 				C595D162258713F1002A4531 /* SuspendView.m in Sources */,
 				C594300825E7A9C2003BCA91 /* UITextView+IndicateWordLimit.m in Sources */,
-				C57279C525409C33002373D7 /* NavigationBar.m in Sources */,
+				C57279C525409C33002373D7 /* BaseNavigationBar.m in Sources */,
 				C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */,
 				C54AB2B1255E61B3000A314D /* UITableViewCell+Margin.m in Sources */,
 				C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */,

@@ -12,6 +12,34 @@
 #import <mach/mach.h>
 
 @implementation NSObject (Extras)
+
+static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
+static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
+
+@dynamic _indexPath;
+@dynamic _currentPage;
+#pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
+-(NSIndexPath *)_indexPath{
+    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
+}
+
+-(void)set_indexPath:(NSIndexPath *)_indexPath{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_indexPath,
+                             _indexPath,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)NSInteger _currentPage;
+-(NSInteger)_currentPage{
+    return [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
+}
+
+-(void)set_currentPage:(NSInteger)_currentPage{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_currentPage,
+                             [NSNumber numberWithInteger:_currentPage],
+                             OBJC_ASSOCIATION_ASSIGN);
+}
 /// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {

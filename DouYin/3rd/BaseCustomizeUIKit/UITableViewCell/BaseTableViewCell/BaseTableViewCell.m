@@ -10,6 +10,8 @@
 
 @interface BaseTableViewCell ()
 
+@property(nonatomic,assign)MKDataBlock baseTableViewCellBlock;
+
 @end
 
 @implementation BaseTableViewCell
@@ -37,6 +39,12 @@
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return 0;
+}
+/*
+    用于以此为基类的BaseTableViewCell的具体子类所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseTableViewCell:(MKDataBlock)baseTableViewCellBlock{
+    self.baseTableViewCellBlock = baseTableViewCellBlock;
 }
 #pragma mark —— 功能方法
 /// iOS UITableViewCell 第一行和最后一行圆角设置

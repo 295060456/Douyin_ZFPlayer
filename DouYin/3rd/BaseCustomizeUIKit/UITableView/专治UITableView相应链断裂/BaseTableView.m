@@ -6,31 +6,44 @@
 //  Copyright © 2019 朝花夕拾. All rights reserved.
 //
 
-#import "BaseTableViewer.h"
+#import "BaseTableView.h"
 
-@interface BaseTableViewer (){
-    
-}
+@interface BaseTableView ()
 
-@property(nonatomic,copy)MKDataBlock block;
+@property(nonatomic,copy)MKDataBlock baseTableViewBlock;
 
 @end
 
+@implementation BaseTableView
 
-@implementation BaseTableViewer
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        
+    }return self;
+}
 
--(void)actionBlock:(MKDataBlock _Nullable)block{
-    self.block = block;
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
+/*
+    用于以此为基类的BaseTableView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseTableView:(MKDataBlock _Nullable)baseTableViewBlock{
+    self.baseTableViewBlock = baseTableViewBlock;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     NSLog(@"");
-    if (self.block) {
-//        self.block();
+    if (self.baseTableViewBlock) {
+//        self.baseTableViewBlock();
     }
 }
-
+/// 专治UITableView相应链断裂【核心代码】
 - (UIView *)hitTest:(CGPoint)point
           withEvent:(UIEvent *)event {
     static UIEvent *e = nil;

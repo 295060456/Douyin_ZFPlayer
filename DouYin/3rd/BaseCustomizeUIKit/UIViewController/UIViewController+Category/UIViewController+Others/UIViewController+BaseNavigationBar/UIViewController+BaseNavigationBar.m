@@ -1,13 +1,13 @@
 //
-//  UIViewController+NavigationBar.m
+//  UIViewController+BaseNavigationBar.m
 //  UBallLive
 //
 //  Created by Jobs on 2020/10/21.
 //
 
-#import "UIViewController+NavigationBar.h"
+#import "UIViewController+BaseNavigationBar.h"
 
-@implementation UIViewController (NavigationBar)
+@implementation UIViewController (BaseNavigationBar)
 
 static char *UIViewController_NavigationBar_navigationBar = "UIViewController_NavigationBar_navigationBar";
 static char *UIViewController_NavigationBar_leftBarButtonItem_back = "UIViewController_NavigationBar_leftBarButtonItem_back";
@@ -49,7 +49,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
                                  completion:nil];
     }
 }
-#pragma mark —— @property(nonatomic,strong)NavigationBar *navigationBar;
+#pragma mark —— @property(nonatomic,strong)BaseNavigationBar *navigationBar;
 -(void)setNavigationBar:(BaseNavigationBar *)navigationBar{
     objc_setAssociatedObject(self,
                              UIViewController_NavigationBar_navigationBar,

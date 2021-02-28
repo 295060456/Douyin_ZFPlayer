@@ -11,6 +11,7 @@
 @interface BaseNavigationVC ()
 
 @property(nonatomic,strong)NSShadow *shadow;
+@property(nonatomic,copy)MKDataBlock baseNavigationVCBlock;
 
 @end
 
@@ -47,15 +48,45 @@
     }return self;
 }
 
+-(void)loadView{
+    [super loadView];
+}
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.delegate = self;
-    self.navigationBar.hidden = YES;// [self setNavigationBarHidden:YES animated:YES]; 这么写不行
+//    self.navigationBar.hidden = YES;// [self setNavigationBarHidden:YES animated:YES]; 这么写不行
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationBar.hidden = YES;// [self setNavigationBarHidden:YES animated:YES]; 这么写不行
+//    self.navigationBar.hidden = YES;// [self setNavigationBarHidden:YES animated:YES]; 这么写不行
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+}
+/*
+    用于以此为基类的UINavigationController的具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseNavigationVC:(MKDataBlock)baseNavigationVCBlock{
+    self.baseNavigationVCBlock = baseNavigationVCBlock;
 }
 //在指定的单独的控制器里面更改状态栏的颜色（不是全局统一样式的批量改）
 /** 同时在指定的控制器里面实现此方法
@@ -69,7 +100,8 @@
 }
 
 - (void)setViewControllers:(NSArray<__kindof UIViewController *> *)viewControllers{
-    [self setViewControllers:viewControllers animated:YES];
+    [self setViewControllers:viewControllers
+                    animated:YES];
 }
 
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers
@@ -77,7 +109,8 @@
     for(NSInteger index = 1; index < viewControllers.count; index ++){
         viewControllers[index].hidesBottomBarWhenPushed = YES;
     }
-    [super setViewControllers:viewControllers animated:animated];
+    [super setViewControllers:viewControllers
+                     animated:animated];
 }
 
 - (void)pushViewController:(UIViewController *)viewController
@@ -89,14 +122,12 @@
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated{
-    NSLog(@"1");
     self.navigationBar.hidden = YES;//全局隐藏系统的导航栏，这一句是手势返回的时候，再次隐藏
 }
 
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated{
-    NSLog(@"2");
     self.interactivePopGestureRecognizer.delegate = (id)viewController;
 }
 
@@ -104,10 +135,10 @@
                     title:(NSString * __nullable)title
                  selector:(SEL __nonnull)selector{
     if (vc && selector) {
-        UIBarButtonItem *editBarBtnItems = [[UIBarButtonItem alloc]initWithTitle:title
-                                                                           style:UIBarButtonItemStylePlain
-                                                                          target:self
-                                                                          action:@selector(selector)];
+        UIBarButtonItem *editBarBtnItems = [[UIBarButtonItem alloc] initWithTitle:title
+                                                                            style:UIBarButtonItemStylePlain
+                                                                           target:self
+                                                                           action:@selector(selector)];
         vc.navigationItem.rightBarButtonItem = editBarBtnItems;
     }
 }

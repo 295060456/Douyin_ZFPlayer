@@ -28,7 +28,7 @@
 #import "AABlock.h"
 #import "UIView+EmptyData.h"
 #import "UIView+MJRefresh.h"
-#import "UIViewController+NavigationBar.h"
+#import "UIViewController+BaseNavigationBar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

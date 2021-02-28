@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AABlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 -(void)richElementsInCellWithModel:(id _Nullable)model;
 +(CGFloat)cellHeightWithModel:(id _Nullable)model;
-
+/*
+    用于以此为基类的BaseTableViewCell的具体子类所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseTableViewCell:(MKDataBlock)baseTableViewCellBlock;
 #pragma mark —— 功能方法
 /// iOS UITableViewCell 第一行和最后一行圆角设置
 /// @param tableView 作用对象tableView

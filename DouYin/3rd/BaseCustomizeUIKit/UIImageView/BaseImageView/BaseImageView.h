@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(CGSize)viewSizeWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据Frame】
 +(CGRect)viewFrameWithModel:(id _Nullable)model;
+/*
+    用于以此为基类的UIImageView的具体子类层所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseImageView:(MKDataBlock)baseImageViewBlock;
 
 @end
 

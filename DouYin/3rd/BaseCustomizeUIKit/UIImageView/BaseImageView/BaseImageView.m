@@ -10,6 +10,8 @@
 
 @interface BaseImageView ()
 
+@property(nonatomic,copy)MKDataBlock baseImageViewBlock;
+
 @end
 
 @implementation BaseImageView
@@ -43,6 +45,11 @@
 +(CGRect)viewFrameWithModel:(id _Nullable)model{
     return CGRectZero;
 }
-
+/*
+    用于以此为基类的UIImageView的具体子类层所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
+ */
+-(void)actionBlockBaseImageView:(MKDataBlock)baseImageViewBlock{
+    self.baseImageViewBlock = baseImageViewBlock;
+}
 
 @end

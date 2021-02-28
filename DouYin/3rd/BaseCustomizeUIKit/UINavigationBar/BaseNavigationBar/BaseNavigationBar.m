@@ -1,5 +1,5 @@
 //
-//  NavigationBar.m
+//  BaseNavigationBar.m
 //  UBallLive
 //
 //  Created by Jobs on 2020/10/21.
@@ -8,6 +8,8 @@
 #import "BaseNavigationBar.h"
 
 @interface BaseNavigationBar ()
+
+@property(nonatomic,copy)MKDataBlock baseNavigationBarBlock;
 
 @end
 
@@ -36,6 +38,10 @@
             }
         }
     }
+}
+
+-(void)actionBlockBaseNavigationBar:(MKDataBlock)baseNavigationBarBlock{
+    self.baseNavigationBarBlock = baseNavigationBarBlock;
 }
 
 @end

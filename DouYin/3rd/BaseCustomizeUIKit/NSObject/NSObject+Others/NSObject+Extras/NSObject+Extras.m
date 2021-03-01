@@ -38,7 +38,7 @@ static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
     objc_setAssociatedObject(self,
                              NSObject_Extras_currentPage,
                              [NSNumber numberWithInteger:_currentPage],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 /// 震动特效反馈
 +(void)feedbackGenerator{

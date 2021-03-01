@@ -123,7 +123,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
                 self.isCountDownClockFinished = NO;
                 self.isCountDownClockOpen = NO;
                 
-//                    [self timeFailBeginFrom:self.count];//根据需求来
+                [self timeFailBeginFrom:self.count];//根据需求来
             }
             
             if (self.countDownClickEventBlock) {
@@ -169,7 +169,6 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     }return self;
 }
 #pragma clang diagnostic pop
-
 //先走timeFailBeginFrom 再走drawRect
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
@@ -594,7 +593,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_layerCornerRadius,
                              [NSNumber numberWithFloat:layerCornerRadius],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat layerBorderWidth;
 -(CGFloat)layerBorderWidth{
@@ -605,9 +604,8 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_layerBorderWidth,
                              [NSNumber numberWithFloat:layerBorderWidth],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 #pragma mark —— @property(nonatomic,assign)long count;
 -(long)count{
     return [objc_getAssociatedObject(self, UIButton_CountDownBtn_count) longValue];
@@ -620,7 +618,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_count,
                              [NSNumber numberWithLong:count],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,copy)MKDataBlock countDownBlock;
 -(MKDataBlock)countDownBlock{
@@ -653,7 +651,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_showTimeType,
                              [NSNumber numberWithInteger:showTimeType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CountDownBtnType countDownBtnType;
 -(CountDownBtnType)countDownBtnType{
@@ -665,7 +663,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_countDownBtnType,
                              [NSNumber numberWithInteger:countDownBtnType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CountDownBtnNewLineType countDownBtnNewLineType;
 -(CountDownBtnNewLineType)countDownBtnNewLineType{
@@ -676,7 +674,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_countDownBtnNewLineType,
                              [NSNumber numberWithInteger:countDownBtnNewLineType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CequenceForShowTitleRuningStrType cequenceForShowTitleRuningStrType;
 -(CequenceForShowTitleRuningStrType)cequenceForShowTitleRuningStrType{
@@ -687,7 +685,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_cequenceForShowTitleRuningStrType,
                              [NSNumber numberWithInteger:cequenceForShowTitleRuningStrType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CountDownBtnRunType btnRunType;
 -(CountDownBtnRunType)btnRunType{
@@ -698,7 +696,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_btnRunType,
                              [NSNumber numberWithInteger:btnRunType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)BOOL isCountDownClockFinished;
 -(BOOL)isCountDownClockFinished{
@@ -710,7 +708,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_isCountDownClockFinished,
                              [NSNumber numberWithBool:isCountDownClockFinished],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark ——  @property(nonatomic,assign)BOOL isCountDownClockOpen;//倒计时是否开始
 -(BOOL)isCountDownClockOpen{
@@ -722,7 +720,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_isCountDownClockOpen,
                              [NSNumber numberWithBool:isCountDownClockOpen],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)NSString *countStr;
 -(NSString *)formatTimeStr{
@@ -782,7 +780,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_isDataStrMakeNewLine,
                              [NSNumber numberWithBool:isDataStrMakeNewLine],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)BOOL isCanBeClickWhenTimerCycle;
 -(BOOL)isCanBeClickWhenTimerCycle{
@@ -794,7 +792,7 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_isCanBeClickWhenTimerCycle,
                              [NSNumber numberWithBool:isCanBeClickWhenTimerCycle],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

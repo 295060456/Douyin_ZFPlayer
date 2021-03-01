@@ -38,7 +38,7 @@ static char *NSObject_CallBackInfoByBlock_viewControllerBlock = "NSObject_CallBa
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_objectBlock,
                              objectBlock,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)MKDataBlock viewBlock;
 -(MKDataBlock)viewBlock{
@@ -49,7 +49,7 @@ static char *NSObject_CallBackInfoByBlock_viewControllerBlock = "NSObject_CallBa
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_viewBlock,
                              viewBlock,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)MKDataBlock viewControllerBlock;
 -(MKDataBlock)viewControllerBlock{
@@ -60,7 +60,7 @@ static char *NSObject_CallBackInfoByBlock_viewControllerBlock = "NSObject_CallBa
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_viewControllerBlock,
                              viewControllerBlock,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end

@@ -41,77 +41,9 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
         }
     }];
 }
-//停止旋转动画
+#pragma mark —— 停止旋转动画
 -(void)stopRotateAnimation{
     self.isStopRotateAnimation = !self.isStopRotateAnimation;
-}
-
--(CGFloat)rotateChangeAngle{
-    CGFloat RotateChangeAngle = [objc_getAssociatedObject(self, UIView_Rotate_rotateChangeAngle) floatValue];
-    if (RotateChangeAngle == 0) {
-        RotateChangeAngle = 20;
-        objc_setAssociatedObject(self,
-                                 UIView_Rotate_rotateChangeAngle,
-                                 [NSNumber numberWithFloat:RotateChangeAngle],
-                                 OBJC_ASSOCIATION_ASSIGN);
-    }return RotateChangeAngle;
-}
-
--(void)setRotateChangeAngle:(CGFloat)rotateChangeAngle{
-    objc_setAssociatedObject(self,
-                             UIView_Rotate_rotateChangeAngle,
-                             [NSNumber numberWithFloat:rotateChangeAngle],
-                             OBJC_ASSOCIATION_ASSIGN);
-}
-
--(CGFloat)currentAngle{
-    return [objc_getAssociatedObject(self, UIView_Rotate_currentAngle) floatValue];
-}
-
--(void)setCurrentAngle:(CGFloat)currentAngle{
-    objc_setAssociatedObject(self,
-                             UIView_Rotate_currentAngle,
-                             [NSNumber numberWithFloat:currentAngle],
-                             OBJC_ASSOCIATION_ASSIGN);
-}
-
--(CGFloat)durationTime{
-    CGFloat DurationTime = [objc_getAssociatedObject(self, UIView_Rotate_durationTime) floatValue];
-    if (DurationTime == 0) {
-        DurationTime = 0.1;//缺省值
-    }return DurationTime;
-}
-
--(void)setDurationTime:(CGFloat)durationTime{
-    objc_setAssociatedObject(self,
-                             UIView_Rotate_durationTime,
-                             [NSNumber numberWithFloat:durationTime],
-                             OBJC_ASSOCIATION_ASSIGN);
-}
-
--(CGFloat)delayTime{
-    CGFloat DelayTime = [objc_getAssociatedObject(self, UIView_Rotate_delayTime) floatValue];
-    if (DelayTime == 0) {
-        DelayTime = 0.01;//缺省值
-    }return DelayTime;
-}
-
--(void)setDelayTime:(CGFloat)delayTime{
-    objc_setAssociatedObject(self,
-                             UIView_Rotate_delayTime,
-                             [NSNumber numberWithFloat:delayTime],
-                             OBJC_ASSOCIATION_ASSIGN);
-}
-
--(BOOL)isStopRotateAnimation{
-    return [objc_getAssociatedObject(self, UIView_Rotate_isStopRotateAnimation) boolValue];
-}
-
--(void)setIsStopRotateAnimation:(BOOL)isStopRotateAnimation{
-    objc_setAssociatedObject(self,
-                             UIView_Rotate_isStopRotateAnimation,
-                             [NSNumber numberWithBool:isStopRotateAnimation],
-                             OBJC_ASSOCIATION_ASSIGN);
 }
 #pragma mark —— 图片从小放大
 +(void)animationAlert:(UIView *)view{
@@ -165,7 +97,7 @@ void shakerAnimation (UIView *view,
     hover.fromValue = [NSValue valueWithCGPoint:CGPointZero];
     hover.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0, -10.0)]; // y increases downwards on iOS
     hover.autoreverses = YES; // Animate back to normal afterwards
-    hover.duration = 0.2; // The duration for one part of the animation (0.2 up and 0.2 down)
+    hover.duration = 0.5; // The duration for one part of the animation (0.2 up and 0.2 down)
     hover.repeatCount = INFINITY; // The number of times the animation should repeat
     hover.removedOnCompletion = NO;//锁屏进入继续动画
     [view.layer addAnimation:hover forKey:@"myHoverAnimation"];
@@ -200,7 +132,73 @@ void shakerAnimation (UIView *view,
         }
     }];
 }
+#pragma mark —— @property(nonatomic,assign)CGFloat rotateChangeAngle;
+-(CGFloat)rotateChangeAngle{
+    CGFloat RotateChangeAngle = [objc_getAssociatedObject(self, UIView_Rotate_rotateChangeAngle) floatValue];
+    if (RotateChangeAngle == 0) {
+        RotateChangeAngle = 20;
+        objc_setAssociatedObject(self,
+                                 UIView_Rotate_rotateChangeAngle,
+                                 [NSNumber numberWithFloat:RotateChangeAngle],
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return RotateChangeAngle;
+}
 
+-(void)setRotateChangeAngle:(CGFloat)rotateChangeAngle{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_rotateChangeAngle,
+                             [NSNumber numberWithFloat:rotateChangeAngle],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)__block CGFloat currentAngle;
+-(CGFloat)currentAngle{
+    return [objc_getAssociatedObject(self, UIView_Rotate_currentAngle) floatValue];
+}
 
+-(void)setCurrentAngle:(CGFloat)currentAngle{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_currentAngle,
+                             [NSNumber numberWithFloat:currentAngle],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)CGFloat durationTime;
+-(CGFloat)durationTime{
+    CGFloat DurationTime = [objc_getAssociatedObject(self, UIView_Rotate_durationTime) floatValue];
+    if (DurationTime == 0) {
+        DurationTime = 0.1;//缺省值
+    }return DurationTime;
+}
+
+-(void)setDurationTime:(CGFloat)durationTime{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_durationTime,
+                             [NSNumber numberWithFloat:durationTime],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)CGFloat delayTime;
+-(CGFloat)delayTime{
+    CGFloat DelayTime = [objc_getAssociatedObject(self, UIView_Rotate_delayTime) floatValue];
+    if (DelayTime == 0) {
+        DelayTime = 0.01;//缺省值
+    }return DelayTime;
+}
+
+-(void)setDelayTime:(CGFloat)delayTime{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_delayTime,
+                             [NSNumber numberWithFloat:delayTime],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)BOOL isStopRotateAnimation;//默认值为NO（一直旋转）
+-(BOOL)isStopRotateAnimation{
+    return [objc_getAssociatedObject(self, UIView_Rotate_isStopRotateAnimation) boolValue];
+}
+
+-(void)setIsStopRotateAnimation:(BOOL)isStopRotateAnimation{
+    objc_setAssociatedObject(self,
+                             UIView_Rotate_isStopRotateAnimation,
+                             [NSNumber numberWithBool:isStopRotateAnimation],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end

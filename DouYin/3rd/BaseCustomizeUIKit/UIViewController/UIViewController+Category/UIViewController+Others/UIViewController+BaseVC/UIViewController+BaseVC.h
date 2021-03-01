@@ -18,7 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)id requestParams;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
-
+/// 简洁版强制展现一个控制器页面【不需要正向传参】
+-(void)comingToVC:(UIViewController *)viewController;
+/// 简洁版强制展现一个控制器页面【需要正向传参】
+-(void)comingToVC:(UIViewController *)viewController
+    requestParams:(id)requestParams;
 /// 强制推控制器，自定义是PUSH还是PRESENT展现控制器，如果自定义PUSH但是navigationController不存在，则换用PRESENT展现控制器
 /// @param rootVC 从A控制器
 /// @param toVC  推到B控制器

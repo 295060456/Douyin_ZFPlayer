@@ -106,7 +106,7 @@ static char *sizeH = "sizeH";
     objc_setAssociatedObject(self,
                              BaseVC_BWShareView_bWShareViewStyle,
                              [NSNumber numberWithInteger:bWShareViewStyle],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(strong,nonatomic)NSMutableArray *shareViewDataMutArr;
 -(NSMutableArray *)shareViewDataMutArr{

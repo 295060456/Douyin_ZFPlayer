@@ -188,7 +188,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_callbackBlock,
                              callbackBlock,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 -(NSUInteger)numberOfTapsRequired{
@@ -199,7 +199,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_numberOfTapsRequired,
                              [NSNumber numberWithInteger:numberOfTapsRequired],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 -(NSUInteger)numberOfTouchesRequired{
@@ -210,7 +210,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_numberOfTouchesRequired,
                              [NSNumber numberWithUnsignedInteger:numberOfTouchesRequired],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】
 -(NSTimeInterval)minimumPressDuration{
@@ -221,7 +221,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_minimumPressDuration,
                              [NSNumber numberWithDouble:minimumPressDuration],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat allowableMovement;//【UILongPressGestureRecognizer】
 -(CGFloat)allowableMovement{
@@ -232,7 +232,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_allowableMovement,
                              [NSNumber numberWithFloat:allowableMovement],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;//swipe手势清扫方向
 -(UISwipeGestureRecognizerDirection)swipeGRDirection{
@@ -243,7 +243,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_swipeGRDirection,
                              [NSNumber numberWithUnsignedInteger:swipeGRDirection],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)UIScrollTypeMask allowedScrollTypesMask;
 -(UIScrollTypeMask)allowedScrollTypesMask{
@@ -254,7 +254,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_allowedScrollTypesMask,
                              [NSNumber numberWithInteger:allowedScrollTypesMask],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat scale;
 -(CGFloat)scale{
@@ -265,7 +265,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_scale,
                              [NSNumber numberWithFloat:scale],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat rotate;
 -(CGFloat)rotate{
@@ -276,7 +276,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_rotate,
                              [NSNumber numberWithFloat:rotate],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;//长按手势
 -(UILongPressGestureRecognizer *)longPressGR{
@@ -420,7 +420,6 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 }
 
 -(void)setPanGR:(UIPanGestureRecognizer *)panGR{
-    
     objc_setAssociatedObject(self,
                              UIView_Gesture_panGR,
                              panGR,
@@ -518,7 +517,6 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
                              screenEdgePanGR,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 
 @end
 

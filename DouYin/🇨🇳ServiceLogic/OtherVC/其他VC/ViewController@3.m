@@ -33,6 +33,13 @@
     self.view.backgroundColor = kRedColor;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"");
+    self.view.durationTime = 0.2f;
+    NSLog(@"%f",self.view.durationTime);
+}
+
 -(void)dd{
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
 

@@ -17,8 +17,10 @@ static char *UITableViewCell_Margin_marginY = "UITableViewCell_Margin_marginY";
 @dynamic marginX;
 @dynamic marginY;
 
-//frame
+// 在具体的子类去实现,分类调用无效
 -(void)setFrame:(CGRect)frame{
+    NSLog(@"self.marginX = %f",self.marginX);
+    NSLog(@"self.marginY = %f",self.marginY);
     frame.origin.x += self.marginX;
     frame.origin.y += self.marginY;
     frame.size.height -= self.marginY * 2;
@@ -46,8 +48,8 @@ static char *UITableViewCell_Margin_marginY = "UITableViewCell_Margin_marginY";
 -(void)setMarginX:(CGFloat)marginX{
     objc_setAssociatedObject(self,
                              UITableViewCell_Margin_marginX,
-                             [NSNumber numberWithBool:marginX],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             [NSNumber numberWithFloat:marginX],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat marginY;
 -(CGFloat)marginY{
@@ -58,8 +60,8 @@ static char *UITableViewCell_Margin_marginY = "UITableViewCell_Margin_marginY";
 -(void)setMarginY:(CGFloat)marginY{
     objc_setAssociatedObject(self,
                              UITableViewCell_Margin_marginY,
-                             [NSNumber numberWithBool:marginY],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             [NSNumber numberWithFloat:marginY],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

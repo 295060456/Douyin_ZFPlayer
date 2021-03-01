@@ -9,7 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CALayer (Transition)
-
 /*
  *  动画类型
  */
@@ -44,16 +43,12 @@ typedef enum {
     TransitionCurveLinear,//线性
     TransitionCurveRamdom,//随机
 }TransitionCurve;
-/**
- *  转场动画
- *
- *  @param animType 转场动画类型
- *  @param subtype  转动动画方向
- *  @param curve    转动动画曲线
- *  @param duration 转动动画时长
- *
- *  @return 转场动画实例
- */
+/// 转场动画
+/// @param animType  转场动画类型
+/// @param subType   转动动画方向
+/// @param curve  转动动画曲线
+/// @param duration 转动动画时长
+/// @return 转场动画实例
 -(CATransition *)transitionWithAnimType:(TransitionAnimType)animType
                                 subType:(TransitionSubType)subType
                                   curve:(TransitionCurve)curve

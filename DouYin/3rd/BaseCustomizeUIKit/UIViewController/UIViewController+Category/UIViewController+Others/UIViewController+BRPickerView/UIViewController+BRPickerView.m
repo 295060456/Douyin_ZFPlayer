@@ -71,7 +71,7 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
     objc_setAssociatedObject(self,
                              BaseVC_BRStringPickerView_brStringPickerMode,
                              [NSNumber numberWithInteger:brStringPickerMode],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,copy)MKDataBlock brStringPickerViewBlock;
 -(MKDataBlock)brStringPickerViewBlock{

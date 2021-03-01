@@ -300,7 +300,7 @@ static char *BaseVC_JPImageresizerView_fixCompleteBlock = "BaseVC_JPImageresizer
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_configureType,
                              [NSNumber numberWithInteger:configureType],
-                             OBJC_ASSOCIATION_ASSIGN);
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)NSData *JPImageresizerView_data;
 -(NSData *)JPImageresizerView_data{

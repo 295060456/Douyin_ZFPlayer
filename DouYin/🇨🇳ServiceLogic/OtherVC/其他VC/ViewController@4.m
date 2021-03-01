@@ -34,4 +34,9 @@
     self.view.backgroundColor = kRedColor;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"");
+}
+
 @end

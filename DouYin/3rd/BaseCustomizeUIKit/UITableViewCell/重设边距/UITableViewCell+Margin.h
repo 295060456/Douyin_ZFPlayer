@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSIndexPath *indexPath;
 @property(nonatomic,assign)CGFloat marginX;
 @property(nonatomic,assign)CGFloat marginY;
+// 在具体的子类去实现,分类调用无效
+-(void)setFrame:(CGRect)frame;
 
 @end
 

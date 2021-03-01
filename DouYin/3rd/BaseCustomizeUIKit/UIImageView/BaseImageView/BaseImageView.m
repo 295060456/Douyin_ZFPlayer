@@ -32,7 +32,7 @@
     [super drawRect:rect];
 }
 //具体由子类进行复写【数据定UI】
--(void)richElementsInViewWithModel:(id)model{}
+-(void)richElementsInViewWithModel:(id _Nullable)model{}
 //具体由子类进行复写【数据定高】
 +(CGFloat)viewHeightWithModel:(id _Nullable)model{
     return 0;

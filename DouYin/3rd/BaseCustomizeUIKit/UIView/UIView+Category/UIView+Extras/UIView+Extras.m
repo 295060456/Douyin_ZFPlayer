@@ -13,7 +13,11 @@ static const void *leftButtonEventBlockKey = &leftButtonEventBlockKey;
 static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 
 @implementation UIView (Extras)
-
+/// 指定描边
+/// @param view 作用view
+/// @param color 作用颜色
+/// @param width 线宽
+/// @param borderType 作用方向
 + (void)setBorderWithView:(UIView *__nonnull)view
               borderColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width

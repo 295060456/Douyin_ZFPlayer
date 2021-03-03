@@ -519,6 +519,7 @@
 		C54BB4FC2518E398001591C2 /* ViewController@5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@5.m"; sourceTree = "<group>"; };
 		C54BB4FD2518E398001591C2 /* ViewController@1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@1.m"; sourceTree = "<group>"; };
 		C54BB4FE2518E398001591C2 /* ViewController@2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@2.h"; sourceTree = "<group>"; };
+		C54C611C25EFC249007DD043 /* DDCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCacheTool.h; sourceTree = "<group>"; };
 		C54CC560255146F800C69C1F /* UIView+ZFPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZFPlayer.m"; sourceTree = "<group>"; };
 		C54CC561255146F800C69C1F /* UIView+ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZFPlayer.h"; sourceTree = "<group>"; };
 		C54CC5B725514AC300C69C1F /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
@@ -1470,6 +1471,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C54C611B25EFC249007DD043 /* 清除缓存 */,
 				C5CF125525AC7CB300381935 /* LYLUnicode */,
 				C5A4361425AAF710000F0CD2 /* 手势滑动返回 */,
 				C565C9A225A4377A00848134 /* TwoVerticalArrangementLabsView */,
@@ -2024,6 +2026,14 @@
 				C56BA8FB2578936C00D054D0 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
+			sourceTree = "<group>";
+		};
+		C54C611B25EFC249007DD043 /* 清除缓存 */ = {
+			isa = PBXGroup;
+			children = (
+				C54C611C25EFC249007DD043 /* DDCacheTool.h */,
+			);
+			path = "清除缓存";
 			sourceTree = "<group>";
 		};
 		C54F8585252B611300EE3DD0 /* UITableView 折叠功能 */ = {

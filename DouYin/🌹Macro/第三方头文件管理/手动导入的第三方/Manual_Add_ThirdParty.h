@@ -104,5 +104,6 @@
 #import "TXFileOperation.h"
 #import "FileFolderHandleTool.h"
 #import "EmptyView.h"
+#import "DDCacheTool.h"
 
 #endif /* Manual_Add_ThirdParty_h */

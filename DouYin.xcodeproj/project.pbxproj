@@ -339,6 +339,7 @@
 		C5226952258757F7004447FB /* BWItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemModel.h; sourceTree = "<group>"; };
 		C5226953258757F7004447FB /* BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWShareView.h; sourceTree = "<group>"; };
 		C5226954258757F7004447FB /* BWItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemModel.m; sourceTree = "<group>"; };
+		C5264C4525EF5D8600C8AB2B /* DouYinModelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouYinModelHeader.h; sourceTree = "<group>"; };
 		C530B198254D9B1500EDEDC8 /* LMHWaterFallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHWaterFallLayout.h; sourceTree = "<group>"; };
 		C530B199254D9B1500EDEDC8 /* LMHWaterFallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHWaterFallLayout.m; sourceTree = "<group>"; };
 		C530B19B254D9B1500EDEDC8 /* KFZShopCatoryFlowLayput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KFZShopCatoryFlowLayput.h; sourceTree = "<group>"; };
@@ -2087,7 +2088,7 @@
 		C551336025C68898007BCA82 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C55D45B1251CB62800E543D6 /* 数据模型层 */,
+				C55D45B1251CB62800E543D6 /* 🇨🇳数据模型层(此文件夹存放全局的所有Model) */,
 				C582A672251C714F00DD83A1 /* 网络请求 */,
 			);
 			path = Common;
@@ -2251,13 +2252,14 @@
 			path = "Swift-OC桥接头文件";
 			sourceTree = "<group>";
 		};
-		C55D45B1251CB62800E543D6 /* 数据模型层 */ = {
+		C55D45B1251CB62800E543D6 /* 🇨🇳数据模型层(此文件夹存放全局的所有Model) */ = {
 			isa = PBXGroup;
 			children = (
-				C55133C425C688CC007BCA82 /* VideoModel */,
+				C5264C4525EF5D8600C8AB2B /* DouYinModelHeader.h */,
 				C55133C325C688C4007BCA82 /* BaseModel */,
+				C55133C425C688CC007BCA82 /* VideoModel */,
 			);
-			path = "数据模型层";
+			path = "🇨🇳数据模型层(此文件夹存放全局的所有Model)";
 			sourceTree = "<group>";
 		};
 		C55FE6C625B4229500D8C30D /* UIView+MJRefresh */ = {

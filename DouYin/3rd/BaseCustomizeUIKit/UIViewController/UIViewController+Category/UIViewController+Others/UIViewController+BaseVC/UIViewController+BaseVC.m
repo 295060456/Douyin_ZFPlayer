@@ -27,7 +27,7 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
 }
 /// 简洁版强制展现一个控制器页面【需要正向传参】
 -(void)comingToVC:(UIViewController *)viewController
-    requestParams:(id)requestParams{
+    requestParams:(id _Nullable)requestParams{
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH

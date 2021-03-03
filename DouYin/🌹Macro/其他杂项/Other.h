@@ -23,7 +23,7 @@
 #import "KeychainIDFA.h"
 
 // 数据模型层
-#import "VideoModel.h"
+#import "DouYinModelHeader.h"
 
 #import "ViewController@1.h"
 #import "ViewController@2.h"

@@ -29,7 +29,7 @@ static inline CGFloat Top(){
     });return value;
 }
 #pragma mark —— 状态栏高度：全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
-//方法一：
+//方法一：状态栏高度
 static inline CGFloat rectOfStatusbar(){
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
@@ -50,7 +50,7 @@ static inline CGFloat rectOfStatusbar(){
     }return RectOfStatusbar;
 #pragma clang diagnostic pop
 }
-//方法二：
+//方法二：状态栏高度
 static inline CGFloat StatusBarHeight(){
     if (@available(iOS 13.0, *)) {
         return getMainWindow().windowScene.statusBarManager.statusBarFrame.size.height;
@@ -64,7 +64,11 @@ static inline CGFloat StatusBarHeight(){
 //导航栏高度
 static inline CGFloat NavigationHeight(){
     NSLog(@"%f",StatusBarHeight());
-    return StatusBarHeight() + 44;
+    return 44;
+}
+//导航栏高度 + 状态栏高度
+static inline CGFloat NavigationBarAndStatusBarHeight(){
+    return StatusBarHeight() + NavigationHeight();
 }
 //tabbar高度：全面屏手机比普通手机多34的安全区域
 #import "DouYinAppDelegate.h"

@@ -40,14 +40,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIImageView *bgImageView;
 @property(nonatomic,assign)NSInteger currentPage;
 @property(nonatomic,copy)MKDataBlock viewControllerBlock;
-/// 加入键盘通知的监听者
--(void)keyboard;
-/// 停止刷新
--(void)endRefreshing:(UIScrollView *)targetScrollView;
 /*
     用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
 -(void)actionBlockViewController:(MKDataBlock)viewControllerBlock;
+
+/***
+ 加入键盘监听者 和 停止MJ_Refresh刷新 移到了NSObject 分类层，定位于 @interface NSObject (Extras)。这么做是考虑到调用类可能不仅仅局限于UIViewController
+
+ -(void)keyboard;//加入键盘通知的监听者
+ -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView; 停止刷新
+ 
+ **/
 
 @end
 

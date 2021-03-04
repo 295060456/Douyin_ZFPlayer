@@ -18,28 +18,6 @@ static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
 
 @dynamic _indexPath;
 @dynamic _currentPage;
-#pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
--(NSIndexPath *)_indexPath{
-    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
-}
-
--(void)set_indexPath:(NSIndexPath *)_indexPath{
-    objc_setAssociatedObject(self,
-                             NSObject_Extras_indexPath,
-                             _indexPath,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,assign)NSInteger _currentPage;
--(NSInteger)_currentPage{
-    return [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
-}
-
--(void)set_currentPage:(NSInteger)_currentPage{
-    objc_setAssociatedObject(self,
-                             NSObject_Extras_currentPage,
-                             [NSNumber numberWithInteger:_currentPage],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 /// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
@@ -199,6 +177,78 @@ static void selectorImp(id self,
     if (kernReturn != KERN_SUCCESS) {
         return NSNotFound;
     }return taskInfo.resident_size/1024.0/1024.0;
+}
+/// 加入键盘通知的监听者
+-(void)keyboard{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillChangeFrameNotification:)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidChangeFrameNotification:)
+                                                 name:UIKeyboardDidChangeFrameNotification
+                                               object:nil];
+}
+//键盘 弹出 和 收回 走这个方法
+-(void)keyboardWillChangeFrameNotification:(NSNotification *)notification{
+    NSDictionary *userInfo = notification.userInfo;
+    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat KeyboardOffsetY = beginFrame.origin.y - endFrame.origin.y;// 正则抬起 ，负值下降
+    NSLog(@"KeyboardOffsetY = %f",KeyboardOffsetY);
+ 
+    if (KeyboardOffsetY > 0) {
+        NSLog(@"键盘抬起");
+    }else if(KeyboardOffsetY < 0){
+        NSLog(@"键盘收回");
+    }else{
+        NSLog(@"键盘");
+    }
+}
+
+-(void)keyboardDidChangeFrameNotification:(NSNotification *)notification{
+
+}
+/// 停止刷新
+-(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView{
+    if ([targetScrollView isKindOfClass:UITableView.class]) {
+        UITableView *tableView = (UITableView *)targetScrollView;
+        [tableView reloadData];
+    }else if ([targetScrollView isKindOfClass:UICollectionView.class]){
+        UICollectionView *collectionView = (UICollectionView *)targetScrollView;
+        [collectionView reloadData];
+    }else{}
+    
+    [targetScrollView tab_endAnimation];//里面实现了 [self.collectionView reloadData];
+    if (targetScrollView.mj_header.refreshing) {
+        [targetScrollView.mj_header endRefreshing];// 结束刷新
+    }
+    if (targetScrollView.mj_footer.refreshing) {
+        [targetScrollView.mj_footer endRefreshing];// 结束刷新
+    }
+}
+#pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
+-(NSIndexPath *)_indexPath{
+    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
+}
+
+-(void)set_indexPath:(NSIndexPath *)_indexPath{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_indexPath,
+                             _indexPath,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)NSInteger _currentPage;
+-(NSInteger)_currentPage{
+    return [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
+}
+
+-(void)set_currentPage:(NSInteger)_currentPage{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_currentPage,
+                             [NSNumber numberWithInteger:_currentPage],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

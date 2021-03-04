@@ -20,6 +20,12 @@
 #import "GKPhotoBrowser.h"
 #endif
 
+#if __has_include(<TABAnimated/TABAnimated.h>)
+#import <TABAnimated/TABAnimated.h>
+#else
+#import "TABAnimated.h"
+#endif
+
 #if __has_include(<YYImage/YYImage.h>)
 #import <YYImage/YYImage.h>
 #else
@@ -64,5 +70,9 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 +(double)availableMemory;
 /// 获取当前任务所占用内存
 +(double)usedMemory;
+/// 加入键盘通知的监听者
+-(void)keyboard;
+/// 停止刷新
+-(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 
 @end

@@ -126,7 +126,7 @@
         _progressLabel = ZZCountingLabel.new;
         _progressLabel.textColor = [UIColor blackColor];
         _progressLabel.textAlignment = NSTextAlignmentCenter;
-        _progressLabel.font = [UIFont systemFontOfSize:22];
+        _progressLabel.font = [UIFont systemFontOfSize:22 weight:UIFontWeightRegular];
         _progressLabel.text = @"0%";
     }return _progressLabel;
 }

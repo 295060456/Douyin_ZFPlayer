@@ -11,17 +11,58 @@
 
 ///跳转系统设置
 +(void)pushToSysConfig{
-    [NSObject OpenURL:UIApplicationOpenSettingsURLString];
+    [NSObject openURL:UIApplicationOpenSettingsURLString];
 }
 //软性打开URL：【不会处理打开成功和打开失败两种情况】如果URL有误无法打开则就这样
-+(void)OpenURL:(NSString *)URLStr{
-    [NSObject OpenURL:URLStr
++(void)openURL:(NSString *)URLStr{
+    [NSObject openURL:URLStr
               options:@{}
 completionOpenSuccessHandler:nil
 completionOpenFailHandler:nil];
 }
+//软性打开URL：【只处理打开成功的情况】
++(void)openURL:(NSString *)URLStr
+  successBlock:(MKDataBlock)successBlock{
+    [NSObject openURL:URLStr
+              options:@{}
+completionOpenSuccessHandler:^{
+        if (successBlock) {
+            successBlock(@1);
+        }
+    }
+completionOpenFailHandler:nil];
+}
+//软性打开URL：【只处理打开失败的情况】
++(void)openURL:(NSString *)URLStr
+     failBlock:(MKDataBlock)failBlock{
+    [NSObject openURL:URLStr
+              options:@{}
+completionOpenSuccessHandler:nil
+completionOpenFailHandler:^{
+        if (failBlock) {
+            failBlock(@1);
+        }
+    }];
+}
+//软性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
++(void)openURL:(NSString *)URLStr
+  successBlock:(MKDataBlock)successBlock
+     failBlock:(MKDataBlock)failBlock{
+    [NSObject openURL:URLStr
+              options:@{}
+completionOpenSuccessHandler:^{
+        if (successBlock) {
+            successBlock(@1);
+        }
+    }
+completionOpenFailHandler:^{
+        if (failBlock) {
+            failBlock(@1);
+        }
+    }];
+}
 //硬性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
-+(BOOL)OpenURL:(NSString *)URLStr
++(BOOL)openURL:(NSString *)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options
 completionOpenSuccessHandler:(NoResultBlock _Nullable)openSuccessBlock
 completionOpenFailHandler:(NoResultBlock _Nullable)openFailBlock{

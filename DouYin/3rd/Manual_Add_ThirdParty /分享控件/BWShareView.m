@@ -190,7 +190,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         _shareTitleLabel.backgroundColor = RGBColor(245, 245, 245);
         _shareTitleLabel.textColor = RGBColor(153, 153, 153);
         _shareTitleLabel.textAlignment = NSTextAlignmentCenter;
-        _shareTitleLabel.font = [UIFont systemFontOfSize:14];
+        _shareTitleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
     }return _shareTitleLabel;
 }
 
@@ -265,7 +265,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                        forState:UIControlStateNormal];
         [_cancleButton setTitleColor:UIColor.blackColor
                             forState:UIControlStateNormal];
-        _cancleButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        _cancleButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
         [_cancleButton addTarget:self
                           action:@selector(cancleButtonAction)
                 forControlEvents:UIControlEventTouchUpInside];

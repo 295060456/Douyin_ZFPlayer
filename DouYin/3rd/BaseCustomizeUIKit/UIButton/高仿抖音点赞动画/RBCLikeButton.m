@@ -75,7 +75,7 @@
     
     //2.初始化"+1"上升label
     UILabel *incLabel = [[UILabel alloc]init];
-    incLabel.font = [UIFont systemFontOfSize:13];
+    incLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
     incLabel.textColor = TYColorFromRGB(0xFD5656);
     incLabel.textAlignment = NSTextAlignmentCenter;
     incLabel.text = @"+1";
@@ -86,7 +86,7 @@
     
     //3.初始化总点赞数label
     UILabel *countLabel = [[UILabel alloc]init];
-    countLabel.font = [UIFont systemFontOfSize:12];
+    countLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
     countLabel.textColor = TYColorFromRGB(0xCFD2D6);
     if (_type == RBCLikeButtonTypeImageleft) {
         countLabel.textAlignment = NSTextAlignmentLeft;

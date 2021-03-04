@@ -105,7 +105,7 @@
         _timeLab.backgroundColor = BackgroundColor;
         _timeLab.layer.masksToBounds = YES;
         _timeLab.textAlignment = NSTextAlignmentCenter;
-        _timeLab.font = [UIFont systemFontOfSize:13.5];
+        _timeLab.font = [UIFont systemFontOfSize:13.5 weight:UIFontWeightRegular];
         [self cornerRadiusWithView:_timeLab];
     }
     return _timeLab;

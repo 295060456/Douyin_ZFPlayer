@@ -57,7 +57,7 @@
         _titleLabel.text = @"";
         _titleLabel.textColor = UIColor.blackColor;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
     }return _titleLabel;
 }
 

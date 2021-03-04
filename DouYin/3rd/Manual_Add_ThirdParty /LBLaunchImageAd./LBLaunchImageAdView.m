@@ -166,7 +166,7 @@
         self.skipBtn.frame = CGRectMake(mainWidth - 70, 40, 60, 30);
     }
     self.skipBtn.backgroundColor = [UIColor brownColor];
-    self.skipBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.skipBtn.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
     [self.skipBtn addTarget:self action:@selector(skipBtnClick) forControlEvents:UIControlEventTouchUpInside];
     self.skipBtn.layer.cornerRadius = 3;
     self.skipBtn.clipsToBounds = YES;

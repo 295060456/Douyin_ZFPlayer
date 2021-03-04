@@ -53,7 +53,7 @@
             break;
         case PullMenuLightStyle:
         {
-            self.selectedBgView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+            self.selectedBgView.backgroundColor = [UIColor systemGroupedBackgroundColor];
             self.menuTitleLab.textColor = [UIColor blackColor];
             self.lineColor = [UIColor lightGrayColor];
         }

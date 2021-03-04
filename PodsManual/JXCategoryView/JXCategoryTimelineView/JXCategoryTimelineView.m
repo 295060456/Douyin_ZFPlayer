@@ -14,9 +14,9 @@
     [super initializeData];
 
     _timeTitleFont = [UIFont boldSystemFontOfSize:13];
-    self.titleFont = [UIFont systemFontOfSize:10];
+    self.titleFont = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
     _timeTitleSelectedFont = [UIFont boldSystemFontOfSize:15];
-    self.titleSelectedFont = [UIFont systemFontOfSize:10];
+    self.titleSelectedFont = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
     _timeTitleNormalColor = [UIColor lightGrayColor];
     self.titleColor = [UIColor lightGrayColor];
     _timeTitleSelectedColor = [UIColor whiteColor];

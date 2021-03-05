@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UICollectionView (RegisterClass)
 //注册的时候不开辟内存，只有当用字符串进行取值的时候才开辟内存
--(void)RegisterClass;
+-(void)registerCollectionViewClass;
 
 @end
 

@@ -9,7 +9,7 @@
 
 @implementation UICollectionView (RegisterClass)
 
--(void)RegisterClass{
+-(void)registerCollectionViewClass{
     
 //    [self registerClass:DDUserDetailsCollectionReusableView.class
 //        forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
@@ -25,6 +25,8 @@
 //        forCellWithReuseIdentifier:NSStringFromClass(DDCollectionViewCell_Style4.class)];
 //    [self registerClass:DDCollectionViewCell_Style5.class
 //        forCellWithReuseIdentifier:NSStringFromClass(DDCollectionViewCell_Style5.class)];
+    [self registerClass:UICollectionViewCell.class
+        forCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class)];
 }
 
 @end

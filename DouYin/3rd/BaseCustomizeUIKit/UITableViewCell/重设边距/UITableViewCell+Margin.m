@@ -6,6 +6,7 @@
 //
 
 #import "UITableViewCell+Margin.h"
+#import <objc/runtime.h>
 
 @implementation UITableViewCell (Margin)
 

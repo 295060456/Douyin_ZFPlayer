@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+BaseNavigationBar.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (BaseNavigationBar)
 

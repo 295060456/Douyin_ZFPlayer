@@ -7,6 +7,7 @@
 //
 
 #import "UIView+BackgroundImage.h"
+#import <objc/runtime.h>
 
 @implementation UIView (BackgroundImage)
 

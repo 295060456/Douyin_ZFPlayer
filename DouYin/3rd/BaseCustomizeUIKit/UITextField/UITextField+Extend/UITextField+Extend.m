@@ -7,6 +7,7 @@
 //
 
 #import "UITextField+Extend.h"
+#import <objc/runtime.h>
 
 @implementation UITextField (Extend)
 

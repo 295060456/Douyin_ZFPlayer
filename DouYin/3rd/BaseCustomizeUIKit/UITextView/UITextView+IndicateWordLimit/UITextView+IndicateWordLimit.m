@@ -6,6 +6,7 @@
 //
 
 #import "UITextView+IndicateWordLimit.h"
+#import <objc/runtime.h>
 
 @implementation UITextView (IndicateWordLimit)
 

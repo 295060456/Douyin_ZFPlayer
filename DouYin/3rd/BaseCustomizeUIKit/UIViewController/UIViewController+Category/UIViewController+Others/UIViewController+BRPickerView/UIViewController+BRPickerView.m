@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+BRPickerView.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (BRPickerView)
 

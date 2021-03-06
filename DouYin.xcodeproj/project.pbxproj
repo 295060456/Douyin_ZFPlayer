@@ -102,6 +102,7 @@
 		C5512D8025C67F91007BCA82 /* ZWPullMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7C25C67F91007BCA82 /* ZWPullMenuView.m */; };
 		C5512D8125C67F91007BCA82 /* ZWPullMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5512D7D25C67F91007BCA82 /* ZWPullMenuCell.m */; };
 		C5529DC72589CD4700A89501 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = C5529DC62589CD4700A89501 /* UIImage+ScreenShot.m */; };
+		C55429CF25F323F5002D1CA6 /* CheckMemFreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55429CE25F323F5002D1CA6 /* CheckMemFreeVC.m */; };
 		C554FE1A251DC35B004C51BB /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = C554FE18251DC35B004C51BB /* MKRightBtnView.m */; };
 		C55697D7255BFDE3005C1361 /* NSString+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = C55697D1255BFDE2005C1361 /* NSString+Extras.m */; };
 		C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */; };
@@ -538,6 +539,8 @@
 		C5529DC62589CD4700A89501 /* UIImage+ScreenShot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShot.m"; sourceTree = "<group>"; };
 		C552A2B72589CEFA00A89501 /* 我为什么要这么做.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "我为什么要这么做.md"; sourceTree = "<group>"; };
 		C552AF282589DED900A89501 /* 专治UITableView相应链断裂.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "专治UITableView相应链断裂.md"; sourceTree = "<group>"; };
+		C55429CD25F323F5002D1CA6 /* CheckMemFreeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMemFreeVC.h; sourceTree = "<group>"; };
+		C55429CE25F323F5002D1CA6 /* CheckMemFreeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMemFreeVC.m; sourceTree = "<group>"; };
 		C554FE18251DC35B004C51BB /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
@@ -1471,6 +1474,7 @@
 		C54BB15A2518D363001591C2 /* Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				C55429CC25F323F5002D1CA6 /* CheckMemFreeVC */,
 				C54C611B25EFC249007DD043 /* 清除缓存 */,
 				C5CF125525AC7CB300381935 /* LYLUnicode */,
 				C5A4361425AAF710000F0CD2 /* 手势滑动返回 */,
@@ -2219,6 +2223,15 @@
 				C54BB3652518D391001591C2 /* UIView+JHGestureBlock.m */,
 			);
 			path = "UIView+JHGestureBlock";
+			sourceTree = "<group>";
+		};
+		C55429CC25F323F5002D1CA6 /* CheckMemFreeVC */ = {
+			isa = PBXGroup;
+			children = (
+				C55429CD25F323F5002D1CA6 /* CheckMemFreeVC.h */,
+				C55429CE25F323F5002D1CA6 /* CheckMemFreeVC.m */,
+			);
+			path = CheckMemFreeVC;
 			sourceTree = "<group>";
 		};
 		C55563A42580A495004DB33A /* NSObject+Others */ = {
@@ -3961,6 +3974,7 @@
 				C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */,
 				C5A4411A25ABFB51000F0CD2 /* JXCategoryTitleBackgroundCell.m in Sources */,
 				C5D7749A257F59790087FC92 /* CJTextField.m in Sources */,
+				C55429CF25F323F5002D1CA6 /* CheckMemFreeVC.m in Sources */,
 				C591E5162563AACC005B78CC /* UIViewController+MJRefresh.m in Sources */,
 				C5A4411E25ABFB51000F0CD2 /* JXCategoryTimelineCell.m in Sources */,
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,

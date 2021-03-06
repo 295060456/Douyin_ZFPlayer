@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+MJRefresh.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (MJRefresh)
 

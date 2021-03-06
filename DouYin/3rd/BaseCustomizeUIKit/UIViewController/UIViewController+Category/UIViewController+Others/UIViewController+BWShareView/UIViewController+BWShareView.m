@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+BWShareView.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (BWShareView)
 

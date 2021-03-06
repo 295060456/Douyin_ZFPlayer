@@ -6,6 +6,7 @@
 //
 
 #import "UIView+EmptyData.h"
+#import <objc/runtime.h>
 
 @implementation UIView (EmptyData)
 

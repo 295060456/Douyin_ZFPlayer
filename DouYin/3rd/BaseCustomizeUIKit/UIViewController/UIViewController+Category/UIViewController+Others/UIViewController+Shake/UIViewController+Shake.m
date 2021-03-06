@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+Shake.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (Shake)
 

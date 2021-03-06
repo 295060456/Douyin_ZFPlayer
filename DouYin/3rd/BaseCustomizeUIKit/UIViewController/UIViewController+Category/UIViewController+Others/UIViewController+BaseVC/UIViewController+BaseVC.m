@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+BaseVC.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (BaseVC)
 

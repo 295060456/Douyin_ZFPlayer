@@ -6,6 +6,7 @@
 //
 
 #import "UIView+MJRefresh.h"
+#import <objc/runtime.h>
 
 @implementation UIView (MJRefresh)
 

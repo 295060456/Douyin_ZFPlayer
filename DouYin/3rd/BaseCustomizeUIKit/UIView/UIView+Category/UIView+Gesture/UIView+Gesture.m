@@ -165,11 +165,10 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(id)target{
     id target = objc_getAssociatedObject(self, UIView_Gesture_target);
     if (!target) {
-        target = self;
         objc_setAssociatedObject(self,
                                  UIView_Gesture_target,
                                  target,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                                 OBJC_ASSOCIATION_ASSIGN);
     }return target;
 }
 
@@ -177,7 +176,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
     objc_setAssociatedObject(self,
                              UIView_Gesture_target,
                              target,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                             OBJC_ASSOCIATION_ASSIGN);
 }
 #pragma mark —— @property(nonatomic,assign)callback callbackBlock;//手势触发方法
 -(ThreeDataBlock)callbackBlock{

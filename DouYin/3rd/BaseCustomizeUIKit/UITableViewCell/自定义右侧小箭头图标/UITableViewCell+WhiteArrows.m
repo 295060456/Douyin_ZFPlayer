@@ -7,6 +7,7 @@
 //
 
 #import "UITableViewCell+WhiteArrows.h"
+#import <objc/runtime.h>
 
 @implementation UITableViewCell (WhiteArrows)
 

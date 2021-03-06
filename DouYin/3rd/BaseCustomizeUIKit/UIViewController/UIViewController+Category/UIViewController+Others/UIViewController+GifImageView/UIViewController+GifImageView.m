@@ -6,6 +6,7 @@
 //
 
 #import "UIViewController+GifImageView.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (GifImageView)
 

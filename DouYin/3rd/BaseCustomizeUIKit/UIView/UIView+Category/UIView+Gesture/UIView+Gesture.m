@@ -165,6 +165,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(id)target{
     id target = objc_getAssociatedObject(self, UIView_Gesture_target);
     if (!target) {
+        target = self;
         objc_setAssociatedObject(self,
                                  UIView_Gesture_target,
                                  target,

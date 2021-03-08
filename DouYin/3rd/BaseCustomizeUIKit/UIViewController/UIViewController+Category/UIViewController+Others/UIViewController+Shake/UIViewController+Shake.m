@@ -120,7 +120,9 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
     if (accelerameter > 1.5f) {
         //立即停止更新加速仪（很重要！）
         [self.motionManager stopAccelerometerUpdates];
+        @weakify(self)
         dispatch_async(dispatch_get_main_queue(), ^{
+            @strongify(self)
             //UI线程必须在此block内执行，例如摇一摇动画、UIAlertView之类
             //设置开始摇晃时震动
             [NSObject shake];

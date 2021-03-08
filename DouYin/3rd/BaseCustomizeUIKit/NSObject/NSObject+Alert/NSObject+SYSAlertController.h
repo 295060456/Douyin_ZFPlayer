@@ -24,51 +24,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface SYSAlertControllerConfig : NSObject
+
+@property(nonatomic,strong,nullable)NSString *title;// 标题，没有可传nil，如果传空字符@“”会多处一行空白
+@property(nonatomic,strong,nullable)NSString *message;// 副标题，没有可传nil，如果传空字符@“”会多处一行空白
+@property(nonatomic,assign)BOOL isSeparateStyle;// 如果为YES 那么有实质性进展的键位在右侧，否则在左侧
+@property(nonatomic,strong,nullable)NSArray <NSString*>*btnTitleArr;// 按钮名称的数组
+@property(nonatomic,strong,nullable)NSArray <NSString*>*alertBtnActionArr;// 与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
+@property(nonatomic,strong,nullable)NSArray *parametersArr;// @【所有的参数形成数据束，一个方法对应一个数据束的形式，包装成方法的第一个参数】
+@property(nonatomic,strong,nullable)NSArray *objectArr;// @【这个参数一般用于Block回调】
+@property(nonatomic,strong,nullable)UIViewController *targetVC;// 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+@property(nonatomic,strong,nullable)id funcInWhere;// // 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
+@property(nonatomic,assign)BOOL animated; // 是否开启动画效果
+@property(nonatomic,strong,nullable)UIControl *sender;
+
+@end
+
 @interface NSObject (SYSAlertController)
 /// 屏幕正中央的Alert
-/// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param message  副标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param isSeparateStyle  如果为YES 那么有实质性进展的键位在右侧，否则在左侧
-/// @param btnTitleArr 按钮名称的数组
-/// @param alertBtnActionArr  与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
-/// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-/// @param funcInWhere 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
-/// @param animated 动画效果
+/// @param config 配置文件
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
-+(void)showSYSAlertViewTitle:(nullable NSString *)title
-                     message:(nullable NSString *)message
-             isSeparateStyle:(BOOL)isSeparateStyle
-                 btnTitleArr:(NSArray <NSString*>*)btnTitleArr
-              alertBtnAction:(NSArray <NSString*>*)alertBtnActionArr
-                    targetVC:(UIViewController *)targetVC
-                 funcInWhere:(nullable id)funcInWhere
-                    animated:(BOOL)animated
-                alertVCBlock:(nullable MKDataBlock)alertVCBlock
-             completionBlock:(nullable NoResultBlock)completionBlock;
++(void)showSYSAlertViewConfig:(nonnull SYSAlertControllerConfig *)config
+                 alertVCBlock:(nullable MKDataBlock)alertVCBlock
+              completionBlock:(nullable NoResultBlock)completionBlock;
 /// 屏幕下部出现的Alert
-/// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param message 副标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param isSeparateStyle 是否分隔显示
-/// @param btnTitleArr 按钮名称的数组
-/// @param alertBtnActionArr 与btnTitleArr相对的按钮的触发事件，如果带形参，则只写方法名，形参的传递在具体的调用类里面实现。取消方法直接传@“”，方法内部做默认处理
-/// @param targetVC 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-/// @param funcInWhere  执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
-/// @param sender sender
-/// @param animated 动画效果
+/// @param config 配置文件
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
-+(void)showSYSActionSheetTitle:(nullable NSString *)title
-                       message:(nullable NSString *)message
-               isSeparateStyle:(BOOL)isSeparateStyle
-                   btnTitleArr:(nonnull NSArray <NSString*>*)btnTitleArr
-                alertBtnAction:(nonnull NSArray <NSString*>*)alertBtnActionArr
-                      targetVC:(nonnull UIViewController *)targetVC
-                   funcInWhere:(nullable id)funcInWhere
-                        sender:(nullable UIControl *)sender
-                      animated:(BOOL)animated
-                  alertVCBlock:(nullable MKDataBlock)alertVCBlock
-               completionBlock:(nullable NoResultBlock)completionBlock;
++(void)showSYSActionSheetConfig:(nonnull SYSAlertControllerConfig *)config
+                   alertVCBlock:(nullable MKDataBlock)alertVCBlock
+                completionBlock:(nullable NoResultBlock)completionBlock;
 
 +(void)showLoginAlertViewWithTargetVC:(UIViewController *)targetVC;
 
@@ -77,3 +63,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/** 使用示例
+ 
+{
+ 
+ SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
+ config.title = @"是否取消对其关注？";
+ config.isSeparateStyle = NO;
+ config.btnTitleArr = @[@"确定",@"取消"];
+ config.alertBtnActionArr = @[@"unfollow:",@""];
+ config.parametersArr = @[@{@"btn":btn,
+                            @"plazaCommunityListModel":plazaCommunityListModel},@""];
+ config.targetVC = NSObject.getCurrentViewController;
+ config.funcInWhere = self;
+ config.animated = YES;
+ 
+ [NSObject showSYSAlertViewConfig:config
+                     alertVCBlock:nil
+                  completionBlock:nil];
+ }
+ 
+ {
+ 
+ SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
+ config.isSeparateStyle = YES;
+ config.btnTitleArr = @[@"保存图片",@"取消"];
+ config.alertBtnActionArr = @[@"savePic",@""];
+ config.targetVC = self.saveImageModel.photoBrowser;
+ config.funcInWhere = self;
+ config.animated = YES;
+ 
+ [NSObject showSYSActionSheetConfig:config
+                       alertVCBlock:nil
+                    completionBlock:nil];
+ }
+ 
+ 
+ 
+ **/

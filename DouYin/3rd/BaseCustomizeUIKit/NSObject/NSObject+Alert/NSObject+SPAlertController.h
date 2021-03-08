@@ -25,42 +25,37 @@ typedef enum : NSUInteger {
 } NSObject_SPAlertControllerInitType;
 
 NS_ASSUME_NONNULL_BEGIN
+/// 配置文件
+@interface SPAlertControllerConfig : NSObject
+
+@property(nonatomic,assign)NSObject_SPAlertControllerInitType SPAlertControllerInitType;// SPAlertControllerInitType 初始化模式
+@property(nonatomic,strong,nullable)NSString *title;//  标题，没有可传nil，如果传空字符@“”会多处一行空白
+@property(nonatomic,strong,nullable)NSString *message;// 副标题，没有可传nil，如果传空字符@“”会多处一行空白
+@property(nonatomic,strong,nullable)UIView *customAlertView; // 允许传入自定义的View
+@property(nonatomic,strong,nullable)UIView *customHeaderView;// 允许传入自定义的HeaderView
+@property(nonatomic,strong,nullable)UIView *customActionSequenceView;// 允许传入自定义的customActionSequenceView
+@property(nonatomic,assign)SPAlertControllerStyle preferredStyle;// 从单侧弹出(顶/左/底/右)  还是  从中间弹出
+@property(nonatomic,assign)SPAlertAnimationType animationType;// 动画模式
+@property(nonatomic,strong,nullable)NSArray <NSString *>*alertActionTitleArr;// 按钮名
+@property(nonatomic,strong,nullable)NSArray <NSNumber *>*alertActionStyleArr;// 按钮Style
+@property(nonatomic,strong,nullable)NSArray <NSString *>*alertBtnActionArr;// 按钮触发方法
+@property(nonatomic,strong,nullable)NSArray *parametersArr;// @【所有的参数形成数据束，一个方法对应一个数据束的形式，包装成方法的第一个参数】
+@property(nonatomic,strong,nullable)NSArray *objectArr;// @【这个参数一般用于Block回调】
+@property(nonatomic,strong)UIViewController *targetVC;// 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+@property(nonatomic,strong,nullable)id funcInWhere;// 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
+@property(nonatomic,assign)BOOL animated;// 是否动效present
+
+@end
 
 @interface NSObject (SPAlertController)
 
 /// 自定义的Alert
-/// @param SPAlertControllerInitType 初始化模式
-/// @param title 标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param message 副标题，没有可传nil，如果传空字符@“”会多处一行空白
-/// @param customAlertView 允许传入自定义的View
-/// @param customHeaderView 允许传入自定义的HeaderView
-/// @param customActionSequenceView 允许传入自定义的customActionSequenceView
-/// @param preferredStyle 从单侧弹出(顶/左/底/右)  还是  从中间弹出
-/// @param animationType 动画模式
-/// @param alertActionTitleArr 按钮名
-/// @param alertActionStyleArr 按钮Style
-/// @param alertBtnActionArr 按钮触发方法
-/// @param targetVC  作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-/// @param funcInWhere  执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
-/// @param animated 是否动效present
+/// @param config 配置文件
 /// @param alertVCBlock alertVCBlock
 /// @param completionBlock completionBlock
-+(SPAlertController *)SPAlertControllerWithType:(NSObject_SPAlertControllerInitType)SPAlertControllerInitType
-                                          title:(NSString *_Nullable)title
-                                        message:(NSString *_Nullable)message
-                                customAlertView:(UIView *_Nullable)customAlertView
-                               customHeaderView:(UIView *_Nullable)customHeaderView
-                       customActionSequenceView:(UIView *_Nullable)customActionSequenceView
-                                 preferredStyle:(SPAlertControllerStyle)preferredStyle
-                                  animationType:(SPAlertAnimationType)animationType
-                            alertActionTitleArr:(NSArray <NSString *>* _Nullable)alertActionTitleArr
-                            alertActionStyleArr:(NSArray <NSNumber *>* _Nullable)alertActionStyleArr//SPAlertActionStyle
-                              alertBtnActionArr:(NSArray <NSString *>* _Nullable)alertBtnActionArr
-                                       targetVC:(UIViewController *)targetVC
-                                    funcInWhere:(nullable id)funcInWhere
-                                       animated:(BOOL)animated
-                                   alertVCBlock:(nullable TwoDataBlock)alertVCBlock
-                                completionBlock:(nullable NoResultBlock)completionBlock;
++(SPAlertController *)showSPAlertControllerConfig:(SPAlertControllerConfig *)config
+                                     alertVCBlock:(nullable TwoDataBlock)alertVCBlock
+                                  completionBlock:(nullable NoResultBlock)completionBlock;
 
 @end
 
@@ -70,31 +65,36 @@ NS_ASSUME_NONNULL_END
  
  普通用法
  
- [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_2
-                               title:@"提示"
-                             message:@"审核通过后可查看，是否删除"
-                     customAlertView:nil
-                    customHeaderView:nil
-            customActionSequenceView:nil
-                      preferredStyle:SPAlertControllerStyleAlert
-                       animationType:SPAlertAnimationTypeDefault
-                 alertActionTitleArr:@[@"取消",@"删除"]
-                 alertActionStyleArr:@[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)]
-                   alertBtnActionArr:@[@"",@""]
-                            targetVC:self
-                         funcInWhere:self
-                            animated:YES
+ SPAlertControllerConfig *config = SPAlertControllerConfig.new;
+ config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
+ config.title = @"提示";
+ config.message = @"审核通过后可查看，是否删除";//@"视频审核未通过，是否删除？"
+ config.preferredStyle = SPAlertControllerStyleAlert;
+ config.animationType = SPAlertAnimationTypeDefault;
+ config.alertActionTitleArr = @[@"取消",@"删除"];
+ config.alertActionStyleArr = @[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)];
+ config.alertBtnActionArr = @[@"",@""];
+ config.targetVC = self;
+ config.funcInWhere = self;
+ config.animated = YES;
+ 
+ [NSObject showSPAlertControllerConfig:config
                         alertVCBlock:^(SPAlertController *data,
                                        NSMutableArray <SPAlertAction *>*data2) {
+     
+     data.titleColor = AppMainCor_01;
+     data.messageColor = AppMainCor_01;
+     data.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+     data.messageFont = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
      
      SPAlertAction *action1 = (SPAlertAction *)data2[0];
      SPAlertAction *action2 = (SPAlertAction *)data2[1];
      
-     action1.titleColor = RGBSAMECOLOR(75);
-     action1.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+     action1.titleColor = AppMainCor_01;
+     action1.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
 
-     action2.titleColor = RGBSAMECOLOR(75);
-     action2.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
+     action2.titleColor = AppMainCor_01;
+     action2.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
      
  } completionBlock:nil];
 
@@ -104,7 +104,6 @@ NS_ASSUME_NONNULL_END
 /**
     富文本的用法
  {
-     
      NSMutableArray *tempDataMutArr = NSMutableArray.array;
      RichLabelDataStringsModel *title_1_Model = RichLabelDataStringsModel.new;
      RichLabelDataStringsModel *title_2_Model = RichLabelDataStringsModel.new;
@@ -112,7 +111,7 @@ NS_ASSUME_NONNULL_END
      RichLabelDataStringsModel *title_4_Model = RichLabelDataStringsModel.new;
      RichLabelDataStringsModel *title_5_Model = RichLabelDataStringsModel.new;
      {
-         title_1_Model.dataString = @"您当前的金币数为:";
+         title_1_Model.dataString = @"您当前的金币数为";
          
          RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
          richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
@@ -142,7 +141,7 @@ NS_ASSUME_NONNULL_END
      }
      
      {
-         title_3_Model.dataString = @"个，可兑换的余额为:";
+         title_3_Model.dataString = @"个，可兑换的余额为";
 
          RichLabelFontModel *richLabelFontModel = RichLabelFontModel.new;
          richLabelFontModel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
@@ -192,22 +191,21 @@ NS_ASSUME_NONNULL_END
      [tempDataMutArr addObject:title_4_Model];
      [tempDataMutArr addObject:title_5_Model];
      
-     [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_2
-                                   title:@"兑换余额"
-                                 message:@""
-                         customAlertView:nil
-                        customHeaderView:nil
-                customActionSequenceView:nil
-                          preferredStyle:SPAlertControllerStyleAlert
-                           animationType:SPAlertAnimationTypeDefault
-                     alertActionTitleArr:@[@"取消",@"确定"]
-                     alertActionStyleArr:@[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)]
-                       alertBtnActionArr:@[@"",@"sure"]
-                                targetVC:[NSObject getCurrentViewController]
-                             funcInWhere:self
-                                animated:YES
-                            alertVCBlock:^(SPAlertController *data,
-                                           NSMutableArray <SPAlertAction *>*data2) {
+     SPAlertControllerConfig *config = SPAlertControllerConfig.new;
+     config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
+     config.title = @"兑换余额";
+     config.preferredStyle = SPAlertControllerStyleAlert;
+     config.animationType = SPAlertAnimationTypeDefault;
+     config.alertActionTitleArr = @[@"取消",@"确定"];
+     config.alertActionStyleArr = @[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)];
+     config.alertBtnActionArr = @[@"",@"networking_chargeGoldPOST"];// 金币换余额
+     config.targetVC = [NSObject getCurrentViewController];
+     config.funcInWhere = self;
+     config.animated = YES;
+     
+     [NSObject showSPAlertControllerConfig:config
+                              alertVCBlock:^(SPAlertController *data,
+                                             NSMutableArray <SPAlertAction *>*data2) {
          
          data.attributedMessage = [NSObject makeRichTextWithDataConfigMutArr:tempDataMutArr];
          
@@ -225,21 +223,20 @@ NS_ASSUME_NONNULL_END
   自定义View，用属性进行承接，消失的时候调取：
  [self.alertController dismissViewControllerAnimated:YES completion:nil];
  
- self.alertController = [NSObject SPAlertControllerWithType:NSObject_SPAlertControllerInitType_3
-                                                      title:nil
-                                                    message:nil
-                                            customAlertView:self.updateView
-                                           customHeaderView:nil
-                                   customActionSequenceView:nil
-                                             preferredStyle:SPAlertControllerStyleAlert
-                                              animationType:SPAlertAnimationTypeDefault
-                                        alertActionTitleArr:nil
-                                        alertActionStyleArr:nil
-                                          alertBtnActionArr:nil
-                                                   targetVC:self
-                                                funcInWhere:self
-                                                   animated:YES
-                                               alertVCBlock:nil
-                                            completionBlock:nil];
+ SPAlertControllerConfig *config = SPAlertControllerConfig.new;
+ config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_3;
+ config.customAlertView = self.updateView;
+ config.preferredStyle = SPAlertControllerStyleAlert;
+ config.animationType = SPAlertAnimationTypeDefault;
+ config.targetVC = self;
+ config.funcInWhere = self;
+ config.animated = YES;
+ 
+ self.alertController = [NSObject showSPAlertControllerConfig:config
+                                                 alertVCBlock:^(SPAlertController *data,
+                                                              NSMutableArray <SPAlertAction *>*data2) {
+     data.needDialogBlur = NO;
+     data.tapBackgroundViewDismiss = NO;// 是否单击背景退出对话框,默认为YES
+ }completionBlock:nil];
  
  */

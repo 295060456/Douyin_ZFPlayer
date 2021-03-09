@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_END
          _textView.delegate = self;
          _textView.placeholder = @"在这里畅所欲言，留下您的宝贵意见吧！";
          
-         _textView.placeholderTextColor = RGBCOLOR(132, 134, 140);
+         _textView.placeholderTextColor = COLOR_RGB(132, 134, 140);
          _textView.font = [UIFont systemFontOfSize:12 weight:UIFontWeightMedium];
          [self.view addSubview:_textView];
          [_textView mas_makeConstraints:^(MASConstraintMaker *make) {

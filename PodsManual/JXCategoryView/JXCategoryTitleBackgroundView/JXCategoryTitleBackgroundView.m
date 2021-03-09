@@ -20,9 +20,9 @@
     [super initializeData];
 
     self.cellWidthIncrement = 20;
-    self.normalBackgroundColor = RGBCOLOR(237, 236, 242);
+    self.normalBackgroundColor = COLOR_RGB(237, 236, 242);
     self.normalBorderColor = kClearColor;
-    self.selectedBackgroundColor = [RGBCOLOR(255, 232, 236) colorWithAlphaComponent:0.3];
+    self.selectedBackgroundColor = [COLOR_RGB(255, 232, 236) colorWithAlphaComponent:0.3];
     self.selectedBorderColor = kClearColor;
     self.borderLineWidth = 1;
     self.backgroundCornerRadius = 13;

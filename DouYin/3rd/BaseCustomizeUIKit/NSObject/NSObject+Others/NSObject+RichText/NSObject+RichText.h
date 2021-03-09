@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(0, title_1_Model.dataString.length);
          
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = RGBCOLOR(46, 51, 77);
+         richLabelTextCorModel.cor = COLOR_RGB(46, 51, 77);
          richLabelTextCorModel.range = NSMakeRange(0, title_1_Model.dataString.length);
          
          title_1_Model.richLabelFontModel = richLabelFontModel;
@@ -99,7 +99,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length, title_2_Model.dataString.length);
          
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = RGBCOLOR(203, 32, 64);
+         richLabelTextCorModel.cor = COLOR_RGB(203, 32, 64);
          richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length, title_2_Model.dataString.length);
          
          
@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
          
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = RGBCOLOR(46, 51, 77);
+         richLabelTextCorModel.cor = COLOR_RGB(46, 51, 77);
          richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
          
          
@@ -133,7 +133,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length, title_4_Model.dataString.length);
          
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = RGBCOLOR(203, 32, 64);
+         richLabelTextCorModel.cor = COLOR_RGB(203, 32, 64);
          richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length, title_4_Model.dataString.length);
          
          

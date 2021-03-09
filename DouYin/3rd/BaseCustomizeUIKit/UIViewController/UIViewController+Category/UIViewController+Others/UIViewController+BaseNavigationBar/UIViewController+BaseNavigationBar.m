@@ -317,7 +317,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)shadowCor{
     UIColor *ShadowCor = objc_getAssociatedObject(self, UIViewController_NavigationBar_shadowCor);
     if (!ShadowCor) {
-        ShadowCor = COLOR_RGB(0,
+        ShadowCor = COLOR_RGBA(0,
                               0,
                               0,
                               0.8);

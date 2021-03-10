@@ -83,3 +83,25 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 
 @end
+/**
+ 通知的写法：示例代码
+ 
+ 接受通知：
+         @weakify(self)
+         [NSNotificationCenter.defaultCenter addObserver:self
+                                                selector:selectorBlocks(^(id  _Nullable weakSelf,
+                                                                          id  _Nullable arg) {
+             NSNotification *notification = (NSNotification *)arg;
+             NSNumber *b = notification.object;
+             NSLog(@"SSS = %d",b.boolValue);
+             @strongify(self)
+             self.imageView.hidden = !b.boolValue;
+             self.imageView.hidden = self.selectedIndex != 4;
+             self.imageView.alpha = b.boolValue;
+         }, self)
+                                                    name:@"点击开拍提示"
+                                                  object:nil];
+ 
+ 发通知：[NSNotificationCenter.defaultCenter postNotificationName:@"点击开拍提示" object:@(NO)];
+ 
+ */

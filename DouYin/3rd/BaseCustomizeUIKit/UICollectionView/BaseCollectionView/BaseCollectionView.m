@@ -10,8 +10,6 @@
 
 @interface BaseCollectionView ()
 
-@property(nonatomic,copy)MKDataBlock baseCollectionViewBlock;
-
 @end
 
 @implementation BaseCollectionView

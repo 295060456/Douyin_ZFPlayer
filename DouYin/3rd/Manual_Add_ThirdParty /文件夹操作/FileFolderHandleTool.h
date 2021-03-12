@@ -18,7 +18,7 @@
 typedef enum : NSUInteger {
     TXT = 0,
     IMAGE,
-    VEDIO,
+    VIDEO,
     SOUND,
     PLIST//键值对存在
 } FileType;
@@ -251,7 +251,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 +(void)saveVideo:(NSString *)videoPath;
 +(void)saveImage:(UIImage *)image;
 ///仅获取PHAsset里面的视频
-+(void)getVedioFromPHAsset:(PHAsset *)phAsset
++(void)getVideoFromPHAsset:(PHAsset *)phAsset
                   complete:(MKDataBlock)completeBlock;
 ///获取PHAsset里面的相片
 +(void)getPicFromPHAsset:(PHAsset *)phAsset

@@ -22,6 +22,7 @@
 		C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */; };
 		C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367A2598C70200B48431 /* XLBubbleTransition.m */; };
 		C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */; };
+		C53E450325FB548D007D92BE /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53E450125FB548D007D92BE /* TimeModel.m */; };
 		C542A39F251B6EF6007B5F88 /* iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39D251B6EF6007B5F88 /* iph_X.mp4 */; };
 		C542A3A0251B6EF6007B5F88 /* 非iph_X.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */; };
 		C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C544B96A25835CF400C6CF2A /* MJRefreshConfigModel.m */; };
@@ -281,7 +282,6 @@
 		C5D6008925862FDB00029AFF /* UIViewController+BaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6008725862FDA00029AFF /* UIViewController+BaseNavigationBar.m */; };
 		C5D6009225862FFA00029AFF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6009125862FFA00029AFF /* BaseViewController.m */; };
 		C5D6D80025860D5D00029AFF /* NSObject+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D7FC25860D5D00029AFF /* NSObject+Time.m */; };
-		C5D6D80125860D5D00029AFF /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D7FE25860D5D00029AFF /* TimeModel.m */; };
 		C5D6D80B25860D7400029AFF /* NSTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D80A25860D7400029AFF /* NSTimerManager.m */; };
 		C5D77496257F59790087FC92 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5D77488257F59790087FC92 /* ZYTextField.bundle */; };
 		C5D77497257F59790087FC92 /* JobsMagicTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D7748A257F59790087FC92 /* JobsMagicTextField.m */; };
@@ -361,6 +361,8 @@
 		C53D367A2598C70200B48431 /* XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBubbleTransition.m; sourceTree = "<group>"; };
 		C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLBubbleTransition.m"; sourceTree = "<group>"; };
 		C53D367C2598C70200B48431 /* 使用方法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "使用方法.md"; sourceTree = "<group>"; };
+		C53E450125FB548D007D92BE /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
+		C53E450225FB548D007D92BE /* TimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeModel.h; sourceTree = "<group>"; };
 		C542A39D251B6EF6007B5F88 /* iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iph_X.mp4; sourceTree = "<group>"; };
 		C542A39E251B6EF6007B5F88 /* 非iph_X.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "非iph_X.mp4"; sourceTree = "<group>"; };
 		C544B96925835CF400C6CF2A /* MJRefreshConfigModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshConfigModel.h; sourceTree = "<group>"; };
@@ -877,8 +879,6 @@
 		C5D6009125862FFA00029AFF /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		C5D6D7FB25860D5D00029AFF /* NSObject+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Time.h"; sourceTree = "<group>"; };
 		C5D6D7FC25860D5D00029AFF /* NSObject+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Time.m"; sourceTree = "<group>"; };
-		C5D6D7FE25860D5D00029AFF /* TimeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeModel.m; sourceTree = "<group>"; };
-		C5D6D7FF25860D5D00029AFF /* TimeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeModel.h; sourceTree = "<group>"; };
 		C5D6D80925860D7400029AFF /* NSTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTimerManager.h; sourceTree = "<group>"; };
 		C5D6D80A25860D7400029AFF /* NSTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTimerManager.m; sourceTree = "<group>"; };
 		C5D77488257F59790087FC92 /* ZYTextField.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYTextField.bundle; sourceTree = "<group>"; };
@@ -1042,6 +1042,24 @@
 				C53D367A2598C70200B48431 /* XLBubbleTransition.m */,
 			);
 			path = "UIViewController+XLBubbleTransition";
+			sourceTree = "<group>";
+		};
+		C53E44FF25FB546C007D92BE /* NSObject+SPAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				C5A96C3325BD340C000077BC /* NSObject+SPAlertController.h */,
+				C5A96C3425BD340C000077BC /* NSObject+SPAlertController.m */,
+			);
+			path = "NSObject+SPAlertController";
+			sourceTree = "<group>";
+		};
+		C53E450025FB5473007D92BE /* NSObject+SYSAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				C5A96C3125BD340C000077BC /* NSObject+SYSAlertController.h */,
+				C5A96C3225BD340C000077BC /* NSObject+SYSAlertController.m */,
+			);
+			path = "NSObject+SYSAlertController";
 			sourceTree = "<group>";
 		};
 		C542A389251B6C16007B5F88 /* 播放器控制层 */ = {
@@ -1946,10 +1964,8 @@
 		C54BB3782518D391001591C2 /* NSObject+Alert */ = {
 			isa = PBXGroup;
 			children = (
-				C5A96C3325BD340C000077BC /* NSObject+SPAlertController.h */,
-				C5A96C3425BD340C000077BC /* NSObject+SPAlertController.m */,
-				C5A96C3125BD340C000077BC /* NSObject+SYSAlertController.h */,
-				C5A96C3225BD340C000077BC /* NSObject+SYSAlertController.m */,
+				C53E450025FB5473007D92BE /* NSObject+SYSAlertController */,
+				C53E44FF25FB546C007D92BE /* NSObject+SPAlertController */,
 			);
 			path = "NSObject+Alert";
 			sourceTree = "<group>";
@@ -3442,8 +3458,8 @@
 		C5D6D7FD25860D5D00029AFF /* NSObject (Time) */ = {
 			isa = PBXGroup;
 			children = (
-				C5D6D7FF25860D5D00029AFF /* TimeModel.h */,
-				C5D6D7FE25860D5D00029AFF /* TimeModel.m */,
+				C53E450225FB548D007D92BE /* TimeModel.h */,
+				C53E450125FB548D007D92BE /* TimeModel.m */,
 			);
 			path = "NSObject (Time)";
 			sourceTree = "<group>";
@@ -3902,6 +3918,7 @@
 				C56BD45925E9380C001E1E69 /* NSObject+CallBackInfoByBlock.m in Sources */,
 				C595D164258713F1002A4531 /* SuspendBtn.m in Sources */,
 				C54AEBBD25871C08001A4630 /* JobsBitsMonitorCore.m in Sources */,
+				C53E450325FB548D007D92BE /* TimeModel.m in Sources */,
 				C5672E8B25D777FF008ABAF9 /* BaseView.m in Sources */,
 				C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */,
 				C54BB3CC2518D391001591C2 /* NSObject+Extras.m in Sources */,
@@ -4096,7 +4113,6 @@
 				C591E4B12563A478005B78CC /* LOTAnimationMJRefreshHeader.m in Sources */,
 				C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */,
 				C5A4412025ABFB51000F0CD2 /* WHToast+DDToast.m in Sources */,
-				C5D6D80125860D5D00029AFF /* TimeModel.m in Sources */,
 				C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */,
 				C5C64B74259DF5EB00FD2F99 /* ECPrivacyCheckCalendars.m in Sources */,
 			);

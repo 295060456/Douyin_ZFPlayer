@@ -230,7 +230,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
                 UIImage *img = [UIImage imageWithContentsOfFile:filePath];
                 return img;
             }break;
-            case VEDIO:{
+            case VIDEO:{
                 NSData *movieData = [NSData dataWithContentsOfFile:filePath];
                 return movieData;
             }break;
@@ -816,7 +816,7 @@ didFinishSavingWithError:(NSError *)error
     }
 }
 ///仅获取PHAsset里面的视频
-+(void)getVedioFromPHAsset:(PHAsset *)phAsset
++(void)getVideoFromPHAsset:(PHAsset *)phAsset
                   complete:(MKDataBlock)completeBlock{
     if (phAsset.mediaType == PHAssetMediaTypeVideo) {
         PHVideoRequestOptions *options = PHVideoRequestOptions.new;

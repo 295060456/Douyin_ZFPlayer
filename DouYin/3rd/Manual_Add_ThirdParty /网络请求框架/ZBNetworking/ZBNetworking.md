@@ -51,3 +51,84 @@ https://github.com/295060456/ZBNetworking
 503 (服务不可用) 服务器目前无法使用(由于超载或停机维护)。 通常，这只是暂时状态。
 504 (网关超时) 服务器作为网关或代理，但是没有及时从上游服务器收到请求。
 505 (HTTP 版本不受支持) 服务器不支持请求中所用的 HTTP 协议版本。
+
+使用说明：
+上传大文件，表单 content-type = multipart/form-data
+/// 帖子视频上传 POST
++(void)postuploadVideoPOST:(NSData *)parameters
+              successBlock:(MKDataBlock)successBlock{
+    [ZBRequestManager requestWithConfig:^(ZBURLRequest * request) {
+        request.server = NSObject.BaseUrl;
+        request.url = [request.server stringByAppendingString:NSObject.postuploadVideoPOST.url];
+        request.methodType = ZBMethodTypeUpload;
+        
+        ZBUploadData *uploadData = ZBUploadData.new;
+        uploadData.fileData = parameters;
+        uploadData.fileName = @"fuckYou";
+        uploadData.name = @"file";//服务器对应字段名
+        uploadData.mimeType = @"multipart/form-data";//关键代码
+
+        request.uploadDatas = [NSMutableArray arrayWithObject:uploadData];
+    } progress:^(NSProgress * _Nullable progress) {
+        NSLog(@"onProgress: %.2f", 100.f * progress.completedUnitCount/progress.totalUnitCount);
+    } success:^(id  responseObject,ZBURLRequest * request) {
+        NSLog(@"responseObject: %@", responseObject);
+        if (successBlock) {
+            successBlock(responseObject);
+        }
+    } failure:^(NSError * _Nullable error) {
+        NSLog(@"error: %@", error);
+    }];
+}
+一般的Body数据
+/// 点赞 POST
++(void)postPraisePostPOST:(id)parameters
+             successBlock:(MKDataBlock)successBlock{
+//    NSDictionary *parameterss = @{};
+//    NSDictionary *headers = @{};
+    
+    [ZBRequestManager requestWithConfig:^(ZBURLRequest * _Nullable request) {
+
+        request.server = NSObject.BaseUrl;
+        request.url = [request.server stringByAppendingString:NSObject.postPraisePostPOST.url];
+        
+        NSLog(@"request.URLString = %@",request.url);
+        
+        request.methodType = ZBMethodTypePOST;//默认为GET
+        request.apiType = ZBRequestTypeRefresh;//（默认为ZBRequestTypeRefresh 不读取缓存，不存储缓存）
+        request.parameters = parameters;//与公共配置 Parameters 兼容
+//        request.headers = headers;//与公共配置 Headers 兼容
+        request.retryCount = 1;//请求失败 单次请求 重新连接次数 优先级大于 全局设置，不影响其他请求设置
+        request.timeoutInterval = 10;//默认30 //优先级 高于 公共配置,不影响其他请求设置
+        if (![NSString isNullString:[DataManager sharedInstance].tag]) {
+            request.userInfo = @{@"info":[DataManager sharedInstance].tag};//与公共配置 UserInfo 不兼容 优先级大于 公共配置
+        };//与公共配置 UserInfo 不兼容 优先级大于 公共配置
+        
+        {
+//            request.filtrationCacheKey = @[@""];//与公共配置 filtrationCacheKey 兼容
+//            request.requestSerializer = ZBJSONRequestSerializer; //单次请求设置 请求格式 默认JSON，优先级大于 公共配置，不影响其他请求设置
+//            request.responseSerializer = ZBJSONResponseSerializer; //单次请求设置 响应格式 默认JSON，优先级大于 公共配置,不影响其他请求设置
+           
+            /**
+             多次请求同一个接口 保留第一次或最后一次请求结果 只在请求时有用  读取缓存无效果。默认ZBResponseKeepNone 什么都不做
+             使用场景是在 重复点击造成的 多次请求，如发帖，评论，搜索等业务
+             */
+//            request.keepType=ZBResponseKeepNone;
+        }//一些临时的其他的配置
+        
+    }progress:^(NSProgress * _Nullable progress){
+        NSLog(@"进度 = %f",progress.fractionCompleted * 100);
+    }success:^(id  _Nullable responseObject,
+               ZBURLRequest * _Nullable request){
+        if (successBlock) {
+            successBlock(responseObject);
+        }
+    }failure:^(NSError * _Nullable error){
+        NSLog(@"error = %@",error);
+    }finished:^(id  _Nullable responseObject,
+                NSError * _Nullable error,
+                ZBURLRequest * _Nullable request){
+        NSLog(@"请求完成 userInfo:%@",request.userInfo);
+    }];
+}
+

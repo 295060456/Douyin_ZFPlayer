@@ -110,6 +110,7 @@
 		C55AABFE2532B32400335ACC /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C55AABFC2532B32400335ACC /* RBCLikeButton.bundle */; };
 		C55D45B4251CB65400E543D6 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45B3251CB65400E543D6 /* BaseModel.m */; };
 		C55D45E3251CB6A900E543D6 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D45E2251CB6A900E543D6 /* VideoModel.m */; };
+		C55E098D25F9C99C00716A9B /* UICollectionViewCell+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E098C25F9C99C00716A9B /* UICollectionViewCell+Default.m */; };
 		C55FE6C925B4229600D8C30D /* UIView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */; };
 		C56188BE255D6D74004E7B47 /* XHLaunchAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188AB255D6D74004E7B47 /* XHLaunchAdView.m */; };
 		C56188BF255D6D74004E7B47 /* XHLaunchAdButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188AE255D6D74004E7B47 /* XHLaunchAdButton.m */; };
@@ -556,6 +557,9 @@
 		C55D45B3251CB65400E543D6 /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		C55D45E1251CB6A900E543D6 /* VideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
 		C55D45E2251CB6A900E543D6 /* VideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		C55E098B25F9C99C00716A9B /* UICollectionViewCell+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+Default.h"; sourceTree = "<group>"; };
+		C55E098C25F9C99C00716A9B /* UICollectionViewCell+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Default.m"; sourceTree = "<group>"; };
+		C55E271E25FB1D0F00716A9B /* MacroDef_SysWarning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDef_SysWarning.h; sourceTree = "<group>"; };
 		C55FE6C725B4229500D8C30D /* UIView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJRefresh.m"; sourceTree = "<group>"; };
 		C55FE6C825B4229500D8C30D /* UIView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJRefresh.h"; sourceTree = "<group>"; };
 		C56188A8255D6D74004E7B47 /* XHLaunchAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdController.h; sourceTree = "<group>"; };
@@ -1006,6 +1010,7 @@
 			isa = PBXGroup;
 			children = (
 				C542CE9425EB72E500D776D8 /* BaseCollectionViewCell */,
+				C55E098925F9C98700716A9B /* UICollectionViewCell+Category */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -1092,7 +1097,6 @@
 		C542CE9425EB72E500D776D8 /* BaseCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C542CE9525EB72EB00D776D8 /* UICollectionViewCell+ShakeAnimation */,
 				C5676161259F1272006905A9 /* BaseCollectionViewCell.h */,
 				C5676160259F1272006905A9 /* BaseCollectionViewCell.m */,
 			);
@@ -1296,11 +1300,11 @@
 		C5470FB025309D2200651ACE /* 各项宏定义 */ = {
 			isa = PBXGroup;
 			children = (
-				C512470225C90E2A00D8BA61 /* MacroDef_App.h */,
-				C5470FB425309D3400651ACE /* MacroDef_Cor.h */,
-				C5470FB225309D3400651ACE /* MacroDef_Func.h */,
-				C5470FB325309D3400651ACE /* MacroDef_Size.h */,
-				C5470FB125309D3400651ACE /* MacroDef_Sys.h */,
+				C55E271D25FB1CC200716A9B /* MacroDef_Func */,
+				C55E271C25FB1CBC00716A9B /* MacroDef_App */,
+				C55E271B25FB1CB600716A9B /* MacroDef_Cor */,
+				C55E271A25FB1CAF00716A9B /* MacroDef_Size */,
+				C55E271925FB1CA500716A9B /* MacroDef_Sys */,
 			);
 			path = "各项宏定义";
 			sourceTree = "<group>";
@@ -2283,6 +2287,65 @@
 				C55133C425C688CC007BCA82 /* VideoModel */,
 			);
 			path = "🇨🇳数据模型层(此文件夹存放全局的所有Model)";
+			sourceTree = "<group>";
+		};
+		C55E098925F9C98700716A9B /* UICollectionViewCell+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C55E098A25F9C99C00716A9B /* UICollectionViewCell+Default */,
+				C542CE9525EB72EB00D776D8 /* UICollectionViewCell+ShakeAnimation */,
+			);
+			path = "UICollectionViewCell+Category";
+			sourceTree = "<group>";
+		};
+		C55E098A25F9C99C00716A9B /* UICollectionViewCell+Default */ = {
+			isa = PBXGroup;
+			children = (
+				C55E098B25F9C99C00716A9B /* UICollectionViewCell+Default.h */,
+				C55E098C25F9C99C00716A9B /* UICollectionViewCell+Default.m */,
+			);
+			path = "UICollectionViewCell+Default";
+			sourceTree = "<group>";
+		};
+		C55E271925FB1CA500716A9B /* MacroDef_Sys */ = {
+			isa = PBXGroup;
+			children = (
+				C5470FB125309D3400651ACE /* MacroDef_Sys.h */,
+				C55E271E25FB1D0F00716A9B /* MacroDef_SysWarning.h */,
+			);
+			path = MacroDef_Sys;
+			sourceTree = "<group>";
+		};
+		C55E271A25FB1CAF00716A9B /* MacroDef_Size */ = {
+			isa = PBXGroup;
+			children = (
+				C5470FB325309D3400651ACE /* MacroDef_Size.h */,
+			);
+			path = MacroDef_Size;
+			sourceTree = "<group>";
+		};
+		C55E271B25FB1CB600716A9B /* MacroDef_Cor */ = {
+			isa = PBXGroup;
+			children = (
+				C5470FB425309D3400651ACE /* MacroDef_Cor.h */,
+			);
+			path = MacroDef_Cor;
+			sourceTree = "<group>";
+		};
+		C55E271C25FB1CBC00716A9B /* MacroDef_App */ = {
+			isa = PBXGroup;
+			children = (
+				C512470225C90E2A00D8BA61 /* MacroDef_App.h */,
+			);
+			path = MacroDef_App;
+			sourceTree = "<group>";
+		};
+		C55E271D25FB1CC200716A9B /* MacroDef_Func */ = {
+			isa = PBXGroup;
+			children = (
+				C5470FB225309D3400651ACE /* MacroDef_Func.h */,
+			);
+			path = MacroDef_Func;
 			sourceTree = "<group>";
 		};
 		C55FE6C625B4229500D8C30D /* UIView+MJRefresh */ = {
@@ -3980,6 +4043,7 @@
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
 				C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
+				C55E098D25F9C99C00716A9B /* UICollectionViewCell+Default.m in Sources */,
 				C5D1B8AB258B0B9700784D2F /* UIViewController+EmptyData.m in Sources */,
 				C57109BB253C1358005B3A0C /* TLTabBarAnimation.m in Sources */,
 				C54BB3CB2518D391001591C2 /* NSObject+Measure.m in Sources */,

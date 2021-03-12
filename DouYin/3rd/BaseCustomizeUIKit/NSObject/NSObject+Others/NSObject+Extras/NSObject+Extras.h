@@ -81,6 +81,8 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 -(void)keyboard;
 /// 停止刷新
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
+/// 转换为NSData
++(NSData *_Nullable)transformToData:(id _Nullable)object;
 
 @end
 /**

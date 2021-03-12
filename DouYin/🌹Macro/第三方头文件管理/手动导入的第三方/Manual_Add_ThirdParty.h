@@ -59,7 +59,11 @@
 #pragma mark —— UINavigationBar
 #import "BaseNavigationBar.h"
 #pragma mark —— UICollectionViewCell
+/// BaseCollectionViewCell
 #import "BaseCollectionViewCell.h"
+/// UICollectionViewCell+Category
+#import "UICollectionViewCell+Default.h"
+#import "UICollectionViewCell+ShakeAnimation.h"
 #pragma mark —— UITextField
 #import "HQTextField.h"
 #import "CJTextField.h"

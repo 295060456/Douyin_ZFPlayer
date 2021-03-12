@@ -228,6 +228,36 @@ static void selectorImp(id self,
         [targetScrollView.mj_footer endRefreshing];// 结束刷新
     }
 }
+/// 转换为NSData
++(NSData *_Nullable)transformToData:(id _Nullable)object{
+    if ([object isKindOfClass:NSString.class]) {
+        NSString *string = (NSString *)object;
+        return [string dataUsingEncoding:NSUTF8StringEncoding];
+    }else if ([object isKindOfClass:NSArray.class]){
+        NSArray *array = (NSArray *)object;
+        NSError *err = nil;
+        /*
+         *  object 要归档的对象图的根
+         *  requiresSecureCoding 一个布尔值，指示是否所有编码对象都必须符合 NSSecureCoding
+         *  error 返回时，是编码时发生的错误，或者nil没有发生错误
+         */
+        if (@available(iOS 11.0, *)) {
+            return [NSKeyedArchiver archivedDataWithRootObject:array
+                                         requiringSecureCoding:YES
+                                                         error:&err];
+        } else {
+            SuppressWdeprecatedDeclarationsWarning(return [NSKeyedArchiver archivedDataWithRootObject:array]);
+        }
+    }else if ([object isKindOfClass:NSDictionary.class]){
+        NSDictionary *dictionary = (NSDictionary *)object;
+        NSError *err = nil;
+        return [NSJSONSerialization dataWithJSONObject:dictionary
+                                               options:NSJSONWritingPrettyPrinted
+                                                 error:&err];
+    }else{
+        return nil;
+    }
+}
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
     return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;

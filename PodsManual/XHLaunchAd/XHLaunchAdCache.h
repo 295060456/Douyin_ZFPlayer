@@ -105,7 +105,7 @@ typedef void(^SaveCompletionBlock)(BOOL result , NSURL * URL);
  @param url  视频url
  @param completedBlock 结果回调
  */
-+(void)async_saveVideoAtLocation:(NSURL *)location URL:(NSURL *)url completed:(nullable SaveCompletionBlock)completedBlock;;
++(void)async_saveVideoAtLocation:(NSURL *)location URL:(NSURL *)url completed:(nullable SaveCompletionBlock)completedBlock;
 
 /**
  *  生成视频路径 for url

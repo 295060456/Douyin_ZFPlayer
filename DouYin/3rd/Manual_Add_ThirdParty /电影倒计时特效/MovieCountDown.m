@@ -95,7 +95,7 @@
 -(UILabel *)countDown{
     if (!_countDown) {
         _countDown = UILabel.new;
-        _countDown.textColor = self.countDownTextColor;;
+        _countDown.textColor = self.countDownTextColor;
         _countDown.font = [UIFont boldSystemFontOfSize:100];
         _countDown.textAlignment = 1;
         _countDown.x = (SCREEN_WIDTH - 100) / 2;

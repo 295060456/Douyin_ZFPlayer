@@ -258,9 +258,58 @@ static void selectorImp(id self,
         return nil;
     }
 }
+/// NSInvocation的使用，方法多参数传递
+/// @param methodName 方法名
+/// @param target 靶点，方法在哪里
+/// @param paramarrays 参数数组
++(void)methodName:(NSString *_Nonnull)methodName
+           target:(id _Nonnull)target
+      paramarrays:(NSArray *_Nullable)paramarrays{
+    SEL selector = NSSelectorFromString(methodName);
+    /*
+     NSMethodSignature有两个常用的只读属性
+     a. numberOfArguments:方法参数的个数
+     b. methodReturnLength:方法返回值类型的长度，大于0表示有返回值
+     **/
+    NSMethodSignature *signature = [target methodSignatureForSelector:selector];
+    //或使用下面这种方式
+    //NSMethodSignature *signature = [[target class] instanceMethodSignatureForSelector:selector];
+    
+    if (!signature) {
+        //传入的方法不存在 就抛异常
+        NSString *info = [NSString stringWithFormat:@"-[%@ %@]:unrecognized selector sent to instance",[self class],NSStringFromSelector(selector)];
+        @throw [[NSException alloc] initWithName:@"方法不存在"
+                                          reason:info
+                                        userInfo:nil];
+    }
+    
+    //只能使用该方法来创建，不能使用alloc init
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    invocation.target = target;
+    invocation.selector = selector;
+    /*
+     注意:
+     1、下标从2开始，因为0、1已经被target与selector占用
+     2、设置参数，必须传递参数的地址，不能直接传值
+     **/
+    for (int i = 2; i < paramarrays.count + 2; i++) {
+        NSLog(@"i = %d",i);
+        id d = paramarrays[i - 2];
+        [invocation setArgument:&d atIndex:i];
+    }
+    // 执行方法
+    [invocation invoke];
+    //可以在invoke方法前添加，也可以在invoke方法后添加
+    //通过方法签名的methodReturnLength判断是否有返回值
+    if (signature.methodReturnLength > 0) {
+        NSString *result = nil;
+        [invocation getReturnValue:&result];
+        NSLog(@"result = %@",result);
+    }
+}
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
-    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
+    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);
 }
 
 -(void)set_indexPath:(NSIndexPath *)_indexPath{

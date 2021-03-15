@@ -181,7 +181,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 }
 #pragma mark —— @property(nonatomic,assign)callback callbackBlock;//手势触发方法
 -(ThreeDataBlock)callbackBlock{
-    return objc_getAssociatedObject(self, UIView_Gesture_callbackBlock);;
+    return objc_getAssociatedObject(self, UIView_Gesture_callbackBlock);
 }
 
 -(void)setCallbackBlock:(ThreeDataBlock)callbackBlock{

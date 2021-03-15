@@ -83,6 +83,13 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 /// 转换为NSData
 +(NSData *_Nullable)transformToData:(id _Nullable)object;
+/// NSInvocation的使用，方法多参数传递
+/// @param methodName 方法名
+/// @param target 靶点，方法在哪里
+/// @param paramarrays 参数数组
++(void)methodName:(NSString *_Nonnull)methodName
+           target:(id _Nonnull)target
+      paramarrays:(NSArray *_Nullable)paramarrays;
 
 @end
 /**
@@ -105,5 +112,43 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
                                                   object:nil];
  
  发通知：[NSNotificationCenter.defaultCenter postNotificationName:@"点击开拍提示" object:@(NO)];
+ 
+ */
+
+/**
+ NSInvocation的使用，方法多参数传递 示例代码
+ 
+ -(void)touchesBegan:(NSSet<UITouch *> *)touches
+           withEvent:(UIEvent *)event{
+     
+     NSString *arg1 = @"a";
+     NSString *arg2 = @"b";
+     NSString *arg3 = @"c";
+     MKDataBlock arg4 = ^(id data){
+         NSLog(@"嗯，不错");
+     };
+     
+     NSArray *paramarrays = @[arg1,
+                         arg2,
+                         arg3,
+                         arg4];
+     
+     [NSObject methodName:@"test:withArg2:andArg3:block:"
+                   target:self
+              paramarrays:paramarrays];
+ }
+ 
+ 
+ - (NSString *)test:(NSString *)arg1
+           withArg2:(NSString *)arg2
+            andArg3:(NSString *)arg3
+              block:(MKDataBlock)block{
+ 
+     NSLog(@"%@---%@---%@", arg1, arg2, arg3);
+     if (block) {
+         block(@"嗯！！");
+     }
+     return @"gaga";
+ }
  
  */

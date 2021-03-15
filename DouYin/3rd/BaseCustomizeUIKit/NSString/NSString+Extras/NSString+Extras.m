@@ -278,10 +278,10 @@
         
         switch (calcLabelHeight_Width) {
             case CalcLabelHeight:{
-                return lableSize.height;;
+                return lableSize.height;
             }break;
             case CalcLabelWidth:{
-                return lableSize.width;;
+                return lableSize.width;
             }break;
             default:{
                 return 0;

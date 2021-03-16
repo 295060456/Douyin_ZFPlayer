@@ -88,6 +88,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSInteger)statisticsAlphabetNumberwithType:(StatisticsAlphabetNumberType)statisticsAlphabetNumberType;
 /// 该字符串是否含有空格
 -(BOOL)isContainSpacing;
+/**
+    过滤表情
+    在这个方法中处理  - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+ */
++(BOOL)isContainsTwoEmoji:(NSString *)string;
+- (BOOL)isHaveAppleEomji:(NSString *)text;
 /// 字符串是否包含URL
 -(BOOL)isContainsUrl;
 

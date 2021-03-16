@@ -96,6 +96,10 @@
 #import "UIImageView+GIF.h"//UIImageView支持GIF动画 https://github.com/pupboss/UIImageView-GIF
 #pragma mark —— UIControl
 #import "UIControl+XY.h"
+#pragma mark —— UITextView
+/// UITextView+Category
+#import "UITextView+IndicateWordLimit.h"
+#import "UITextView+Extend.h"
 
 #pragma mark —— Manual_Add_ThirdParty
 // Suspend

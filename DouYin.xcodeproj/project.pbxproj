@@ -124,6 +124,7 @@
 		C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188B8255D6D74004E7B47 /* XHLaunchAdConfiguration.m */; };
 		C56188C7255D6D74004E7B47 /* XHLaunchAdCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BA255D6D74004E7B47 /* XHLaunchAdCache.m */; };
 		C56188C8255D6D74004E7B47 /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */; };
+		C5618F1326008E2400D4546E /* UITextView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C5618F1226008E2400D4546E /* UITextView+Extend.m */; };
 		C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */; };
 		C562093D2554006100FE435F /* 验证码按钮单例封装.md in Resources */ = {isa = PBXBuildFile; fileRef = C562093C2554006100FE435F /* 验证码按钮单例封装.md */; };
 		C562D9EE25C7C2D1004D1AEA /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562D9EC25C7C2D1004D1AEA /* UIView+ViewController.m */; };
@@ -586,6 +587,8 @@
 		C56188BB255D6D74004E7B47 /* XHLaunchAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdView.h; sourceTree = "<group>"; };
 		C56188BC255D6D74004E7B47 /* XHLaunchAdImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHLaunchAdImageManager.m; sourceTree = "<group>"; };
 		C56188BD255D6D74004E7B47 /* XHLaunchAdConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdConst.h; sourceTree = "<group>"; };
+		C5618F1126008E2400D4546E /* UITextView+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extend.h"; sourceTree = "<group>"; };
+		C5618F1226008E2400D4546E /* UITextView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extend.m"; sourceTree = "<group>"; };
 		C56206E52553FD9700FE435F /* NSObject+AFNReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AFNReachability.h"; sourceTree = "<group>"; };
 		C56206E62553FD9700FE435F /* NSObject+AFNReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNReachability.m"; sourceTree = "<group>"; };
 		C56209382554004700FE435F /* 高度自定义的按钮.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "高度自定义的按钮.md"; sourceTree = "<group>"; };
@@ -1198,7 +1201,7 @@
 		C542D07425EB756F00D776D8 /* UITextView */ = {
 			isa = PBXGroup;
 			children = (
-				C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */,
+				C5618F0926008E1700D4546E /* UITextView+Category */,
 			);
 			path = UITextView;
 			sourceTree = "<group>";
@@ -2401,6 +2404,24 @@
 				C56188B0255D6D74004E7B47 /* XHLaunchImageView.m */,
 			);
 			path = XHLaunchAd;
+			sourceTree = "<group>";
+		};
+		C5618F0926008E1700D4546E /* UITextView+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C5618F1026008E2400D4546E /* UITextView+Extend */,
+				C594300425E7A9C2003BCA91 /* UITextView+IndicateWordLimit */,
+			);
+			path = "UITextView+Category";
+			sourceTree = "<group>";
+		};
+		C5618F1026008E2400D4546E /* UITextView+Extend */ = {
+			isa = PBXGroup;
+			children = (
+				C5618F1126008E2400D4546E /* UITextView+Extend.h */,
+				C5618F1226008E2400D4546E /* UITextView+Extend.m */,
+			);
+			path = "UITextView+Extend";
 			sourceTree = "<group>";
 		};
 		C562D9EB25C7C2BC004D1AEA /* UIView+ViewController */ = {
@@ -3987,6 +4008,7 @@
 				C5D4F11625824ADA00C165EA /* NetworkingAPI+BankCardApi.m in Sources */,
 				C5C64B75259DF5EB00FD2F99 /* ECPrivacyCheckSpeechRecognition.m in Sources */,
 				C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */,
+				C5618F1326008E2400D4546E /* UITextView+Extend.m in Sources */,
 				C56D866A25C821C7001960CD /* UIColor+Hex.m in Sources */,
 				C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */,
 				C5D4F11C25824ADA00C165EA /* NetworkingAPI+UserAttentionApi.m in Sources */,

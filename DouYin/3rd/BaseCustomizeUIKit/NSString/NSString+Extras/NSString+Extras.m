@@ -278,10 +278,10 @@
         
         switch (calcLabelHeight_Width) {
             case CalcLabelHeight:{
-                return lableSize.height;
+                return lableSize.height;;
             }break;
             case CalcLabelWidth:{
-                return lableSize.width;
+                return lableSize.width;;
             }break;
             default:{
                 return 0;
@@ -467,7 +467,7 @@
     }
     CGRect rect=[stingS boundingRectWithSize:CGSizeMake(wid, MAXFLOAT)
                                      options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
-                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]}
+                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font weight:UIFontWeightRegular]}
                                      context:nil];
     return rect.size.height;
 }
@@ -504,6 +504,72 @@
     if (range.location != NSNotFound) {
         return YES;//有空格
     }return NO;
+}
+/**
+    过滤表情
+    在这个方法中处理  - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+ */
++(BOOL)isContainsTwoEmoji:(NSString *)string{
+    __block BOOL isEomji = NO;
+    [string enumerateSubstringsInRange:NSMakeRange(0, [string length])
+                               options:NSStringEnumerationByComposedCharacterSequences
+                            usingBlock:^(NSString * _Nullable substring,
+                                         NSRange substringRange,
+                                         NSRange enclosingRange,
+                                         BOOL * _Nonnull stop) {
+        const unichar hs = [substring characterAtIndex:0];
+        NSLog(@"hs++++++++%04x",hs);
+        if (0xd800 <= hs && hs <=  0xdbff){
+            if (substring.length > 1){
+                const unichar ls = [substring characterAtIndex:1];
+                const int uc = ((hs - 0xd800) *0xd400) + (ls -0xdc00) + 0x10000;
+                if (0x1d000 <= uc && uc <= 0x1f77f){
+                     isEomji = YES;
+                }
+                NSLog(@"uc++++++++%04x",uc);
+            }else if(substring.length > 1){
+                const unichar ls = [substring characterAtIndex:1];
+                if (ls == 0x20e3|| ls ==0xfe0f){
+                    isEomji = YES;
+                }
+                NSLog(@"ls++++++++%04x",ls);
+            }else{
+                if (0x2100 <= hs && hs <= 0x27ff && hs != 0x263b){
+                    isEomji = YES;
+                }else if (0x2B05 <= hs && hs <= 0x2b07){
+                    isEomji = YES;
+                }else if (0x2934 <= hs && hs <= 0x2935){
+                    isEomji = YES;
+                }else if (0x3297 <= hs && hs <= 0x3299){
+                    isEomji = YES;
+                }else if (hs == 0xa9 ||
+                          hs == 0xae ||
+                          hs == 0x303d ||
+                          hs == 0x3030 ||
+                          hs == 0x2b55 ||
+                          hs == 0x2b1c ||
+                          hs == 0x2b1b ||
+                          hs == 0x2b50||
+                          hs == 0x231a){
+                    isEomji = YES;
+                 }
+            }
+        }
+    }];return isEomji;
+}
+
+- (BOOL)isHaveAppleEomji:(NSString *)text{
+    __block BOOL isEomji = NO;
+    [text enumerateSubstringsInRange:NSMakeRange(0, text.length)
+                             options:NSStringEnumerationByComposedCharacterSequences
+                          usingBlock:^(NSString * _Nullable substring,
+                                       NSRange substringRange,
+                                       NSRange enclosingRange,
+                                       BOOL * _Nonnull stop) {
+//        if(substring.length ==  EmojiCharacterLength){
+//            isEomji = YES;
+//        }
+    }];return isEomji;
 }
 /// 字符串是否包含URL
 -(BOOL)isContainsUrl{

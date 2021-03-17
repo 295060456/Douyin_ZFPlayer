@@ -575,5 +575,12 @@
 -(BOOL)isContainsUrl{
     return [self rangeOfString:@"https://"].location != NSNotFound || [self rangeOfString:@"http://"].location != NSNotFound;
 }
+/// 正则匹配手机号
+-(BOOL)checkTelNumber{
+    NSString *pattern = @"^1+[3578]+\\d{9}";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:self];
+    return isMatch;
+}
 
 @end

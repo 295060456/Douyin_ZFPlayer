@@ -17,9 +17,12 @@
     NSString *resString = nil;
     //textField.text 有值 && string无值 ————> 删除操作
     if (![NSString isNullString:self.text] && [NSString isNullString:text]) {
-        
         if (self.text.length == 1) {
-            resString = @"";
+            if ([text isEqualToString:@""]) {
+                resString = @"";
+            }else if ([text isEqualToString:@" "]){
+                resString = self.text;
+            }else{}
         }else{
             resString = [self.text substringToIndex:(self.text.length - 1)];//去掉最后一个
         }
@@ -33,7 +36,7 @@
         resString = [self.text stringByAppendingString:text];
     }
 
-    NSLog(@"resString = %@",resString);
+    NSLog(@"enen = %@",resString);
     return resString;
 }
 

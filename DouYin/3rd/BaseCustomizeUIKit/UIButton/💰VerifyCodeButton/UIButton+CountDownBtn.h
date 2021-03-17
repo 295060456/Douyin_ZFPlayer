@@ -69,10 +69,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)MKDataBlock countDownClickEventBlock;
 @property(nonatomic,assign)BOOL isCountDownClockFinished;//倒计时是否结束
 @property(nonatomic,assign)BOOL isCountDownClockOpen;//倒计时是否开始
+@property(nonatomic,assign)BOOL isCountDown;//是否是第一次倒计时
 @property(nonatomic,assign,readonly)BOOL isDataStrMakeNewLine;//readonly作用外部不能赋值，只能内部赋值
 @property(nonatomic,assign)BOOL isCanBeClickWhenTimerCycle;// 倒计时期间，默认不接受任何的点击事件
 
-@property(nonatomic,strong)NSString *formatTimeStr;//根据ShowTimeType格式化以后的时间
+@property(nonatomic,strong)NSString *formatTimeStr;//根据ShowTimeType格式化以后的时间【内部使用】
+@property(nonatomic,strong)NSString *appendingStrByFormatTimeStr;//formatTimeStr后缀拼接的字符串。因为formatTimeStr是内部使用
 @property(nonatomic,strong)NSString *finalTitleStr;//最终的title
 @property(nonatomic,strong)NSAttributedString *attributedString;//富文本
 @property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*richTextRunningDataMutArr;

@@ -24,7 +24,11 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
     if (![NSString isNullString:self.text] && [NSString isNullString:replacementString]) {
         
         if (self.text.length == 1) {
-            resString = @"";
+            if ([replacementString isEqualToString:@""]) {
+                resString = @"";
+            }else if ([replacementString isEqualToString:@" "]){
+                resString = self.text;
+            }else{}
         }else{
             resString = [self.text substringToIndex:(self.text.length - 1)];//去掉最后一个
         }

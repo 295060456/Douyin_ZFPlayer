@@ -96,6 +96,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isHaveAppleEomji:(NSString *)text;
 /// 字符串是否包含URL
 -(BOOL)isContainsUrl;
+/// 正则匹配手机号
+-(BOOL)checkTelNumber;
 
 @end
 

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewController (BaseVC)
 
 @property(nonatomic,strong)id requestParams;
+@property(nonatomic,strong)UIViewController *rootVC;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 /// 简洁版强制展现一个控制器页面【不需要正向传参】
 -(void)comingToVC:(UIViewController *)viewController;

@@ -12,9 +12,11 @@
 
 static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_requestParams";
 static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pushOrPresent";
+static char *UIViewController_BaseVC_rootVC = "UIViewController_BaseVC_rootVC";
 
 @dynamic requestParams;
 @dynamic pushOrPresent;
+@dynamic rootVC;
 /// 简洁版强制展现一个控制器页面【不需要正向传参】
 -(void)comingToVC:(UIViewController *)viewController{
     [UIViewController comingFromVC:self
@@ -56,6 +58,7 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
                    animated:(BOOL)animated
                     success:(nullable MKDataBlock)successBlock{
     toVC.requestParams = requestParams;
+    toVC.rootVC = rootVC;
     @weakify(rootVC)
     switch (comingStyle) {
         case ComingStyle_PUSH:{
@@ -116,6 +119,17 @@ static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pu
     objc_setAssociatedObject(self,
                              UIViewController_BaseVC_pushOrPresent,
                              [NSNumber numberWithInteger:pushOrPresent],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)UIViewController *rootVC;
+-(UIViewController *)rootVC{
+    return objc_getAssociatedObject(self, UIViewController_BaseVC_rootVC);;
+}
+
+-(void)setRootVC:(UIViewController *)rootVC{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_rootVC,
+                             rootVC,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

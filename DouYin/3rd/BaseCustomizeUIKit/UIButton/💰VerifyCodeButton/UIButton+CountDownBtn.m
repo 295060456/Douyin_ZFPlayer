@@ -25,9 +25,10 @@ static char *UIButton_CountDownBtn_layerBorderWidth = "UIButton_CountDownBtn_lay
 static char *UIButton_CountDownBtn_showTimeType = "UIButton_CountDownBtn_showTimeType";
 static char *UIButton_CountDownBtn_count = "UIButton_CountDownBtn_count";
 static char *UIButton_CountDownBtn_countDownBlock = "UIButton_CountDownBtn_countDownBlock";
+static char *UIButton_CountDownBtn_countDownClickEventBlock = "UIButton_CountDownBtn_countDownClickEventBlock";
+static char *UIButton_CountDownBtn_allowCountdownBlock = "UIButton_CountDownBtn_allowCountdownBlock";
 static char *UIButton_CountDownBtn_countDownBtnType = "UIButton_CountDownBtn_countDownBtnType";
 static char *UIButton_CountDownBtn_isCountDownClockFinished = "UIButton_CountDownBtn_isCountDownClockFinished";
-static char *UIButton_CountDownBtn_countDownClickEventBlock = "UIButton_CountDownBtn_countDownClickEventBlock";
 static char *UIButton_CountDownBtn_isCountDownClockOpen = "UIButton_CountDownBtn_isCountDownClockOpen";
 static char *UIButton_CountDownBtn_isCountDown = "UIButton_CountDownBtn_isCountDown";
 static char *UIButton_CountDownBtn_countDownBtnNewLineType = "UIButton_CountDownBtn_countDownBtnNewLineType";
@@ -55,9 +56,9 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
 @dynamic showTimeType;
 @dynamic count;
 @dynamic countDownBlock;
+@dynamic countDownClickEventBlock;
 @dynamic countDownBtnType;
 @dynamic isCountDownClockFinished;
-@dynamic countDownClickEventBlock;
 @dynamic isCountDownClockOpen;
 @dynamic isCountDown;
 @dynamic countDownBtnNewLineType;
@@ -119,21 +120,26 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
 
         // CountDownBtn 的点击事件回调
         @weakify(self)
-        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             @strongify(self)
-            if ((self.isCountDownClockFinished && self.btnRunType == CountDownBtnRunType_auto) ||//自启动模式
-                self.btnRunType == CountDownBtnRunType_manual) {//手动启动模式
-                
-                self.isCountDownClockFinished = NO;
-                self.isCountDownClockOpen = NO;
-                
-                [self timeFailBeginFrom:self.count];//根据需求来
-            }
-            
             if (self.countDownClickEventBlock) {
                 self.countDownClickEventBlock(self);
             }
         }];
+        // 通过外界的判断条件以后，方可执行倒计时操作
+        self.allowCountdownBlock = ^(NSNumber *data){
+            @strongify(self)
+            if (data.boolValue) {
+                if ((self.isCountDownClockFinished && self.btnRunType == CountDownBtnRunType_auto) ||//自启动模式
+                    self.btnRunType == CountDownBtnRunType_manual) {//手动启动模式
+                    
+                    self.isCountDownClockFinished = NO;
+                    self.isCountDownClockOpen = NO;
+                    
+                    [self timeFailBeginFrom:self.count];//根据需求来
+                }
+            }
+        };
         
         switch (self.btnRunType) {
             case CountDownBtnRunType_manual:{//手动触发计时器模式
@@ -409,6 +415,10 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
 -(void)actionCountDownBlock:(MKDataBlock _Nullable)countDownBlock{
     self.countDownBlock = countDownBlock;
 }
+
+-(void)actionAllowCountdownBlock:(MKDataBlock _Nullable)allowCountdownBlock{
+    self.allowCountdownBlock = allowCountdownBlock;
+}
 #pragma mark SET | GET
 #pragma mark —— @property(nonatomic,strong)NSTimerManager *nsTimerManager;
 -(NSTimerManager *)nsTimerManager{
@@ -653,6 +663,17 @@ static char *UIButton_CountDownBtn_isCanBeClickWhenTimerCycle = "UIButton_CountD
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_countDownClickEventBlock,
                              countDownClickEventBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,copy)MKDataBlock allowCountdownBlock;
+-(MKDataBlock)allowCountdownBlock{
+    return objc_getAssociatedObject(self, UIButton_CountDownBtn_allowCountdownBlock);
+}
+
+-(void)setAllowCountdownBlock:(MKDataBlock)allowCountdownBlock{
+    objc_setAssociatedObject(self,
+                             UIButton_CountDownBtn_allowCountdownBlock,
+                             allowCountdownBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)ShowTimeType showTimeType;

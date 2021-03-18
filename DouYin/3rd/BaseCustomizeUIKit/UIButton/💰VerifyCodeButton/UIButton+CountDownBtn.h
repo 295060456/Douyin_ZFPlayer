@@ -65,8 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CountDownBtnType countDownBtnType;
 @property(nonatomic,assign)CountDownBtnNewLineType countDownBtnNewLineType;//设置了这个属性仅仅对titleRuningStr有效，且在外层进行设置的时候需要用户手动加就换行符 \n
 @property(nonatomic,assign)CequenceForShowTitleRuningStrType cequenceForShowTitleRuningStrType;
-@property(nonatomic,copy)MKDataBlock countDownBlock;
-@property(nonatomic,copy)MKDataBlock countDownClickEventBlock;
+@property(nonatomic,copy)MKDataBlock countDownBlock;//倒计时需要触发调用的方法：倒计时的时候外面同时干的事，随着定时器走，可以不实现
+@property(nonatomic,copy)MKDataBlock countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
+@property(nonatomic,copy)MKDataBlock allowCountdownBlock;//外界条件判断通过以后开始倒计时
 @property(nonatomic,assign)BOOL isCountDownClockFinished;//倒计时是否结束
 @property(nonatomic,assign)BOOL isCountDownClockOpen;//倒计时是否开始
 @property(nonatomic,assign)BOOL isCountDown;//是否是第一次倒计时

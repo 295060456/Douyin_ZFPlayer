@@ -157,7 +157,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(CGFloat)navigationBarHeight{
     CGFloat NavigationBarHeight = [objc_getAssociatedObject(self, UIViewController_NavigationBar_navigationBarHeight) floatValue];
     if (NavigationBarHeight == 0) {
-        NavigationBarHeight = Top();
+        NavigationBarHeight = NavigationBarAndStatusBarHeight(nil);
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_navigationBarHeight,
                                  [NSNumber numberWithFloat:NavigationBarHeight],

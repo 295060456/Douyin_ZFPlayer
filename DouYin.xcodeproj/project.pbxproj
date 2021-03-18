@@ -49,8 +49,6 @@
 		C54BB0EF2518D055001591C2 /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB0EE2518D055001591C2 /* NotificationManager.m */; };
 		C54BB2C52518D363001591C2 /* ImageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1DF2518D363001591C2 /* ImageCodeView.m */; };
 		C54BB2D22518D363001591C2 /* FileFolderHandleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2032518D363001591C2 /* FileFolderHandleTool.m */; };
-		C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */; };
-		C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2062518D363001591C2 /* LBLaunchImageAdView.m */; };
 		C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB20B2518D363001591C2 /* MovieCountDown.m */; };
 		C54BB2DE2518D363001591C2 /* UIButton+ImageTitleSpacing.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2272518D363001591C2 /* UIButton+ImageTitleSpacing.m */; };
 		C54BB2EE2518D363001591C2 /* JhtBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB2492518D363001591C2 /* JhtBannerView.m */; };
@@ -531,6 +529,7 @@
 		C54CC5B825514AC300C69C1F /* CustomZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomZFPlayerControlView.m; sourceTree = "<group>"; };
 		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
+		C550B58F2603669000A81441 /* 安全区域.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "安全区域.png"; sourceTree = "<group>"; };
 		C5512D7525C67F91007BCA82 /* ZWPullMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuModel.h; sourceTree = "<group>"; };
 		C5512D7625C67F91007BCA82 /* ZWPullMenuConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWPullMenuConfig.h; sourceTree = "<group>"; };
 		C5512D7725C67F91007BCA82 /* ZWPullMenuConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWPullMenuConfig.m; sourceTree = "<group>"; };
@@ -2338,6 +2337,7 @@
 		C55E271A25FB1CAF00716A9B /* MacroDef_Size */ = {
 			isa = PBXGroup;
 			children = (
+				C550B58F2603669000A81441 /* 安全区域.png */,
 				C5470FB325309D3400651ACE /* MacroDef_Size.h */,
 			);
 			path = MacroDef_Size;
@@ -3626,8 +3626,8 @@
 				C54BB0A72518D00E001591C2 /* Sources */,
 				C54BB0A82518D00E001591C2 /* Frameworks */,
 				C54BB0A92518D00E001591C2 /* Resources */,
-				E99DCC7EF6C964BD0014B9BD /* [CP] Embed Pods Frameworks */,
-				17BD266DBC7D4C7A70F52EC9 /* [CP] Copy Pods Resources */,
+				5AE1ACABD041ED9327CD766C /* [CP] Embed Pods Frameworks */,
+				9F7153954CB534269CFC5984 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3800,7 +3800,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17BD266DBC7D4C7A70F52EC9 /* [CP] Copy Pods Resources */ = {
+		5AE1ACABD041ED9327CD766C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F7153954CB534269CFC5984 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3879,21 +3894,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E99DCC7EF6C964BD0014B9BD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DouYin/Pods-DouYin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4020,7 +4020,6 @@
 				C5C64B79259DF5EB00FD2F99 /* ECPrivacyCheckContacts.m in Sources */,
 				C54BB3AA2518D391001591C2 /* DeleteSystemUITabBarButton.m in Sources */,
 				C54BB0B02518D00E001591C2 /* DouYinAppDelegate.m in Sources */,
-				C54BB2D32518D363001591C2 /* NSObject+LBLaunchImage.m in Sources */,
 				C54BB2F82518D363001591C2 /* MonitorNetwoking.m in Sources */,
 				C558F4B625BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m in Sources */,
 				C5C64B7B259DF5EB00FD2F99 /* ECPrivacyCheckReminders.m in Sources */,
@@ -4111,7 +4110,6 @@
 				C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */,
 				C5D4F12E25824B8600C165EA /* URLManagerModel.m in Sources */,
 				C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */,
-				C54BB2D42518D363001591C2 /* LBLaunchImageAdView.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
 				C5512D7F25C67F91007BCA82 /* ZWPullMenuModel.m in Sources */,

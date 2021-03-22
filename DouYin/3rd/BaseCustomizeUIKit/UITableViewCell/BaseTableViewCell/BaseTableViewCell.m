@@ -10,8 +10,6 @@
 
 @interface BaseTableViewCell ()
 
-@property(nonatomic,assign)MKDataBlock baseTableViewCellBlock;
-
 @end
 
 @implementation BaseTableViewCell
@@ -33,9 +31,7 @@
     }return self;
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    
-}
+-(void)richElementsInCellWithModel:(id _Nullable)model{}
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return 0;

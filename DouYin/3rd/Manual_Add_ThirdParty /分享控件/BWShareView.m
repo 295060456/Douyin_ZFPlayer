@@ -14,16 +14,10 @@
 #define RGBColor(r, g, b)    [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 @interface BWShareView ()
-<
-UICollectionViewDelegate
-,UICollectionViewDataSource
->
 
 @property(nonatomic,strong)UIView *bgView;
 @property(nonatomic,strong)UIView *lineV;
 @property(nonatomic,strong)UILabel *shareTitleLabel;
-@property(nonatomic,strong)UICollectionViewFlowLayout *layout;
-@property(nonatomic,strong)UICollectionViewFlowLayout *layout2;
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)UICollectionView *collectionView2;
 /**

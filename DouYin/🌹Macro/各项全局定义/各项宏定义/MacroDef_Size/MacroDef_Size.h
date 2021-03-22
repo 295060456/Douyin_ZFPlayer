@@ -8,6 +8,10 @@
 #ifndef MacroDef_Size_h
 #define MacroDef_Size_h
 
+#import <UIKit/UIKit.h>
+#import "MacroDef_Func.h"
+#import "MacroDef_AppDeviceScreenSize.h"
+
 #define MainScreen          UIScreen.mainScreen.bounds.size
 #define Device_Width        MainScreen.width//获取屏幕宽高
 #define Device_Height       MainScreen.height
@@ -17,8 +21,6 @@
 #define SCREEN_MAX_LENGTH   (MAX(Device_Width, Device_Height))
 #define SCREEN_MIN_LENGTH   (MIN(Device_Width, Device_Height))
 
-#import <UIKit/UIKit.h>
-#import "MacroDef_Func.h"
 #pragma mark —— 安全区域
 //顶部的安全距离
 static inline CGFloat TopSafeAreaHeight(){

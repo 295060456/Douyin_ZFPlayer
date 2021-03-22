@@ -10,8 +10,6 @@
 
 @interface BaseImageView ()
 
-@property(nonatomic,copy)MKDataBlock baseImageViewBlock;
-
 @end
 
 @implementation BaseImageView

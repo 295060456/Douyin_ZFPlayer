@@ -12,6 +12,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BWShareView : UIView
+<
+UICollectionViewDelegate
+,UICollectionViewDataSource
+>
+@property(nonatomic,strong)UICollectionViewFlowLayout *layout;
+@property(nonatomic,strong)UICollectionViewFlowLayout *layout2;
 
 /**
 有/无标题的单层分享

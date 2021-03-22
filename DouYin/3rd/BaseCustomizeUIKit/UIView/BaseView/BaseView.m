@@ -10,8 +10,6 @@
 
 @interface BaseView ()
 
-@property(nonatomic,copy)MKDataBlock baseViewBlock;
-
 @end
 
 @implementation BaseView

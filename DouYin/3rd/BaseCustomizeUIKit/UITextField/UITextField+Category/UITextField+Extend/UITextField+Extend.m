@@ -15,35 +15,11 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
 @dynamic customSysClearBtn;
 
 -(NSString *)getCurrentTextFieldValueByReplacementString:(NSString *)replacementString{
-    NSLog(@"textField.text = %@",self.text);
-    NSLog(@"string = %@",replacementString);
-    
-#warning 过滤删除最科学的做法
-    NSString *resString = nil;
-    //textField.text 有值 && string无值 ————> 删除操作
-    if (![NSString isNullString:self.text] && [NSString isNullString:replacementString]) {
-        
-        if (self.text.length == 1) {
-            if ([replacementString isEqualToString:@""]) {
-                resString = @"";
-            }else if ([replacementString isEqualToString:@" "]){
-                resString = self.text;
-            }else{}
-        }else{
-            resString = [self.text substringToIndex:(self.text.length - 1)];//去掉最后一个
-        }
+    if (self.text.length >= 1) {
+        return [replacementString isEqualToString:@""] ? [self.text substringToIndex:(self.text.length - 1)] : [self.text stringByAppendingString:replacementString];
+    }else{
+        return replacementString;
     }
-    //textField.text 无值 && string有值 ————> 首字符输入
-    if ([NSString isNullString:self.text] && ![NSString isNullString:replacementString]) {
-        resString = replacementString;
-    }
-    //textField.text 有值 && string有值 ————> 非首字符输入
-    if (![NSString isNullString:self.text] && ![NSString isNullString:replacementString]) {
-        resString = [self.text stringByAppendingString:replacementString];
-    }
-
-    NSLog(@"resString = %@",resString);
-    return resString;
 }
 /// 自定义系统的清除按钮
 - (void)modifyClearButtonWithImage:(UIImage *)image{

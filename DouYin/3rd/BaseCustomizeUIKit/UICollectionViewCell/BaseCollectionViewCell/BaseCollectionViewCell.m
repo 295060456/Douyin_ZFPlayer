@@ -14,6 +14,8 @@
 
 @implementation BaseCollectionViewCell
 
+@synthesize idxPath = _idxPath;
+
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
     id cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(self.class)
@@ -37,5 +39,13 @@
 }
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(id _Nullable)model{}
+#pragma mark —— 协议属性合成set & get方法
+-(void)setIdxPath:(NSIndexPath *)idxPath{
+    _idxPath = idxPath;
+}
+
+-(NSIndexPath *)idxPath{
+    return _idxPath;
+}
 
 @end

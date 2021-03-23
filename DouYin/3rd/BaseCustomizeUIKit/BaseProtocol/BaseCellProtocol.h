@@ -11,12 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol BaseCellProtocol <NSObject>
 
-@required
+@optional
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath;
 
-@optional
 @property(nonatomic,strong)NSIndexPath *idxPath;
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(id _Nullable)model;

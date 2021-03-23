@@ -14,6 +14,8 @@
 
 @implementation BaseTableViewCell
 
+@synthesize idxPath = _idxPath;
+
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
@@ -138,6 +140,13 @@ makeFirstAndLastCell:(nonnull UITableViewCell *)cell
     selectBgView.backgroundColor = UIColor.clearColor;
     cell.selectedBackgroundView = selectBgView;
 }
-#pragma mark —— lazyLoad
+#pragma mark —— 协议属性合成set & get方法
+-(void)setIdxPath:(NSIndexPath *)idxPath{
+    _idxPath = idxPath;
+}
+
+-(NSIndexPath *)idxPath{
+    return _idxPath;
+}
 
 @end

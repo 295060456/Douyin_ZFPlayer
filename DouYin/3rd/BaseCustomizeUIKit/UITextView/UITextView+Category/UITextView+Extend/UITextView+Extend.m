@@ -8,36 +8,13 @@
 #import "UITextView+Extend.h"
 
 @implementation UITextView (Extend)
-
--(NSString *)getCurrentTextViewValueByReplacementText:(NSString *)text{
-    NSLog(@"textField.text = %@",self.text);
-    NSLog(@"string = %@",text);
-    
-#warning 过滤删除最科学的做法
-    NSString *resString = nil;
-    //textField.text 有值 && string无值 ————> 删除操作
-    if (![NSString isNullString:self.text] && [NSString isNullString:text]) {
-        if (self.text.length == 1) {
-            if ([text isEqualToString:@""]) {
-                resString = @"";
-            }else if ([text isEqualToString:@" "]){
-                resString = self.text;
-            }else{}
-        }else{
-            resString = [self.text substringToIndex:(self.text.length - 1)];//去掉最后一个
-        }
+/// 过滤删除最科学的做法,获得当前TextView当前时刻的具体文本值
+-(NSString *)getCurrentTextViewValueByReplacementText:(NSString *)replacementString{
+    if (self.text.length >= 1) {
+        return [replacementString isEqualToString:@""] ? [self.text substringToIndex:(self.text.length - 1)] : [self.text stringByAppendingString:replacementString];
+    }else{
+        return replacementString;
     }
-    //textField.text 无值 && string有值 ————> 首字符输入
-    if ([NSString isNullString:self.text] && ![NSString isNullString:text]) {
-        resString = text;
-    }
-    //textField.text 有值 && string有值 ————> 非首字符输入
-    if (![NSString isNullString:self.text] && ![NSString isNullString:text]) {
-        resString = [self.text stringByAppendingString:text];
-    }
-
-    NSLog(@"enen = %@",resString);
-    return resString;
 }
 
 @end

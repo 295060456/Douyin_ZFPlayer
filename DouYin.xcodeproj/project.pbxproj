@@ -288,6 +288,8 @@
 		C5D77499257F59790087FC92 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77491257F59790087FC92 /* HQTextField.m */; };
 		C5D7749A257F59790087FC92 /* CJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77493257F59790087FC92 /* CJTextField.m */; };
 		C5D77C09257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D77C08257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m */; };
+		C5D8D023260CC27A00BDAF76 /* toastLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = C5D8D022260CC27A00BDAF76 /* toastLoading.gif */; };
+		C5D8D57A260CC79E00BDAF76 /* NSObject+DefConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D8D578260CC79E00BDAF76 /* NSObject+DefConfig.m */; };
 		C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */; };
 		C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */; };
 		C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334F2521C137001A04FE /* ZFCustomControlView.m */; };
@@ -903,6 +905,9 @@
 		C5D77C08257F5E5A0087FC92 /* ZYTextField+HistoryDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZYTextField+HistoryDataList.m"; sourceTree = "<group>"; };
 		C5D7844E257F653C0087FC92 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C5D78452257F65650087FC92 /* ZBNetworking.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ZBNetworking.md; sourceTree = "<group>"; };
+		C5D8D022260CC27A00BDAF76 /* toastLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = toastLoading.gif; sourceTree = "<group>"; };
+		C5D8D578260CC79E00BDAF76 /* NSObject+DefConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DefConfig.m"; sourceTree = "<group>"; };
+		C5D8D579260CC79E00BDAF76 /* NSObject+DefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DefConfig.h"; sourceTree = "<group>"; };
 		C5DF3E0A25A864DB00E91985 /* LOTAnimationMJRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOTAnimationMJRefreshFooter.h; sourceTree = "<group>"; };
 		C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationMJRefreshFooter.m; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
@@ -2051,6 +2056,7 @@
 		C54BB3762518D391001591C2 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				C5D8D577260CC79E00BDAF76 /* NSObject+DefConfig */,
 				C5D6D7FD25860D5D00029AFF /* NSObject (Time) */,
 				C54BB3782518D391001591C2 /* NSObject+Alert */,
 				C56BD45625E9380C001E1E69 /* NSObject+CallBackInfoByBlock */,
@@ -3152,6 +3158,7 @@
 		C5A4411625ABFB51000F0CD2 /* WHToast */ = {
 			isa = PBXGroup;
 			children = (
+				C5D8D022260CC27A00BDAF76 /* toastLoading.gif */,
 				C5A4411825ABFB51000F0CD2 /* WHToast+DDToast.h */,
 				C5A4411725ABFB51000F0CD2 /* WHToast+DDToast.m */,
 			);
@@ -3653,6 +3660,15 @@
 			path = "UIViewController+Others";
 			sourceTree = "<group>";
 		};
+		C5D8D577260CC79E00BDAF76 /* NSObject+DefConfig */ = {
+			isa = PBXGroup;
+			children = (
+				C5D8D578260CC79E00BDAF76 /* NSObject+DefConfig.m */,
+				C5D8D579260CC79E00BDAF76 /* NSObject+DefConfig.h */,
+			);
+			path = "NSObject+DefConfig";
+			sourceTree = "<group>";
+		};
 		C5DF3DBC25A8645D00E91985 /* LOTAnimationMJRefreshFooter */ = {
 			isa = PBXGroup;
 			children = (
@@ -3871,6 +3887,7 @@
 				C5C64B86259DF5EB00FD2F99 /* 麦克风@3x.png in Resources */,
 				C54BB3AB2518D391001591C2 /* 移除 系统自带的 UITabBarButton in Resources */,
 				C5D0B6D325878C0C002CA224 /* 带有按键音的按钮.md in Resources */,
+				C5D8D023260CC27A00BDAF76 /* toastLoading.gif in Resources */,
 				C5C64B80259DF5EB00FD2F99 /* 运动与健身@3x.png in Resources */,
 				C57109B4253C1358005B3A0C /* JobsPullListAutoSizeView in Resources */,
 			);
@@ -4158,6 +4175,7 @@
 				C56206E72553FD9800FE435F /* NSObject+AFNReachability.m in Sources */,
 				C54BB3032518D363001591C2 /* GCD_TimerManager.m in Sources */,
 				C582A69A251C796400DD83A1 /* DataManager.m in Sources */,
+				C5D8D57A260CC79E00BDAF76 /* NSObject+DefConfig.m in Sources */,
 				C59A3A94258DD158005F6260 /* UserDefaultManager.m in Sources */,
 				C5914DA825385356007777A6 /* UIViewController+BWShareView.m in Sources */,
 				C57342BF25248DD900CC6A3A /* TableViewAnimationKit.m in Sources */,

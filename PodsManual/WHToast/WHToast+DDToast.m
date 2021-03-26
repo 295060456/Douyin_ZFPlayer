@@ -26,6 +26,24 @@
                          duration:1.5
                     finishHandler:nil];
 }
-
+/** 延时操作 */
++(void)toastLoading{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"toastLoading" ofType:@"gif"];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        UIImage *image = [UIImage sd_imageWithGIFData:data];
+        [WHToast showImage:image
+                   message:@"正在进行中..."
+                  duration:LONG_LONG_MAX
+             finishHandler:nil];
+    });
+}
+/** 手动关闭WHToast，在主线程*/
++(void)toastHide{
+    dispatch_async(dispatch_get_main_queue(), ^{
+       // UI更新代码
+        [WHToast hide];
+    });
+}
 
 @end

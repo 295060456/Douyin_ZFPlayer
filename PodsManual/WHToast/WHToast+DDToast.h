@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)toastErrMsg:(NSString *)errMsg;
 /** 成功图标和文字，展示在屏幕中间 */
 +(void)toastSuccessMsg:(NSString *)successMsg;
+/** 延时操作 */
++(void)toastLoading;
+/** 手动关闭WHToast，在主线程*/
++(void)toastHide;
 
 @end
 

@@ -79,8 +79,10 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 +(double)usedMemory;
 /// 加入键盘通知的监听者
 -(void)keyboard;
-/// 停止刷新
+/// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
+/// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
+-(void)endRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView;
 /// 转换为NSData
 +(NSData *_Nullable)transformToData:(id _Nullable)object;
 /// NSInvocation的使用，方法多参数传递

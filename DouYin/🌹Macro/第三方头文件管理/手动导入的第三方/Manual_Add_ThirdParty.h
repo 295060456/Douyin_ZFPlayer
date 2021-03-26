@@ -14,6 +14,7 @@
 #import "NSString+Extras.h"
 #pragma mark —— NSObject
 #import "NSObject+Measure.h"
+#import "NSObject+DefConfig.h"
 #import "NSObject+Extras.h"
 #import "NSObject+Random.h"
 #import "NSObject+Shake.h"

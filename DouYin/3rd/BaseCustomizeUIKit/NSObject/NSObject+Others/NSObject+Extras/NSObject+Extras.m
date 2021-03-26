@@ -210,7 +210,7 @@ static void selectorImp(id self,
 -(void)keyboardDidChangeFrameNotification:(NSNotification *)notification{
 
 }
-/// 停止刷新
+/// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView{
     if ([targetScrollView isKindOfClass:UITableView.class]) {
         UITableView *tableView = (UITableView *)targetScrollView;
@@ -226,6 +226,24 @@ static void selectorImp(id self,
     }
     if (targetScrollView.mj_footer.refreshing) {
         [targetScrollView.mj_footer endRefreshing];// 结束刷新
+    }
+}
+/// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
+-(void)endRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView{
+    if ([targetScrollView isKindOfClass:UITableView.class]) {
+        UITableView *tableView = (UITableView *)targetScrollView;
+        [tableView reloadData];
+    }else if ([targetScrollView isKindOfClass:UICollectionView.class]){
+        UICollectionView *collectionView = (UICollectionView *)targetScrollView;
+        [collectionView reloadData];
+    }else{}
+    
+    [targetScrollView tab_endAnimation];//里面实现了 [self.collectionView reloadData];
+    if (targetScrollView.mj_header.refreshing) {
+        [targetScrollView.mj_header endRefreshing];// 结束刷新
+    }
+    if (targetScrollView.mj_footer.refreshing) {
+        [targetScrollView.mj_footer endRefreshingWithNoMoreData];// 结束刷新
     }
 }
 /// 转换为NSData

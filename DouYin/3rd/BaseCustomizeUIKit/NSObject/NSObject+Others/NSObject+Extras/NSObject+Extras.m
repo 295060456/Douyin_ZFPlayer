@@ -226,6 +226,8 @@ static void selectorImp(id self,
     }
     if (targetScrollView.mj_footer.refreshing) {
         [targetScrollView.mj_footer endRefreshing];// 结束刷新
+    }else{
+        [targetScrollView.mj_footer resetNoMoreData];// 结束刷新
     }
 }
 /// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】

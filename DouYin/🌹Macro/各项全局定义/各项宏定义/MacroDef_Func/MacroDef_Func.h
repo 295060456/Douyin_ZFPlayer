@@ -9,24 +9,38 @@
 #define MacroDef_Func_h
 
 #import "MacroDef_Sys.h"
+#import "DouYinAppDelegate.h"
 #import "DouYinSceneDelegate.h"
+
 static inline UIWindow * getMainWindow(){
     UIWindow *window = nil;
+    //以下方法有时候会拿不到window
     if (@available(iOS 13.0, *)) {
-        window = [DouYinSceneDelegate sharedInstance].window;
-        //以下方法有时候会拿不到window
-        {
-//            for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes){
-//                if (windowScene.activationState == UISceneActivationStateForegroundActive){
-//                    window = windowScene.windows.firstObject;
-//                    break;
-//                }
-//            }
+        for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes){
+            if (windowScene.activationState == UISceneActivationStateForegroundActive){
+                window = windowScene.windows.firstObject;
+                return window;
+            }
         }
-    }else{
+    }
+    
+    if (DouYinAppDelegate.sharedInstance.window) {
+        window = DouYinAppDelegate.sharedInstance.window;
+        return window;
+    }
+    
+    if (UIApplication.sharedApplication.delegate.window) {
         window = UIApplication.sharedApplication.delegate.window;
-//        [UIApplication sharedApplication].keyWindow
-    }return window;
+        return window;
+    }
+    
+    SuppressWdeprecatedDeclarationsWarning(
+        if (UIApplication.sharedApplication.keyWindow) {
+        window = UIApplication.sharedApplication.keyWindow;
+        return window;
+    });
+    
+    return window;
 }
 /**
  是否是iPhone刘海屏系列：   X系列（X/XS/XR/XS Max)、11系列（11、pro、pro max）

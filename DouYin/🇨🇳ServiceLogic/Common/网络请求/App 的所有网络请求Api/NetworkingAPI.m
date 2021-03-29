@@ -58,7 +58,9 @@
     
     {
         NSMutableArray *paramMutArr = NSMutableArray.array;
-        [paramMutArr addObject:parameters];
+        if (parameters) {
+            [paramMutArr addObject:parameters];
+        }
         
         if (successBlock) {
             [paramMutArr addObject:successBlock];

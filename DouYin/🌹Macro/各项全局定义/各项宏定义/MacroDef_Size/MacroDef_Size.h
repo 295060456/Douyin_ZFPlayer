@@ -25,7 +25,7 @@
 //顶部的安全距离
 static inline CGFloat TopSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
-        return [[UIApplication sharedApplication] delegate].window.safeAreaInsets.top;
+        return getMainWindow().safeAreaInsets.top;
     } else {
         return 0.f;
     }
@@ -33,7 +33,7 @@ static inline CGFloat TopSafeAreaHeight(){
 //底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat BottomSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
-        return [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom;
+        return getMainWindow().safeAreaInsets.bottom;
     } else {
         return 0.f;
     }
@@ -41,26 +41,18 @@ static inline CGFloat BottomSafeAreaHeight(){
 #pragma mark —— 状态栏高度：全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
 //方法一：状态栏高度
 static inline CGFloat rectOfStatusbar(){
-    SuppressWdeprecatedDeclarationsWarning(CGFloat RectOfStatusbar = 0.0f;
-                                           if (@available(iOS 13.0, *)){
-                                               id WINDOW = UIApplication.sharedApplication.windows.firstObject;
-                                               if ([WINDOW isKindOfClass:UIWindow.class]) {
-                                                   UIWindow *window = (UIWindow *)WINDOW;
-                                                   UIWindowScene *windowScene = window.windowScene;
-                                                   UIStatusBarManager *statusBarManager = windowScene.statusBarManager;
-                                                   if (statusBarManager.statusBarHidden == NO) {
-                                                       RectOfStatusbar = statusBarManager.statusBarFrame.size.height;
-                                       //                statusBarManager.statusBarFrame.mj_h
-                                                   }else{}
-                                               }
-                                           }else{
-                                               RectOfStatusbar = UIApplication.sharedApplication.statusBarFrame.size.height;
-                                           }return RectOfStatusbar);
+    SuppressWdeprecatedDeclarationsWarning(
+        if (@available(iOS 13.0, *)){
+            UIStatusBarManager *statusBarManager = getMainWindow().windowScene.statusBarManager;
+            return statusBarManager.statusBarHidden ? 0 : statusBarManager.statusBarFrame.size.height;
+        }else{
+            return UIApplication.sharedApplication.statusBarFrame.size.height;
+        });
 }
 //方法二：状态栏高度
 static inline CGFloat StatusBarHeight(){
     if (@available(iOS 11.0, *)) {
-        return [[UIApplication sharedApplication] delegate].window.safeAreaInsets.top;
+        return getMainWindow().safeAreaInsets.top;
     } else {
         return rectOfStatusbar();
     }

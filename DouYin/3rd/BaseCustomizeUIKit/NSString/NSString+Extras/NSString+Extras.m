@@ -315,51 +315,48 @@
     NSString *modifiedString = [regex stringByReplacingMatchesInString:text options:0 range:NSMakeRange(0, [text length]) withTemplate:@""];
     return modifiedString;
 }
-//判断是否含有表情符号 yes-有 no-没有
-+ (BOOL)stringContainsEmoji:(NSString *)string {
+// iOS判断某字符串是否是Emoji表情【有一定缺陷，但能满足大多数业务场景需求（因为Emoji在不断的发展更新，不应该本地写死）】
+-(BOOL)validateContainsEmoji{
     __block BOOL returnValue = NO;
-    [string enumerateSubstringsInRange:NSMakeRange(0, [string length])
-                               options:NSStringEnumerationByComposedCharacterSequences
-                            usingBlock:^(NSString *substring,
-                                         NSRange substringRange,
-                                         NSRange enclosingRange,
-                                         BOOL *stop) {
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length)
+                             options:NSStringEnumerationByComposedCharacterSequences
+                          usingBlock:^(NSString *substring,
+                                       NSRange substringRange,
+                                       NSRange enclosingRange,
+                                       BOOL *stop) {
         const unichar hs = [substring characterAtIndex:0];
-        if (0xd800) {
-            if (0xd800 <= hs && hs <= 0xdbff) {
-                if (substring.length > 1) {
-                    const unichar ls = [substring characterAtIndex:1];
-                    const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                    if (0x1d000 <= uc && uc <= 0x1f77f) {
-                        returnValue =YES;
-                    }
-                }
-            }else if (0x2100 <= hs && hs <= 0x27ff){
-                returnValue =YES;
-            }else if (0x2B05 <= hs && hs <= 0x2b07) {
-                returnValue =YES;
-            }else if (0x2934 <= hs && hs <= 0x2935) {
-                returnValue =YES;
-            }else if (0x3297 <= hs && hs <= 0x3299) {
-                returnValue =YES;
-            }else{
-                if (substring.length > 1) {
-                    const unichar ls = [substring characterAtIndex:1];
-                    if (ls == 0x20e3) {
-                        returnValue =YES;
-                    }
+        if (0xd800 <= hs && hs <= 0xdbff) {
+            if (substring.length > 1) {
+                const unichar ls = [substring characterAtIndex:1];
+                const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
+                if (0x1d000 <= uc && uc <= 0x1f77f) {
+                    returnValue = YES;
                 }
             }
-            if (hs == 0xa9 ||
-                hs == 0xae ||
-                hs == 0x303d ||
-                hs == 0x3030 ||
-                hs == 0x2b55 ||
-                hs == 0x2b1c ||
-                hs == 0x2b1b ||
-                hs == 0x2b50 ||
-                hs == 0xd83e) {
-                returnValue =YES;
+        } else if (substring.length > 1) {
+            const unichar ls = [substring characterAtIndex:1];
+            if (ls == 0x20e3) {
+                returnValue = YES;
+            }
+        } else {
+            if (0x2100 <= hs && hs <= 0x27ff) {
+                returnValue = YES;
+            } else if (0x2B05 <= hs && hs <= 0x2b07) {
+                returnValue = YES;
+            } else if (0x2934 <= hs && hs <= 0x2935) {
+                returnValue = YES;
+            } else if (0x3297 <= hs && hs <= 0x3299) {
+                returnValue = YES;
+            } else if (hs == 0xa9 ||
+                       hs == 0xae ||
+                       hs == 0x303d ||
+                       hs == 0x3030 ||
+                       hs == 0x2b55 ||
+                       hs == 0x2b1c ||
+                       hs == 0x2b1b ||
+                       hs == 0x2b50 ||
+                       hs == 0xd83e) {
+                returnValue = YES;
             }
         }
     }];return returnValue;
@@ -581,6 +578,26 @@
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     BOOL isMatch = [pred evaluateWithObject:self];
     return isMatch;
+}
+/*
+    系统的length是不区分中文和英文的,中文一个字length也是1
+    通过计算ASCII码来实现:
+    循环遍历字符串长度，按照length来取值。判断这个值在不在ASCII的范围内，在的话就是1个字节，不在就是Unicode编码2个字节。
+ **/
+-(NSUInteger)textLength{
+    NSUInteger asciiLength = 0;
+    for (NSUInteger i = 0; i < self.length; i++) {
+        unichar uc = [self characterAtIndex:i];
+        asciiLength += isascii(uc) ? 1 : 2;
+    }
+    NSUInteger unicodeLength = asciiLength;
+    return unicodeLength;
+}
+// 是否全是字母（26个英文字母）
+-(BOOL)isAllLetterCharacter{
+    NSString *stringRegex = @"^[A-Za-z]+$";
+    NSPredicate *stringTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", stringRegex];
+    return [stringTest evaluateWithObject:self];
 }
 
 @end

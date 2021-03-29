@@ -93,11 +93,21 @@ NS_ASSUME_NONNULL_BEGIN
     在这个方法中处理  - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
  */
 +(BOOL)isContainsTwoEmoji:(NSString *)string;
-- (BOOL)isHaveAppleEomji:(NSString *)text;
+// iOS判断某字符串是否是Emoji表情【有一定缺陷，但能满足大多数业务场景需求（因为Emoji在不断的发展更新，不应该本地写死）】
+-(BOOL)validateContainsEmoji;
+-(BOOL)isHaveAppleEomji:(NSString *)text;
 /// 字符串是否包含URL
 -(BOOL)isContainsUrl;
 /// 正则匹配手机号
 -(BOOL)checkTelNumber;
+/*
+    系统的length是不区分中文和英文的,中文一个字length也是1
+    通过计算ASCII码来实现:
+    循环遍历字符串长度，按照length来取值。判断这个值在不在ASCII的范围内，在的话就是1个字节，不在就是Unicode编码2个字节。
+ **/
+-(NSUInteger)textLength;
+// 是否全是字母（26个英文字母）
+-(BOOL)isAllLetterCharacter;
 
 @end
 

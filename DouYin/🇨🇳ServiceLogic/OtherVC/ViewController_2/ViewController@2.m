@@ -94,22 +94,7 @@ ZFDouYinCellDelegate
         [self.tableView ly_showEmptyView];
     }
 }
-/// 停止刷新
--(void)endRefreshing{
-    if (self.dataSource.count) {
-        self.tableView.mj_footer.hidden = NO;
-    }
-    [self.tableView reloadData];
-    [self.tableView tab_endAnimation];//里面实现了 [self->tableView reloadData];
-    if (self.tableView.mj_header.refreshing) {
-        [self.tableView.mj_header endRefreshing];// 结束刷新
-    }
-    if (self.tableView.mj_footer.refreshing) {
-        [self.tableView.mj_footer endRefreshing];// 结束刷新
-    }
-}
-
-//- (void)requestData {
+//- (void)requestDataa {
 //    /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
 //    [self.player stopCurrentPlayingCell];
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"data"
@@ -125,7 +110,8 @@ ZFDouYinCellDelegate
 //        [data setValuesForKeysWithDictionary:dataDic];
 //        [self.dataSource addObject:data];
 //    }
-//    [self.tableView.mj_header endRefreshing];
+//    [self endRefreshing:self.tableView];
+////    [self endRefreshingWithNoMoreData:self.tableView];
 //}
 // 刷新加载最新数据（以前的数据全部清空）
 -(void)requestData{
@@ -148,8 +134,12 @@ ZFDouYinCellDelegate
         NSLog(@"");
         if ([data isKindOfClass:NSArray.class]) {
             NSArray *dataArr = (NSMutableArray *)data;
-            [self.dataSource addObjectsFromArray:dataArr];
-            [self endRefreshing];
+            if (dataArr.count) {
+                [self.dataSource addObjectsFromArray:dataArr];
+                [self endRefreshing:self.tableView];
+            }else{
+                [self endRefreshingWithNoMoreData:self.tableView];
+            }
             /// 找到可以播放的视频并播放
             @weakify(self)
             [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
@@ -306,9 +296,48 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             SuppressWdeprecatedDeclarationsWarning(self.automaticallyAdjustsScrollViewInsets = NO);
         }
         
-        _tableView.mj_header = self.mjRefreshGifHeader;
-        _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
-        _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+        {
+//            _tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@"暂无数据"
+//                                                                titleStr:@"暂无数据"
+//                                                               detailStr:@""];
+            _tableView.ly_emptyView = [EmptyView diyEmptyViewWithTitle:@"暂无数据"];
+            _tableView.ly_emptyView.autoShowEmptyView = NO;
+            _tableView.ly_emptyView.titleLabTextColor = kWhiteColor;
+            _tableView.ly_emptyView.contentViewOffset = -KWidth(40);
+        }
+        
+        {
+            MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
+            refreshConfigHeader.stateIdleTitle = @"下拉刷新数据";
+            refreshConfigHeader.pullingTitle = @"下拉刷新数据";
+            refreshConfigHeader.refreshingTitle = @"正在刷新数据";
+            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
+            refreshConfigHeader.noMoreDataTitle = @"下拉刷新数据";
+            
+            MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
+            refreshConfigFooter.stateIdleTitle = @"上拉加载数据";
+            refreshConfigFooter.pullingTitle = @"上拉加载数据";
+            refreshConfigFooter.refreshingTitle = @"正在加载数据";
+            refreshConfigFooter.willRefreshTitle = @"加载数据中";
+            refreshConfigFooter.noMoreDataTitle = @"没有更多数据";
+            
+            self.refreshConfigHeader = refreshConfigHeader;
+            self.refreshConfigFooter = refreshConfigFooter;
+            
+            _tableView.mj_header = self.mjRefreshNormalHeader;
+            _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
+            _tableView.mj_footer = self.mjRefreshAutoNormalFooter;
+            _tableView.mj_footer.hidden = NO;
+        }
+        
+        {/// 设置tabAnimated相关属性
+            // 可以不进行手动初始化，将使用默认属性
+            _tableView.tabAnimated = [TABTableAnimated animatedWithCellClass:ZFDouYinCell.class
+                                                                  cellHeight:[ZFDouYinCell cellHeightWithModel:nil]];
+            _tableView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
+   //            [_tableView.tabAnimated addHeaderViewClass:LineTableViewHeaderFooterView.class viewHeight:60 toSection:0];
+            [_tableView tab_startAnimation];   // 开启动画
+        }
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {

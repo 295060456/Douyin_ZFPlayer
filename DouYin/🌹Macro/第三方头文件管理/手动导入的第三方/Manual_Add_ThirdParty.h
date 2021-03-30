@@ -10,6 +10,8 @@
 #define Manual_Add_ThirdParty_h
 
 /// BaseCustomizeUIKit
+#pragma mark —— Log
+#import "DebugLogDescription.h"
 #pragma mark —— NSString
 #import "NSString+Extras.h"
 #pragma mark —— NSObject

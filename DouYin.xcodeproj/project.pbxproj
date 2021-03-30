@@ -251,7 +251,6 @@
 		C5C64B98259DF5EB00FD2F99 /* 文件和文件夹@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C64B60259DF5EB00FD2F99 /* 文件和文件夹@3x.png */; };
 		C5C64B99259DF5EB00FD2F99 /* 定位服务@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C64B61259DF5EB00FD2F99 /* 定位服务@3x.png */; };
 		C5C64B9A259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C64B64259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m */; };
-		C5CF125925AC7CB300381935 /* LYLUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CF125625AC7CB300381935 /* LYLUnicode.m */; };
 		C5CF1E7825AC8C6400381935 /* TabbarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CF1E7725AC8C6400381935 /* TabbarVC.m */; };
 		C5D0B6D225878C0C002CA224 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C5D0B6CF25878C0C002CA224 /* Sound.wav */; };
 		C5D0B6D325878C0C002CA224 /* 带有按键音的按钮.md in Resources */ = {isa = PBXBuildFile; fileRef = C5D0B6D025878C0C002CA224 /* 带有按键音的按钮.md */; };
@@ -291,6 +290,7 @@
 		C5D8D023260CC27A00BDAF76 /* toastLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = C5D8D022260CC27A00BDAF76 /* toastLoading.gif */; };
 		C5D8D57A260CC79E00BDAF76 /* NSObject+DefConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D8D578260CC79E00BDAF76 /* NSObject+DefConfig.m */; };
 		C5DF3E0C25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */; };
+		C5DFDE6026131847008C7E2E /* DebugLogDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DFDE5F26131847008C7E2E /* DebugLogDescription.m */; };
 		C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */; };
 		C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334F2521C137001A04FE /* ZFCustomControlView.m */; };
 		C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED33842521C842001A04FE /* ZFDouYinCell.m */; };
@@ -830,9 +830,6 @@
 		C5C64B67259DF5EB00FD2F99 /* ECPrivacyCheckTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckTools.h; sourceTree = "<group>"; };
 		C5C64B6C259DF5EB00FD2F99 /* ECPrivacyCheckTools不用pod管理的情况说明.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "ECPrivacyCheckTools不用pod管理的情况说明.md"; sourceTree = "<group>"; };
 		C5C64B6D259DF5EB00FD2F99 /* ECAuthorizationTools.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ECAuthorizationTools.md; sourceTree = "<group>"; };
-		C5CF125625AC7CB300381935 /* LYLUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYLUnicode.m; sourceTree = "<group>"; };
-		C5CF125725AC7CB300381935 /* 解决打印日志对于Unicode编码不能正常显示中文的问题 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "解决打印日志对于Unicode编码不能正常显示中文的问题"; sourceTree = "<group>"; };
-		C5CF125825AC7CB300381935 /* LYLUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYLUnicode.h; sourceTree = "<group>"; };
 		C5CF1E7225AC8C2600381935 /* TabBarControllerConstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarControllerConstruction.h; sourceTree = "<group>"; };
 		C5CF1E7625AC8C6400381935 /* TabbarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarVC.h; sourceTree = "<group>"; };
 		C5CF1E7725AC8C6400381935 /* TabbarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarVC.m; sourceTree = "<group>"; };
@@ -910,6 +907,8 @@
 		C5D8D579260CC79E00BDAF76 /* NSObject+DefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DefConfig.h"; sourceTree = "<group>"; };
 		C5DF3E0A25A864DB00E91985 /* LOTAnimationMJRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOTAnimationMJRefreshFooter.h; sourceTree = "<group>"; };
 		C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationMJRefreshFooter.m; sourceTree = "<group>"; };
+		C5DFDE5E26131847008C7E2E /* DebugLogDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLogDescription.h; sourceTree = "<group>"; };
+		C5DFDE5F26131847008C7E2E /* DebugLogDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLogDescription.m; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
 		C5ED334F2521C137001A04FE /* ZFCustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCustomControlView.m; sourceTree = "<group>"; };
@@ -1609,7 +1608,6 @@
 			children = (
 				C55429CC25F323F5002D1CA6 /* CheckMemFreeVC */,
 				C54C611B25EFC249007DD043 /* 清除缓存 */,
-				C5CF125525AC7CB300381935 /* LYLUnicode */,
 				C5A4361425AAF710000F0CD2 /* 手势滑动返回 */,
 				C565C9A225A4377A00848134 /* TwoVerticalArrangementLabsView */,
 				C542A389251B6C16007B5F88 /* 播放器控制层 */,
@@ -1912,6 +1910,7 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C5DFDE5D26131847008C7E2E /* DebugLogDescription */,
 				C5631F0226084ABC00822149 /* BaseProtocol */,
 				C542D07425EB756F00D776D8 /* UITextView */,
 				C54BB3712518D391001591C2 /* CALayer */,
@@ -3313,16 +3312,6 @@
 			path = ReadMe;
 			sourceTree = "<group>";
 		};
-		C5CF125525AC7CB300381935 /* LYLUnicode */ = {
-			isa = PBXGroup;
-			children = (
-				C5CF125725AC7CB300381935 /* 解决打印日志对于Unicode编码不能正常显示中文的问题 */,
-				C5CF125825AC7CB300381935 /* LYLUnicode.h */,
-				C5CF125625AC7CB300381935 /* LYLUnicode.m */,
-			);
-			path = LYLUnicode;
-			sourceTree = "<group>";
-		};
 		C5D1B8A8258B0B9700784D2F /* UIViewController+EmptyData */ = {
 			isa = PBXGroup;
 			children = (
@@ -3676,6 +3665,15 @@
 				C5DF3E0B25A864DB00E91985 /* LOTAnimationMJRefreshFooter.m */,
 			);
 			path = LOTAnimationMJRefreshFooter;
+			sourceTree = "<group>";
+		};
+		C5DFDE5D26131847008C7E2E /* DebugLogDescription */ = {
+			isa = PBXGroup;
+			children = (
+				C5DFDE5E26131847008C7E2E /* DebugLogDescription.h */,
+				C5DFDE5F26131847008C7E2E /* DebugLogDescription.m */,
+			);
+			path = DebugLogDescription;
 			sourceTree = "<group>";
 		};
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
@@ -4093,7 +4091,6 @@
 				C5D4F11E25824ADA00C165EA /* NetworkingAPI+AdsApi.m in Sources */,
 				C5914DAE25385356007777A6 /* UIViewController+GifImageView.m in Sources */,
 				C5C64B71259DF5EB00FD2F99 /* ECPrivacyCheckCamera.m in Sources */,
-				C5CF125925AC7CB300381935 /* LYLUnicode.m in Sources */,
 				C55AABFD2532B32400335ACC /* RBCLikeButton.m in Sources */,
 				C56188BF255D6D74004E7B47 /* XHLaunchAdButton.m in Sources */,
 				C5850B4625483E5F001E6676 /* TableViewFooterView.m in Sources */,
@@ -4223,6 +4220,7 @@
 				C5D4F12E25824B8600C165EA /* URLManagerModel.m in Sources */,
 				C54BB2D52518D363001591C2 /* MovieCountDown.m in Sources */,
 				C54BB0BC2518D00E001591C2 /* DouYin.xcdatamodeld in Sources */,
+				C5DFDE6026131847008C7E2E /* DebugLogDescription.m in Sources */,
 				C54BB3CD2518D391001591C2 /* NSObject+Shake.m in Sources */,
 				C5512D7F25C67F91007BCA82 /* ZWPullMenuModel.m in Sources */,
 				C5914DB225385356007777A6 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,

@@ -27,13 +27,13 @@
                     finishHandler:nil];
 }
 /** 延时操作 */
-+(void)toastLoading{
++(void)toastLoadingMsg:(NSString *)errMsg{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *path = [[NSBundle mainBundle] pathForResource:@"toastLoading" ofType:@"gif"];
         NSData *data = [NSData dataWithContentsOfFile:path];
         UIImage *image = [UIImage sd_imageWithGIFData:data];
         [WHToast showImage:image
-                   message:@"正在进行中..."
+                   message:errMsg
                   duration:LONG_LONG_MAX
              finishHandler:nil];
     });

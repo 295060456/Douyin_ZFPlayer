@@ -21,11 +21,22 @@ static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
 
 #pragma mark —— 子类需要覆写
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender{
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        [self dismissViewControllerAnimated:YES
-                                 completion:nil];
+    switch (self.pushOrPresent) {
+        case ComingStyle_PRESENT:{
+            [self dismissViewControllerAnimated:YES
+                                     completion:nil];
+        }break;
+        case ComingStyle_PUSH:{
+            if (self.navigationController) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }else{
+                [self dismissViewControllerAnimated:YES
+                                         completion:nil];
+            }
+        }break;
+            
+        default:
+            break;
     }
 }
 #pragma mark SET | GET

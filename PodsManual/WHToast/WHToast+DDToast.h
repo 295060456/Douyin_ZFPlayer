@@ -11,6 +11,12 @@
 #import "WHToast.h"
 #endif
 
+#if __has_include(<SDWebImage/SDWebImage.h>)
+#import <SDWebImage/SDWebImage.h>
+#else
+#import "SDWebImage.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WHToast (DDToast)
@@ -21,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 成功图标和文字，展示在屏幕中间 */
 +(void)toastSuccessMsg:(NSString *)successMsg;
 /** 延时操作 */
-+(void)toastLoading;
++(void)toastLoadingMsg:(NSString *)errMsg;
 /** 手动关闭WHToast，在主线程*/
 +(void)toastHide;
 

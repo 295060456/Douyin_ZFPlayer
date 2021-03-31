@@ -17,8 +17,33 @@ static char *UIViewController_BaseVC_rootVC = "UIViewController_BaseVC_rootVC";
 @dynamic requestParams;
 @dynamic pushOrPresent;
 @dynamic rootVC;
-/// 简洁版强制展现一个控制器页面【不需要正向传参】
--(void)comingToVC:(UIViewController *)viewController{
+#pragma mark —— present
+/// 简洁版强制present展现一个控制器页面【不需要正向传参】
+-(void)comingToPresentVC:(UIViewController *)viewController{
+    [UIViewController comingFromVC:self
+                              toVC:viewController
+                       comingStyle:ComingStyle_PRESENT
+                 presentationStyle:UIModalPresentationFullScreen
+                     requestParams:nil
+          hidesBottomBarWhenPushed:YES
+                          animated:YES
+                           success:nil];
+}
+/// 简洁版强制present展现一个控制器页面【需要正向传参】
+-(void)comingToPresentVC:(UIViewController *)viewController
+    requestParams:(id _Nullable)requestParams{
+    [UIViewController comingFromVC:self
+                              toVC:viewController
+                       comingStyle:ComingStyle_PRESENT
+                 presentationStyle:UIModalPresentationFullScreen
+                     requestParams:requestParams
+          hidesBottomBarWhenPushed:YES
+                          animated:YES
+                           success:nil];
+}
+#pragma mark —— push
+/// 简洁版强制push展现一个控制器页面【不需要正向传参】
+-(void)comingToPushVC:(UIViewController *)viewController{
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
@@ -28,8 +53,8 @@ static char *UIViewController_BaseVC_rootVC = "UIViewController_BaseVC_rootVC";
                           animated:YES
                            success:nil];
 }
-/// 简洁版强制展现一个控制器页面【需要正向传参】
--(void)comingToVC:(UIViewController *)viewController
+/// 简洁版强制push展现一个控制器页面【需要正向传参】
+-(void)comingToPushVC:(UIViewController *)viewController
     requestParams:(id _Nullable)requestParams{
     [UIViewController comingFromVC:self
                               toVC:viewController

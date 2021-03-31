@@ -6,23 +6,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-    ComingStyle_PUSH = 0,
-    ComingStyle_PRESENT
-} ComingStyle;
+#import "BaseViewControllerProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIViewController (BaseVC)
+@interface UIViewController (BaseVC)<BaseViewControllerProtocol>
 
-@property(nonatomic,strong)id requestParams;
-@property(nonatomic,strong)UIViewController *rootVC;
-@property(nonatomic,assign)ComingStyle pushOrPresent;
+#pragma mark —— present
+/// 简洁版强制present展现一个控制器页面【不需要正向传参】
+-(void)comingToPresentVC:(UIViewController *)viewController;
+/// 简洁版强制present展现一个控制器页面【需要正向传参】
+-(void)comingToPresentVC:(UIViewController *)viewController
+           requestParams:(id _Nullable)requestParams;
+#pragma mark —— push
 /// 简洁版强制展现一个控制器页面【不需要正向传参】
--(void)comingToVC:(UIViewController *)viewController;
+-(void)comingToPushVC:(UIViewController *)viewController;
 /// 简洁版强制展现一个控制器页面【需要正向传参】
--(void)comingToVC:(UIViewController *)viewController
+-(void)comingToPushVC:(UIViewController *)viewController
     requestParams:(id _Nullable)requestParams;
 /// 强制推控制器，自定义是PUSH还是PRESENT展现控制器，如果自定义PUSH但是navigationController不存在，则换用PRESENT展现控制器
 /// @param rootVC 从A控制器

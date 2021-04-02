@@ -49,18 +49,20 @@
                                                                repeats:self.repeats
                                                                  block:^(NSTimer * _Nonnull timer) {//在block里面进行内循环
                     @strongify(self)
+                    // 时间处理完再回调出去
                     switch (self.timerStyle) {
                         case TimerStyle_clockwise:{//顺时针模式
+                            self.anticlockwiseTime += self.timeInterval;
                             if (self.NSTimerManagerRunningBlock) {
                                 self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
                             }
                         }break;
                         case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
+                            self.anticlockwiseTime -= self.timeInterval;
                             if (self.anticlockwiseTime >= 1) {
                                 if (self.NSTimerManagerRunningBlock) {
                                     self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
                                 }
-                                self.anticlockwiseTime -= self.timeInterval;
                             }else{
                                 if (weak_self.nsTimer) {
                                     [weak_self nsTimeDestroy];

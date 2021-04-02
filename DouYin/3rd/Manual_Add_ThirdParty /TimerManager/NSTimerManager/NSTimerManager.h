@@ -10,20 +10,6 @@
 #import "TimerManager_DefineStructure.h"
 #import "TimeModel.h"
 #import "NSObject+Time.h"
-// 用哪一种模式进行初始化NSTimer定时器
-typedef enum : NSUInteger {
-    ScheduledTimerType_0 = 0,//scheduledTimerWithTimeInterval/repeats/block
-    ScheduledTimerType_1,//scheduledTimerWithTimeInterval/invocation/repeats
-    ScheduledTimerType_2//scheduledTimerWithTimeInterval/target/selector/userInfo/repeats
-} ScheduledTimerType;
-// NSTimer定时器当前状态
-typedef enum : NSUInteger {
-    NSTimerCurrentStatusUnknow = 0,// 定时器未知状态
-    NSTimerCurrentStatusRun = 1,// 定时器正在运行
-    NSTimerCurrentStatusStop = 2,// 定时器停止
-    NSTimerCurrentStatusPause = 3,// 定时器暂停
-    NSTimerCurrentStatusDestroy = 4// 定时器销毁
-} NSTimerCurrentStatus;
 
 //此类虽然为工具类，但是不允许用单例，因为timer需要被释放
 
@@ -39,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)id userInfo;
 @property(nonatomic,assign)ScheduledTimerType timerType;
 @property(nonatomic,assign)TimerStyle timerStyle;//逆时针模式?顺时针模式？
-@property(nonatomic,assign)CGFloat anticlockwiseTime;//逆时针模式（倒计时）的顶点时间 运行时是当前时间
+@property(nonatomic,assign)CGFloat anticlockwiseTime;//【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
 @property(nonatomic,assign,readonly)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @property(nonatomic,assign)NSTimeInterval timeSecIntervalSinceDate;//推移时间，秒数

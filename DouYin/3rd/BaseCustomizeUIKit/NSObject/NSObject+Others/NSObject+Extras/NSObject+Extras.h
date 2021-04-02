@@ -44,6 +44,12 @@
 #else
 #import "MJRefresh.h"
 #endif
+
+#if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)
+#import <LYEmptyView/LYEmptyViewHeader.h>
+#else
+#import "LYEmptyViewHeader.h"
+#endif
 /**
  @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.
  @param arg 事件默认传递的对象，比如`NSNotification`，`UIButton`。
@@ -83,6 +89,9 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 /// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
 -(void)endRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView;
+/// 根据数据源【数组】是否有值进行判定：占位图 和 mj_footer 的显隐性
+-(void)dataSource:(NSArray *_Nonnull)dataSource
+      contentView:(UIScrollView *_Nonnull)contentView;
 /// 转换为NSData
 +(NSData *_Nullable)transformToData:(id _Nullable)object;
 /// NSInvocation的使用，方法多参数传递

@@ -32,7 +32,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController<BaseViewProtocol>
 
 #pragma mark —— RACSignal
 @property(nonatomic,strong)RACSignal *reqSignal;

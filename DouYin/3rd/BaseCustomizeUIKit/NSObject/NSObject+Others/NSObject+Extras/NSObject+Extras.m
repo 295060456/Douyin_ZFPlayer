@@ -248,6 +248,16 @@ static void selectorImp(id self,
         [targetScrollView.mj_footer endRefreshingWithNoMoreData];// 结束刷新
     }
 }
+/// 根据数据源【数组】是否有值进行判定：占位图 和 mj_footer 的显隐性
+-(void)dataSource:(NSArray *_Nonnull)dataSource
+      contentView:(UIScrollView *_Nonnull)contentView{
+    if (dataSource.count) {
+        [contentView ly_hideEmptyView];
+    }else{
+        [contentView ly_showEmptyView];
+    }
+    contentView.mj_footer.hidden = !dataSource.count;
+}
 /// 转换为NSData
 +(NSData *_Nullable)transformToData:(id _Nullable)object{
     if ([object isKindOfClass:NSString.class]) {

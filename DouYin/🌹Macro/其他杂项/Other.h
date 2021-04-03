@@ -18,7 +18,7 @@
 // 网络框架
 #import "URLManagerModel.h"
 #import "NSObject+URLManager.h"
-#import "NetworkingAPI.h"
+#import "DDNetworkingAPI.h"
 
 #import "KeychainIDFA.h"
 

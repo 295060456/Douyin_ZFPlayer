@@ -47,7 +47,7 @@ UITableViewDataSource
 //     */
 //    [RequestTool setupPublicParameters];
 //    @weakify(self)
-//    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+//    [DDNetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
 //                   parameters:@""
 //                 successBlock:^(id data) {
 //        @strongify(self)

@@ -126,7 +126,7 @@ ZFDouYinCellDelegate
      */
     [RequestTool setupPublicParameters];
     @weakify(self)
-    [NetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+    [DDNetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
                    parameters:@{@"pageSize":self.pageSize,
                                 @"pageNum":@(self.currentPage)}
                  successBlock:^(id data) {

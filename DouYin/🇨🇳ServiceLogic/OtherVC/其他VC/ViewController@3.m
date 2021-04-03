@@ -90,7 +90,7 @@
 //     */
 //    [RequestTool setupPublicParameters];
 //    @weakify(self)
-//    [NetworkingAPI temp:^(id data) {
+//    [DDNetworkingAPI temp:^(id data) {
 //        @strongify(self)
 //        NSLog(@"");
 //    }];
@@ -103,7 +103,7 @@
     
     
 //    @weakify(self)
-//    [NetworkingAPI temp];
+//    [DDNetworkingAPI temp];
 }
 
 //-(void)cc{

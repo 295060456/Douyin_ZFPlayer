@@ -595,6 +595,7 @@
 		C54E8D5C26188B19003CCC8C /* DDNetworkingAPI+Vip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDNetworkingAPI+Vip.m"; sourceTree = "<group>"; };
 		C54E8D5E26188B19003CCC8C /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
 		C54E8D5F26188B19003CCC8C /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
+		C54E8ED226188E32003CCC8C /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		C54F8586252B611C00EE3DD0 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
 		C54F8587252B611C00EE3DD0 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		C550B58F2603669000A81441 /* 安全区域.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "安全区域.png"; sourceTree = "<group>"; };
@@ -1583,6 +1584,7 @@
 				C5779194258A021E00FE51E3 /* 第三方头文件管理 */,
 				C5779196258A024600FE51E3 /* 各项全局定义 */,
 				C5779195258A022C00FE51E3 /* 其他杂项 */,
+				C54E8ED126188E32003CCC8C /* 数据层相关 */,
 				C558F7C3258A37F60078DB8F /* Swift-OC桥接头文件 */,
 			);
 			path = "🌹Macro";
@@ -2465,6 +2467,14 @@
 				C54E8D5F26188B19003CCC8C /* RequestTool.m */,
 			);
 			path = "请求的公共配置文件";
+			sourceTree = "<group>";
+		};
+		C54E8ED126188E32003CCC8C /* 数据层相关 */ = {
+			isa = PBXGroup;
+			children = (
+				C54E8ED226188E32003CCC8C /* DAO.h */,
+			);
+			path = "数据层相关";
 			sourceTree = "<group>";
 		};
 		C54F8585252B611300EE3DD0 /* UITableView 折叠功能 */ = {

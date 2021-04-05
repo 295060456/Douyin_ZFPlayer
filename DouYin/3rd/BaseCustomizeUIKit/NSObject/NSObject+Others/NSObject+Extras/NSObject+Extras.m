@@ -15,9 +15,11 @@
 
 static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
 static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
+static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
 
 @dynamic _indexPath;
 @dynamic _currentPage;
+@dynamic _pageSize;
 /// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
@@ -106,23 +108,28 @@ static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
         NSLog(@"GKPhotoBrowser * 为空");
     }
 }
-/// 获取当前 UIViewController
-+(UIViewController *)getCurrentViewController{
-    UIWindow *window = getMainWindow();
-    if (window.windowLevel != UIWindowLevelNormal){
-        NSArray *windows = UIApplication.sharedApplication.windows;
-        for(UIWindow *tempWindow in windows){
-            if (tempWindow.windowLevel == UIWindowLevelNormal){
-                window = tempWindow;
-                break;
-            }
-        }
+
+- (UIViewController *_Nullable)getCurrentViewController{
+    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];;
+}
+
+- (UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
+    UIViewController *currentVC;
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        rootVC = [rootVC presentedViewController];
     }
-      
-    UIView *frontView = [window.subviews objectAtIndex:0];
-    UIResponder *nextResponder = [frontView nextResponder];
-      
-    return [nextResponder isKindOfClass:UIViewController.class] ? (UIViewController *)nextResponder : window.rootViewController;
+
+    if ([rootVC isKindOfClass:UITabBarController.class]) {
+        // 根视图为UITabBarController
+        currentVC = [self getCurrentViewControllerFromRootVC:[(UITabBarController *)rootVC selectedViewController]];
+    } else if ([rootVC isKindOfClass:UINavigationController.class]){
+        // 根视图为UINavigationController
+        currentVC = [self getCurrentViewControllerFromRootVC:[(UINavigationController *)rootVC visibleViewController]];
+    } else {
+        // 根视图为非导航类
+        currentVC = rootVC;
+    }return currentVC;
 }
 /// 用block来代替selector
 SEL selectorBlocks(void (^block)(id _Nullable weakSelf, id _Nullable arg),
@@ -339,7 +346,7 @@ static void selectorImp(id self,
 }
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
-    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);
+    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
 }
 
 -(void)set_indexPath:(NSIndexPath *)_indexPath{
@@ -350,13 +357,38 @@ static void selectorImp(id self,
 }
 #pragma mark —— @property(nonatomic,assign)NSInteger _currentPage;
 -(NSInteger)_currentPage{
-    return [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
+    NSInteger _CurrentPage = [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
+    if (_CurrentPage == 0) {
+        _CurrentPage = 1;
+        objc_setAssociatedObject(self,
+                                 NSObject_Extras_currentPage,
+                                 [NSNumber numberWithInteger:_CurrentPage],
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return _CurrentPage;
 }
 
 -(void)set_currentPage:(NSInteger)_currentPage{
     objc_setAssociatedObject(self,
                              NSObject_Extras_currentPage,
                              [NSNumber numberWithInteger:_currentPage],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)NSInteger _pageSize;
+-(NSInteger)_pageSize{
+    NSInteger _PageSize = [objc_getAssociatedObject(self, NSObject_Extras_pageSize) integerValue];
+    if (_PageSize == 0) {
+        _PageSize = 10;
+        objc_setAssociatedObject(self,
+                                 NSObject_Extras_pageSize,
+                                 [NSNumber numberWithInteger:_PageSize],
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return _PageSize;
+}
+
+-(void)set_pageSize:(NSInteger)_pageSize{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_pageSize,
+                             [NSNumber numberWithInteger:_pageSize],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

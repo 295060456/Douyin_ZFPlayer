@@ -6,19 +6,9 @@
 //
 
 #import "JobsBitsMonitorSuspendLab.h"
+#import "DefineStructure.h"
 
-/// 柬埔寨（主要）开发环境
-extern BOOL DevEnviron_Cambodia_Main;
-///// 柬埔寨（次要）开发环境
-extern BOOL DevEnviron_Cambodia_Minor;
-/// 柬埔寨Rally（次要）开发环境
-extern BOOL DevEnviron_Cambodia_Rally;
-/// 中国大陆开发环境
-extern BOOL DevEnviron_China_Mainland;
-/// 测试环境
-extern BOOL TestEnviron;
-/// 生产环境
-extern BOOL ProductEnviron;
+extern NetworkingEnvir networkingEnvir;
 
 @interface JobsBitsMonitorSuspendLab ()
 
@@ -50,9 +40,10 @@ extern BOOL ProductEnviron;
             self.numberOfTouchesRequired = 1;
             self.numberOfTapsRequired = 1;
             self.tapGR.enabled = YES;
+            
 //            @weakify(self)
             self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-    //            @strongify(self)
+//                @strongify(self)
                 [weakSelf showMenu];
             };
         }
@@ -90,92 +81,32 @@ extern BOOL ProductEnviron;
         switch (menuRow) {
             case 0:{
                 /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = YES;
-                /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = NO;
-                /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = NO;
-                /// 中国大陆开发环境
-                DevEnviron_China_Mainland = NO;
-                /// 测试环境
-                TestEnviron = NO;
-                /// 生产环境
-                ProductEnviron = NO;
+                networkingEnvir = DevEnviron_Cambodia_Main;
                 [WHToast toastMsg:@"当前环境：柬埔寨（主要）开发环境"];
             }break;
             case 1:{
-                /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = NO;
                 /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = YES;
-                /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = NO;
-                /// 中国大陆开发环境
-                DevEnviron_China_Mainland = NO;
-                /// 测试环境
-                TestEnviron = NO;
-                /// 生产环境
-                ProductEnviron = NO;
+                networkingEnvir = DevEnviron_Cambodia_Minor;
                 [WHToast toastMsg:@"当前环境：柬埔寨（次要）开发环境"];
             }break;
             case 2:{
-                /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = NO;
-                /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = NO;
                 /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = YES;
-                /// 中国大陆开发环境
-                DevEnviron_China_Mainland = NO;
-                /// 测试环境
-                TestEnviron = NO;
-                /// 生产环境
-                ProductEnviron = NO;
+                networkingEnvir = DevEnviron_Cambodia_Rally;
                 [WHToast toastMsg:@"当前环境：柬埔寨Rally（次要）开发环境"];
             }break;
             case 3:{
-                /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = NO;
-                /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = NO;
-                /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = NO;
                 /// 中国大陆开发环境
-                DevEnviron_China_Mainland = YES;
-                /// 测试环境
-                TestEnviron = NO;
-                /// 生产环境
-                ProductEnviron = NO;
+                networkingEnvir = DevEnviron_China_Mainland;
                 [WHToast toastMsg:@"当前环境：中国大陆开发环境"];
             }break;
             case 4:{
-                /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = NO;
-                /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = NO;
-                /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = NO;
-                /// 中国大陆开发环境
-                DevEnviron_China_Mainland = NO;
                 /// 测试环境
-                TestEnviron = YES;
-                /// 生产环境
-                ProductEnviron = NO;
+                networkingEnvir = TestEnviron;
                 [WHToast toastMsg:@"当前环境：测试环境"];
             }break;
             case 5:{
-                /// 柬埔寨（主要）开发环境
-                DevEnviron_Cambodia_Main = NO;
-                /// 柬埔寨（次要）开发环境
-                DevEnviron_Cambodia_Minor = NO;
-                /// 柬埔寨Rally（次要）开发环境
-                DevEnviron_Cambodia_Rally = NO;
-                /// 中国大陆开发环境
-                DevEnviron_China_Mainland = NO;
-                /// 测试环境
-                TestEnviron = NO;
                 /// 生产环境
-                ProductEnviron = YES;
+                networkingEnvir = ProductEnviron;
                 [WHToast toastMsg:@"当前环境：生产环境"];
             }break;
 
@@ -184,5 +115,6 @@ extern BOOL ProductEnviron;
         }
     };
 }
+
 
 @end

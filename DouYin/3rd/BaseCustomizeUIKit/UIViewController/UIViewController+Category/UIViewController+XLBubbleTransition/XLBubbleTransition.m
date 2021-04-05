@@ -186,6 +186,7 @@
     //移除遮罩layer
     [self.maskLayer removeFromSuperlayer];
     self.maskLayer = nil;
+    _transitionContext = nil;
 }
 
 @end

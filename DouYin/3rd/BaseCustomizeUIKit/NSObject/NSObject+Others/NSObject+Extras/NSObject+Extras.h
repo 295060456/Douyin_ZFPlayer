@@ -27,12 +27,6 @@
 #import "TABAnimated.h"
 #endif
 
-#if __has_include(<YYImage/YYImage.h>)
-#import <YYImage/YYImage.h>
-#else
-#import "YYImage.h"
-#endif
-
 #if __has_include(<SDWebImage/SDWebImage.h>)
 #import <SDWebImage/SDWebImage.h>
 #else
@@ -50,6 +44,12 @@
 #else
 #import "LYEmptyViewHeader.h"
 #endif
+
+//#if __has_include(<YYImage/YYImage.h>)
+//#import <YYImage/YYImage.h>
+//#else
+//#import "YYImage.h"
+//#endif
 /**
  @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.
  @param arg 事件默认传递的对象，比如`NSNotification`，`UIButton`。
@@ -60,6 +60,7 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 
 @property(nonatomic,strong,nullable)NSIndexPath * _indexPath;//CollectionView、TableView等的序列号
 @property(nonatomic,assign)NSInteger _currentPage;//网路请求分页数据的时候的当前页码
+@property(nonatomic,assign)NSInteger _pageSize;
 
 ///震动特效反馈
 +(void)feedbackGenerator;
@@ -76,7 +77,8 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 /// 保存图片
 +(void)savePic:(GKPhotoBrowser *_Nullable)browser;
 /// 获取当前 UIViewController
-+(UIViewController *_Nonnull)getCurrentViewController;
+- (UIViewController *_Nullable)getCurrentViewController;//一般用这个
+- (UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC;
 /// 用block来代替selector
 SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 /// 获取当前设备可用内存
@@ -137,7 +139,7 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
      NSString *arg3 = @"c";
      MKDataBlock arg4 = ^(id data){
          NSLog(@"嗯，不错");
-     };
+     };;
      
      NSArray *paramarrays = @[arg1,
                          arg2,
@@ -163,3 +165,6 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
  }
  
  */
+
+
+

@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)toastLoadingMsg:(NSString *)errMsg;
 /** 手动关闭WHToast，在主线程*/
 +(void)toastHide;
+/** 当前进度 */
++(void)loadSchedule:(CGFloat)Schedule;
 
 @end
 

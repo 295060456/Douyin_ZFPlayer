@@ -26,6 +26,7 @@
 #endif
 
 #import "AABlock.h"
+#import "BaseViewProtocol.h"
 #import "UIView+EmptyData.h"
 #import "UIView+MJRefresh.h"
 #import "UIViewController+BaseNavigationBar.h"

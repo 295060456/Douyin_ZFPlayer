@@ -45,5 +45,12 @@
         [WHToast hide];
     });
 }
+/** 当前进度 */
++(void)loadSchedule:(CGFloat)Schedule{
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//       // UI更新代码
+//        WHToast.sharedInstance.toastView.messageLabel.text = [NSString stringWithFormat:@"当前进度：%.2f",Schedule];
+//    });
+}
 
 @end

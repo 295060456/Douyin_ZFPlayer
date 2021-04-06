@@ -20,6 +20,8 @@
 		C530B1B1254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1A5254D9B1600EDEDC8 /* UICollectionView+RegisterClass.m */; };
 		C530B1B3254D9B1600EDEDC8 /* BaseCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */; };
 		C53C9C5125A1CEE40007F58F /* NSObject+DataSave.m in Sources */ = {isa = PBXBuildFile; fileRef = C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */; };
+		C53CAC06261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */ = {isa = PBXBuildFile; fileRef = C53CAC05261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */; };
+		C53CAC0C261C48EB00AC1891 /* NSObject+AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C53CAC0B261C48EB00AC1891 /* NSObject+AppTools.m */; };
 		C53D367D2598C70200B48431 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367A2598C70200B48431 /* XLBubbleTransition.m */; };
 		C53D367E2598C70200B48431 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D367B2598C70200B48431 /* UIViewController+XLBubbleTransition.m */; };
 		C53E450325FB548D007D92BE /* TimeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53E450125FB548D007D92BE /* TimeModel.m */; };
@@ -303,9 +305,6 @@
 		C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED33842521C842001A04FE /* ZFDouYinCell.m */; };
 		C5ED338D2521C887001A04FE /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C5ED338A2521C887001A04FE /* data.json */; };
 		C5ED338E2521C887001A04FE /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED338B2521C887001A04FE /* ZFTableData.m */; };
-		C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F52518D363001591C2 /* FMARCNetwork.m */; };
-		C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F82518D363001591C2 /* FMHttpRequest.m */; };
-		C5F451832529A18200066AAB /* FMHttpResonse.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BB1F02518D363001591C2 /* FMHttpResonse.m */; };
 		C5FF99242575F51D00E38D8D /* NSObject+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = C5FF99222575F51D00E38D8D /* NSObject+RichText.m */; };
 		DEA6B485B1020257A1958D9D /* Pods_DouYinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66877E9FDBEC63628B6E3A05 /* Pods_DouYinTests.framework */; };
 		E02313BA119E3F33410DB620 /* Pods_DouYin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281D96DE5F75D6E17DFD12D1 /* Pods_DouYin.framework */; };
@@ -367,6 +366,9 @@
 		C530B1AB254D9B1600EDEDC8 /* BaseCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionReusableView.m; sourceTree = "<group>"; };
 		C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataSave.m"; sourceTree = "<group>"; };
 		C53C9C5025A1CEE40007F58F /* NSObject+DataSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataSave.h"; sourceTree = "<group>"; };
+		C53CAC05261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md"; sourceTree = "<group>"; };
+		C53CAC0A261C48EB00AC1891 /* NSObject+AppTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+AppTools.h"; sourceTree = "<group>"; };
+		C53CAC0B261C48EB00AC1891 /* NSObject+AppTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AppTools.m"; sourceTree = "<group>"; };
 		C53D36782598C70200B48431 /* XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLBubbleTransition.h; sourceTree = "<group>"; };
 		C53D36792598C70200B48431 /* UIViewController+XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLBubbleTransition.h"; sourceTree = "<group>"; };
 		C53D367A2598C70200B48431 /* XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBubbleTransition.m; sourceTree = "<group>"; };
@@ -431,14 +433,6 @@
 		C54BB0F92518D064001591C2 /* Manual_Add_ThirdParty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manual_Add_ThirdParty.h; sourceTree = "<group>"; };
 		C54BB1DE2518D363001591C2 /* ImageCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodeView.h; sourceTree = "<group>"; };
 		C54BB1DF2518D363001591C2 /* ImageCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCodeView.m; sourceTree = "<group>"; };
-		C54BB1EF2518D363001591C2 /* FMHttpResonse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHttpResonse.h; sourceTree = "<group>"; };
-		C54BB1F02518D363001591C2 /* FMHttpResonse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHttpResonse.m; sourceTree = "<group>"; };
-		C54BB1F12518D363001591C2 /* ZFMRACNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFMRACNetworkTool.h; sourceTree = "<group>"; };
-		C54BB1F32518D363001591C2 /* FMHttpConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHttpConstant.h; sourceTree = "<group>"; };
-		C54BB1F52518D363001591C2 /* FMARCNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMARCNetwork.m; sourceTree = "<group>"; };
-		C54BB1F62518D363001591C2 /* FMHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMHttpRequest.h; sourceTree = "<group>"; };
-		C54BB1F72518D363001591C2 /* FMARCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMARCNetwork.h; sourceTree = "<group>"; };
-		C54BB1F82518D363001591C2 /* FMHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMHttpRequest.m; sourceTree = "<group>"; };
 		C54BB2022518D363001591C2 /* FileFolderHandleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileFolderHandleTool.h; sourceTree = "<group>"; };
 		C54BB2032518D363001591C2 /* FileFolderHandleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileFolderHandleTool.m; sourceTree = "<group>"; };
 		C54BB2052518D363001591C2 /* NSObject+LBLaunchImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LBLaunchImage.m"; sourceTree = "<group>"; };
@@ -1164,6 +1158,16 @@
 			path = "NSObject+DataSave";
 			sourceTree = "<group>";
 		};
+		C53CAC04261C48D100AC1891 /* NSObject+AppTools */ = {
+			isa = PBXGroup;
+			children = (
+				C53CAC05261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */,
+				C53CAC0A261C48EB00AC1891 /* NSObject+AppTools.h */,
+				C53CAC0B261C48EB00AC1891 /* NSObject+AppTools.m */,
+			);
+			path = "NSObject+AppTools";
+			sourceTree = "<group>";
+		};
 		C53D36772598C70200B48431 /* UIViewController+XLBubbleTransition */ = {
 			isa = PBXGroup;
 			children = (
@@ -1663,45 +1667,6 @@
 			path = "图形验证码";
 			sourceTree = "<group>";
 		};
-		C54BB1ED2518D363001591C2 /* 🌍ZFMRACNetworkTool */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB1F12518D363001591C2 /* ZFMRACNetworkTool.h */,
-				C54BB1F22518D363001591C2 /* Constant */,
-				C54BB1F42518D363001591C2 /* Request */,
-				C54BB1EE2518D363001591C2 /* Response */,
-			);
-			path = "🌍ZFMRACNetworkTool";
-			sourceTree = "<group>";
-		};
-		C54BB1EE2518D363001591C2 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB1EF2518D363001591C2 /* FMHttpResonse.h */,
-				C54BB1F02518D363001591C2 /* FMHttpResonse.m */,
-			);
-			path = Response;
-			sourceTree = "<group>";
-		};
-		C54BB1F22518D363001591C2 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB1F32518D363001591C2 /* FMHttpConstant.h */,
-			);
-			path = Constant;
-			sourceTree = "<group>";
-		};
-		C54BB1F42518D363001591C2 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				C54BB1F72518D363001591C2 /* FMARCNetwork.h */,
-				C54BB1F52518D363001591C2 /* FMARCNetwork.m */,
-				C54BB1F62518D363001591C2 /* FMHttpRequest.h */,
-				C54BB1F82518D363001591C2 /* FMHttpRequest.m */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
 		C54BB1F92518D363001591C2 /* 分享控件 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2151,7 +2116,6 @@
 			isa = PBXGroup;
 			children = (
 				C54BB5282518E5CD001591C2 /* ZBNetworking */,
-				C54BB1ED2518D363001591C2 /* 🌍ZFMRACNetworkTool */,
 			);
 			path = "网络请求框架";
 			sourceTree = "<group>";
@@ -2539,6 +2503,7 @@
 		C551336025C68898007BCA82 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C53CAC04261C48D100AC1891 /* NSObject+AppTools */,
 				C55D45B1251CB62800E543D6 /* 🇨🇳数据模型层(此文件夹存放全局的所有Model) */,
 				C582A672251C714F00DD83A1 /* 网络请求相关的配置 */,
 			);
@@ -3964,6 +3929,7 @@
 				C5C64B94259DF5EB00FD2F99 /* 照片@2x.png in Resources */,
 				C5C64B87259DF5EB00FD2F99 /* 提醒事项@2x.png in Resources */,
 				C5B7E2AE252477A500BC4E9D /* del_Photo@3x.png in Resources */,
+				C53CAC06261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */,
 				C5B7E2AD252477A500BC4E9D /* del_Photo@2x.png in Resources */,
 				C54AB2B3255E61B3000A314D /* WhiteRightArrow@3x.png in Resources */,
 				C588F56A253DA63700973CFE /* 0.png in Resources */,
@@ -4175,6 +4141,7 @@
 				C5676163259F1272006905A9 /* BaseCollectionViewCell.m in Sources */,
 				C546FA0A258B5CDA0008928C /* UIView+EmptyData.m in Sources */,
 				C5C64B6E259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m in Sources */,
+				C53CAC0C261C48EB00AC1891 /* NSObject+AppTools.m in Sources */,
 				C57F0CFC253336590080EEF0 /* NSObject+OpenURL.m in Sources */,
 				C5C64B6F259DF5EB00FD2F99 /* ECPrivacyCheckHomeKit.m in Sources */,
 				C571099C253C1358005B3A0C /* TabBarControllerConfig.m in Sources */,
@@ -4219,7 +4186,6 @@
 				C591E40D25639BB7005B78CC /* EmptyView.m in Sources */,
 				C54BB2EE2518D363001591C2 /* JhtBannerView.m in Sources */,
 				C54E8D7926188B1A003CCC8C /* DDNetworkingAPI+PostFansApi.m in Sources */,
-				C5F451832529A18200066AAB /* FMHttpResonse.m in Sources */,
 				C54BB3C62518D391001591C2 /* CALayer+Anim.m in Sources */,
 				C5C64B73259DF5EB00FD2F99 /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				C5C64B72259DF5EB00FD2F99 /* ECPrivacyCheckLocationServices.m in Sources */,
@@ -4255,7 +4221,6 @@
 				C583B68025E4B25F0054FD6E /* BaseImageView.m in Sources */,
 				C54BB3BF2518D391001591C2 /* BaseTableView.m in Sources */,
 				C5A4411B25ABFB51000F0CD2 /* JXCategoryTitleBackgroundView.m in Sources */,
-				C5F4517F2529A17D00066AAB /* FMHttpRequest.m in Sources */,
 				C54BB5012518E398001591C2 /* ViewController@2.m in Sources */,
 				C56188C3255D6D74004E7B47 /* XHLaunchAdController.m in Sources */,
 				C5A96C3525BD340C000077BC /* NSObject+SYSAlertController.m in Sources */,
@@ -4325,7 +4290,6 @@
 				C530B1B0254D9B1600EDEDC8 /* BaseCollectionView.m in Sources */,
 				C5226957258757F7004447FB /* BWShareView.m in Sources */,
 				C571099A253C1358005B3A0C /* UITabBarItem+TLAnimation.m in Sources */,
-				C5F4517B2529A17B00066AAB /* FMARCNetwork.m in Sources */,
 				C530B1AE254D9B1600EDEDC8 /* HQCollectionViewFlowLayout.m in Sources */,
 				C5C64B9A259DF5EB00FD2F99 /* ECPrivacyCheckGatherTool.m in Sources */,
 				C544B96B25835CF400C6CF2A /* MJRefreshConfigModel.m in Sources */,

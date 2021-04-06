@@ -9,8 +9,6 @@
 NSString *const kUserAssert = @"kUserAssert";
 
 NSString *const UBLEnterBackgroundStopPlayer = @"UBLEnterBackgroundStopPlayer";//进入后台发通知停止播放器
-NSString *const MKAFNReachability = @"AFNReachability";
+/// 网络监测
+NSString *const MKAFNReachabilityStatus = @"MKAFNReachabilityStatus";
 
-@implementation NotificationManager
-
-@end

@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NotificationManager.h"
+#import "AABlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (AFNReachability)
 
-+(void)AFNReachability;
++(void)AFNReachability:(MKIntegerBlock)statusBlock;
 
 @end
 

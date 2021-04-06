@@ -9,12 +9,5 @@
 extern NSString *const kUserAssert;
 
 FOUNDATION_EXTERN NSString *const UBLEnterBackgroundStopPlayer;
-FOUNDATION_EXTERN NSString *const MKAFNReachability;
+FOUNDATION_EXTERN NSString *const MKAFNReachabilityStatus;
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface NotificationManager : NSObject
-
-@end
-
-NS_ASSUME_NONNULL_END

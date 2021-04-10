@@ -14,12 +14,14 @@
  - (void)tableView:(UITableView *)tableView
    willDisplayCell:(UITableViewCell *)cell
  forRowAtIndexPath:(NSIndexPath *)indexPath；
+ 
+    _tableView.separatorColor = HEXCOLOR(0xeeeeee);//改变分割线颜色
+    cell.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);//改变分割线长度
 
  */
--(void)hideSeparatorLineTableView:(UITableView *)tableView
-                             last:(NSIndexPath *)indexPath
-                             cell:(UITableViewCell *)cell{
-    if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1){
+-(void)hideSeparatorLineAtLast:(NSIndexPath *)indexPath
+                          cell:(UITableViewCell *)cell{
+    if (indexPath.row == [self numberOfRowsInSection:indexPath.section] - 1){
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width);
     }
 }

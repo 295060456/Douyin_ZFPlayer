@@ -17,11 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
  - (void)tableView:(UITableView *)tableView
    willDisplayCell:(UITableViewCell *)cell
  forRowAtIndexPath:(NSIndexPath *)indexPath；
+ 
+ _tableView.separatorColor = HEXCOLOR(0xeeeeee);//改变分割线颜色
+ cell.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);//改变分割线长度
 
  */
--(void)hideSeparatorLineTableView:(UITableView *)tableView
-                             last:(NSIndexPath *)indexPath
-                             cell:(UITableViewCell *)cell;
+-(void)hideSeparatorLineAtLast:(NSIndexPath *)indexPath
+                          cell:(UITableViewCell *)cell;
 
 @end
 

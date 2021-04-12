@@ -13,7 +13,6 @@
 @end
 
 @implementation NSObject (SPAlertController)
-
 /// 自定义的Alert
 /// @param config 配置文件
 /// @param alertVCBlock alertVCBlock
@@ -80,45 +79,62 @@
                                                                   animationType:config.animationType];
         }break;
         default:
+            [WHToast toastErrMsg:@"参数配置错误，请检查"];
             return nil;
             break;
     }
     
     NSMutableArray <SPAlertAction *>*mutArr = NSMutableArray.array;
     
-//    @weakify(config.targetVC)
-//    @weakify(config.funcInWhere)
-    for (int i = 0; i < config.alertBtnActionArr.count; i++) {
-        SPAlertAction *action = [SPAlertAction actionWithTitle:config.alertActionTitleArr[i]
-                                                         style:config.alertActionStyleArr[i].integerValue
-                                                       handler:^(SPAlertAction * _Nonnull action) {
-//            @strongify(config.targetVC)
-//            @strongify(config.funcInWhere)
-            if (!config.funcInWhere) {
-                config.funcInWhere = config.targetVC;
-            }
-
-//            SuppressWarcPerformSelectorLeaksWarning([funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:alertBtnActionArr[i]
-//                                                                                                                         ReplaceStr:@"defaultFunc"])
-//                                                                      withObject:Nil]);
-            // 核心方法
-            SuppressWarcPerformSelectorLeaksWarning([config.funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"])
-                                                                      withObject:config.parametersArr.count == config.alertBtnActionArr.count ? config.parametersArr[i] : @""
-                                                                      withObject:config.objectArr.count == config.alertBtnActionArr.count ? config.objectArr[i] : @""]);
+    if (config.alertBtnActionArr.count == config.alertActionTitleArr.count &&
+        config.alertActionStyleArr.count == config.alertBtnActionArr.count &&
+        config.alertActionTitleArr.count == config.alertActionStyleArr.count) {
+//        @weakify(config);
+        for (int i = 0; i < config.alertBtnActionArr.count; i++) {
+            SPAlertAction *action = [SPAlertAction actionWithTitle:config.alertActionTitleArr[i]
+                                                             style:config.alertActionStyleArr[i].integerValue
+                                                           handler:^(SPAlertAction * _Nonnull action) {
+//                @strongify(config);
+                if (!config.funcInWhere) {
+                    config.funcInWhere = config.targetVC;
+                }
+                NSLog(@"DDD = %ld",action._index);
+                // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
+                NSString *methodName = [NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"];//确保一定有值，没有值则调用系统方法
+                NSMutableArray *parameters = NSMutableArray.array;
+                if (config.parametersArr.count) {
+                    if ([[methodName substringFromIndex:methodName.length - 1] isEqualToString:@":"]) {
+                        [parameters addObject:action];
+                    }
+                }
+                
+                [NSObject methodName:config.alertBtnActionArr[i]
+                              target:config.funcInWhere
+                         paramarrays:parameters];
+            }];
             
-        }];
-        [vc addAction:action];
-        [mutArr addObject:action];
+            action._index = i;//做记号
+            NSLog(@"DDD = %ld",action._index);
+            [vc addAction:action];
+            [mutArr addObject:action];
+        }
+        
+        if (alertVCBlock) {
+            alertVCBlock(vc,mutArr);
+        }
+    }else{
+        [WHToast toastErrMsg:@"参数配置错误，请检查"];
+        return nil;
     }
     
-    if (alertVCBlock) {
-        alertVCBlock(vc,mutArr);
-    }
-
     [config.targetVC presentViewController:vc
                                   animated:config.animated
                                 completion:completionBlock];
     return vc;
+}
+#pragma mark —— 默认方法
+-(void)defaultFunc:(SPAlertAction *)alertAction{
+    NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
 
 -(void)defaultFunc{

@@ -20,26 +20,38 @@
 +(void)showSYSAlertViewConfig:(nonnull SYSAlertControllerConfig *)config
                  alertVCBlock:(nullable MKDataBlock)alertVCBlock
               completionBlock:(nullable NoResultBlock)completionBlock{
-//    @weakify(config.targetVC)
-//    @weakify(config.funcInWhere)
+//    @weakify(config)
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:config.title
                                                                              message:config.message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    for (int i = 0; i < config.alertBtnActionArr.count; i++) {
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:config.btnTitleArr[i]
-                                                           style:config.isSeparateStyle ? (i == config.alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-//            @strongify(config.targetVC)
-//            @strongify(config.funcInWhere)
-            if (!config.funcInWhere) {
-                config.funcInWhere = config.targetVC;
-            }
-            // 核心方法
-            SuppressWarcPerformSelectorLeaksWarning([config.funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"])
-                                                                             withObject:config.parametersArr.count == config.alertBtnActionArr.count ? config.parametersArr[i] : @""
-                                                                             withObject:config.objectArr.count == config.alertBtnActionArr.count ? config.objectArr[i] : @""]);
-        }];
-        [alertController addAction:okAction];
+    if(config.alertBtnActionArr.count == config.btnTitleArr.count){
+        for (int i = 0; i < config.alertBtnActionArr.count; i++) {
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:config.btnTitleArr[i]
+                                                               style:config.isSeparateStyle ? (i == config.alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+//                @strongify(config)
+                if (!config.funcInWhere) {
+                    config.funcInWhere = config.targetVC;
+                }
+
+                // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
+                NSString *methodName = [NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"];//确保一定有值，没有值则调用系统方法
+                NSMutableArray *parameters = NSMutableArray.array;
+                
+                if (config.parametersArr.count) {
+                    if ([[methodName substringFromIndex:methodName.length - 1] isEqualToString:@":"]) {
+                        [parameters addObject:action];
+                    }
+                }
+                
+                [NSObject methodName:config.alertBtnActionArr[i]
+                              target:config.funcInWhere
+                         paramarrays:parameters];
+            }];
+            [alertController addAction:okAction];
+        }
+    }else{
+        [WHToast toastMsg:@"参数配置错误，请检查"];
     }
     if (alertVCBlock) {
         alertVCBlock(alertController);
@@ -58,24 +70,39 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:config.title
                                                                              message:config.message
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
-//    @weakify(config.targetVC)
-//    @weakify(config.funcInWhere)
-    for (int i = 0; i < config.alertBtnActionArr.count; i++) {
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:config.btnTitleArr[i]
-                                                           style:config.isSeparateStyle ? (i == config.alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
-//            @strongify(config.targetVC)
-//            @strongify(config.funcInWhere)
-            if (!config.funcInWhere) {
-                config.funcInWhere = config.targetVC;
-            }
-            // 核心方法
-            SuppressWarcPerformSelectorLeaksWarning([config.funcInWhere performSelector:NSSelectorFromString([NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"])
-                                                                      withObject:config.parametersArr.count == config.alertBtnActionArr.count ? config.parametersArr[i] : @""
-                                                                      withObject:config.objectArr.count == config.alertBtnActionArr.count ? config.objectArr[i] : @""]);
-        }];
-        [alertController addAction:okAction];
+    
+    if (config.alertBtnActionArr.count == config.btnTitleArr.count) {
+//        @weakify(config)
+        for (int i = 0; i < config.alertBtnActionArr.count; i++) {
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:config.btnTitleArr[i]
+                                                               style:config.isSeparateStyle ? (i == config.alertBtnActionArr.count - 1 ? UIAlertActionStyleCancel : UIAlertActionStyleDefault) : UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+//                @strongify(config)
+                if (!config.funcInWhere) {
+                    config.funcInWhere = config.targetVC;
+                }
+
+                // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
+                NSString *methodName = [NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"];//确保一定有值，没有值则调用系统方法
+                NSMutableArray *parameters = nil;
+                
+                if (config.parametersArr.count) {
+                    parameters = config.parametersArr[i];
+                    if ([[methodName substringFromIndex:methodName.length - 1] isEqualToString:@":"]) {
+                        [parameters addObject:action];
+                    }
+                }
+                
+                [NSObject methodName:config.alertBtnActionArr[i]
+                              target:config.funcInWhere
+                         paramarrays:parameters];
+            }];
+            [alertController addAction:okAction];
+        }
+    }else{
+        [WHToast toastMsg:@"参数配置错误，请检查"];
     }
+
     if (alertVCBlock) {
         alertVCBlock(alertController);
     }
@@ -124,7 +151,7 @@
                                                             // 输出用户名 密码到控制台
                                                             NSLog(@"username is %@, password is %@",userName.text,password.text);
                                                         }];
-    loginAction.enabled = NO;   // 禁用Login按钮
+    loginAction.enabled = NO;// 禁用Login按钮
     [alertController addAction:cancelAction];
     [alertController addAction:loginAction];
     [targetVC presentViewController:alertController
@@ -147,6 +174,10 @@
             // 用户名小于等于3位，密码小于等于6位，禁用Login按钮。
             loginAction.enabled = NO;
     }
+}
+#pragma mark —— 默认方法
+-(void)defaultFunc:(UIAlertAction *)alertAction{
+    NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
 
 -(void)defaultFunc{

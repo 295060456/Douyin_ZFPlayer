@@ -16,10 +16,12 @@
 static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
 static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
 static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
+static char *NSObject_Extras_index = "NSObject_Extras_index";
 
 @dynamic _indexPath;
 @dynamic _currentPage;
 @dynamic _pageSize;
+@dynamic _index;
 /// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
@@ -260,8 +262,10 @@ static void selectorImp(id self,
       contentView:(UIScrollView *_Nonnull)contentView{
     if (dataSource.count) {
         [contentView ly_hideEmptyView];
+        contentView.ly_emptyView.alpha = 0;
     }else{
         [contentView ly_showEmptyView];
+        contentView.ly_emptyView.alpha = 1;
     }
     contentView.mj_footer.hidden = !dataSource.count;
 }
@@ -313,11 +317,19 @@ static void selectorImp(id self,
     //NSMethodSignature *signature = [[target class] instanceMethodSignatureForSelector:selector];
     
     if (!signature) {
-        //传入的方法不存在 就抛异常
-        NSString *info = [NSString stringWithFormat:@"-[%@ %@]:unrecognized selector sent to instance",[self class],NSStringFromSelector(selector)];
-        @throw [[NSException alloc] initWithName:@"方法不存在"
-                                          reason:info
-                                        userInfo:nil];
+        // 处理方式一：
+        {
+            [WHToast toastErrMsg:@"方法不存在,请检查参数"];
+            return;
+        }
+        // 处理方式二：【经常崩溃损伤硬件】
+//        {
+//            //传入的方法不存在 就抛异常
+//            NSString *info = [NSString stringWithFormat:@"-[%@ %@]:unrecognized selector sent to instance",[self class],NSStringFromSelector(selector)];
+//            @throw [[NSException alloc] initWithName:@"方法不存在"
+//                                              reason:info
+//                                            userInfo:nil];
+//        }
     }
     
     //只能使用该方法来创建，不能使用alloc init
@@ -389,6 +401,18 @@ static void selectorImp(id self,
     objc_setAssociatedObject(self,
                              NSObject_Extras_pageSize,
                              [NSNumber numberWithInteger:_pageSize],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)NSInteger _index;
+-(NSInteger)_index{
+    NSInteger _Index = [objc_getAssociatedObject(self, NSObject_Extras_index) integerValue];
+    return _Index;
+}
+
+-(void)set_index:(NSInteger)_index{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_index,
+                             [NSNumber numberWithInteger:_index],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

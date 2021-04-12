@@ -8,11 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "AABlock.h"
+#import "NSObject+Extras.h"
+
 #if __has_include(<SPAlertController/SPAlertController.h>)
 #import <SPAlertController/SPAlertController.h>
 #else
 #import "SPAlertController.h"
 #endif
+
+#if __has_include(<WHToast/WHToast.h>)
+#import <WHToast/WHToast.h>
+#else
+#import "WHToast.h"
+#endif
+
+#import "WHToast+DDToast.h"
 
 //  pod 'SPAlertController'# https://github.com/SPStore/SPAlertController 深度定制AlertController
 
@@ -36,14 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)UIView *customActionSequenceView;// 允许传入自定义的customActionSequenceView
 @property(nonatomic,assign)SPAlertControllerStyle preferredStyle;// 从单侧弹出(顶/左/底/右)  还是  从中间弹出
 @property(nonatomic,assign)SPAlertAnimationType animationType;// 动画模式
-@property(nonatomic,strong,nullable)NSArray <NSString *>*alertActionTitleArr;// 按钮名
-@property(nonatomic,strong,nullable)NSArray <NSNumber *>*alertActionStyleArr;// 按钮Style
-@property(nonatomic,strong,nullable)NSArray <NSString *>*alertBtnActionArr;// 按钮触发方法
-@property(nonatomic,strong,nullable)NSArray *parametersArr;// @【所有的参数形成数据束，一个方法对应一个数据束的形式，包装成方法的第一个参数】
-@property(nonatomic,strong,nullable)NSArray *objectArr;// @【这个参数一般用于Block回调】
 @property(nonatomic,strong)UIViewController *targetVC;// 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
 @property(nonatomic,strong,nullable)id funcInWhere;// 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
 @property(nonatomic,assign)BOOL animated;// 是否动效present
+// 核心参数
+@property(nonatomic,strong,nullable)NSArray <NSString *>*alertActionTitleArr;// 按钮名
+@property(nonatomic,strong,nullable)NSArray <NSNumber *>*alertActionStyleArr;// 按钮Style
+@property(nonatomic,strong,nullable)NSArray <NSString *>*alertBtnActionArr;// 按钮触发方法
+@property(nonatomic,strong,nullable)NSArray <NSMutableArray *>*parametersArr;// @【所有的参数形成数据束，一个方法对应一个数据束的形式，包装成方法的第一个参数】
 
 @end
 
@@ -65,39 +75,74 @@ NS_ASSUME_NONNULL_END
  
  普通用法
  
- SPAlertControllerConfig *config = SPAlertControllerConfig.new;
- config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
- config.title = @"提示";
- config.message = @"审核通过后可查看，是否删除";//@"视频审核未通过，是否删除？"
- config.preferredStyle = SPAlertControllerStyleAlert;
- config.animationType = SPAlertAnimationTypeDefault;
- config.alertActionTitleArr = @[@"取消",@"删除"];
- config.alertActionStyleArr = @[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)];
- config.alertBtnActionArr = @[@"",@""];
- config.targetVC = self;
- config.funcInWhere = self;
- config.animated = YES;
+ -(void)makeChannelURL:(SPAlertAction *)action{
+     NSLog(@"1234");
+ }
+
+ -(void)makeChannelURL{
+     NSLog(@"1234");
+ }
+
+ -(UIButton *)channelBtn{
+     if (!_channelBtn) {
+         _channelBtn = UIButton.new;
+         [_channelBtn setTitle:@"渠道切换点我就行" forState:UIControlStateNormal];
+         [_channelBtn setTitleColor:kRedColor forState:UIControlStateNormal];
+         _channelBtn.backgroundColor = KYellowColor;
+         @weakify(self)
+         [[_channelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+             @strongify(self)
+             SPAlertControllerConfig *config = SPAlertControllerConfig.new;
+             config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
+             config.title = @"提示";
+             config.message = @"审核通过后可查看，是否删除";//@"视频审核未通过，是否删除？"
+             config.preferredStyle = SPAlertControllerStyleActionSheet;
+             config.animationType = SPAlertAnimationTypeDefault;
+             config.alertActionTitleArr = self.channelMutArr;
+             //  配置按钮样式
+             NSMutableArray <NSNumber *>*alertActionStyleArr = NSMutableArray.array;
+             for (int i = 0; i < self.channelMutArr.count; i++) {
+                 [alertActionStyleArr addObject:@(SPAlertActionStyleDefault)];
+             }
+             config.alertActionStyleArr = alertActionStyleArr;
+             //  配置按钮触发方法
+             NSMutableArray <NSString *>*alertBtnActionArr = NSMutableArray.array;
+             for (int i = 0; i < self.channelMutArr.count; i++) {
+                 [alertBtnActionArr addObject:@"makeChannelURL"];
+                 // 或者
+                 [alertBtnActionArr addObject:@"makeChannelURL"];
+             }
+             config.alertBtnActionArr = alertBtnActionArr;
+             // 配置按钮触发方法的相关形参 【demo见SelectorBlock】
+             config.parametersArr;
+             
+             config.targetVC = self;
+             config.funcInWhere = self;
+             config.animated = YES;
+
+             [NSObject showSPAlertControllerConfig:config
+                                      alertVCBlock:^(SPAlertController *data,
+                                                   NSMutableArray <SPAlertAction *>*data2) {
  
- [NSObject showSPAlertControllerConfig:config
-                        alertVCBlock:^(SPAlertController *data,
-                                       NSMutableArray <SPAlertAction *>*data2) {
-     
-     data.titleColor = AppMainCor_01;
-     data.messageColor = AppMainCor_01;
-     data.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
-     data.messageFont = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
-     
-     SPAlertAction *action1 = (SPAlertAction *)data2[0];
-     SPAlertAction *action2 = (SPAlertAction *)data2[1];
-     
-     action1.titleColor = AppMainCor_01;
-     action1.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+                 data.titleColor = AppMainCor_01;
+                 data.messageColor = AppMainCor_01;
+                 data.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+                 data.messageFont = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
+                 
+                 SPAlertAction *action1 = (SPAlertAction *)data2[0];
+                 SPAlertAction *action2 = (SPAlertAction *)data2[1];
+                 
+                 action1.titleColor = AppMainCor_01;
+                 action1.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
 
-     action2.titleColor = AppMainCor_01;
-     action2.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
-     
- } completionBlock:nil];
-
+                 action2.titleColor = AppMainCor_01;
+                 action2.titleFont = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+                 
+                } completionBlock:nil];
+         }];
+     }return _channelBtn;
+ }
+ 
  
  */
 

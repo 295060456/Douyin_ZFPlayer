@@ -258,19 +258,17 @@ NS_ASSUME_NONNULL_END
  }
  **/
 
-//if (successBlock) {
-//    if ([responseObject isKindOfClass:NSDictionary.class]) {
-//        NSDictionary *dataDic = (NSDictionary *)responseObject;
-//        DDResponseModel *model = [DDResponseModel mj_objectWithKeyValues:dataDic];
-//        // 公共请求错误直接抛出
-//        if (model.code != HTTPResponseCodeSuccess) {
-//            [WHToast toastMsg:model.msg];
-//        }else{
-//            if (successBlock) {
-//                successBlock(model);
-//            }
-//        }
+//if ([responseObject isKindOfClass:NSDictionary.class]) {
+//    NSDictionary *dataDic = (NSDictionary *)responseObject;
+//    DDResponseModel *model = [DDResponseModel mj_objectWithKeyValues:dataDic];
+//    // 公共请求错误直接抛出
+//    if (model.code != HTTPResponseCodeSuccess) {
+//        [WHToast toastMsg:model.msg];
 //    }else{
-//        [WHToast toastMsg:[@"异常接口" stringByAppendingString:NSObject.userInfoSelectVideoCountPOST.funcName]];
+//        if (successBlock) {
+//            successBlock(model);
+//        }
 //    }
+//}else{
+//    [WHToast toastMsg:[@"异常接口" stringByAppendingString:NSObject.userInfoSelectVideoCountPOST.funcName]];
 //}

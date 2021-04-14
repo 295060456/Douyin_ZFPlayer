@@ -396,6 +396,52 @@
 +(NSDate *)getDateFromCurrentAfterTimeInterval:(NSTimeInterval)timeInterval{
     return [[NSDate alloc] initWithTimeIntervalSinceNow:timeInterval];
 }
+/// 计算两字符串时间的差值【方法一】
+-(NSTimeInterval)intervalDifferenceBetweenStarTime:(NSString *)starTime
+                                         toEndTime:(NSString *)endTime
+                                   byDateFormatter:(NSDateFormatter *)dateFormatter{
+    
+    if (!dateFormatter) {
+        TimeModel *timeModel = TimeModel.new;
+        timeModel.dateFormatterStr = @"HH:mm:ss";//根据自己的需求定义格式
+        dateFormatter = timeModel.dateFormatter;
+    }
+    NSDate *startDate = [dateFormatter dateFromString:starTime];
+    NSDate *endDate = [dateFormatter dateFromString:endTime];
+    NSTimeInterval time = [endDate timeIntervalSinceDate:startDate];
+    return time;
+}
+/// 计算两字符串时间的差值【方法二】
+-(NSDateComponents *)dateComponentsDiffBetweenStarTime:(NSString *)starTime
+                                             toEndTime:(NSString *)endTime
+                                       byDateFormatter:(NSDateFormatter *)dateFormatter{
+    if (!dateFormatter) {
+        TimeModel *timeModel = TimeModel.new;
+        timeModel.dateFormatterStr = @"HH:mm:ss";//根据自己的需求定义格式
+        dateFormatter = timeModel.dateFormatter;
+    }
+    NSDate *date1 = [dateFormatter dateFromString:starTime];
+    NSDate *date2 = [dateFormatter dateFromString:endTime];
+    // 1.创建日历
+    NSCalendar *calendar = NSCalendar.currentCalendar;
+    
+    NSCalendarUnit type =
+    NSCalendarUnitYear |
+    NSCalendarUnitMonth |
+    NSCalendarUnitDay |
+    NSCalendarUnitHour |
+    NSCalendarUnitMinute |
+    NSCalendarUnitSecond;
+    
+    // 2.利用日历对象比较两个时间的差值
+    NSDateComponents *cmps = [calendar components:type
+                                         fromDate:date1
+                                           toDate:date2
+                                          options:0];
+    // 3.输出结果
+    NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", (long)cmps.year, (long)cmps.month, (long)cmps.day, (long)cmps.hour, (long)cmps.minute, (long)cmps.second);
+    return cmps;
+}
 ///  在当前日期时间加上 某个时间段(传负数即返回当前时间之前x月x日的时间)  https://blog.csdn.net/autom_lishun/article/details/79094241
 /// @param year 当前时间若干年后 （传负数为当前时间若干年前）
 /// @param month 当前时间若干月后  （传0即与当前时间一样）
@@ -485,7 +531,7 @@
 
 + (BOOL)isFirstLaunchApp{
     BOOL flag;
-    NSDate *oldDate =  [UserDefaultManager fetchDataWithKey:@"APPFirstStartKey"];
+    NSDate *oldDate = [UserDefaultManager fetchDataWithKey:@"APPFirstStartKey"];
     if (oldDate == nil) {
         NSLog(@"未启动过，第一次启动");
         flag = YES;

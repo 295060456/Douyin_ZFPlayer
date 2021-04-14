@@ -356,6 +356,26 @@ static void selectorImp(id self,
         NSLog(@"result = %@",result);
     }
 }
+/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
+-(void)terminalCheck:(MKDataBlock _Nullable)checkBlock{
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
+                                                                     id  _Nullable arg) {
+        //进行埋点操作
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            NSLog(@"我只执行一次");
+            // 在这里写遗言：最后希望去完成的事情
+            if (checkBlock) {
+                checkBlock(@1);
+            }
+            [NSThread sleepForTimeInterval:60];
+            NSLog(@"程序被杀死");
+        });
+    }, self)
+                                               name:@"UIApplicationWillTerminateNotification"
+                                             object:nil];
+}
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
     return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;

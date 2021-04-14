@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSObject+Time.h"
 #import "TimeModel.h"
+#import "UserDefaultManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -83,6 +84,14 @@ NS_ASSUME_NONNULL_BEGIN
   afterIntegerTime:(NSInteger)afterIntegerTime;
 /// 以当前时间为基准，加上某个时间间隔（NSTimeInterval类型）以后的NSData值
 +(NSDate *)getDateFromCurrentAfterTimeInterval:(NSTimeInterval)timeInterval;
+/// 计算两字符串时间的差值【方法一】
+-(NSTimeInterval)intervalDifferenceBetweenStarTime:(NSString *)starTime
+                                         toEndTime:(NSString *)endTime
+                                   byDateFormatter:(NSDateFormatter *)dateFormatter;
+/// 计算两字符串时间的差值【方法二】
+-(NSDateComponents *)dateComponentsDiffBetweenStarTime:(NSString *)starTime
+                                             toEndTime:(NSString *)endTime
+                                       byDateFormatter:(NSDateFormatter *)dateFormatter;
 ///  在当前日期时间加上 某个时间段(传负数即返回当前时间之前x月x日的时间)  https://blog.csdn.net/autom_lishun/article/details/79094241
 /// @param year 当前时间若干年后 （传负数为当前时间若干年前）
 /// @param month 当前时间若干月后  （传0即与当前时间一样）

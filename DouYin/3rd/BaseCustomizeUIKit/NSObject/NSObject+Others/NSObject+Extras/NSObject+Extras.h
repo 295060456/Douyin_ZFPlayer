@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import "AABlock.h"
+
+#import "WHToast+DDToast.h"
 
 #if __has_include(<WHToast/WHToast.h>)
 #import <WHToast/WHToast.h>
@@ -104,6 +107,8 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 +(void)methodName:(NSString *_Nonnull)methodName
            target:(id _Nonnull)target
       paramarrays:(NSArray *_Nullable)paramarrays;
+/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
+-(void)terminalCheck:(MKDataBlock _Nullable)checkBlock;
 
 @end
 /**

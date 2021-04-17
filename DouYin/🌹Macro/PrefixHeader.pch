@@ -21,7 +21,7 @@
 #import <Photos/Photos.h>
 
 #pragma mark —— Swift-OC桥接头文件
-#import "DouYin-Bridging-Header.h"
+//#import "DouYin-Bridging-Header.h"
 
 #pragma mark —— 各项全局定义
 /// NotificationManager

@@ -8,7 +8,5 @@
 
 #import "Nanosecond_TimerManager.h"
 #import "CADisplayLink_TimerManager.h"
-#import "GCD_TimerManager.h"
+#import "DispatchTimerManager.h"
 #import "NSTimerManager.h"
-
-

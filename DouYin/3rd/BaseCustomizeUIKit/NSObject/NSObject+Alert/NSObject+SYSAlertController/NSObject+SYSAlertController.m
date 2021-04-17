@@ -35,10 +35,15 @@
                 }
 
                 // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
-                NSString *methodName = [NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"];//确保一定有值，没有值则调用系统方法
-                NSMutableArray *parameters = NSMutableArray.array;
-                
+                NSString *methodName = config.alertBtnActionArr[i];
+                if ([NSString isNullString:methodName]) {
+                    if (alertVCBlock) {
+                        alertVCBlock(alertController);
+                    }return;
+                }
+                NSMutableArray *parameters = nil;
                 if (config.parametersArr.count) {
+                    parameters = config.parametersArr[i];
                     if ([[methodName substringFromIndex:methodName.length - 1] isEqualToString:@":"]) {
                         [parameters addObject:action];
                     }
@@ -83,9 +88,13 @@
                 }
 
                 // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
-                NSString *methodName = [NSString ensureNonnullString:config.alertBtnActionArr[i] ReplaceStr:@"defaultFunc"];//确保一定有值，没有值则调用系统方法
+                NSString *methodName = config.alertBtnActionArr[i];
+                if ([NSString isNullString:methodName]) {
+                    if (alertVCBlock) {
+                        alertVCBlock(alertController);
+                    }return;
+                }
                 NSMutableArray *parameters = nil;
-                
                 if (config.parametersArr.count) {
                     parameters = config.parametersArr[i];
                     if ([[methodName substringFromIndex:methodName.length - 1] isEqualToString:@":"]) {
@@ -174,14 +183,6 @@
             // 用户名小于等于3位，密码小于等于6位，禁用Login按钮。
             loginAction.enabled = NO;
     }
-}
-#pragma mark —— 默认方法
--(void)defaultFunc:(UIAlertAction *)alertAction{
-    NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
-}
-
--(void)defaultFunc{
-    NSLog(@"defaultFunc self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
 
 @end

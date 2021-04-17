@@ -45,6 +45,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 #ifdef DEBUG
     [self testFunc];
 #endif
+    [[ZBLocalized sharedInstance] initLanguage];//放在tabbar前初始化
     [self makeTABAnimatedConfigure];
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];//保持屏幕常亮
     /*
@@ -108,6 +109,7 @@ didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
         [_window makeKeyAndVisible];
     }return _window;
 }
+
 -(TabbarVC *)tabBarVC{
     if (!_tabBarVC) {
         _tabBarVC = TabbarVC.new;

@@ -121,7 +121,10 @@ UIGestureRecognizerDelegate
             [self.UITabBarButtonMutArr addObject:subView];
         }
     }
-    
+    if (self.tabBarControllerConfigMutArr.count != self.childMutArr.count) {
+        [WHToast toastErrMsg:@"出现异常"];
+        return;
+    }
     for (int i = 0; i < self.childMutArr.count; i++) {
         TabBarControllerConfig *config = (TabBarControllerConfig *)self.tabBarControllerConfigMutArr[i];
         if (![NSString isNullString:config.lottieName]) {

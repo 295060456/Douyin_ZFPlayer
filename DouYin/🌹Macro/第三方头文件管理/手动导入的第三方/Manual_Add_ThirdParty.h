@@ -116,5 +116,6 @@
 #import "FileFolderHandleTool.h"
 #import "EmptyView.h"
 #import "DDCacheTool.h"
+#import "ZBLocalized.h"
 
 #endif /* Manual_Add_ThirdParty_h */

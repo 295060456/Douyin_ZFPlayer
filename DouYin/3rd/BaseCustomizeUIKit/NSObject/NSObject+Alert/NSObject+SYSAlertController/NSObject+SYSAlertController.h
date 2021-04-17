@@ -67,8 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)showLoginAlertViewWithTargetVC:(UIViewController *)targetVC;
 
--(void)defaultFunc;
-
 @end
 
 NS_ASSUME_NONNULL_END

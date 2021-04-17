@@ -37,7 +37,7 @@
     [super viewWillAppear:animated];
     NSLog(@"");
     self.view.durationTime = 0.2f;
-    NSLog(@"%f",self.view.durationTime);
+    NSLog(@"%f",self.view.durationTime);    
 }
 
 -(void)dd{
@@ -75,11 +75,48 @@
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
 }
 
+-(TabbarVC *)tabBarVC{
+    TabbarVC *tabBarVC = TabbarVC.new;
+//        tabBarVC.isOpenScrollTabbar = NO;
+    tabBarVC.myTabBar.offsetHeight = 5;
+    [tabBarVC.childMutArr addObject:childViewController_customStyle(ViewController_1.new,
+                                                                     @"首页",
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"community_selected"),
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"community_unselected"),
+                                                                     0,
+                                                                     @"home_priase_animation",
+                                                                     1)];
+    
+    [tabBarVC.childMutArr addObject:childViewController_customStyle(ViewController_2.new,
+                                                                     @"精彩生活",
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"post_selected"),
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"post_unselected"),
+                                                                     30,
+                                                                     @"green_lottie_tab_home",
+                                                                     1)];
+    
+    [tabBarVC.childMutArr addObject:childViewController_customStyle(ViewController_3.new,
+                                                                     @"发现",
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"My_selected"),
+                                                                     KBuddleIMG(@"资源文件", @"TabbaritemImage", nil, @"My_unselected"),
+                                                                     0,
+                                                                     @"green_lottie_tab_mine",
+                                                                     1)];
+    return tabBarVC;
+}
+
+
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     
+    [[ZBLocalized sharedInstance] setLanguage:@"en"];
     
-    [self dd];
+    [DouYinAppDelegate.sharedInstance setTabBarVC:self.tabBarVC];
+    DouYinAppDelegate.sharedInstance.window.rootViewController = self.tabBarVC;
+    [DouYinAppDelegate.sharedInstance.window makeKeyAndVisible];
+    
+    
+//    [self dd];
 
 //    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
 //    [DataManager sharedInstance].tag = ReuseIdentifier;

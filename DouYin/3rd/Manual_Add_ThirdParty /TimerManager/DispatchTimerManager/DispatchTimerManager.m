@@ -95,7 +95,7 @@
                               self.timeInterval * NSEC_PER_SEC,
                               0);
     @weakify(self)
-    dispatch_source_set_event_handler(self.dispatchTimer, ^{[self_weak_ fire];});
+    dispatch_source_set_event_handler(self.dispatchTimer, ^{[weak_self fire];});
 }
 
 - (void)fire {

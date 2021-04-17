@@ -12,6 +12,8 @@ extern NetworkingEnvir networkingEnvir;
 
 @interface JobsBitsMonitorSuspendLab ()
 
+@property(nonatomic,strong)NSMutableArray *operationEnvironMutArr;
+
 @end
 
 @implementation JobsBitsMonitorSuspendLab
@@ -69,52 +71,31 @@ extern NetworkingEnvir networkingEnvir;
 
 -(void)showMenu{
     ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self
-                                                       titleArray:@[@"柬埔寨（主要）开发环境",
-                                                                    @"柬埔寨（次要）开发环境",
-                                                                    @"柬埔寨Rally（次要）开发环境",
-                                                                    @"中国大陆开发环境",
-                                                                    @"测试环境",
-                                                                    @"生产环境"]];
+                                                       titleArray:self.operationEnvironMutArr];
+    @weakify(self)
     menuView.blockSelectedMenu = ^(NSInteger menuRow) {
+        @strongify(self)
         NSLog(@"action----->%ld",(long)menuRow);
-        
-        switch (menuRow) {
-            case 0:{
-                /// 柬埔寨（主要）开发环境
-                networkingEnvir = DevEnviron_Cambodia_Main;
-                [WHToast toastMsg:@"当前环境：柬埔寨（主要）开发环境"];
-            }break;
-            case 1:{
-                /// 柬埔寨（次要）开发环境
-                networkingEnvir = DevEnviron_Cambodia_Minor;
-                [WHToast toastMsg:@"当前环境：柬埔寨（次要）开发环境"];
-            }break;
-            case 2:{
-                /// 柬埔寨Rally（次要）开发环境
-                networkingEnvir = DevEnviron_Cambodia_Rally;
-                [WHToast toastMsg:@"当前环境：柬埔寨Rally（次要）开发环境"];
-            }break;
-            case 3:{
-                /// 中国大陆开发环境
-                networkingEnvir = DevEnviron_China_Mainland;
-                [WHToast toastMsg:@"当前环境：中国大陆开发环境"];
-            }break;
-            case 4:{
-                /// 测试环境
-                networkingEnvir = TestEnviron;
-                [WHToast toastMsg:@"当前环境：测试环境"];
-            }break;
-            case 5:{
-                /// 生产环境
-                networkingEnvir = ProductEnviron;
-                [WHToast toastMsg:@"当前环境：生产环境"];
-            }break;
-
-            default:
-                break;
+        networkingEnvir = menuRow;
+        if (menuRow + 1 <= self.operationEnvironMutArr.count) {
+            [WHToast toastMsg:[@"当前环境" stringByAppendingString:self.operationEnvironMutArr[menuRow]]];
+        }else{
+            [WHToast toastErrMsg:@"切换环境出现错误"];
         }
     };
 }
-
+#pragma mark —— lazyLoad
+-(NSMutableArray *)operationEnvironMutArr{
+    if (!_operationEnvironMutArr) {
+        _operationEnvironMutArr = NSMutableArray.array;
+        [_operationEnvironMutArr addObject:@"开发环境_01"];
+        [_operationEnvironMutArr addObject:@"开发环境_02"];
+        [_operationEnvironMutArr addObject:@"开发环境_03"];
+        [_operationEnvironMutArr addObject:@"开发环境_04"];
+        [_operationEnvironMutArr addObject:@"测试环境"];
+        [_operationEnvironMutArr addObject:@"UAT环境"];
+        [_operationEnvironMutArr addObject:@"生产环境"];
+    }return _operationEnvironMutArr;
+}
 
 @end

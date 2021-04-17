@@ -14,12 +14,13 @@
  这个类只放置用户自定义的定义的枚举值
  */
 typedef enum : NSInteger {
-    DevEnviron_Cambodia_Main = 0,/// 柬埔寨（主要）开发环境
-    DevEnviron_Cambodia_Minor,/// 柬埔寨（次要）开发环境
-    DevEnviron_Cambodia_Rally,/// 柬埔寨Rally（次要）开发环境
-    DevEnviron_China_Mainland,/// 中国大陆开发环境
+    DevEnviron_01 = 0,/// 开发环境_01
+    DevEnviron_02,///  开发环境_02
+    DevEnviron_03,/// 开发环境_03
+    DevEnviron_04,/// 开发环境_04
     TestEnviron,/// 测试环境
-    ProductEnviron/// 生产环境
+    UATEnviron,//// UAT 环境
+    ProductEnviron,/// 生产环境
 } NetworkingEnvir;
 
 typedef enum : NSInteger {

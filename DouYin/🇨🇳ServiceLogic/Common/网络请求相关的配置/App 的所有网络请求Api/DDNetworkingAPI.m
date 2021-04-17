@@ -6,29 +6,7 @@
 //
 
 #import "DDNetworkingAPI.h"
-#import "DDNetworkingAPI+CommunityApi.h"//App社区相关接口
-#import "DDNetworkingAPI+StatisticsApi.h"//数据统计相关接口
-#import "DDNetworkingAPI+LoginApi.h"//App登录信息相关接口
-#import "DDNetworkingAPI+AdsApi.h"//App广告相关接口
-#import "DDNetworkingAPI+FriendsRelationshipApi.h"//App好友关系相关接口
-#import "DDNetworkingAPI+BlankList.h"//App黑名单相关接口
-#import "DDNetworkingAPI+ConfigApi.h"//App获取配置信息
-#import "DDNetworkingAPI+EarnApi.h"//App看视频获得金币奖励
-#import "DDNetworkingAPI+CommentApi.h"//App评论相关接口
-#import "DDNetworkingAPI+WalletApi.h"//App钱包相关接口
-#import "DDNetworkingAPI+VideoApi.h"//App视频相关接口
-#import "DDNetworkingAPI+PostFansApi.h"//App帖子粉丝相关接口
-#import "DDNetworkingAPI+PostFocusApi.h"//App帖子关注相关接口
-#import "DDNetworkingAPI+PostCommentApi.h"//App帖子评论相关接口
-#import "DDNetworkingAPI+MsgApi.h"//App消息相关接口
-#import "DDNetworkingAPI+MsgStateApi.h"//App消息状态相关接口
-#import "DDNetworkingAPI+FeedBackApi.h"//App意见反馈相关接口
-#import "DDNetworkingAPI+BankCardApi.h"//App银行卡相关接口
-#import "DDNetworkingAPI+UserFansApi.h"//App用户粉丝相关接口
-#import "DDNetworkingAPI+UserAttentionApi.h"//App用户关注相关接口
-#import "DDNetworkingAPI+UserPostApi.h"//App用户帖子相关接口
-#import "DDNetworkingAPI+UserInfoApi.h"//App用户信息相关接口
-#import "DDNetworkingAPI+Vip.h"//AppVip相关接口
+#import "DDNetworkingAPI+DemoTestApi.h"// App接口示例
 /*
  * 只定义successBlock处理我们想要的最正确的答案,并向外抛出
  * 错误在内部处理不向外抛出

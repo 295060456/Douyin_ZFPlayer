@@ -16,7 +16,6 @@ UITableViewDataSource
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*__block dataMutArr;
-@property(nonatomic,assign)long __block currentIndex;
 
 @end
 
@@ -29,36 +28,14 @@ UITableViewDataSource
 #pragma mark - Lifecycle
 -(instancetype)init{
     if (self = [super init]) {
-        self.currentIndex = 0;
+        self._index = 0;
     }return self;
 }
 
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = KBrownColor;
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-//    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
-//    [DataManager sharedInstance].tag = ReuseIdentifier;
-//    /**
-//     公共配置
-//     插件机制
-//     证书设置
-//     */
-//    [RequestTool setupPublicParameters];
-//    @weakify(self)
-//    [DDNetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
-//                   parameters:@""
-//                 successBlock:^(id data) {
-//        @strongify(self)
-//        NSLog(@"");
-//        if ([data isKindOfClass:NSArray.class]) {
-//            self.dataMutArr = (NSMutableArray *)data;
-//        }
-//        [self.tableView reloadData];
-//    }];
-//
-//    self.tableView.alpha = 1;
+    self.tableView.alpha = 1;
 //    [self monitorScrollView];
 }
 
@@ -69,12 +46,7 @@ UITableViewDataSource
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.currentIndex = 0;//此时cell的第一次生命周期走完，置零
-    
-//    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        NSLog(@"");
-//        NSLog(@"%@",_tableView.mj_footer);
-//    }];
+    self._index = 0;//此时cell的第一次生命周期走完，置零
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -85,12 +57,80 @@ UITableViewDataSource
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
+///下拉刷新
+-(void)pullToRefresh{
+    NSLog(@"下拉刷新");
+    [self requestData:NO];
+}
+///上拉加载更多
+- (void)loadMoreRefresh{
+    NSLog(@"上拉加载更多");
+//    NSLog(@"%@",self.tableView.mj_footer);
+//    [self.tableView.mj_footer endRefreshing];
+//    [self.tableView reloadData];
+//    //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
+//    self.tableView.pagingEnabled = NO;
+//    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
+    
+    [self requestData:YES];
+}
+
+-(void)requestData:(BOOL)isLoadMore{
+    NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
+    [DataManager sharedInstance].tag = ReuseIdentifier;
+    /**
+     公共配置
+     插件机制
+     证书设置
+     */
+    [RequestTool setupPublicParameters];
+    @weakify(self)
+    extern NSString *appInterfaceTesting;
+    [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
+                   parameters:@{@"pageSize":@(10),
+                                @"pageNum":@(self.currentPage)}
+                 successBlock:^(DDResponseModel *data) {
+        @strongify(self)
+        NSLog(@"");
+        if([data.data isKindOfClass:NSArray.class]){
+            NSArray *tempDataArr = (NSArray *)data.data;
+            
+            {// 数据组装
+                /**
+                    上拉加载更多
+                    请求到有实际意义上的数据 ——> 上拉加载更多
+                    请求到没有有实际意义上的数据 ——>  没有更多数据了
+                 */
+                
+                /**
+                 下拉刷新
+                    请求到有实际意义上的数据 ——> 清除以前的旧的数据 下拉可以刷新
+                    请求到没有有实际意义上的数据 ——> 不清除以前的旧的数据 下拉可以刷新
+                 */
+                
+                // 如果当前操作是下拉刷新 并且 请求到的数组里面有值——>清除已有的数据
+                if (!isLoadMore && tempDataArr.count) {
+                    [self.dataMutArr removeAllObjects];
+                }
+                
+                if (isLoadMore) {
+                    if (tempDataArr.count) {
+                        [self.dataMutArr addObjectsFromArray:tempDataArr];
+                        [self endRefreshing:self.tableView];//上拉加载更多
+                    }else{
+                        [self endRefreshingWithNoMoreData:self.tableView];//没有更多数据了
+                    }
+                }
+            }
+        }
+    }];
+}
 
 -(void)roll{
-    if (self.currentIndex <= self.dataMutArr.count - 1 &&
-        self.currentIndex >= 0) {
+    if (self._index <= self.dataMutArr.count - 1 &&
+        self._index >= 0) {
         
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self._index inSection:0]
                                     animated:YES
                               scrollPosition:UITableViewScrollPositionMiddle];
     }else{
@@ -132,29 +172,6 @@ UITableViewDataSource
         }
     }];
 }
-
--(void)delayMethods{
-    self.tableView.mj_footer.state = MJRefreshStateIdle;
-    self.tableView.mj_footer.hidden = YES;
-    self.tableView.pagingEnabled = YES;
-//    [self.mj_footer endRefreshingWithNoMoreData];
-}
-///下拉刷新
--(void)pullToRefresh{
-    NSLog(@"下拉刷新");
-    [self.tableView.mj_header endRefreshing];
-//
-}
-///上拉加载更多
-- (void)loadMoreRefresh{
-    NSLog(@"上拉加载更多");
-    NSLog(@"%@",self.tableView.mj_footer);
-    [self.tableView.mj_footer endRefreshing];
-    [self.tableView reloadData];
-    //特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
-    self.tableView.pagingEnabled = NO;
-    [self performSelector:@selector(delayMethods) withObject:nil afterDelay:2];
-}
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -166,11 +183,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{}
 
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
-    if (self.dataMutArr.count) {
-        [self.tableView ly_hideEmptyView];
-    }else{
-        [self.tableView ly_showEmptyView];
-    }return self.dataMutArr.count;
+    [self dataSource:self.dataMutArr
+         contentView:self.tableView];
+    return self.dataMutArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -182,30 +197,30 @@ numberOfRowsInSection:(NSInteger)section{
         @"res":self.dataMutArr[indexPath.row]
     }];
     
-    self.currentIndex = indexPath.row;
+    self._index = indexPath.row;
     @weakify(self)
     [cell actionBlockPlayerCell:^(NSNumber *direction,
                                   NSNumber *index) {
         @strongify(self)
-        self.currentIndex = index.intValue;
+        self._index = index.intValue;
         if (direction.intValue) {//手势朝下
-            self.currentIndex -= 1;
+            self._index -= 1;
         }else{//手势朝上
-            self.currentIndex += 1;
+            self._index += 1;
         }
         
-        if (self.currentIndex < 0) {
-            self.currentIndex = 0;
+        if (self._index < 0) {
+            self._index = 0;
         }
         
-        if (self.currentIndex > self.dataMutArr.count - 1) {
-            self.currentIndex = self.dataMutArr.count - 1;
+        if (self._index > self.dataMutArr.count - 1) {
+            self._index = self.dataMutArr.count - 1;
         }
         
-        NSLog(@"MMM = %ld",self.currentIndex);
+        NSLog(@"MMM = %ld",self._index);
         [self roll];
     }];
-    NSLog(@"DDD0 = %ld",self.currentIndex);
+    NSLog(@"DDD0 = %ld",self._index);
     return cell;
 }
 

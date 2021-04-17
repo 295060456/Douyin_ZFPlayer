@@ -1,53 +1,29 @@
 //
-//  DDNetworkingAPI+FeedBackApi.m
-//  DouDong-II
+//  DDNetworkingAPI+DemoTestApi.m
+//  DouYin
 //
-//  Created by Jobs on 2021/2/17.
+//  Created by Jobs on 2021/4/17.
 //
 
-#import "DDNetworkingAPI+FeedBackApi.h"
+#import "DDNetworkingAPI+DemoTestApi.h"
 
-/*
- * App端接口文档
- * http://172.24.135.53:8011/swagger-ui.html#/App%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%E6%8E%A5%E5%8F%A3
- 
- 开发环境：
- 管理后台：http://172.24.135.55/
- app-api：http://172.24.135.55/api/
- h5：http://172.24.135.55/taskpage/
+@implementation DDNetworkingAPI (DemoTestApi)
 
- 测试环境(数据已初始化)：
- 管理后台：http://172.24.135.54/dist/
- app-api：http://172.24.135.54/api/
- h5：http://172.24.135.54/taskpage/
- 
- 抖动生产环境
- web-admin：http://www.xiuwa.top/web/beBQJvUpWl
- H5：https://www.xiuwa.top/h5/
- API：https://www.xiuwa.top/api/
- 
- 抖动备用域名：
- www.vdutbr.cn
- www.peprh.cn
- www.msahe.cn
- 
- */
-
-@implementation DDNetworkingAPI (FeedBackApi)
-/// 意见反馈
-NSString *feedBackAddPOST;
-+(void)feedBackAddPOST:(id)parameters
-          successBlock:(MKDataBlock)successBlock{
+NSString *appInterfaceTesting;
++(void)appInterfaceTesting:(id)parameters
+              successBlock:(MKDataBlock)successBlock
+              failureBlock:(MKDataBlock)failureBlock{
 //    NSDictionary *parameterss = @{};
 //    NSDictionary *headers = @{};
     
     [ZBRequestManager requestWithConfig:^(ZBURLRequest * _Nullable request) {
 
         request.server = NSObject.BaseUrl;
-        request.url = [request.server stringByAppendingString:NSObject.feedBackAddPOST.url];
+        request.url = [request.server stringByAppendingString:NSObject.appInterfaceTesting.url];
+        
         NSLog(@"request.URLString = %@",request.url);
         
-        request.methodType = ZBMethodTypePOST;//默认为GET
+        request.methodType = ZBMethodTypeGET;//默认为GET
         request.apiType = ZBRequestTypeRefresh;//（默认为ZBRequestTypeRefresh 不读取缓存，不存储缓存）
         request.parameters = parameters;//与公共配置 Parameters 兼容
 //        request.headers = headers;//与公共配置 Headers 兼容
@@ -73,11 +49,26 @@ NSString *feedBackAddPOST;
         NSLog(@"进度 = %f",progress.fractionCompleted * 100);
     }success:^(id  _Nullable responseObject,
                ZBURLRequest * _Nullable request){
-        if (successBlock) {
-            successBlock(responseObject);
+        if ([responseObject isKindOfClass:NSDictionary.class]) {
+            NSDictionary *dataDic = (NSDictionary *)responseObject;
+            DDResponseModel *model = [DDResponseModel mj_objectWithKeyValues:dataDic];
+            // 公共请求错误直接抛出
+            if (model.code != HTTPResponseCodeSuccess) {
+                [WHToast toastMsg:model.msg];
+            }else{
+                if (successBlock) {
+                    successBlock(model);
+                }
+            }
+        }else{
+            [WHToast toastMsg:[@"异常接口" stringByAppendingString:NSObject.appInterfaceTesting.funcName]];
         }
+        
     }failure:^(NSError * _Nullable error){
         NSLog(@"error = %@",error);
+        if (failureBlock) {
+            failureBlock(error);
+        }
     }finished:^(id  _Nullable responseObject,
                 NSError * _Nullable error,
                 ZBURLRequest * _Nullable request){

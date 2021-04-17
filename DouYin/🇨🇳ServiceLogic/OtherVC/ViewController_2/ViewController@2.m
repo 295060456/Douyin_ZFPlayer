@@ -114,7 +114,7 @@ ZFDouYinCellDelegate
 ////    [self endRefreshingWithNoMoreData:self.tableView];
 //}
 // 刷新加载最新数据（以前的数据全部清空）
--(void)requestData{
+-(void)requestData:(BOOL)isLoadMore{
     /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
     [self.player stopCurrentPlayingCell];
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
@@ -126,28 +126,66 @@ ZFDouYinCellDelegate
      */
     [RequestTool setupPublicParameters];
     @weakify(self)
-    [DDNetworkingAPI requestApi:NSObject.recommendVideosPOST.funcName
+    extern NSString *appInterfaceTesting;
+    [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
                    parameters:@{@"pageSize":self.pageSize,
                                 @"pageNum":@(self.currentPage)}
-                 successBlock:^(id data) {
+                 successBlock:^(DDResponseModel *data) {
         @strongify(self)
         NSLog(@"");
-        if ([data isKindOfClass:NSArray.class]) {
-            NSArray *dataArr = (NSMutableArray *)data;
-            if (dataArr.count) {
-                [self.dataSource addObjectsFromArray:dataArr];
-                [self endRefreshing:self.tableView];
-            }else{
-                [self endRefreshingWithNoMoreData:self.tableView];
+        if([data.data isKindOfClass:NSArray.class]){
+            NSArray *tempDataArr = (NSArray *)data.data;
+            
+            {// 数据组装
+                /**
+                    上拉加载更多
+                    请求到有实际意义上的数据 ——> 上拉加载更多
+                    请求到没有有实际意义上的数据 ——>  没有更多数据了
+                 */
+                
+                /**
+                 下拉刷新
+                    请求到有实际意义上的数据 ——> 清除以前的旧的数据 下拉可以刷新
+                    请求到没有有实际意义上的数据 ——> 不清除以前的旧的数据 下拉可以刷新
+                 */
+                
+                // 如果当前操作是下拉刷新 并且 请求到的数组里面有值——>清除已有的数据
+                if (!isLoadMore && tempDataArr.count) {
+                    [self.dataSource removeAllObjects];
+                }
+                
+                if (isLoadMore) {
+                    if (tempDataArr.count) {
+                        [self.dataSource addObjectsFromArray:tempDataArr];
+                        [self endRefreshing:self.tableView];//上拉加载更多
+                    }else{
+                        [self endRefreshingWithNoMoreData:self.tableView];//没有更多数据了
+                    }
+                }
             }
+            
             /// 找到可以播放的视频并播放
             @weakify(self)
             [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
                 @strongify(self)
                 [self playTheVideoAtIndexPath:indexPath];
             }];
+            
         }
     }];
+}
+///下拉刷新
+-(void)pullToRefresh{
+    NSLog(@"下拉刷新");
+    self.currentPage = 1;
+    [self requestData:NO];
+}
+///上拉加载更多
+- (void)loadMoreRefresh{
+    NSLog(@"上拉加载更多");
+    self.currentPage += 1;
+//    NSLog(@"currentPageNum = %ld",self.currentPage);
+    [self requestData:YES];
 }
 
 - (void)playTheIndex:(NSInteger)index {
@@ -162,7 +200,7 @@ ZFDouYinCellDelegate
     /// 如果是最后一行，去请求新数据
     if (index == self.dataSource.count - 1) {
         /// 加载下一页数据
-        [self requestData];
+        [self requestData:YES];
     }
 }
 
@@ -256,22 +294,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
-}
-///下拉刷新
--(void)pullToRefresh{
-    NSLog(@"下拉刷新");
-    // 初始化
-    if (self.dataSource.count) {
-        [self.dataSource removeAllObjects];
-    }
-    [self requestData];
-}
-///上拉加载更多
-- (void)loadMoreRefresh{
-    NSLog(@"上拉加载更多");
-    self.currentPage += 1;
-//    NSLog(@"currentPageNum = %ld",self.currentPage);
-    [self requestData];
 }
 #pragma mark —— lazyLoad
 - (UITableView *)tableView{
@@ -425,7 +447,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             if (self->_player.playingIndexPath) return;
             if (indexPath.row == self.dataSource.count - 1) {
                 /// 加载下一页数据
-                [self requestData];
+                [self requestData:YES];
                 [self.tableView reloadData];
             }
             [self playTheVideoAtIndexPath:indexPath];

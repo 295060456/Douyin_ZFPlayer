@@ -61,10 +61,10 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 
 @interface NSObject (Extras)
 
-@property(nonatomic,strong,nullable)NSIndexPath * _indexPath;//CollectionView、TableView等的序列号
-@property(nonatomic,assign)NSInteger _index;
-@property(nonatomic,assign)NSInteger _currentPage;//网路请求分页数据的时候的当前页码
-@property(nonatomic,assign)NSInteger _pageSize;
+@property(nonatomic,strong,nullable)NSIndexPath * __block _indexPath;//CollectionView、TableView等的序列号
+@property(nonatomic,assign)NSInteger __block _index;
+@property(nonatomic,assign)NSInteger __block _currentPage;//网路请求分页数据的时候的当前页码
+@property(nonatomic,assign)NSInteger __block _pageSize;
 
 ///震动特效反馈
 +(void)feedbackGenerator;

@@ -77,11 +77,17 @@ UITableViewDataSource
     [self requestData:YES];
 }
 /// 获取本地的数据
--(void)requestDataa:(BOOL)isLoadMore{
-    
+-(void)requestData:(BOOL)isLoadMore{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSError *err = nil;
+    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:&err];
+    NSLog(@"");
 }
 /// 真实的网络请求
--(void)requestData:(BOOL)isLoadMore{
+-(void)requestDataa:(BOOL)isLoadMore{
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
     [DataManager sharedInstance].tag = ReuseIdentifier;
     /**

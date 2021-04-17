@@ -38,7 +38,8 @@ UITableViewDataSource
     self.view.backgroundColor = KBrownColor;
     self.tableView.alpha = 1;
 //    [self monitorScrollView];
-    [self getData];
+//    [self requestDataa:NO];
+    [self requestData:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -88,19 +89,6 @@ UITableViewDataSource
                                                                error:&err];
     NSLog(@"");
 }
--(void)getData{
-    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
-    [manager GET:@"http://172.24.135.12/CommentData.json" parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
-    
-}
-
-
 /// 真实的网络请求
 -(void)requestDataa:(BOOL)isLoadMore{
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);

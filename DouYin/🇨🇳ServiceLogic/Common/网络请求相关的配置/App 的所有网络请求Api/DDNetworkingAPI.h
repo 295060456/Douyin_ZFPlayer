@@ -273,3 +273,35 @@ NS_ASSUME_NONNULL_END
 //}else{
 //    [WHToast toastMsg:[@"异常接口" stringByAppendingString:NSObject.userInfoSelectVideoCountPOST.funcName]];
 //}
+
+/**
+ 
+ -(void)基础的网络请求示例{
+     [AFHTTPSessionManager.manager GET:@"http://172.24.135.12/CommentData.json"
+                            parameters:nil
+                               headers:nil
+                              progress:^(NSProgress * _Nonnull downloadProgress) {
+     } success:^(NSURLSessionDataTask * _Nonnull task,
+                 id  _Nullable responseObject) {
+         NSLog(@"%@",responseObject);
+     } failure:^(NSURLSessionDataTask * _Nullable task,
+                 NSError * _Nonnull error) {
+         NSLog(@"%@",error);
+     }];
+ }
+ 
+ */
+
+/**
+ 
+ -(void)获取本地json文件数据:(BOOL)isLoadMore{
+     NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+     NSData *data = [NSData dataWithContentsOfFile:path];
+     NSError *err = nil;
+     NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data
+                                                  options:NSJSONReadingAllowFragments
+                                                    error:&err];
+     NSLog(@"");
+ }
+ 
+ **/

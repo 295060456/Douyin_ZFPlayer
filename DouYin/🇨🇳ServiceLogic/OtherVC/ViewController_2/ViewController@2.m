@@ -128,9 +128,9 @@ ZFDouYinCellDelegate
     @weakify(self)
     extern NSString *appInterfaceTesting;
     [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
-                   parameters:@{@"pageSize":self.pageSize,
-                                @"pageNum":@(self.currentPage)}
-                 successBlock:^(DDResponseModel *data) {
+                     parameters:@{@"pageSize":self.pageSize,
+                                  @"pageNum":@(self.currentPage)}
+                   successBlock:^(DDResponseModel *data) {
         @strongify(self)
         NSLog(@"");
         if([data.data isKindOfClass:NSArray.class]){
@@ -171,6 +171,11 @@ ZFDouYinCellDelegate
                 [self playTheVideoAtIndexPath:indexPath];
             }];
             
+        }
+    }failureBlock:^(id data) {
+        @strongify(self)
+        if (self.currentPage > 1) {
+            self.currentPage -= 1;
         }
     }];
 }

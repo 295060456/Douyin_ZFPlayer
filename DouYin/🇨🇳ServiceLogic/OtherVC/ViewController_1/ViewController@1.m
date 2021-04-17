@@ -60,11 +60,13 @@ UITableViewDataSource
 ///下拉刷新
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
+    self.currentPage = 1;
     [self requestData:NO];
 }
 ///上拉加载更多
 - (void)loadMoreRefresh{
     NSLog(@"上拉加载更多");
+    self.currentPage += 1;
 //    NSLog(@"%@",self.tableView.mj_footer);
 //    [self.tableView.mj_footer endRefreshing];
 //    [self.tableView reloadData];
@@ -74,7 +76,11 @@ UITableViewDataSource
     
     [self requestData:YES];
 }
-
+/// 获取本地的数据
+-(void)requestDataa:(BOOL)isLoadMore{
+    
+}
+/// 真实的网络请求
 -(void)requestData:(BOOL)isLoadMore{
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
     [DataManager sharedInstance].tag = ReuseIdentifier;
@@ -86,10 +92,11 @@ UITableViewDataSource
     [RequestTool setupPublicParameters];
     @weakify(self)
     extern NSString *appInterfaceTesting;
+    extern NSString *preproccess;
     [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
-                   parameters:@{@"pageSize":@(10),
-                                @"pageNum":@(self.currentPage)}
-                 successBlock:^(DDResponseModel *data) {
+                     parameters:@{@"pageSize":@(10),
+                                  @"pageNum":@(self.currentPage)}
+                   successBlock:^(DDResponseModel *data) {
         @strongify(self)
         NSLog(@"");
         if([data.data isKindOfClass:NSArray.class]){
@@ -122,6 +129,10 @@ UITableViewDataSource
                     }
                 }
             }
+        }
+    }failureBlock:^(id data) {
+        if (self.currentPage > 1) {
+            self.currentPage -= 1;
         }
     }];
 }

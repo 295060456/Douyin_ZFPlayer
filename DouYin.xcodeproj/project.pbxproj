@@ -351,6 +351,8 @@
 		C5318B64262A9EEF003C69AD /* DDNetworkingAPI+DemoTestApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDNetworkingAPI+DemoTestApi.m"; sourceTree = "<group>"; };
 		C5318BD6262A9FBB003C69AD /* DDResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDResponseModel.m; sourceTree = "<group>"; };
 		C5318BD7262A9FBB003C69AD /* DDResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDResponseModel.h; sourceTree = "<group>"; };
+		C5318EB2262AD60D003C69AD /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
+		C5318EB3262AD60D003C69AD /* PodsManual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
 		C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataSave.m"; sourceTree = "<group>"; };
 		C53C9C5025A1CEE40007F58F /* NSObject+DataSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataSave.h"; sourceTree = "<group>"; };
 		C53CAC05261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md"; sourceTree = "<group>"; };
@@ -413,7 +415,6 @@
 		C54BB0EE2518D055001591C2 /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
 		C54BB0F32518D064001591C2 /* DefineStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineStructure.h; sourceTree = "<group>"; };
 		C54BB0F42518D064001591C2 /* Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Other.h; sourceTree = "<group>"; };
-		C54BB0F52518D064001591C2 /* Pods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
 		C54BB0F62518D064001591C2 /* AABlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABlock.h; sourceTree = "<group>"; };
 		C54BB0F72518D064001591C2 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		C54BB0F82518D064001591C2 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -550,7 +551,6 @@
 		C554FE19251DC35B004C51BB /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
 		C55697D1255BFDE2005C1361 /* NSString+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extras.m"; sourceTree = "<group>"; };
 		C55697D3255BFDE3005C1361 /* NSString+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extras.h"; sourceTree = "<group>"; };
-		C558032F258A446D0078DB8F /* PodsManual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
 		C558F4B425BEFFA400FC6CA5 /* DouYinAppDelegate+Func.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouYinAppDelegate+Func.h"; sourceTree = "<group>"; };
 		C558F4B525BEFFA400FC6CA5 /* DouYinAppDelegate+Func.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DouYinAppDelegate+Func.m"; sourceTree = "<group>"; };
 		C558F7C4258A38050078DB8F /* DouYin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DouYin-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -2857,8 +2857,8 @@
 		C5779199258A028200FE51E3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0F52518D064001591C2 /* Pods.h */,
-				C558032F258A446D0078DB8F /* PodsManual.h */,
+				C5318EB2262AD60D003C69AD /* Pods.h */,
+				C5318EB3262AD60D003C69AD /* PodsManual.h */,
 			);
 			path = Pods;
 			sourceTree = "<group>";

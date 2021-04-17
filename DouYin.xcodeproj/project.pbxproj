@@ -351,8 +351,8 @@
 		C5318B64262A9EEF003C69AD /* DDNetworkingAPI+DemoTestApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DDNetworkingAPI+DemoTestApi.m"; sourceTree = "<group>"; };
 		C5318BD6262A9FBB003C69AD /* DDResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDResponseModel.m; sourceTree = "<group>"; };
 		C5318BD7262A9FBB003C69AD /* DDResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDResponseModel.h; sourceTree = "<group>"; };
-		C5318EB2262AD60D003C69AD /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
-		C5318EB3262AD60D003C69AD /* PodsManual.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
+		C5318F76262AF5BB003C69AD /* Pods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
+		C5318F77262AF5BB003C69AD /* PodsManual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodsManual.h; sourceTree = "<group>"; };
 		C53C9C4F25A1CEE40007F58F /* NSObject+DataSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataSave.m"; sourceTree = "<group>"; };
 		C53C9C5025A1CEE40007F58F /* NSObject+DataSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataSave.h"; sourceTree = "<group>"; };
 		C53CAC05261C48D800AC1891 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md"; sourceTree = "<group>"; };
@@ -1576,10 +1576,10 @@
 			isa = PBXGroup;
 			children = (
 				C558EF0A258A2D690078DB8F /* 资源文件 */,
-				C54BB0B72518D00E001591C2 /* Main.storyboard */,
+				C54BB0BA2518D00E001591C2 /* DouYin.xcdatamodeld */,
 				C54BB0BF2518D00F001591C2 /* LaunchScreen.storyboard */,
 				C54BB0C32518D00F001591C2 /* main.m */,
-				C54BB0BA2518D00E001591C2 /* DouYin.xcdatamodeld */,
+				C54BB0B72518D00E001591C2 /* Main.storyboard */,
 				C54BB0AC2518D00E001591C2 /* Products */,
 			);
 			path = Others;
@@ -1868,10 +1868,9 @@
 		C54BB30A2518D390001591C2 /* BaseCustomizeUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				C5DFDE5D26131847008C7E2E /* DebugLogDescription */,
 				C5631F0226084ABC00822149 /* BaseProtocol */,
-				C542D07425EB756F00D776D8 /* UITextView */,
 				C54BB3712518D391001591C2 /* CALayer */,
+				C5DFDE5D26131847008C7E2E /* DebugLogDescription */,
 				C54BB3672518D391001591C2 /* NSArray */,
 				C54BB3762518D391001591C2 /* NSObject */,
 				C54BB33F2518D391001591C2 /* NSString */,
@@ -1894,6 +1893,7 @@
 				C54BB3182518D390001591C2 /* UITableViewCell */,
 				C5850B3E25483E5F001E6676 /* UITableViewHeaderFooterView */,
 				C54BB3882518D391001591C2 /* UITextField */,
+				C542D07425EB756F00D776D8 /* UITextView */,
 				C54BB3252518D391001591C2 /* UIView */,
 				C5914D8825385356007777A6 /* UIViewController */,
 			);
@@ -2812,8 +2812,8 @@
 		C5779194258A021E00FE51E3 /* 第三方头文件管理 */ = {
 			isa = PBXGroup;
 			children = (
-				C5779199258A028200FE51E3 /* Pods */,
 				C5779198258A027800FE51E3 /* 手动导入的第三方 */,
+				C5779199258A028200FE51E3 /* Pods */,
 			);
 			path = "第三方头文件管理";
 			sourceTree = "<group>";
@@ -2829,9 +2829,9 @@
 		C5779196258A024600FE51E3 /* 各项全局定义 */ = {
 			isa = PBXGroup;
 			children = (
-				C54BB0EC2518D055001591C2 /* NotificationManager */,
-				C5779197258A025A00FE51E3 /* 其他的一些全局定义文件 */,
 				C5470FB025309D2200651ACE /* 各项宏定义 */,
+				C5779197258A025A00FE51E3 /* 其他的一些全局定义文件 */,
+				C54BB0EC2518D055001591C2 /* NotificationManager */,
 			);
 			path = "各项全局定义";
 			sourceTree = "<group>";
@@ -2857,8 +2857,8 @@
 		C5779199258A028200FE51E3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C5318EB2262AD60D003C69AD /* Pods.h */,
-				C5318EB3262AD60D003C69AD /* PodsManual.h */,
+				C5318F76262AF5BB003C69AD /* Pods.h */,
+				C5318F77262AF5BB003C69AD /* PodsManual.h */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2866,10 +2866,10 @@
 		C582A672251C714F00DD83A1 /* 网络请求相关的配置 */ = {
 			isa = PBXGroup;
 			children = (
-				C5318BD5262A9FBA003C69AD /* DDResponseModel */,
 				C54E8D0626188B19003CCC8C /* 存取页面数据 */,
 				C54E8D5D26188B19003CCC8C /* 请求的公共配置文件 */,
 				C54E8D1026188B19003CCC8C /* App 的所有网络请求Api */,
+				C5318BD5262A9FBA003C69AD /* DDResponseModel */,
 				C54E8D0926188B19003CCC8C /* URL_Manager */,
 			);
 			path = "网络请求相关的配置";

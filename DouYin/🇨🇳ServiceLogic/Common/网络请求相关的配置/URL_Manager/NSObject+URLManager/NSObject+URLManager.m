@@ -99,7 +99,7 @@ NetworkingEnvir networkingEnvir = DevEnviron_01;/// 开发环境_1
 }
 #pragma mark —— App接口示例
 +(URLManagerModel *)appInterfaceTesting{
-    return [NSObject url:@"http://172.24.135.12/CommentData.json"
+    return [NSObject url:@"http://172.24.135.14:8000/Downloads/CommentData.json"//@"http://172.24.135.12/CommentData.json"
                 funcName:NSStringFromSelector(_cmd)];
 }
 

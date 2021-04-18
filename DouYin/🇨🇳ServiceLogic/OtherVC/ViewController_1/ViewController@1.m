@@ -38,8 +38,8 @@ UITableViewDataSource
     self.view.backgroundColor = KBrownColor;
     self.tableView.alpha = 1;
 //    [self monitorScrollView];
-//    [self requestDataa:NO];
-    [self requestData:NO];
+    [self requestDataa:NO];
+//    [self requestData:NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

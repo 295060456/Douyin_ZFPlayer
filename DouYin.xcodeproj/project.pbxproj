@@ -758,6 +758,7 @@
 		C5B7B5872609987500BFF168 /* UICollectionViewFlowLayout.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UICollectionViewFlowLayout.md; sourceTree = "<group>"; };
 		C5B7E2AB252477A400BC4E9D /* del_Photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@2x.png"; sourceTree = "<group>"; };
 		C5B7E2AC252477A500BC4E9D /* del_Photo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@3x.png"; sourceTree = "<group>"; };
+		C5B92F79262C3DE2003EDB52 /* 请求本地Json文件模拟网络请求回执.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "请求本地Json文件模拟网络请求回执.docx"; sourceTree = "<group>"; };
 		C5C64B27259DF5EB00FD2F99 /* ECPrivacyCheckCalendars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckCalendars.h; sourceTree = "<group>"; };
 		C5C64B28259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckMicrophone.m; sourceTree = "<group>"; };
 		C5C64B29259DF5EB00FD2F99 /* ECPrivacyCheckMotionAndFitness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckMotionAndFitness.h; sourceTree = "<group>"; };
@@ -2161,6 +2162,7 @@
 				C5318B11262A98BC003C69AD /* App接口示例 */,
 				C54E8D4426188B19003CCC8C /* DDNetworkingAPI.h */,
 				C54E8D1126188B19003CCC8C /* DDNetworkingAPI.m */,
+				C5B92F79262C3DE2003EDB52 /* 请求本地Json文件模拟网络请求回执.docx */,
 			);
 			path = "App 的所有网络请求Api";
 			sourceTree = "<group>";

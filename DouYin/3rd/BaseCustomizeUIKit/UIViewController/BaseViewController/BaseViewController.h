@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)RACSignal *reqSignal;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,strong)UIImageView *bgImageView;
-@property(nonatomic,assign)NSInteger currentPage;
+@property(nonatomic,assign)NSInteger __block currentPage;
 @property(nonatomic,copy)MKDataBlock viewControllerBlock;
 /*
     用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)

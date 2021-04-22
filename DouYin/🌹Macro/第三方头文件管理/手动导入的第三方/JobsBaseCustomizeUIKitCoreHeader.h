@@ -67,6 +67,8 @@
 #import "SoundBtn.h"
 /// 高仿iOS长按删除+抖动
 #import "LGiOSBtn.h"
+/// UIButton 的数据绑定
+#import "UIButton+DataBinding.h"
 
 #pragma mark —— UICollectionReusableView 用作基类
 #import "BaseCollectionReusableView.h"

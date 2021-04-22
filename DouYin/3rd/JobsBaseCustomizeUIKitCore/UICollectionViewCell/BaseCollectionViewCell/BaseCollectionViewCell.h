@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseCellProtocol.h"
+#import "UICollectionViewCell+ShakeAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

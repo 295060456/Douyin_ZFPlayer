@@ -9,6 +9,12 @@
 #import "NotificationManager.h"
 #import "AABlock.h"
 
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFNetworking.h>
+#else
+#import "AFNetworking.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (AFNReachability)

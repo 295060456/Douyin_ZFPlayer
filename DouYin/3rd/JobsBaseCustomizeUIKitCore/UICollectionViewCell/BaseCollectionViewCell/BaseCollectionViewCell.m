@@ -6,7 +6,6 @@
 //
 
 #import "BaseCollectionViewCell.h"
-#import "UICollectionViewCell+ShakeAnimation.h"
 
 @interface BaseCollectionViewCell ()
 

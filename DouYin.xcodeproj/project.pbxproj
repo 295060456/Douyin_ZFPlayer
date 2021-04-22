@@ -290,6 +290,7 @@
 		C5D4F4C325825AD800C165EA /* KeychainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D4F4C125825AD800C165EA /* KeychainHelper.m */; };
 		C5D6D80B25860D7400029AFF /* NSTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D6D80A25860D7400029AFF /* NSTimerManager.m */; };
 		C5D8D023260CC27A00BDAF76 /* toastLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = C5D8D022260CC27A00BDAF76 /* toastLoading.gif */; };
+		C5EA111426311EB800155822 /* UILabel+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EA111326311EB800155822 /* UILabel+Gesture.m */; };
 		C5ED334B2521C0DE001A04FE /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */; };
 		C5ED33512521C137001A04FE /* ZFCustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED334F2521C137001A04FE /* ZFCustomControlView.m */; };
 		C5ED33852521C842001A04FE /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5ED33842521C842001A04FE /* ZFDouYinCell.m */; };
@@ -881,6 +882,9 @@
 		C5D7844E257F653C0087FC92 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C5D78452257F65650087FC92 /* ZBNetworking.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ZBNetworking.md; sourceTree = "<group>"; };
 		C5D8D022260CC27A00BDAF76 /* toastLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = toastLoading.gif; sourceTree = "<group>"; };
+		C5EA111226311EB800155822 /* UILabel+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Gesture.h"; sourceTree = "<group>"; };
+		C5EA111326311EB800155822 /* UILabel+Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Gesture.m"; sourceTree = "<group>"; };
+		C5EA1601263120F600155822 /* JobsBaseCustomizeUIKitCoreHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseCustomizeUIKitCoreHeader.h; sourceTree = "<group>"; };
 		C5ED33492521C0DE001A04FE /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		C5ED334A2521C0DE001A04FE /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
 		C5ED334F2521C137001A04FE /* ZFCustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCustomControlView.m; sourceTree = "<group>"; };
@@ -1851,6 +1855,7 @@
 			isa = PBXGroup;
 			children = (
 				C54BB0F92518D064001591C2 /* Manual_Add_ThirdParty.h */,
+				C5EA1601263120F600155822 /* JobsBaseCustomizeUIKitCoreHeader.h */,
 			);
 			path = "手动导入的第三方";
 			sourceTree = "<group>";
@@ -1879,34 +1884,34 @@
 		C58D5A2526302ED800966F5F /* JobsBaseCustomizeUIKitCore */ = {
 			isa = PBXGroup;
 			children = (
-				C58D5A2626302ED800966F5F /* UIImage */,
-				C58D5A3B26302ED800966F5F /* UILabel */,
-				C58D5A4026302ED800966F5F /* UITableViewCell */,
-				C58D5A4D26302ED800966F5F /* UIButton */,
-				C58D5A6726302ED900966F5F /* UIColor */,
-				C58D5A7026302ED900966F5F /* UIView */,
-				C58D5A9F26302ED900966F5F /* UIFont */,
+				C58D5B8A26302ED900966F5F /* BaseProtocol */,
+				C58D5B4F26302ED900966F5F /* CALayer */,
+				C58D5B8E26302ED900966F5F /* DebugLogDescription */,
+				C58D5B3426302ED900966F5F /* NSArray */,
+				C58D5B5A26302ED900966F5F /* NSObject */,
+				C58D5AD726302ED900966F5F /* NSString */,
 				C58D5AA526302ED900966F5F /* RedefineSys */,
-				C58D5AAA26302ED900966F5F /* UITextView */,
-				C58D5AB326302ED900966F5F /* UIDevice */,
+				C58D5A4D26302ED800966F5F /* UIButton */,
+				C58D5B5626302ED900966F5F /* UICollectionReusableView 用作基类 */,
 				C58D5AB926302ED900966F5F /* UICollectionView */,
 				C58D5AC126302ED900966F5F /* UICollectionViewCell */,
+				C58D5B4326302ED900966F5F /* UICollectionViewFlowLayout */,
+				C58D5A6726302ED900966F5F /* UIColor */,
+				C58D5B2E26302ED900966F5F /* UIControl */,
+				C58D5AB326302ED900966F5F /* UIDevice */,
+				C58D5A9F26302ED900966F5F /* UIFont */,
+				C58D5A2626302ED800966F5F /* UIImage */,
 				C58D5ACC26302ED900966F5F /* UIImageView */,
+				C58D5A3B26302ED800966F5F /* UILabel */,
 				C58D5AD326302ED900966F5F /* UINavigationBar */,
-				C58D5AD726302ED900966F5F /* NSString */,
-				C58D5ADB26302ED900966F5F /* UIViewController */,
 				C58D5B1726302ED900966F5F /* UINavigationController */,
 				C58D5B1B26302ED900966F5F /* UITableView */,
-				C58D5B2E26302ED900966F5F /* UIControl */,
-				C58D5B3426302ED900966F5F /* NSArray */,
+				C58D5A4026302ED800966F5F /* UITableViewCell */,
 				C58D5B3B26302ED900966F5F /* UITableViewHeaderFooterView */,
-				C58D5B4326302ED900966F5F /* UICollectionViewFlowLayout */,
-				C58D5B4F26302ED900966F5F /* CALayer */,
-				C58D5B5626302ED900966F5F /* UICollectionReusableView 用作基类 */,
-				C58D5B5A26302ED900966F5F /* NSObject */,
-				C58D5B8A26302ED900966F5F /* BaseProtocol */,
-				C58D5B8E26302ED900966F5F /* DebugLogDescription */,
 				C58D5B9126302ED900966F5F /* UITextField */,
+				C58D5AAA26302ED900966F5F /* UITextView */,
+				C58D5A7026302ED900966F5F /* UIView */,
+				C58D5ADB26302ED900966F5F /* UIViewController */,
 			);
 			path = JobsBaseCustomizeUIKitCore;
 			sourceTree = "<group>";
@@ -1999,6 +2004,7 @@
 			isa = PBXGroup;
 			children = (
 				C58D5A3D26302ED800966F5F /* UILabel+Extra */,
+				C5EA110E26311EB100155822 /* UILabel+Gesture */,
 			);
 			path = "UILabel+Category";
 			sourceTree = "<group>";
@@ -3605,6 +3611,15 @@
 			path = NSTimerManager;
 			sourceTree = "<group>";
 		};
+		C5EA110E26311EB100155822 /* UILabel+Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				C5EA111226311EB800155822 /* UILabel+Gesture.h */,
+				C5EA111326311EB800155822 /* UILabel+Gesture.m */,
+			);
+			path = "UILabel+Gesture";
+			sourceTree = "<group>";
+		};
 		C5ED33422521BFE4001A04FE /* ViewController_2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4048,6 +4063,7 @@
 				C58D5BE226302ED900966F5F /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
 				C58D5BB126302ED900966F5F /* BaseTableViewCell.m in Sources */,
 				C58D5BDF26302ED900966F5F /* BaseNavigationBar.m in Sources */,
+				C5EA111426311EB800155822 /* UILabel+Gesture.m in Sources */,
 				C58D5BA826302ED900966F5F /* UIImage+SYS.m in Sources */,
 				C58D5C1026302ED900966F5F /* NSObject+AFNReachability.m in Sources */,
 				C58D5BF926302ED900966F5F /* UITableView+WWFoldableTableView.m in Sources */,

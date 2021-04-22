@@ -9,8 +9,7 @@
 
 @implementation UILabel (Gesture)
 
--(void)layoutSubviews{
-    [super layoutSubviews];
+-(void)makeLabelGesture{
     NSLog(@"给UILabel的子类加手势");
     
 //    {// B
@@ -50,9 +49,15 @@
         };
     };
 }
+
 // 点击文本处理链接跳转
 -(void)clickLink{
-    NSDataDetector *detector = [[NSDataDetector alloc] initWithTypes:NSTextCheckingTypeLink error:nil];
+    NSError *error = nil;
+    NSDataDetector *detector = [[NSDataDetector alloc] initWithTypes:NSTextCheckingTypeLink error:&error];
+    if (error) {
+        [WHToast toastMsg:@"出现错误"];
+        return;
+    }
     //通过检测字符串最后几位是否是.com .cn...来进行判定
     NSArray *checkArr = [detector matchesInString:self.text
                                           options:0
@@ -68,7 +73,6 @@
         [WHToast toastMsg:@"没有链接"];
     }
 }
-
 
 @end
 

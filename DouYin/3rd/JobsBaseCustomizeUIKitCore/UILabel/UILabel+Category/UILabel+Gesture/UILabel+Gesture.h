@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UILabel (Gesture)
 
+-(void)makeLabelGesture;
+
 @end
 
 NS_ASSUME_NONNULL_END

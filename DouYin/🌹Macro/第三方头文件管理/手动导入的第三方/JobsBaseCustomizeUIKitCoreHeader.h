@@ -39,16 +39,18 @@
 #import "NSObject+RichText.h"
 #import "NSObject+Shake.h"
 #import "NSObject+Sound.h"
-/// NSObject+DataSave
+///【对FileFolderHandleTool的二次封装】 存数据，储存成功返回地址
 #import "NSObject+DataSave.h"
-/// NSObject+Time
+/// 时间相关方法
 #import "NSObject+Time.h"
-/// NSObject (Time)
+/// 时间相关模型
 #import "TimeModel.h"
-/// NSObject+DefConfig
+/// 线程定义
 #import "NSObject+DefConfig.h"
-/// NSObject+CallBackInfoByBlock
+/// 万物回调
 #import "NSObject+CallBackInfoByBlock.h"
+/// 万物数据绑定
+#import "NSObject+DataBinding.h"
 
 #pragma mark —— NSString
 #import "NSString+Extras.h"
@@ -67,8 +69,6 @@
 #import "SoundBtn.h"
 /// 高仿iOS长按删除+抖动
 #import "LGiOSBtn.h"
-/// UIButton 的数据绑定
-#import "UIButton+DataBinding.h"
 
 #pragma mark —— UICollectionReusableView 用作基类
 #import "BaseCollectionReusableView.h"

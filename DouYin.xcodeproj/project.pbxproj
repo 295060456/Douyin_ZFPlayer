@@ -224,7 +224,7 @@
 		C58D5C1D26302ED900966F5F /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C58D5B9F26302ED900966F5F /* ZYTextField.bundle */; };
 		C58D5C1E26302ED900966F5F /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58D5BA026302ED900966F5F /* ZYTextField+HistoryDataList.m */; };
 		C58D5C1F26302ED900966F5F /* JobsMagicTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C58D5BA426302ED900966F5F /* JobsMagicTextField.m */; };
-		C58E913E26312EDC00D1EDB8 /* UIButton+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = C58E913D26312EDC00D1EDB8 /* UIButton+DataBinding.m */; };
+		C58E9B4826313A0C00D1EDB8 /* NSObject+DataBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = C58E9B4626313A0C00D1EDB8 /* NSObject+DataBinding.m */; };
 		C591E40D25639BB7005B78CC /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C591E40C25639BB7005B78CC /* EmptyView.m */; };
 		C595D162258713F1002A4531 /* SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15A258713F1002A4531 /* SuspendView.m */; };
 		C595D163258713F1002A4531 /* SuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C595D15E258713F1002A4531 /* SuspendLab.m */; };
@@ -772,8 +772,8 @@
 		C58D5BA226302ED900966F5F /* ZYTextField+HistoryDataList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZYTextField+HistoryDataList.h"; sourceTree = "<group>"; };
 		C58D5BA426302ED900966F5F /* JobsMagicTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMagicTextField.m; sourceTree = "<group>"; };
 		C58D5BA526302ED900966F5F /* JobsMagicTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMagicTextField.h; sourceTree = "<group>"; };
-		C58E913C26312EDC00D1EDB8 /* UIButton+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+DataBinding.h"; sourceTree = "<group>"; };
-		C58E913D26312EDC00D1EDB8 /* UIButton+DataBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+DataBinding.m"; sourceTree = "<group>"; };
+		C58E9B4626313A0C00D1EDB8 /* NSObject+DataBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataBinding.m"; sourceTree = "<group>"; };
+		C58E9B4726313A0C00D1EDB8 /* NSObject+DataBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataBinding.h"; sourceTree = "<group>"; };
 		C591E40B25639BB7005B78CC /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
 		C591E40C25639BB7005B78CC /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
 		C595D15A258713F1002A4531 /* SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuspendView.m; sourceTree = "<group>"; };
@@ -2075,7 +2075,6 @@
 				C58D5A5226302ED800966F5F /* 高仿抖音点赞动画 */,
 				C58D5A6226302ED900966F5F /* 高仿iOS长按删除+抖动 */,
 				C58D5A5D26302ED900966F5F /* SoundBtn */,
-				C58E913B26312EDC00D1EDB8 /* UIButton+DataBinding */,
 				C58D5A5626302ED900966F5F /* UIButton+Timer */,
 			);
 			path = UIButton;
@@ -3069,13 +3068,14 @@
 		C58D5B5A26302ED900966F5F /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
-				C58D5B5B26302ED900966F5F /* NSObject+Alert */,
-				C58D5B6226302ED900966F5F /* NSObject+Others */,
-				C58D5B7B26302ED900966F5F /* NSObject+DataSave */,
-				C58D5B7E26302ED900966F5F /* NSObject+Time */,
 				C58D5B8126302ED900966F5F /* NSObject (Time) */,
-				C58D5B8426302ED900966F5F /* NSObject+DefConfig */,
+				C58D5B5B26302ED900966F5F /* NSObject+Alert */,
 				C58D5B8726302ED900966F5F /* NSObject+CallBackInfoByBlock */,
+				C58E9B4526313A0C00D1EDB8 /* NSObject+DataBinding */,
+				C58D5B7B26302ED900966F5F /* NSObject+DataSave */,
+				C58D5B8426302ED900966F5F /* NSObject+DefConfig */,
+				C58D5B6226302ED900966F5F /* NSObject+Others */,
+				C58D5B7E26302ED900966F5F /* NSObject+Time */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -3334,13 +3334,13 @@
 			path = JobsMagicTextField;
 			sourceTree = "<group>";
 		};
-		C58E913B26312EDC00D1EDB8 /* UIButton+DataBinding */ = {
+		C58E9B4526313A0C00D1EDB8 /* NSObject+DataBinding */ = {
 			isa = PBXGroup;
 			children = (
-				C58E913C26312EDC00D1EDB8 /* UIButton+DataBinding.h */,
-				C58E913D26312EDC00D1EDB8 /* UIButton+DataBinding.m */,
+				C58E9B4626313A0C00D1EDB8 /* NSObject+DataBinding.m */,
+				C58E9B4726313A0C00D1EDB8 /* NSObject+DataBinding.h */,
 			);
-			path = "UIButton+DataBinding";
+			path = "NSObject+DataBinding";
 			sourceTree = "<group>";
 		};
 		C591E40A25639BB7005B78CC /* LYEmptyView */ = {
@@ -4070,7 +4070,6 @@
 				C5318B65262A9EEF003C69AD /* DDNetworkingAPI+DemoTestApi.m in Sources */,
 				C51D8DA6251B0849006958FF /* PlayerCell.m in Sources */,
 				C58D5C1C26302ED900966F5F /* ZYTextField.m in Sources */,
-				C58E913E26312EDC00D1EDB8 /* UIButton+DataBinding.m in Sources */,
 				C5D4F4C325825AD800C165EA /* KeychainHelper.m in Sources */,
 				C5D6D80B25860D7400029AFF /* NSTimerManager.m in Sources */,
 				C54BB4302518D3F6001591C2 /* ZZCircleProgress.m in Sources */,
@@ -4178,6 +4177,7 @@
 				C54BB5032518E398001591C2 /* ViewController@1.m in Sources */,
 				C54CC5B925514AC300C69C1F /* CustomZFPlayerControlView.m in Sources */,
 				C58D5C1926302ED900966F5F /* UITextField+Extend.m in Sources */,
+				C58E9B4826313A0C00D1EDB8 /* NSObject+DataBinding.m in Sources */,
 				C58D5C0F26302ED900966F5F /* NSObject+Sound.m in Sources */,
 				C57109B8253C1358005B3A0C /* TransitionAnimation.m in Sources */,
 				C56BA9032578936D00D054D0 /* ZBCacheManager.m in Sources */,

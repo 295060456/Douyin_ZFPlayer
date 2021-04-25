@@ -15,7 +15,7 @@
 @property(nonatomic,strong)UIWindow *window;
 @property(nonatomic,strong)UIWindowScene *windowScene;
 
-+ (instancetype)sharedInstance;
++(instancetype)sharedInstance;
 
 @end
 

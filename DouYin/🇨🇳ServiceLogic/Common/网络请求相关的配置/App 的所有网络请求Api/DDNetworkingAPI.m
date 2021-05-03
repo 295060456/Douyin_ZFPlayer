@@ -22,6 +22,11 @@
     
     {
         NSMutableArray *paramMutArr = NSMutableArray.array;
+        
+        if (!parameters) {
+            parameters = NSDictionary.dictionary;
+        }
+        
         [paramMutArr addObject:parameters];
         
         if (successBlock) {
@@ -45,6 +50,10 @@
     {
         NSMutableArray *paramMutArr = NSMutableArray.array;
         
+        if (!parameters) {
+            parameters = NSDictionary.dictionary;
+        }
+        
         if (parameters) {
             [paramMutArr addObject:parameters];
         }
@@ -64,13 +73,19 @@
     }
 }
 #pragma mark —— 特殊的上传文件的网络请求
-/// 上传【图片】文件的网络请求
+/// 上传【图片】文件的网络请求 POST
 +(void)requestApi:(NSString *_Nonnull)requestApi
-uploadImagesParamArr:(NSArray *)uploadImagesParamArr
+uploadImagesParamArr:(NSArray *_Nullable)uploadImagesParamArr
      successBlock:(MKDataBlock)successBlock
      failureBlock:(MKDataBlock)failureBlock{
 
-    NSMutableArray *paramMutArr = [NSMutableArray arrayWithArray:uploadImagesParamArr];
+    NSMutableArray *paramMutArr = nil;
+    
+    if (uploadImagesParamArr) {
+        paramMutArr = [NSMutableArray arrayWithArray:uploadImagesParamArr];
+    }else{
+        paramMutArr = NSMutableArray.array;
+    }
     
     if (successBlock) {
         [paramMutArr addObject:successBlock];
@@ -85,13 +100,19 @@ uploadImagesParamArr:(NSArray *)uploadImagesParamArr
                   target:self
              paramarrays:paramMutArr];
 }
-/// 上传【视频】文件的网络请求
+/// 上传【视频】文件的网络请求 POST
 +(void)requestApi:(NSString *_Nonnull)requestApi
-uploadVideosParamArr:(NSArray *)uploadVideosParamArr
+uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
      successBlock:(MKDataBlock)successBlock
      failureBlock:(MKDataBlock)failureBlock{
-
-    NSMutableArray *paramMutArr = [NSMutableArray arrayWithArray:uploadVideosParamArr];
+    
+    NSMutableArray *paramMutArr = nil;
+    
+    if (uploadVideosParamArr) {
+        paramMutArr = [NSMutableArray arrayWithArray:uploadVideosParamArr];
+    }else{
+        paramMutArr = NSMutableArray.array;
+    }
     
     if (successBlock) {
         [paramMutArr addObject:successBlock];

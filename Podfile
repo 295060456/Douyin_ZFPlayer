@@ -20,7 +20,7 @@ def func
   
   pod 'JobsGlobleDef'
   pod 'DoraemonKit' # https://github.com/didi/DoraemonKit 滴滴打车出的工具
-  pod 'FBRetainCycleDetector' # https://github.com/facebook/FBRetainCycleDetector
+#  pod 'FBRetainCycleDetector' # https://github.com/facebook/FBRetainCycleDetector
   pod 'Masonry'
   pod 'AFNetworking'
   pod 'HXPhotoPicker' # 相册选择 https://github.com/SilenceLove/HXPhotoPicker
@@ -51,6 +51,7 @@ def func
   pod 'WHToast' # https://github.com/remember17/WHToast 一个轻量级的提示控件，没有任何依赖
   pod 'lottie-ios', '~> 2.5.3'
   pod 'TABAnimated' # https://github.com/tigerAndBull/TABAnimated
+  pod 'ZLCollectionViewFlowLayout' # https://github.com/czl0325/ZLCollectionView 为应对类似淘宝首页，京东首页，国美首页等复杂布局而写的ZLCollectionview。基于UICollectionView实现，目前支持标签布局，列布局，百分比布局，定位布局，填充式布局，瀑布流布局等。支持纵向布局和横向布局，可以根据不同的section设置不同的布局，支持拖动cell，头部悬浮，设置section背景色和自定义section背景view，向自定义背景view传递自定义方法。实现了电影选座等高难度的布局。
   
   pod 'ZFPlayer'
   pod 'ZFPlayer/ControlView'

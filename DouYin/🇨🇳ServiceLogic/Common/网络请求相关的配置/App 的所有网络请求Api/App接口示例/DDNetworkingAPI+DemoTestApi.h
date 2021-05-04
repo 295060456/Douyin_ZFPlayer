@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
     防止个别接口不按套路（msg、code、data）出牌
  */
 +(void)appInterfaceTesting:(id)parameters
-              successBlock:(MKDataBlock)successBlock
-              failureBlock:(MKDataBlock)failureBlock;
+              successBlock:(MKDataBlock _Nullable)successBlock
+              failureBlock:(MKDataBlock _Nullable)failureBlock;
 
 @end
 

@@ -22,7 +22,7 @@ completionOpenFailHandler:nil];
 }
 //软性打开URL：【只处理打开成功的情况】
 +(void)openURL:(NSString *)URLStr
-  successBlock:(MKDataBlock)successBlock{
+  successBlock:(MKDataBlock _Nullable)successBlock{
     [NSObject openURL:URLStr
               options:@{}
 completionOpenSuccessHandler:^{
@@ -46,7 +46,7 @@ completionOpenFailHandler:^{
 }
 //软性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
 +(void)openURL:(NSString *)URLStr
-  successBlock:(MKDataBlock)successBlock
+  successBlock:(MKDataBlock _Nullable)successBlock
      failBlock:(MKDataBlock)failBlock{
     [NSObject openURL:URLStr
               options:@{}

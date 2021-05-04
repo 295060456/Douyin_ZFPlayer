@@ -56,7 +56,7 @@ https://github.com/295060456/ZBNetworking
 上传大文件，表单 content-type = multipart/form-data
 /// 帖子视频上传 POST
 +(void)postuploadVideoPOST:(NSData *)parameters
-              successBlock:(MKDataBlock)successBlock{
+              successBlock:(MKDataBlock _Nullable)successBlock{
     [ZBRequestManager requestWithConfig:^(ZBURLRequest * request) {
         request.server = NSObject.BaseUrl;
         request.url = [request.server stringByAppendingString:NSObject.postuploadVideoPOST.url];
@@ -83,7 +83,7 @@ https://github.com/295060456/ZBNetworking
 一般的Body数据
 /// 点赞 POST
 +(void)postPraisePostPOST:(id)parameters
-             successBlock:(MKDataBlock)successBlock{
+             successBlock:(MKDataBlock _Nullable)successBlock{
 //    NSDictionary *parameterss = @{};
 //    NSDictionary *headers = @{};
     

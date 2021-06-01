@@ -241,6 +241,7 @@
 		C5A4411E25ABFB51000F0CD2 /* JXCategoryTimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4410F25ABFB51000F0CD2 /* JXCategoryTimelineCell.m */; };
 		C5A4411F25ABFB51000F0CD2 /* GKPhotoBrowser+SaveBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4411525ABFB51000F0CD2 /* GKPhotoBrowser+SaveBtn.m */; };
 		C5A4412025ABFB51000F0CD2 /* WHToast+DDToast.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A4411725ABFB51000F0CD2 /* WHToast+DDToast.m */; };
+		C5B5C7E326665AAE00264958 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B5C7E226665AAE00264958 /* BaseButton.m */; };
 		C5C64B6E259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C64B28259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m */; };
 		C5C64B6F259DF5EB00FD2F99 /* ECPrivacyCheckHomeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C64B2A259DF5EB00FD2F99 /* ECPrivacyCheckHomeKit.m */; };
 		C5C64B70259DF5EB00FD2F99 /* ECPrivacyCheckBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C64B2C259DF5EB00FD2F99 /* ECPrivacyCheckBluetooth.m */; };
@@ -807,6 +808,9 @@
 		C5A4411525ABFB51000F0CD2 /* GKPhotoBrowser+SaveBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GKPhotoBrowser+SaveBtn.m"; sourceTree = "<group>"; };
 		C5A4411725ABFB51000F0CD2 /* WHToast+DDToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WHToast+DDToast.m"; sourceTree = "<group>"; };
 		C5A4411825ABFB51000F0CD2 /* WHToast+DDToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WHToast+DDToast.h"; sourceTree = "<group>"; };
+		C5B5C7E126665AAE00264958 /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
+		C5B5C7E226665AAE00264958 /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
+		C5B5C7E426665AB700264958 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
 		C5B92F79262C3DE2003EDB52 /* 请求本地Json文件模拟网络请求回执.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "请求本地Json文件模拟网络请求回执.docx"; sourceTree = "<group>"; };
 		C5C64B27259DF5EB00FD2F99 /* ECPrivacyCheckCalendars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckCalendars.h; sourceTree = "<group>"; };
 		C5C64B28259DF5EB00FD2F99 /* ECPrivacyCheckMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckMicrophone.m; sourceTree = "<group>"; };
@@ -2071,6 +2075,7 @@
 		C58D5A4D26302ED800966F5F /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
+				C5B5C7E026665AAE00264958 /* BaseButton */,
 				C58D5A4E26302ED800966F5F /* 高度自定义的按钮 */,
 				C58D5A5226302ED800966F5F /* 高仿抖音点赞动画 */,
 				C58D5A6226302ED900966F5F /* 高仿iOS长按删除+抖动 */,
@@ -3242,8 +3247,9 @@
 		C58D5B8A26302ED900966F5F /* BaseProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				C58D5B8B26302ED900966F5F /* BaseViewControllerProtocol.h */,
+				C5B5C7E426665AB700264958 /* BaseButtonProtocol.h */,
 				C58D5B8C26302ED900966F5F /* BaseCellProtocol.h */,
+				C58D5B8B26302ED900966F5F /* BaseViewControllerProtocol.h */,
 				C58D5B8D26302ED900966F5F /* BaseViewProtocol.h */,
 			);
 			path = BaseProtocol;
@@ -3454,6 +3460,15 @@
 				C5A4411725ABFB51000F0CD2 /* WHToast+DDToast.m */,
 			);
 			path = WHToast;
+			sourceTree = "<group>";
+		};
+		C5B5C7E026665AAE00264958 /* BaseButton */ = {
+			isa = PBXGroup;
+			children = (
+				C5B5C7E126665AAE00264958 /* BaseButton.h */,
+				C5B5C7E226665AAE00264958 /* BaseButton.m */,
+			);
+			path = BaseButton;
 			sourceTree = "<group>";
 		};
 		C5C3397C2522238E00F8CC53 /* View */ = {
@@ -4152,6 +4167,7 @@
 				C54BB4FF2518E398001591C2 /* ViewController@3.m in Sources */,
 				C5226956258757F7004447FB /* BWItemCollectionViewCell.m in Sources */,
 				C56188C6255D6D74004E7B47 /* XHLaunchAdConfiguration.m in Sources */,
+				C5B5C7E326665AAE00264958 /* BaseButton.m in Sources */,
 				C54E8D6026188B1A003CCC8C /* DataManager.m in Sources */,
 				C58D5BB026302ED900966F5F /* UITableViewCell+WhiteArrows.m in Sources */,
 				C58D5BBE26302ED900966F5F /* UIColor+Gradient.m in Sources */,

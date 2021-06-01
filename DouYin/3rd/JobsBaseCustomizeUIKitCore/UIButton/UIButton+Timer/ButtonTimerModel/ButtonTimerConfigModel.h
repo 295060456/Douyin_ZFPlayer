@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)long count;// 【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】❤️默认60秒
 @property(nonatomic,strong)NSString *titleRunningDefaultStr;//计时过程中显示的非时间文字,中间过程动态值,与titleRunningDefaultAttributedStr互斥 【缺省值：重新开始】
 @property(nonatomic,strong)NSAttributedString *titleRunningDefaultAttributedStr;//富文本,中间过程动态值,与titleRunningDefaultStr互斥
-@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*titleDefaultAttributedDataMutArr;
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*titleDefaultAttributedDataMutArr;
 @property(nonatomic,assign)ShowTimeType showTimeType;//时间显示风格
 @property(nonatomic,assign)TimerStyle countDownBtnType;// 时间方向
 @property(nonatomic,assign)CountDownBtnNewLineType countDownBtnNewLineType;// 【换行模式】仅仅作用于倒计时期间 【❤️注意：外部Button实例化的时候需要配置字体和Size的适应标准】
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Data
 @property(nonatomic,strong)NSString *titleReadyPlayStr;//与titleReadyPlayAttributedStr互斥
 @property(nonatomic,strong)NSAttributedString *titleReadyPlayAttributedStr;//富文本，与titleReadyPlayStr互斥
-@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*titleReadyPlayAttributedDataMutArr;
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*titleReadyPlayAttributedDataMutArr;
 #pragma mark —— 计时器进行中【动态值】
 // UI
 @property(nonatomic,strong)UIColor *layerBorderRunningCor;//【缺省值：layerBorderReadyPlayCor】
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Data
 @property(nonatomic,strong)NSString *titleRunningStr;//计时过程中显示的非时间文字,中间过程动态值,与titleRunningAttributedStr互斥【缺省值：titleRunningDefaultStr】
 @property(nonatomic,strong)NSAttributedString *titleRunningAttributedStr;//富文本,中间过程动态值,与titleRunningStr互斥【缺省值：titleRunningDefaultAttributedStr】
-@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*titleRunningDataMutArr;//【缺省值：titleDefaultAttributedDataMutArr】
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*titleRunningDataMutArr;//【缺省值：titleDefaultAttributedDataMutArr】
 #pragma mark —— 计时器结束【静态值】
 // UI
 @property(nonatomic,strong)UIColor *layerBorderEndCor;//【缺省值：layerBorderReadyPlayCor】
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Data
 @property(nonatomic,strong)NSString *titleEndStr;//与titleEndAttributedStr互斥
 @property(nonatomic,strong)NSAttributedString *titleEndAttributedStr;//富文本，与titleEndStr互斥 【缺省值：titleReadyPlayAttributedStr】
-@property(nonatomic,strong)NSMutableArray <RichLabelDataStringsModel *>*titleEndDataMutArr;//【缺省值：titleReadyPlayAttributedDataMutArr】
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*titleEndDataMutArr;//【缺省值：titleReadyPlayAttributedDataMutArr】
 #pragma mark —— 其他
 @property(nonatomic,strong)NSString *formatTimeStr;//根据ShowTimeType格式化以后的时间【内部使用】
 @property(nonatomic,strong)NSString *appendingStrByFormatTimeStr;//formatTimeStr后缀拼接的字符串。因为formatTimeStr是内部使用

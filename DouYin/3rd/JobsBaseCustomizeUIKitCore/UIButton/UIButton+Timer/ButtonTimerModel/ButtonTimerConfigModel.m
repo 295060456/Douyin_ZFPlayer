@@ -76,14 +76,14 @@
 // 未用
 -(NSAttributedString *)titleRunningDefaultAttributedStr{
     if (!_titleRunningDefaultAttributedStr) {
-        _titleRunningDefaultAttributedStr = self.titleDefaultAttributedDataMutArr.count ? [NSObject makeRichTextWithDataConfigMutArr:self.titleDefaultAttributedDataMutArr] : nil;
+        _titleRunningDefaultAttributedStr = self.titleDefaultAttributedDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleDefaultAttributedDataMutArr] : nil;
     }return _titleRunningDefaultAttributedStr;
 }
 
--(NSMutableArray<RichLabelDataStringsModel *> *)titleDefaultAttributedDataMutArr{
+-(NSMutableArray<RichTextConfig *> *)titleDefaultAttributedDataMutArr{
     if (!_titleDefaultAttributedDataMutArr) {
         _titleDefaultAttributedDataMutArr = NSMutableArray.array;
-        // 需要配置默认值
+        // 需要配置默认值 详见 RichTextConfig 使用示例
     }return _titleDefaultAttributedDataMutArr;
 }
 #pragma mark —— 最为关心的显示值
@@ -110,13 +110,14 @@
 
 -(NSAttributedString *)titleReadyPlayAttributedStr{
     if (!_titleReadyPlayAttributedStr) {
-        _titleReadyPlayAttributedStr = self.titleReadyPlayAttributedDataMutArr.count ? [NSObject makeRichTextWithDataConfigMutArr:self.titleReadyPlayAttributedDataMutArr] : nil;
+        _titleReadyPlayAttributedStr = self.titleReadyPlayAttributedDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleReadyPlayAttributedDataMutArr] : nil;
     }return _titleReadyPlayAttributedStr;
 }
 
--(NSMutableArray<RichLabelDataStringsModel *> *)titleReadyPlayAttributedDataMutArr{
+-(NSMutableArray<RichTextConfig *> *)titleReadyPlayAttributedDataMutArr{
     if (!_titleReadyPlayAttributedDataMutArr) {
         _titleReadyPlayAttributedDataMutArr = NSMutableArray.array;
+        // 需要配置默认值 详见 RichTextConfig 使用示例
     }return _titleReadyPlayAttributedDataMutArr;
 }
 /// 计时器进行中
@@ -131,7 +132,7 @@
     }return _titleRunningStr;
 }
 
--(NSMutableArray<RichLabelDataStringsModel *> *)titleRunningDataMutArr{
+-(NSMutableArray<RichTextConfig *> *)titleRunningDataMutArr{
     if (!_titleRunningDataMutArr) {
         _titleRunningDataMutArr = self.titleReadyPlayAttributedDataMutArr;
     }return _titleRunningDataMutArr;
@@ -139,7 +140,7 @@
 
 -(NSAttributedString *)titleRunningAttributedStr{
     if (!_titleRunningAttributedStr) {
-        _titleRunningAttributedStr = self.titleRunningDataMutArr.count ? [NSObject makeRichTextWithDataConfigMutArr:self.titleRunningDataMutArr] : self.titleReadyPlayAttributedStr;
+        _titleRunningAttributedStr = self.titleRunningDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleRunningDataMutArr] : self.titleReadyPlayAttributedStr;
     }return _titleRunningAttributedStr;
 }
 /// 计时器结束
@@ -154,7 +155,7 @@
     }return _titleEndStr;
 }
 
--(NSMutableArray<RichLabelDataStringsModel *> *)titleEndDataMutArr{
+-(NSMutableArray<RichTextConfig *> *)titleEndDataMutArr{
     if (!_titleEndDataMutArr) {
         _titleEndDataMutArr = self.titleReadyPlayAttributedDataMutArr;
     }return _titleEndDataMutArr;
@@ -162,7 +163,7 @@
 
 -(NSAttributedString *)titleEndAttributedStr{
     if (!_titleEndAttributedStr) {
-        _titleEndAttributedStr = self.titleEndDataMutArr.count ? [NSObject makeRichTextWithDataConfigMutArr:self.titleEndDataMutArr] : self.titleReadyPlayAttributedStr;
+        _titleEndAttributedStr = self.titleEndDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleEndDataMutArr] : self.titleReadyPlayAttributedStr;
     }return _titleEndAttributedStr;
 }
 #pragma mark —— 次要关心的UI界面值

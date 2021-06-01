@@ -158,8 +158,7 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
     }
 
     // 清除上一次拼装的数据
-    if ([self.btnTimerConfig.titleRunningStr containsString:self.btnTimerConfig.formatTimeStr] &&
-        self.btnTimerConfig.formatTimeStr) {
+    if (self.btnTimerConfig.formatTimeStr.length > 0 && [self.btnTimerConfig.titleRunningStr containsString:self.btnTimerConfig.formatTimeStr]) {
         self.btnTimerConfig.titleRunningStr = [self.btnTimerConfig.titleRunningStr stringByReplacingOccurrencesOfString:self.btnTimerConfig.formatTimeStr withString:@""];
     }
     //显示数据的二次封装
@@ -197,74 +196,20 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
        self.btnTimerConfig.titleRunningAttributedStr){
         //富文本 每一次时间触发方法都刷新数据并赋值
         NSMutableArray *tempDataMutArr = NSMutableArray.array;
-        RichLabelDataStringsModel *formatTimeModel = RichLabelDataStringsModel.new;
-        RichLabelDataStringsModel *titleRuningModel = RichLabelDataStringsModel.new;
-
-//        for (int i = 0; i < self.btnTimerConfig.titleRunningDataMutArr.count; i ++) {
-//            RichLabelDataStringsModel *richLabelDataStringsModel = self.btnTimerConfig.titleRunningDataMutArr[i];
-//
-//            if (i == 0) {
-//                //修改range
-//                if (self.btnTimerConfig.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
-//                    richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(0, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(0, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(0, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(0, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(0, self.btnTimerConfig.titleRunningStr.length);
-//                }else if (self.btnTimerConfig.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_tail){
-//                    richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(0, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(0, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(0, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(0, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(0, self.btnTimerConfig.formatTimeStr.length);
-//                }else{}
-//                
-//                formatTimeModel.dataString = self.btnTimerConfig.formatTimeStr;
-//                formatTimeModel.richLabelFontModel = richLabelDataStringsModel.richLabelFontModel;
-//                formatTimeModel.richLabelTextCorModel = richLabelDataStringsModel.richLabelTextCorModel;
-//                formatTimeModel.richLabelUnderlineModel = richLabelDataStringsModel.richLabelUnderlineModel;
-//                formatTimeModel.richLabelParagraphStyleModel = richLabelDataStringsModel.richLabelParagraphStyleModel;
-//                formatTimeModel.richLabelURLModel = richLabelDataStringsModel.richLabelURLModel;
-//            }
-//            else if (i == 1){
-//                
-//                //修改range
-//                if (self.btnTimerConfig.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
-//                    richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(self.btnTimerConfig.titleRunningStr.length, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(self.btnTimerConfig.titleRunningStr.length, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(self.btnTimerConfig.titleRunningStr.length, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(self.btnTimerConfig.titleRunningStr.length, self.btnTimerConfig.formatTimeStr.length);
-//                    richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(self.btnTimerConfig.titleRunningStr.length, self.btnTimerConfig.formatTimeStr.length);
-//                }else if (self.btnTimerConfig.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_tail){
-//                    richLabelDataStringsModel.richLabelFontModel.range = NSMakeRange(self.btnTimerConfig.formatTimeStr.length, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelTextCorModel.range = NSMakeRange(self.btnTimerConfig.formatTimeStr.length, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelUnderlineModel.range = NSMakeRange(self.btnTimerConfig.formatTimeStr.length, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelParagraphStyleModel.range = NSMakeRange(self.btnTimerConfig.formatTimeStr.length, self.btnTimerConfig.titleRunningStr.length);
-//                    richLabelDataStringsModel.richLabelURLModel.range = NSMakeRange(self.btnTimerConfig.formatTimeStr.length, self.btnTimerConfig.titleRunningStr.length);
-//                }else{}
-//                
-//                titleRuningModel.dataString = self.btnTimerConfig.titleRunningStr;
-//                titleRuningModel.richLabelFontModel = richLabelDataStringsModel.richLabelFontModel;
-//                titleRuningModel.richLabelTextCorModel = richLabelDataStringsModel.richLabelTextCorModel;
-//                titleRuningModel.richLabelUnderlineModel = richLabelDataStringsModel.richLabelUnderlineModel;
-//                titleRuningModel.richLabelParagraphStyleModel = richLabelDataStringsModel.richLabelParagraphStyleModel;
-//                titleRuningModel.richLabelURLModel = richLabelDataStringsModel.richLabelURLModel;
-//            }else{}
-//        }
+        
+        // 亟待补充 见 RichTextConfig 的使用示例
         
         switch (self.btnTimerConfig.cequenceForShowTitleRuningStrType) {
             case CequenceForShowTitleRuningStrType_front:{
-                [tempDataMutArr addObject:titleRuningModel];
-                [tempDataMutArr addObject:formatTimeModel];
+                
             }break;
             case CequenceForShowTitleRuningStrType_tail:{
-                [tempDataMutArr addObject:formatTimeModel];
-                [tempDataMutArr addObject:titleRuningModel];
+                
             }break;
             default:
                 break;
         }
-        self.btnTimerConfig.titleRunningAttributedStr = [NSObject makeRichTextWithDataConfigMutArr:tempDataMutArr];
+        self.btnTimerConfig.titleRunningAttributedStr = [NSObject richTextWithDataConfigMutArr:tempDataMutArr];
     }
     
     [self setTitleRunning];// 核心方法

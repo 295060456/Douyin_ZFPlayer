@@ -267,6 +267,8 @@ NS_ASSUME_NONNULL_END
 /**
   自定义View，用属性进行承接，消失的时候调取：
  [self.alertController dismissViewControllerAnimated:YES completion:nil];
+ ❤️特别注意：自定义View设置size的width值无效，解决方案：如下
+ data.minDistanceToEdges = KWidth(30);// 距离屏幕边缘的最小间距
  
  SPAlertControllerConfig *config = SPAlertControllerConfig.new;
  config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_3;

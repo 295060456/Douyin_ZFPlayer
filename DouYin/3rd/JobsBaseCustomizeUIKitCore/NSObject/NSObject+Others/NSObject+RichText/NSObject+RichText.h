@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_END
      
      RichTextConfig *config_02 = RichTextConfig.new;
      config_02.font = [UIFont systemFontOfSize:KWidth(10) weight:UIFontWeightRegular];
-     config_02.cor = COLOR_RGB(203, 32, 64);;
+     config_02.cor = RGB_COLOR(203, 32, 64);;
      config_02.targetString = arr[1];
      
      RichTextConfig *config_03 = RichTextConfig.new;

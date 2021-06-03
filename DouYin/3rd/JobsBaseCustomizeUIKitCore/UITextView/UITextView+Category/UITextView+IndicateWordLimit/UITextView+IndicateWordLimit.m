@@ -31,7 +31,7 @@ static char *UITextView_IndicateWordLimit_offsetY = "UITextView_IndicateWordLimi
     UILabel *IndicateWordLimitLab = objc_getAssociatedObject(self, UITextView_IndicateWordLimit_indicateWordLimitLab);
     if (!IndicateWordLimitLab) {
         IndicateWordLimitLab = UILabel.new;
-        IndicateWordLimitLab.textColor = COLOR_RGB(132, 134, 140);
+        IndicateWordLimitLab.textColor = RGB_COLOR(132, 134, 140);
         IndicateWordLimitLab.textAlignment = NSTextAlignmentCenter;
         IndicateWordLimitLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightMedium];
         IndicateWordLimitLab.text = [NSString stringWithFormat:@"   %ld / %ld   ",self.currentWordNum,self.wordLimitNum];

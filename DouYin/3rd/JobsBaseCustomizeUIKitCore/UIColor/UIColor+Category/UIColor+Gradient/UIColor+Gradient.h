@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_END
      self.titleLabFont = [UIFont systemFontOfSize:18 weight:UIFontWeightRegular];
      
      UILabel *label = [self valueForKey:@"titleLabel"];
-     UIColor *cor = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[COLOR_RGB(247, 131, 97),COLOR_RGB(245, 75, 100)]]
+     UIColor *cor = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[RGB_COLOR(247, 131, 97),RGB_COLOR(245, 75, 100)]]
                                         startPoint:CGPointZero
                                           endPoint:CGPointZero
                                             opaque:NO

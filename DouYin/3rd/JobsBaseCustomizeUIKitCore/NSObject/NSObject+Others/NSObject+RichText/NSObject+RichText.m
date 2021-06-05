@@ -36,7 +36,7 @@
 
 @implementation NSObject (RichText)
 
-+(NSAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr{
++(NSMutableAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr{
     
     NSString *resultString = @"";
     //先拼接字符串

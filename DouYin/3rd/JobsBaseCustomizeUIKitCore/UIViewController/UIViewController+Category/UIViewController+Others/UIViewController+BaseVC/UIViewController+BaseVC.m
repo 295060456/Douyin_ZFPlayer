@@ -82,20 +82,33 @@ static char *UIViewController_BaseVC_rootVC = "UIViewController_BaseVC_rootVC";
    hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
                    animated:(BOOL)animated
                     success:(nullable MKDataBlock)successBlock{
-    toVC.requestParams = requestParams;
-    toVC.rootVC = rootVC;
-    @weakify(rootVC)
-    switch (comingStyle) {
-        case ComingStyle_PUSH:{
-            if (rootVC.navigationController) {
-                toVC.pushOrPresent = ComingStyle_PUSH;
-                if (successBlock) {
-                    successBlock(toVC);
+    if (toVC) {
+        toVC.requestParams = requestParams;
+        toVC.rootVC = rootVC;
+        @weakify(rootVC)
+        switch (comingStyle) {
+            case ComingStyle_PUSH:{
+                if (rootVC.navigationController) {
+                    toVC.pushOrPresent = ComingStyle_PUSH;
+                    if (successBlock) {
+                        successBlock(toVC);
+                    }
+                    toVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed;//下面有黑条
+                    [weak_rootVC.navigationController pushViewController:toVC
+                                                                animated:animated];
+                }else{
+                    toVC.pushOrPresent = ComingStyle_PRESENT;
+                    //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
+                    toVC.modalPresentationStyle = presentationStyle;
+                    if (successBlock) {
+                        successBlock(toVC);
+                    }
+                    [weak_rootVC presentViewController:toVC
+                                              animated:animated
+                                            completion:^{}];
                 }
-                toVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed;//下面有黑条
-                [weak_rootVC.navigationController pushViewController:toVC
-                                                            animated:animated];
-            }else{
+            }break;
+            case ComingStyle_PRESENT:{
                 toVC.pushOrPresent = ComingStyle_PRESENT;
                 //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
                 toVC.modalPresentationStyle = presentationStyle;
@@ -105,23 +118,14 @@ static char *UIViewController_BaseVC_rootVC = "UIViewController_BaseVC_rootVC";
                 [weak_rootVC presentViewController:toVC
                                           animated:animated
                                         completion:^{}];
-            }
-        }break;
-        case ComingStyle_PRESENT:{
-            toVC.pushOrPresent = ComingStyle_PRESENT;
-            //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
-            toVC.modalPresentationStyle = presentationStyle;
-            if (successBlock) {
-                successBlock(toVC);
-            }
-            [weak_rootVC presentViewController:toVC
-                                      animated:animated
-                                    completion:^{}];
-        }break;
-        default:
-            NSLog(@"错误的推进方式");
-            break;
-    }return toVC;
+            }break;
+            default:
+                NSLog(@"错误的推进方式");
+                break;
+        }return toVC;
+    }else{
+        return nil;// 为了防止多次推VC
+    }
 }
 #pragma mark —— @property(nonatomic,strong)id requestParams;
 -(id)requestParams{

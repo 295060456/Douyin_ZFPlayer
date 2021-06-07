@@ -7,6 +7,8 @@
 
 #import "BaseViewController.h"
 
+static NSMutableArray *static_singletonMutArr = nil;/// 防止 因为手机设备因为环境问题（比如内存吃紧）带来的控制器创建多次的问题
+
 @interface BaseViewController ()<UIGestureRecognizerDelegate>
 
 @end
@@ -16,7 +18,24 @@
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
+    if ([static_singletonMutArr containsObject:self.class]) {
+        [static_singletonMutArr removeObject:self.class];
+    }
+}
+
+- (instancetype)init{
+    if (self = [super init]) {
+        
+        if (!static_singletonMutArr) {
+            static_singletonMutArr = NSMutableArray.array;
+        }
+        
+        if ([static_singletonMutArr containsObject:self.class]) {
+            return nil;
+        }else{
+            [static_singletonMutArr addObject:self.class];
+        }
+    }return self;
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil

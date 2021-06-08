@@ -18,6 +18,7 @@ static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImag
     UIImageView *BackgroundImageView = objc_getAssociatedObject(self, UIView_BackgroundImage_backgroundImageView);
     if (!BackgroundImageView) {
         BackgroundImageView = UIImageView.new;
+        BackgroundImageView.userInteractionEnabled = YES;
         [self addSubview:BackgroundImageView];
         [BackgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

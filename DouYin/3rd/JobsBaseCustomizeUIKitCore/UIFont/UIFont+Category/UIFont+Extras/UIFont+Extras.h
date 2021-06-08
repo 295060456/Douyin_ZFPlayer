@@ -11,7 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIFont (Extras)
 
-+(void)getAvailableFont;
++(NSMutableArray *)getAvailableFont;/// 打印全员字体
++(NSMutableArray <NSString *>*)foreignAidFontName;/// 打印外援字体
 
 @end
 

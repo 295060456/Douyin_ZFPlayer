@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AABlock.h"
 #import "NSObject+Extras.h"
+#import "NSString+Extras.h"
 
 #if __has_include(<SPAlertController/SPAlertController.h>)
 #import <SPAlertController/SPAlertController.h>
@@ -46,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)UIView *customActionSequenceView;// 允许传入自定义的customActionSequenceView
 @property(nonatomic,assign)SPAlertControllerStyle preferredStyle;// 从单侧弹出(顶/左/底/右)  还是  从中间弹出
 @property(nonatomic,assign)SPAlertAnimationType animationType;// 动画模式
-@property(nonatomic,strong)UIViewController *targetVC;// 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
-@property(nonatomic,strong,nullable)id funcInWhere;// 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
+@property(nonatomic,weak)UIViewController *targetVC;// 作用域,alertBtnActionArr在targetVC的m文件去找对应的方法，没有则向外抛出崩溃
+@property(nonatomic,weak,nullable)id funcInWhere;// 执行方法的位置，它可以是VC、view、也可以是任意NSObject子类。当不传值的时候 funcInWhere == targetVC
 @property(nonatomic,assign)BOOL animated;// 是否动效present
 // 核心参数
 @property(nonatomic,strong,nullable)NSArray <NSString *>*alertActionTitleArr;// 按钮名

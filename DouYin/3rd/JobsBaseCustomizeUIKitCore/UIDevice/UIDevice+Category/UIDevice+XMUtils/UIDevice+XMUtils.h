@@ -11,15 +11,15 @@
 //https://gist.github.com/kangzubin/5b4f989d6b1113bfbe43c5772f3ba1fd
 
 typedef enum : NSUInteger {
-    iPhoneScreen_default = 0,
-    iPhoneScreen_3GS,
-    iPhoneScreen_4_4S,
-    iPhoneScreen_5_5S_5C_SE,
-    iPhoneScreen_6_6S_7_8,
-    iPhoneScreen_6_6S_7_8_Plus,
-    iPhoneScreen_X_XS,
-    iPhoneScreen_XR,
-    iPhoneScreen_XSMAX
+    iPhoneScreen_default = 0,// iPhone Simulator 或者 新出的机型
+    iPhoneScreen_3GS = 1,
+    iPhoneScreen_4_4S = 2,
+    iPhoneScreen_5_5S_5C_SE = 3,
+    iPhoneScreen_6_6S_7_8 = 4,
+    iPhoneScreen_6_6S_7_8_Plus = 5,
+    iPhoneScreen_X_XS = 6,
+    iPhoneScreen_XR = 7,
+    iPhoneScreen_XSMAX = 8
 } iPhoneScreen;
 
 @interface UIDevice (XMUtils)

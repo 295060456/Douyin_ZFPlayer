@@ -100,6 +100,7 @@
 		C57109BC253C1358005B3A0C /* UITabBar+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710995253C1358005B3A0C /* UITabBar+TLAnimation.m */; };
 		C57109BD253C1358005B3A0C /* UITabBar+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710996253C1358005B3A0C /* UITabBar+Ex.m */; };
 		C57109BE253C1358005B3A0C /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5710997253C1358005B3A0C /* CustomTabBar.m */; };
+		C576859A2674AA9E00379F34 /* DDRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C57685992674AA9E00379F34 /* DDRecord.m */; };
 		C588F565253DA61800973CFE /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C588F564253DA61800973CFE /* 1.jpeg */; };
 		C588F56A253DA63700973CFE /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = C588F569253DA63700973CFE /* 0.png */; };
 		C58D5BA626302ED900966F5F /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = C58D5A2A26302ED800966F5F /* UIImage+ScreenShot.m */; };
@@ -537,6 +538,8 @@
 		C5710997253C1358005B3A0C /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
 		C5710998253C1358005B3A0C /* UITabBar+TLAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+TLAnimation.h"; sourceTree = "<group>"; };
 		C5710999253C1358005B3A0C /* UITabBar+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Ex.h"; sourceTree = "<group>"; };
+		C57685982674AA9E00379F34 /* DDRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDRecord.h; sourceTree = "<group>"; };
+		C57685992674AA9E00379F34 /* DDRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDRecord.m; sourceTree = "<group>"; };
 		C577918D258A01FB00FE51E3 /* XHLaunchAd不用pod导入的情况说明.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "XHLaunchAd不用pod导入的情况说明.md"; sourceTree = "<group>"; };
 		C588F564253DA61800973CFE /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		C588F569253DA63700973CFE /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
@@ -1821,6 +1824,15 @@
 			path = UITabBar;
 			sourceTree = "<group>";
 		};
+		C57685972674AA9E00379F34 /* DDRecord */ = {
+			isa = PBXGroup;
+			children = (
+				C57685982674AA9E00379F34 /* DDRecord.h */,
+				C57685992674AA9E00379F34 /* DDRecord.m */,
+			);
+			path = DDRecord;
+			sourceTree = "<group>";
+		};
 		C5779194258A021E00FE51E3 /* 第三方头文件管理 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3073,6 +3085,7 @@
 		C58D5B5A26302ED900966F5F /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				C57685972674AA9E00379F34 /* DDRecord */,
 				C58D5B8126302ED900966F5F /* NSObject (Time) */,
 				C58D5B5B26302ED900966F5F /* NSObject+Alert */,
 				C58D5B8726302ED900966F5F /* NSObject+CallBackInfoByBlock */,
@@ -4100,6 +4113,7 @@
 				C58D5C0C26302ED900966F5F /* NSObject+Measure.m in Sources */,
 				C54E8D6226188B1A003CCC8C /* NSObject+URLManager.m in Sources */,
 				C58D5BA926302ED900966F5F /* UIImage+YBGIF.m in Sources */,
+				C576859A2674AA9E00379F34 /* DDRecord.m in Sources */,
 				C58D5BA726302ED900966F5F /* UIImage+Extras.m in Sources */,
 				C58D5BDE26302ED900966F5F /* UIImageView+GIF.m in Sources */,
 				C58D5C1126302ED900966F5F /* NSObject+RichText.m in Sources */,
